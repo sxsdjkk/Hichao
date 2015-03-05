@@ -27,7 +27,8 @@
     self.window.rootViewController = tabBarController;
     
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+   
     return YES;
 }
 
