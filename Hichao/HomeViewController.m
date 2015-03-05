@@ -50,7 +50,7 @@
     _wrap = YES;
     self.view.backgroundColor = [UIColor lightGrayColor];
     //create carousel
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(64, 62, 960, 260)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 62, 960, 260)];
     _carousel.backgroundColor = [UIColor whiteColor];
     //        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _carousel.type = iCarouselTypeCoverFlow;
