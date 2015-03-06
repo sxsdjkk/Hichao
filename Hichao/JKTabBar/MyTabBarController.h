@@ -13,6 +13,8 @@
     UIImageView *_tabBarBackgroundImageView;
     
     UITabBarController *_tabBarController;
+    
+    UIImageView *_indicatorView;
 }
 
 - (void)showTabBar;

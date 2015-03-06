@@ -337,9 +337,9 @@
 
 #pragma mark - UIGestureRecognizerDelegate
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    
-    // Check for horizontal pan gesture
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    NSLog(@"----------%s------",__FUNCTION__);
     if (gestureRecognizer == _pan) {
         
         UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer*)gestureRecognizer;
@@ -348,7 +348,6 @@
         if ([panGesture velocityInView:self.view].x < 600 && sqrt(translation.x * translation.x) / sqrt(translation.y * translation.y) > 1) {
             return YES;
         }
-        
         return NO;
     }
     
@@ -357,16 +356,16 @@
         if (_root && (_menuFlags.showingRightView || _menuFlags.showingLeftView)) {
             return CGRectContainsPoint(_root.view.frame, [gestureRecognizer locationInView:self.view]);
         }
-        
         return NO;
-        
     }
-    
     return YES;
-    
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+
+    NSLog(@"----------%s------",__FUNCTION__);
+
+    
     if (gestureRecognizer==_tap) {
         return YES;
     }
@@ -376,7 +375,10 @@
 
 #pragma Internal Nav Handling
 
-- (void)resetNavButtons {
+- (void)resetNavButtons
+{
+    NSLog(@"----------%s------",__FUNCTION__);
+
     if (!_root) return;
     
     UIViewController *topController = nil;
@@ -392,10 +394,10 @@
         UITabBarController *tabController = (UITabBarController*)_root;
         topController = [tabController selectedViewController];
         
-    } else {
-        
+    }
+    else
+    {
         topController = _root;
-        
     }
     
     if (_menuFlags.canShowLeft) {
@@ -418,7 +420,10 @@
     
 }
 
-- (void)showShadow:(BOOL)val {
+- (void)showShadow:(BOOL)val
+{
+    NSLog(@"----------%s------",__FUNCTION__);
+
     if (!_root) return;
     
     _root.view.layer.shadowOpacity = val ? 0.8f : 0.0f;
@@ -434,6 +439,8 @@
 
 - (void)showRootController:(BOOL)animated {
     
+    NSLog(@"----------%s------",__FUNCTION__);
+    
     [_tap setEnabled:NO];
     _root.view.userInteractionEnabled = YES;
     
@@ -441,7 +448,9 @@
     frame.origin.x = 0.0f;
     
     BOOL _enabled = [UIView areAnimationsEnabled];
-    if (!animated) {
+    
+    if (!animated)
+    {
         [UIView setAnimationsEnabled:NO];
     }
     

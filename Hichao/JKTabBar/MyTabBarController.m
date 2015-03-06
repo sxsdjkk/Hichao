@@ -188,6 +188,7 @@
     
     for (int i = 0; i < 7; i++)
     {
+        
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0, 35+65*i, 65, 65);
         //btn的tag为 1，2，3。。。
@@ -198,6 +199,16 @@
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         
         [_tabBarBackgroundImageView addSubview:btn];
+        
+        //11*44
+        if (i==0)
+        {
+            _indicatorView = [[UIImageView alloc] initWithFrame:CGRectMake(54, 11, 11, 44)];
+            _indicatorView.image = [UIImage imageNamed:@"nav_pic_slider_pannel@2x"];
+            
+            [_tabBarBackgroundImageView addSubview:_indicatorView];
+
+        }
         
         if (i>=5)
         {
@@ -216,9 +227,6 @@ static NSInteger selectBtn = 1;
     {
         return;
     }
-    
-    NSLog(@"button click");
-    
     _tabBarController.selectedIndex = button.tag-1;
     
     //如果选中和当前的相同的话返回
@@ -246,6 +254,11 @@ static NSInteger selectBtn = 1;
     
     //记录上一个按钮的值
     selectBtn = button.tag;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        _indicatorView.center = CGPointMake(button.frame.size.width-_indicatorView.frame.size.width/2, button.center.y);
+    }];
 }
 
 - (void)showTabBar
