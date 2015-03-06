@@ -82,7 +82,8 @@
 
     
     HomeViewController *homeVC = [[HomeViewController alloc] init];
-    DDMenuController *homeMenuController = [[DDMenuController alloc]initWithRootViewController:homeVC];
+    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    DDMenuController *homeMenuController = [[DDMenuController alloc]initWithRootViewController:homeNav];
     HomeLeftViewController *homeLeftVC = [[HomeLeftViewController alloc] init];
     homeMenuController.leftViewController = homeLeftVC;
     

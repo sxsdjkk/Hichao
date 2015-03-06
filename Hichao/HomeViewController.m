@@ -26,6 +26,11 @@
     [super viewDidLoad];
     //239 240 233
     self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
+    
+    UINavigationBar *nav = [[UINavigationBar alloc] init];
+    [nav setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:nav];
+    
     //请求数据
     [self requestBanner];
 
@@ -45,13 +50,20 @@
 - (void)createSegmentControll{
     //选项卡 刷新瀑布流
     _segmentControll = [[UISegmentedControl alloc] initWithItems:@[@"最新",@"最热",@"猜你喜欢"]];
-    _segmentControll.frame = CGRectMake(180, 20, 600, 35);
+    _segmentControll.frame = CGRectMake(180, 5, 600, 35);
     _segmentControll.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
     //绑定方法，值改变发送请求
     [_segmentControll addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
     _segmentControll.selectedSegmentIndex = 0;
-    
-    [self.view addSubview:_segmentControll];
+    //icon_category_titlebar_hover@2x
+    [self.navigationController.navigationBar addSubview:_segmentControll];
+}
+- (void)createCategoryTitlebar{
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_category_titlebar_hover"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeftView)];
+    self.navigationController.navigationItem.leftBarButtonItem = leftItem;
+}
+- (void)showLeftView{
+    NSLog(@"123");
 }
 - (void)createTableView{
     _tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 600)];
