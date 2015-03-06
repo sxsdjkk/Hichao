@@ -62,11 +62,10 @@
 }
 - (void)createCategoryTitlebar
 {
-//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_category_titlebar_hover"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeftView)];
-//
-//    self.navigationController.navigationItem.leftBarButtonItem = leftItem;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_category_titlebar_hover"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeftView)];
+
+    self.navigationItem.leftBarButtonItem = leftItem;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"hhaha" style:UIBarButtonItemStylePlain target:self action:@selector(showLeftView)];
 }
 - (void)showLeftView{
     NSLog(@"123");
