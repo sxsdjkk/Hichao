@@ -27,7 +27,7 @@
 #import "DDMenuController.h"
 
 #define kMenuFullWidth 320.0f
-#define kMenuDisplayedWidth 180.0f
+#define kMenuDisplayedWidth 200.0f
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
 #define kMenuBounceOffset 10.0f
 #define kMenuBounceDuration .3f
@@ -373,12 +373,10 @@
 }
 
 
-#pragma Internal Nav Handling
+#pragma mark Internal Nav Handling
 
 - (void)resetNavButtons
 {
-    NSLog(@"----------%s------",__FUNCTION__);
-
     if (!_root) return;
     
     UIViewController *topController = nil;
@@ -401,7 +399,7 @@
     }
     
     if (_menuFlags.canShowLeft) {
-        UIBarButtonItem *button = [[barButtonItemClass alloc] initWithImage:[UIImage imageNamed:@"nav_menu_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeft:)];
+        UIBarButtonItem *button = [[barButtonItemClass alloc] initWithImage:[UIImage imageNamed:@"icon_category_titlebar_hover"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeft:)];
         topController.navigationItem.leftBarButtonItem = button;
     } else {
         if(topController.navigationItem.leftBarButtonItem.target == self) {
@@ -471,7 +469,8 @@
         _menuFlags.showingLeftView = NO;
         _menuFlags.showingRightView = NO;
         
-        [self showShadow:NO];
+//        [self showShadow:NO];
+        [self showShadow:YES];
         
     }];
     
@@ -565,11 +564,13 @@
 }
 
 
-#pragma mark Setters
+#pragma mark- Setters
 
 - (void)setDelegate:(id<DDMenuControllerDelegate>)val {
     delegate = val;
     _menuFlags.respondsToWillShowViewController = [(id)self.delegate respondsToSelector:@selector(menuController:willShowViewController:)];
+    
+    NSLog(@"--%s---",__func__);
 }
 
 - (void)setRightViewController:(UIViewController *)rightController {
