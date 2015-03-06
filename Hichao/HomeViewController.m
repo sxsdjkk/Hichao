@@ -16,30 +16,85 @@
 #import <FXImageView.h>
 
 @interface HomeViewController ()
-{
-    BannerBaseClass *_bannerBaseClass;
-}
+
 @end
 
 @implementation HomeViewController
 
+#pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //239 240 233
+    self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
+    //请求数据
     [self requestBanner];
-    //选项卡 刷新瀑布流
-    UISegmentedControl *segmentControll = [[UISegmentedControl alloc] initWithItems:@[@"最新",@"最热",@"猜你喜欢"]];
-    segmentControll.frame = CGRectMake(180, 20, 600, 35);
-    segmentControll.tintColor = [UIColor redColor];
-    //绑定方法，值改变发送请求
-    [segmentControll addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
-    segmentControll.selectedSegmentIndex = 0;
-    
-    _waterFlow = [[WaterFlowViewController alloc] init];
-    [self.view addSubview:_waterFlow.view];
-    [self.view addSubview:segmentControll];
+
     //创建UI
+    [self createTableView];
     [self createCoverFlow];
+    //最后创建选项卡，使选项卡不被其它控件挡住
+    [self createSegmentControll];
 }
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    self.carousel = nil;
+}
+
+#pragma mark - Create UI
+- (void)createSegmentControll{
+    //选项卡 刷新瀑布流
+    _segmentControll = [[UISegmentedControl alloc] initWithItems:@[@"最新",@"最热",@"猜你喜欢"]];
+    _segmentControll.frame = CGRectMake(180, 20, 600, 35);
+    _segmentControll.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
+    //绑定方法，值改变发送请求
+    [_segmentControll addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
+    _segmentControll.selectedSegmentIndex = 0;
+    
+    [self.view addSubview:_segmentControll];
+}
+- (void)createTableView{
+    _tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 600)];
+    _tableView1.dataSource = self;
+    _tableView1.delegate = self;
+    [self.view addSubview:_tableView1];
+    
+    _tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 600)];
+    _tableView2.dataSource = self;
+    _tableView2.delegate = self;
+    [self.view addSubview:_tableView2];
+    
+    _tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 600)];
+    _tableView3.dataSource = self;
+    _tableView3.delegate = self;
+    [self.view addSubview:_tableView3];
+    
+    _tableView4 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 600)];
+    _tableView4.dataSource = self;
+    _tableView4.delegate = self;
+    [self.view addSubview:_tableView4];
+    
+    _tableView1.sectionHeaderHeight = 260;
+    _tableView2.sectionHeaderHeight = 260;
+    _tableView3.sectionHeaderHeight = 260;
+    _tableView4.sectionHeaderHeight = 260;
+}
+- (void)createCoverFlow{
+    //开启循环
+    _wrap = YES;
+    //create carousel
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 62, 960, 260)];
+    _carousel.backgroundColor = [UIColor whiteColor];
+    //        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _carousel.type = iCarouselTypeCoverFlow;
+    _carousel.delegate = self;
+    _carousel.dataSource = self;
+    
+    //add carousel to view
+    [self.view addSubview:_carousel];
+}
+
+#pragma mark - Request Data
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
     NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
     [self requestWithCategory:categoryArray[sender.selectedSegmentIndex]];
@@ -56,7 +111,6 @@
         NSLog(@"%@",error);
     }];
 }
-
 - (void)requestBanner{
     NSString *banner = @"http://api2.hichao.com/banner?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -72,26 +126,37 @@
         NSLog(@"%@",error);
     }];
 }
-- (void)createCoverFlow{
-    _wrap = YES;
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    //create carousel
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 62, 960, 260)];
-    _carousel.backgroundColor = [UIColor whiteColor];
-    //        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _carousel.type = iCarouselTypeCoverFlow;
-    _carousel.delegate = self;
-    _carousel.dataSource = self;
-    
-    //add carousel to view
-    [self.view addSubview:_carousel];
+
+
+#pragma mark - UITableViewDataSource
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @"123";
 }
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    self.carousel = nil;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return nil;
+}
+#pragma mark - UITableViewDelegate
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //同步滚动
+    _tableView1.contentOffset = scrollView.contentOffset;
+    _tableView2.contentOffset = scrollView.contentOffset;
+    _tableView3.contentOffset = scrollView.contentOffset;
+    _tableView4.contentOffset = scrollView.contentOffset;
+    NSLog(@"%f",scrollView.contentOffset.y);
+    _carousel.frame = CGRectMake(0, 62-scrollView.contentOffset.y, 960, 260);
+    if (scrollView.contentOffset.y>=0) {
+        //上拉加载
+    }else{
+        //下拉刷新
+    }
     
 }
+
 
 #pragma mark - iCarouselDataSource
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
@@ -129,12 +194,7 @@
     return view;
     
 }
-//- (CATransform3D)carousel:(iCarousel *)carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
-//{
-//    //implement 'flip3D' style carousel
-//    transform = CATransform3DRotate(transform, M_PI / 8.0f, 0.0f, 1.0f, 0.0f);
-//    return CATransform3DTranslate(transform, 0.0f, 0.0f, offset * carousel.itemWidth);
-//}
+
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
     //customize carousel display
     switch (option)
@@ -178,19 +238,5 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

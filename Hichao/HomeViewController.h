@@ -8,12 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import <iCarousel.h>
-#import "WaterFlowViewController.h"
 
-@interface HomeViewController : UIViewController <iCarouselDataSource,iCarouselDelegate>
+@interface HomeViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,iCarouselDataSource,iCarouselDelegate>
 {
+    //顶部选项卡
+    UISegmentedControl *_segmentControll;
+    
+    //用4个tableView实现瀑布流
+    UITableView *_tableView1;
+    UITableView *_tableView2;
+    UITableView *_tableView3;
+    UITableView *_tableView4;
+    
+    //解析Banner
+    BannerBaseClass *_bannerBaseClass;
     NSArray *_bannerItemsArray;
-    WaterFlowViewController *_waterFlow;
 }
 @property (nonatomic, strong) iCarousel *carousel;
 @property (nonatomic, strong) UINavigationItem *navItem;
