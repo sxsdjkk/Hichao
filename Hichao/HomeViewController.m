@@ -37,14 +37,27 @@
     }
     return self;
 }
+- (void)dealloc{
+    [super dealloc];
+    [_tableView1Index release];
+    [_tableView2Index release];
+    [_tableView3Index release];
+    [_tableView4Index release];
+    
+    [_tableView1 release];
+
+    [_segmentControll release];
+}
 #pragma mark - View Life Cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollCarousel) userInfo:nil repeats:YES];
+    if (!_scrollTimer) {
+        _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollCarousel) userInfo:nil repeats:YES];
+    }
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    _scrollTimer = nil;
+//    _scrollTimer = nil;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +67,7 @@
     UINavigationBar *nav = [[UINavigationBar alloc] init];
     [nav setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:nav];
-    
+    [nav release];
     //请求数据
     [self requestBanner];
 
@@ -91,30 +104,31 @@
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
 
     self.navigationItem.leftBarButtonItem = leftItem;
-    
+    [leftItem release];
 }
 - (void)showLeftView{
 }
 - (void)createTableView{
-    _tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705 )];
+    _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705)] autorelease];
     _tableView1.dataSource = self;
     _tableView1.delegate = self;
     [self.view addSubview:_tableView1];
     
-    _tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 705)];
+    _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 705)] autorelease];
     _tableView2.dataSource = self;
     _tableView2.delegate = self;
     [self.view addSubview:_tableView2];
     
-    _tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 705)];
+    _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 705)] autorelease];
     _tableView3.dataSource = self;
     _tableView3.delegate = self;
     [self.view addSubview:_tableView3];
     
-    _tableView4 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 705)];
+    _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 705)] autorelease];
     _tableView4.dataSource = self;
     _tableView4.delegate = self;
     [self.view addSubview:_tableView4];
+    
     
     _tableView1.sectionHeaderHeight = 260;
     _tableView2.sectionHeaderHeight = 260;
@@ -144,6 +158,7 @@
     
     //add carousel to view
     [self.view addSubview:_carousel];
+    [_carousel release];
 }
 -(void) scrollCarousel {
     NSInteger newIndex=self.carousel.currentItemIndex+1;
@@ -196,7 +211,7 @@
         if (!waterFlowItem.component.picUrl) {
             continue;
         }
-        float width = waterFlowItem.width.floatValue;
+        float width;
         float height = waterFlowItem.height.floatValue;
         //固定宽计算高
         width = _tableView1.bounds.size.width;
@@ -275,7 +290,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    int imageIndex;
+    int imageIndex = 0;
     
     float newHeight = 44.0f;
     
@@ -329,7 +344,7 @@
     //create new view if no view is available for recycling
     if (view == nil)
     {
-        FXImageView *imageView = [[FXImageView alloc] initWithFrame:CGRectMake(0, 0, 460.0f, 200.0f)];
+        FXImageView *imageView = [[[FXImageView alloc] initWithFrame:CGRectMake(0, 0, 460.0f, 200.0f)] autorelease];
         BannerItems *bannerItem = [_bannerBaseClass.data.items objectAtIndex:index];
         
         NSURL *imgUrl = [NSURL URLWithString:bannerItem.component.picUrl];
