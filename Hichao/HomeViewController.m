@@ -39,6 +39,7 @@
     [self createCoverFlow];
     //最后创建选项卡，使选项卡不被其它控件挡住
     [self createSegmentControll];
+    [self createCategoryTitlebar];
 }
 - (void)viewDidUnload
 {
