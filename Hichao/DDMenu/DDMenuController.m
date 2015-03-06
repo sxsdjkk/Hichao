@@ -78,7 +78,7 @@
     if (!_tap) {
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         tap.delegate = (id<UIGestureRecognizerDelegate>)self;
-        [self.view addGestureRecognizer:tap];
+//        [self.view addGestureRecognizer:tap];
         [tap setEnabled:NO];
         _tap = tap;
     }
@@ -225,6 +225,7 @@
     }
     else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled)
     {
+        NSLog(@"velocity-----%@------gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled",NSStringFromCGPoint([gesture velocityInView:self.view]));
         
         //  Finishing moving to left, right or root view with current pan velocity
         [self.view setUserInteractionEnabled:NO];
@@ -474,7 +475,8 @@
         
     }];
     
-    if (!animated) {
+    if (!animated)
+    {
         [UIView setAnimationsEnabled:_enabled];
     }
     
@@ -509,11 +511,11 @@
         [UIView setAnimationsEnabled:NO];
     }
     
-    _root.view.userInteractionEnabled = NO;
+    _root.view.userInteractionEnabled = YES;//NO;
     [UIView animateWithDuration:.3 animations:^{
         _root.view.frame = frame;
     } completion:^(BOOL finished) {
-        [_tap setEnabled:YES];
+//        [_tap setEnabled:YES];
     }];
     
     if (!animated) {
@@ -743,7 +745,15 @@
 
 - (void)showLeft:(id)sender {
     
-    [self showLeftController:YES];
+    if (_menuFlags.showingLeftView)
+    {
+        [self showRootController:YES];
+    }
+    else
+    {
+        [self showLeftController:YES];
+
+    }
     
 }
 

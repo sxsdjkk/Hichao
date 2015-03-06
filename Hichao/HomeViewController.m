@@ -97,13 +97,17 @@
 //    [self.navigationController.navigationBar addSubview:_segmentControll];
     self.navigationItem.titleView = _segmentControll;
 }
+
 - (void)createCategoryTitlebar
 {
-    
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
 }
-- (void)showLeftView{
+
+- (void)showLeftView
+{
+    
 }
+
 - (void)createTableView{
     _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705)] autorelease];
     _tableView1.dataSource = self;
