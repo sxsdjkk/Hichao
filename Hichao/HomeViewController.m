@@ -72,6 +72,8 @@
 - (void)createCategoryTitlebar
 {
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_category_titlebar_hover"] style:UIBarButtonItemStylePlain target:self action:@selector(showLeftView)];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
 
     self.navigationItem.leftBarButtonItem = leftItem;
     

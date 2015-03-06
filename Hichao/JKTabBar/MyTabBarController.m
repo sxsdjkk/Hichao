@@ -194,7 +194,7 @@
         //btn的tag为 1，2，3。。。
         btn.tag = i+1;
         
-        btn.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.4];
+//        btn.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.4];
         
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -203,7 +203,7 @@
         //11*44
         if (i==0)
         {
-            _indicatorView = [[UIImageView alloc] initWithFrame:CGRectMake(54, 11, 11, 44)];
+            _indicatorView = [[UIImageView alloc] initWithFrame:CGRectMake(54, 11+35, 11, 44)];
             _indicatorView.image = [UIImage imageNamed:@"nav_pic_slider_pannel@2x"];
             
             [_tabBarBackgroundImageView addSubview:_indicatorView];
@@ -259,10 +259,26 @@ static NSInteger selectBtn = 1;
         
         _indicatorView.center = CGPointMake(button.frame.size.width-_indicatorView.frame.size.width/2, button.center.y);
     }];
+    
+    
+    DDMenuController *menuController = [_tabBarController.viewControllers objectAtIndex:button.tag-1];
+    
+    if ([menuController isKindOfClass:[DDMenuController class]])
+    {        
+        [menuController showLeftController:YES];
+    }
+    [self performSelector:@selector(menuControllerShowRootController:) withObject:menuController afterDelay:1.0];
 }
 
+- (void)menuControllerShowRootController:(DDMenuController *)menuController
+{
+    if ([menuController isKindOfClass:[DDMenuController class]])
+    {
+        [menuController showRootController:YES];
+    }}
+
 - (void)showTabBar
-{   
+{
     _tabBarBackgroundImageView.hidden = NO;
 }
 
