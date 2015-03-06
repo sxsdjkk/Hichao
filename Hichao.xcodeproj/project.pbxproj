@@ -67,6 +67,12 @@
 		521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9BC1AA7FF4100426FC6 /* DDMenuController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C11AA84EEF00426FC6 /* FavoritesViewController.m */; };
 		521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */; };
+		6A4112481AA93C0300E6337B /* WaterFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4112471AA93C0300E6337B /* WaterFlowViewController.m */; };
+		6A4112541AA94BD700E6337B /* WaterFlowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124B1AA94BD700E6337B /* WaterFlowAction.m */; };
+		6A4112551AA94BD700E6337B /* WaterFlowBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */; };
+		6A4112561AA94BD700E6337B /* WaterFlowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */; };
+		6A4112571AA94BD700E6337B /* WaterFlowData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4112511AA94BD700E6337B /* WaterFlowData.m */; };
+		6A4112581AA94BD700E6337B /* WaterFlowItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4112531AA94BD700E6337B /* WaterFlowItems.m */; };
 		6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9A1AA88E930049CA3E /* BannerAction.m */; };
 		6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9C1AA88E930049CA3E /* BannerBaseClass.m */; };
 		6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9E1AA88E930049CA3E /* BannerComponent.m */; };
@@ -166,6 +172,18 @@
 		521BB9C31AA84F0900426FC6 /* FavoritesLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesLeftViewController.h; sourceTree = "<group>"; };
 		521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesLeftViewController.m; sourceTree = "<group>"; };
 		596DDB7F9DC70CF729C3BB30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6A4112461AA93C0300E6337B /* WaterFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowViewController.h; sourceTree = "<group>"; };
+		6A4112471AA93C0300E6337B /* WaterFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
+		6A41124A1AA94BD700E6337B /* WaterFlowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowAction.h; sourceTree = "<group>"; };
+		6A41124B1AA94BD700E6337B /* WaterFlowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowAction.m; sourceTree = "<group>"; };
+		6A41124C1AA94BD700E6337B /* WaterFlowBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowBaseClass.h; sourceTree = "<group>"; };
+		6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowBaseClass.m; sourceTree = "<group>"; };
+		6A41124E1AA94BD700E6337B /* WaterFlowComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowComponent.h; sourceTree = "<group>"; };
+		6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowComponent.m; sourceTree = "<group>"; };
+		6A4112501AA94BD700E6337B /* WaterFlowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowData.h; sourceTree = "<group>"; };
+		6A4112511AA94BD700E6337B /* WaterFlowData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowData.m; sourceTree = "<group>"; };
+		6A4112521AA94BD700E6337B /* WaterFlowItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowItems.h; sourceTree = "<group>"; };
+		6A4112531AA94BD700E6337B /* WaterFlowItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowItems.m; sourceTree = "<group>"; };
 		6A7BBD991AA88E930049CA3E /* BannerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerAction.h; sourceTree = "<group>"; };
 		6A7BBD9A1AA88E930049CA3E /* BannerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerAction.m; sourceTree = "<group>"; };
 		6A7BBD9B1AA88E930049CA3E /* BannerBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerBaseClass.h; sourceTree = "<group>"; };
@@ -338,6 +356,8 @@
 			children = (
 				521BB99B1AA7925900426FC6 /* HomeViewController.h */,
 				521BB99C1AA7925900426FC6 /* HomeViewController.m */,
+				6A4112461AA93C0300E6337B /* WaterFlowViewController.h */,
+				6A4112471AA93C0300E6337B /* WaterFlowViewController.m */,
 				521BB99E1AA7926800426FC6 /* HomeLeftViewController.h */,
 				521BB99F1AA7926800426FC6 /* HomeLeftViewController.m */,
 			);
@@ -408,7 +428,7 @@
 			name = FavoritesVC;
 			sourceTree = "<group>";
 		};
-		6A7BBD981AA88E930049CA3E /* Model */ = {
+		6A4112491AA94AE100E6337B /* Banner */ = {
 			isa = PBXGroup;
 			children = (
 				6A7BBD991AA88E930049CA3E /* BannerAction.h */,
@@ -421,7 +441,33 @@
 				6A7BBDA01AA88E930049CA3E /* BannerData.m */,
 				6A7BBDA11AA88E930049CA3E /* BannerItems.h */,
 				6A7BBDA21AA88E930049CA3E /* BannerItems.m */,
+			);
+			name = Banner;
+			sourceTree = "<group>";
+		};
+		6A4112591AA94BDB00E6337B /* WaterFlow */ = {
+			isa = PBXGroup;
+			children = (
+				6A41124A1AA94BD700E6337B /* WaterFlowAction.h */,
+				6A41124B1AA94BD700E6337B /* WaterFlowAction.m */,
+				6A41124C1AA94BD700E6337B /* WaterFlowBaseClass.h */,
+				6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */,
+				6A41124E1AA94BD700E6337B /* WaterFlowComponent.h */,
+				6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */,
+				6A4112501AA94BD700E6337B /* WaterFlowData.h */,
+				6A4112511AA94BD700E6337B /* WaterFlowData.m */,
+				6A4112521AA94BD700E6337B /* WaterFlowItems.h */,
+				6A4112531AA94BD700E6337B /* WaterFlowItems.m */,
+			);
+			name = WaterFlow;
+			sourceTree = "<group>";
+		};
+		6A7BBD981AA88E930049CA3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				6A4112491AA94AE100E6337B /* Banner */,
+				6A4112591AA94BDB00E6337B /* WaterFlow */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -614,18 +660,24 @@
 				521BB9B51AA7930600426FC6 /* PragueViewController.m in Sources */,
 				521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */,
 				521BB9B81AA7931C00426FC6 /* PragueLeftViewController.m in Sources */,
+				6A4112571AA94BD700E6337B /* WaterFlowData.m in Sources */,
 				521BB9A91AA792BB00426FC6 /* FeaturesViewController.m in Sources */,
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
+				6A4112561AA94BD700E6337B /* WaterFlowComponent.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
+				6A4112541AA94BD700E6337B /* WaterFlowAction.m in Sources */,
 				521BB9AF1AA792E200426FC6 /* TuanViewController.m in Sources */,
+				6A4112481AA93C0300E6337B /* WaterFlowViewController.m in Sources */,
 				521BB9231AA7583000426FC6 /* main.m in Sources */,
 				521BB9441AA7865300426FC6 /* MyTabBarController.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
+				6A4112581AA94BD700E6337B /* WaterFlowItems.m in Sources */,
+				6A4112551AA94BD700E6337B /* WaterFlowBaseClass.m in Sources */,
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */,

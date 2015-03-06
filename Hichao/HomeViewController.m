@@ -14,7 +14,7 @@
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
 #import <FXImageView.h>
-#import "DataModels.h"
+#import "WaterFlowViewController.h"
 
 @interface HomeViewController ()
 {
@@ -26,12 +26,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self requestData];
+    [self requestBanner];
+    //选项卡 刷新瀑布流
+    UISegmentedControl *segmentControll = [[UISegmentedControl alloc] initWithItems:@[@"最新",@"最热",@"猜你喜欢"]];
+    segmentControll.frame = CGRectMake(180, 20, 600, 35);
+    segmentControll.tintColor = [UIColor redColor];
+    //绑定方法，值改变发送请求
+    [segmentControll addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
+    segmentControll.selectedSegmentIndex = 0;
+    
+    WaterFlowViewController *waterFlow = [[WaterFlowViewController alloc] init];
+    [self.view addSubview:waterFlow.view];
+    [self.view addSubview:segmentControll];
     //创建UI
-    [self createUI];
+    [self createCoverFlow];
+}
+- (void)segmentValueChanged:(UISegmentedControl *)sender{
+    NSArray *categoryArray = @[@"全部",@"%E7%83%AD%E9%97%A8%E6%A6%9C",@"猜你喜欢"];
+    [self requestWithCategory:categoryArray[sender.selectedSegmentIndex]];
+}
+- (void)requestWithCategory:(NSString *)category{
+    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=1425470373&pin=124371",category];
+    
+    NSLog(@"%@",urlString);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
-- (void)requestData{
+- (void)requestBanner{
     NSString *banner = @"http://api2.hichao.com/banner?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:banner parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -46,7 +72,7 @@
         NSLog(@"%@",error);
     }];
 }
-- (void)createUI{
+- (void)createCoverFlow{
     _wrap = YES;
     self.view.backgroundColor = [UIColor lightGrayColor];
     //create carousel
