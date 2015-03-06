@@ -352,9 +352,7 @@
         //适应大小
         view.contentMode = UIViewContentModeScaleToFill;
     }
-    
     return view;
-    
 }
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
     //customize carousel display
