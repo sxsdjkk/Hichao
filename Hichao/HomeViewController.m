@@ -14,7 +14,6 @@
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
 #import <FXImageView.h>
-#import "WaterFlowViewController.h"
 
 @interface HomeViewController ()
 {
@@ -35,19 +34,20 @@
     [segmentControll addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
     segmentControll.selectedSegmentIndex = 0;
     
-    WaterFlowViewController *waterFlow = [[WaterFlowViewController alloc] init];
-    [self.view addSubview:waterFlow.view];
+    _waterFlow = [[WaterFlowViewController alloc] init];
+    [self.view addSubview:_waterFlow.view];
     [self.view addSubview:segmentControll];
     //创建UI
     [self createCoverFlow];
 }
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
-    NSArray *categoryArray = @[@"全部",@"%E7%83%AD%E9%97%A8%E6%A6%9C",@"猜你喜欢"];
+    NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
     [self requestWithCategory:categoryArray[sender.selectedSegmentIndex]];
 }
 - (void)requestWithCategory:(NSString *)category{
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=1425470373&pin=124371",category];
-    
+    //汉字转码
+    urlString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8);
     NSLog(@"%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
