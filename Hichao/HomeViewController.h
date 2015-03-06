@@ -23,6 +23,10 @@
     //解析Banner
     BannerBaseClass *_bannerBaseClass;
     NSArray *_bannerItemsArray;
+    
+    //解析WaterFlow
+    WaterFlowBaseClass *_waterFlowBaseClass;
+    NSArray *_waterFlowItemsArray;
 }
 @property (nonatomic, strong) iCarousel *carousel;
 @property (nonatomic, strong) UINavigationItem *navItem;

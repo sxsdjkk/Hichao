@@ -124,6 +124,11 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
+        //瀑布流数据源
+        _waterFlowBaseClass = [[WaterFlowBaseClass alloc] initWithDictionary:responseObject];
+        _waterFlowItemsArray = _waterFlowBaseClass.data.items;
+        //刷新4个TableView
+        [self tableViewsReloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];
@@ -133,7 +138,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:banner parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        //准备数据源
+        //banner数据源
         _bannerBaseClass = [[BannerBaseClass alloc] initWithDictionary:responseObject];
         _bannerItemsArray = _bannerBaseClass.data.items;
         //刷新旋转木马
@@ -143,13 +148,15 @@
         NSLog(@"%@",error);
     }];
 }
-
-
-#pragma mark - UITableViewDataSource
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"123";
+- (void)tableViewsReloadData{
+    [_tableView1 reloadData];
+    [_tableView2 reloadData];
+    [_tableView3 reloadData];
+    [_tableView4 reloadData];
 }
+#pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"_waterFlowItemsArray.count == %d",_waterFlowItemsArray.count);
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
