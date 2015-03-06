@@ -139,16 +139,18 @@
     {
         UIImageView *titleImage = [[UIImageView alloc] init];
         
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 80+65*i, 65, 20)];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 75+65*i, 65, 20)];
         
         titleLabel.text = _itemTitleArray[i];
+        
+//        titleLabel.font = [UIFont systemFontOfSize:30];
 
         // titleLabel的tag为 21，22，23。。。
         titleLabel.tag = i+21;
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        titleLabel.font = [UIFont systemFontOfSize:10];
+        titleLabel.font = [UIFont systemFontOfSize:15];
 
         [_tabBarBackgroundImageView addSubview:titleLabel];
         
@@ -163,7 +165,7 @@
         {
             titleImage.image = _itemSelectedImgArray[i];
             
-            titleLabel.textColor = [UIColor colorWithRed:36/255.0 green:163/255.0 blue:232/255.0 alpha:1.0];
+            titleLabel.textColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
         }
         else
         {
@@ -230,7 +232,7 @@ static NSInteger selectBtn = 1;
     
     UILabel *titleLabel1 = (UILabel *)[_tabBarBackgroundImageView viewWithTag:button.tag+20];
     
-    titleLabel1.textColor = [UIColor colorWithRed:36/255.0 green:163/255.0 blue:232/255.0 alpha:1.0];
+    titleLabel1.textColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
 
     //找到上一个按钮 并且让按钮的高亮状态变成非高亮
     UIImageView *btn = (UIImageView *)[self.view viewWithTag:selectBtn + 10];
