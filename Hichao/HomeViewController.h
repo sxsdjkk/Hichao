@@ -24,6 +24,9 @@
     BannerBaseClass *_bannerBaseClass;
     NSArray *_bannerItemsArray;
     
+    //自动滑动
+    NSTimer *_scrollTimer;
+    
     //解析WaterFlow
     WaterFlowBaseClass *_waterFlowBaseClass;
     NSArray *_waterFlowItemsArray;

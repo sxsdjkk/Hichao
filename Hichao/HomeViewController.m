@@ -22,6 +22,14 @@
 @implementation HomeViewController
 
 #pragma mark - View Life Cycle
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollCarousel) userInfo:nil repeats:YES];
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    _scrollTimer = nil;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     //239 240 233
@@ -40,6 +48,7 @@
     //最后创建选项卡，使选项卡不被其它控件挡住
     [self createSegmentControll];
     [self createCategoryTitlebar];
+    
 }
 - (void)viewDidUnload
 {
@@ -71,22 +80,22 @@
     NSLog(@"123");
 }
 - (void)createTableView{
-    _tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 600)];
+    _tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705 )];
     _tableView1.dataSource = self;
     _tableView1.delegate = self;
     [self.view addSubview:_tableView1];
     
-    _tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 600)];
+    _tableView2 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 705)];
     _tableView2.dataSource = self;
     _tableView2.delegate = self;
     [self.view addSubview:_tableView2];
     
-    _tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 600)];
+    _tableView3 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 705)];
     _tableView3.dataSource = self;
     _tableView3.delegate = self;
     [self.view addSubview:_tableView3];
     
-    _tableView4 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 600)];
+    _tableView4 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 705)];
     _tableView4.dataSource = self;
     _tableView4.delegate = self;
     [self.view addSubview:_tableView4];
@@ -95,6 +104,11 @@
     _tableView2.sectionHeaderHeight = 260;
     _tableView3.sectionHeaderHeight = 260;
     _tableView4.sectionHeaderHeight = 260;
+    
+    _tableView1.showsVerticalScrollIndicator = NO;
+    _tableView2.showsVerticalScrollIndicator = NO;
+    _tableView3.showsVerticalScrollIndicator = NO;
+    _tableView4.showsVerticalScrollIndicator = NO;
 }
 - (void)createCoverFlow{
     //开启循环
@@ -110,7 +124,14 @@
     //add carousel to view
     [self.view addSubview:_carousel];
 }
-
+-(void) scrollCarousel {
+    NSInteger newIndex=self.carousel.currentItemIndex+1;
+    if (newIndex > self.carousel.numberOfItems) {
+        newIndex=0;
+    }
+    
+    [self.carousel scrollToItemAtIndex:newIndex duration:0.5];
+}
 #pragma mark - Request Data
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
     NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
@@ -157,10 +178,19 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     NSLog(@"_waterFlowItemsArray.count == %d",_waterFlowItemsArray.count);
-    return 0;
+    return _waterFlowItemsArray.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    WaterFlowItems *waterFlowItem = _waterFlowItemsArray[indexPath.row];
+    return waterFlowItem.height.floatValue;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+    return cell;
 }
 #pragma mark - UITableViewDelegate
 
@@ -218,7 +248,6 @@
     return view;
     
 }
-
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
     //customize carousel display
     switch (option)
