@@ -14,6 +14,7 @@
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
 #import <FXImageView.h>
+#import <SVPullToRefresh.h>
 
 @interface HomeViewController ()
 
@@ -21,6 +22,21 @@
 
 @implementation HomeViewController
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        _tableView1Index = [[NSMutableArray alloc] init];
+        _tableView2Index = [[NSMutableArray alloc] init];
+        _tableView3Index = [[NSMutableArray alloc] init];
+        _tableView4Index = [[NSMutableArray alloc] init];
+
+        colHeight[0] = 0.0f;
+        colHeight[1] = 0.0f;
+        colHeight[2] = 0.0f;
+        colHeight[3] = 0.0f;
+    }
+    return self;
+}
 #pragma mark - View Life Cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -34,7 +50,7 @@
     [super viewDidLoad];
     //239 240 233
     self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
-    
+
     UINavigationBar *nav = [[UINavigationBar alloc] init];
     [nav setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:nav];
@@ -43,10 +59,9 @@
     [self requestBanner];
 
     //创建UI
+    [self createSegmentControll];
     [self createTableView];
     [self createCoverFlow];
-    //最后创建选项卡，使选项卡不被其它控件挡住
-    [self createSegmentControll];
     [self createCategoryTitlebar];
     
 }
@@ -79,7 +94,6 @@
     
 }
 - (void)showLeftView{
-    NSLog(@"123");
 }
 - (void)createTableView{
     _tableView1 = [[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705 )];
@@ -111,6 +125,11 @@
     _tableView2.showsVerticalScrollIndicator = NO;
     _tableView3.showsVerticalScrollIndicator = NO;
     _tableView4.showsVerticalScrollIndicator = NO;
+    
+    _tableView1.tag = 41;
+    _tableView2.tag = 42;
+    _tableView3.tag = 43;
+    _tableView4.tag = 44;
 }
 - (void)createCoverFlow{
     //开启循环
@@ -143,10 +162,8 @@
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=1425470373&pin=124371",category];
     //汉字转码
     urlString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8);
-    NSLog(@"%@",urlString);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
         //瀑布流数据源
         _waterFlowBaseClass = [[WaterFlowBaseClass alloc] initWithDictionary:responseObject];
         _waterFlowItemsArray = _waterFlowBaseClass.data.items;
@@ -172,6 +189,56 @@
     }];
 }
 - (void)tableViewsReloadData{
+    
+    int imageIndex = 0; //记录当前索引
+    
+    for (WaterFlowItems *waterFlowItem in _waterFlowItemsArray) {
+        if (!waterFlowItem.component.picUrl) {
+            continue;
+        }
+        float width = waterFlowItem.width.floatValue;
+        float height = waterFlowItem.height.floatValue;
+        //固定宽计算高
+        width = _tableView1.bounds.size.width;
+        height = width * height / width;
+        
+        int minIndex = 0; //存放最低高
+        
+        float col1=MIN(colHeight[0], colHeight[1]);
+        float col2=MIN(colHeight[2], colHeight[3]);
+        
+        float minHeight=MIN(col1, col2);
+        
+//        float minHeight = colHeight[0];
+        for (int i=0; i<4; i++) {
+            if (colHeight[i]==minHeight) {
+                minHeight = colHeight[i];
+                minIndex = i; //记录这个最低高在一维数组中的索引
+            }
+        }
+        colHeight[minIndex] += height;
+        
+        //将当前的索引添加到相应的数组中。
+        switch (minIndex) {
+            case 0:
+                NSLog(@"%d",imageIndex);
+                [_tableView1Index addObject:[NSNumber numberWithInt:imageIndex]];
+                break;
+            case 1:
+                [_tableView2Index addObject:[NSNumber numberWithInt:imageIndex]];
+                break;
+            case 2:
+                [_tableView3Index addObject:[NSNumber numberWithInt:imageIndex]];
+                break;
+            case 3:
+                [_tableView4Index addObject:[NSNumber numberWithInt:imageIndex]];
+                break;
+            default:
+                break;
+        }
+        imageIndex++;
+    }
+    
     [_tableView1 reloadData];
     [_tableView2 reloadData];
     [_tableView3 reloadData];
@@ -179,12 +246,23 @@
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"_waterFlowItemsArray.count == %d",_waterFlowItemsArray.count);
-    return _waterFlowItemsArray.count;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    WaterFlowItems *waterFlowItem = _waterFlowItemsArray[indexPath.row];
-    return waterFlowItem.height.floatValue;
+    switch (tableView.tag) {
+        case 41:
+            return _tableView1Index.count;
+            break;
+        case 42:
+            return _tableView2Index.count;
+            break;
+        case 43:
+            return _tableView3Index.count;
+            break;
+        case 44:
+            return _tableView4Index.count;
+            break;
+        default:
+            return 0;
+            break;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -195,7 +273,36 @@
     return cell;
 }
 #pragma mark - UITableViewDelegate
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    int imageIndex;
+    
+    float newHeight = 44.0f;
+    
+    switch (tableView.tag) {
+        case 41:
+            imageIndex = [_tableView1Index[indexPath.row] intValue];
+            break;
+        case 42:
+            imageIndex = [_tableView2Index[indexPath.row] intValue];
+            break;
+        case 43:
+            imageIndex = [_tableView3Index[indexPath.row] intValue];
+            break;
+        case 44:
+            imageIndex = [_tableView4Index[indexPath.row] intValue];
+            break;
+        default:
+            break;
+    }
+    WaterFlowItems *waterFlowItem = _waterFlowItemsArray[imageIndex];
+    float width = waterFlowItem.width.floatValue;
+    float height = waterFlowItem.height.floatValue;
+    
+    height = _tableView1.bounds.size.width * height / width;
+    
+    return height+newHeight;
+}
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //同步滚动
@@ -203,7 +310,6 @@
     _tableView2.contentOffset = scrollView.contentOffset;
     _tableView3.contentOffset = scrollView.contentOffset;
     _tableView4.contentOffset = scrollView.contentOffset;
-    NSLog(@"%f",scrollView.contentOffset.y);
     _carousel.frame = CGRectMake(0, 62-scrollView.contentOffset.y, 960, 260);
     if (scrollView.contentOffset.y>=0) {
         //上拉加载

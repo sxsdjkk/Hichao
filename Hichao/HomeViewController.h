@@ -20,6 +20,15 @@
     UITableView *_tableView3;
     UITableView *_tableView4;
     
+    //4个Index
+    NSMutableArray *_tableView1Index;
+    NSMutableArray *_tableView2Index;
+    NSMutableArray *_tableView3Index;
+    NSMutableArray *_tableView4Index;
+    
+    //记录列高度
+    float colHeight[4];
+    
     //解析Banner
     BannerBaseClass *_bannerBaseClass;
     NSArray *_bannerItemsArray;
