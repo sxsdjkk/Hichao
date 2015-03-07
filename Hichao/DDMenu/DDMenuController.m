@@ -32,6 +32,7 @@
 #define kMenuBounceOffset 10.0f
 #define kMenuBounceDuration .3f
 #define kMenuSlideDuration .3f
+#define kMaxSlideDistance 300
 
 
 @interface DDMenuController (Internal)
@@ -156,13 +157,18 @@
 {
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
+        NSLog(@"++++++UIGestureRecognizerStateBegan+++%f++ %@  ",self.view.frame.origin.x,self.view);
+        
         [self showShadow:YES];
         _panOriginX = self.view.frame.origin.x;
         _panVelocity = CGPointMake(0.0f, 0.0f);
         
-        if([gesture velocityInView:self.view].x > 0) {
+        if([gesture velocityInView:self.view].x > 0)
+        {
             _panDirection = DDMenuPanDirectionRight;
-        } else {
+        }
+        else
+        {
             _panDirection = DDMenuPanDirectionLeft;
         }
     }
@@ -176,7 +182,17 @@
         _panVelocity = velocity;
         CGPoint translation = [gesture translationInView:self.view];
         CGRect frame = _root.view.frame;
-        frame.origin.x = _panOriginX + translation.x;
+        
+        if (translation.x < kMenuFullWidth)
+        {
+            frame.origin.x = _panOriginX + translation.x;
+        }
+        else if(translation.x <= kMaxSlideDistance)
+        {
+//            frame.origin.x = _panOriginX +200 + (translation.x-200)*(kMaxSlideDistance-);
+        }
+        
+        
         
         if (frame.origin.x > 0.0f && !_menuFlags.showingLeftView)
         {
@@ -232,7 +248,8 @@
         
         DDMenuPanCompletion completion = DDMenuPanCompletionRoot; // by default animate back to the root
         
-        if (_panDirection == DDMenuPanDirectionRight && _menuFlags.showingLeftView) {
+        if (_panDirection == DDMenuPanDirectionRight && _menuFlags.showingLeftView)
+        {
             completion = DDMenuPanCompletionLeft;
         } else if (_panDirection == DDMenuPanDirectionLeft && _menuFlags.showingRightView) {
             completion = DDMenuPanCompletionRight;
@@ -265,6 +282,7 @@
                 [self showRootController:NO];
             }
             [_root.view.layer removeAllAnimations];
+            
             [self.view setUserInteractionEnabled:YES];
         }];
         
@@ -332,7 +350,7 @@
 - (void)tap:(UITapGestureRecognizer*)gesture
 {
     [gesture setEnabled:NO];
-    [self showRootController:YES];
+//    [self showRootController:YES];
 }
 
 
@@ -352,21 +370,22 @@
         return NO;
     }
     
-    if (gestureRecognizer == _tap) {
+    if (gestureRecognizer == _tap)
+    {
         
-        if (_root && (_menuFlags.showingRightView || _menuFlags.showingLeftView)) {
-            return CGRectContainsPoint(_root.view.frame, [gestureRecognizer locationInView:self.view]);
-        }
+#pragma mark 修改
         return NO;
+        
+//        if (_root && (_menuFlags.showingRightView || _menuFlags.showingLeftView)) {
+//            return CGRectContainsPoint(_root.view.frame, [gestureRecognizer locationInView:self.view]);
+//        }
+//        return NO;
     }
     return YES;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-
-    NSLog(@"----------%s------",__FUNCTION__);
-
-    
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
     if (gestureRecognizer==_tap) {
         return YES;
     }

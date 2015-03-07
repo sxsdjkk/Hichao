@@ -101,7 +101,8 @@
 
 - (void)createCategoryTitlebar
 {
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithWhite:53/255.0 alpha:1.0];
+    //[UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
 }
 
 - (void)showLeftView
