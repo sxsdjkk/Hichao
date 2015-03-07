@@ -1,7 +1,7 @@
 //
 //  WaterFlowAction.m
 //
-//  Created by zhiyou3g  on 15/3/6
+//  Created by zhiyou3g  on 15/3/7
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -140,18 +140,5 @@ NSString *const kWaterFlowActionCommentCount = @"commentCount";
     return copy;
 }
 
-
-- (void)dealloc
-{
-    [_actionType release];
-    [_height release];
-    [_actionIdentifier release];
-    [_width release];
-    [_trackValue release];
-    [_normalPicUrl release];
-    [_type release];
-    [_commentCount release];
-    [super dealloc];
-}
 
 @end

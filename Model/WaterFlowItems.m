@@ -1,7 +1,7 @@
 //
 //  WaterFlowItems.m
 //
-//  Created by zhiyou3g  on 15/3/6
+//  Created by zhiyou3g  on 15/3/7
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -113,14 +113,5 @@ NSString *const kWaterFlowItemsHeight = @"height";
     return copy;
 }
 
-
-- (void)dealloc
-{
-    [_component release];
-    [_timestamp release];
-    [_width release];
-    [_height release];
-    [super dealloc];
-}
 
 @end

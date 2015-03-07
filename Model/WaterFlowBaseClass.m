@@ -1,7 +1,7 @@
 //
 //  WaterFlowBaseClass.m
 //
-//  Created by zhiyou3g  on 15/3/6
+//  Created by zhiyou3g  on 15/3/7
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -99,12 +99,5 @@ NSString *const kWaterFlowBaseClassData = @"data";
     return copy;
 }
 
-
-- (void)dealloc
-{
-    [_message release];
-    [_data release];
-    [super dealloc];
-}
 
 @end

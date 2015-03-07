@@ -1,7 +1,7 @@
 //
 //  WaterFlowItems.h
 //
-//  Created by zhiyou3g  on 15/3/6
+//  Created by zhiyou3g  on 15/3/7
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 
 @interface WaterFlowItems : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, retain) WaterFlowComponent *component;
-@property (nonatomic, retain) NSString *timestamp;
-@property (nonatomic, retain) NSString *width;
-@property (nonatomic, retain) NSString *height;
+@property (nonatomic, strong) WaterFlowComponent *component;
+@property (nonatomic, strong) NSString *timestamp;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *height;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

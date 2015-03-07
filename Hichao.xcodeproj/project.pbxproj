@@ -29,11 +29,6 @@
 		521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C11AA84EEF00426FC6 /* FavoritesViewController.m */; };
 		521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */; };
 		6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A38BFC01AAAC91500539963 /* PullViewCell.m */; };
-		6A4112541AA94BD700E6337B /* WaterFlowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124B1AA94BD700E6337B /* WaterFlowAction.m */; };
-		6A4112551AA94BD700E6337B /* WaterFlowBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */; };
-		6A4112561AA94BD700E6337B /* WaterFlowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */; };
-		6A4112571AA94BD700E6337B /* WaterFlowData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4112511AA94BD700E6337B /* WaterFlowData.m */; };
-		6A4112581AA94BD700E6337B /* WaterFlowItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4112531AA94BD700E6337B /* WaterFlowItems.m */; };
 		6A4112821AA954B200E6337B /* nav_bar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125B1AA954B200E6337B /* nav_bar_bg@2x.png */; };
 		6A4112831AA954B200E6337B /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125C1AA954B200E6337B /* nav_bg.png */; };
 		6A4112841AA954B200E6337B /* nav_btn_bbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125D1AA954B200E6337B /* nav_btn_bbs.png */; };
@@ -653,6 +648,12 @@
 		6A4117471AA954DA00E6337B /* wrap_xiansuo_defalt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FD1AA954DA00E6337B /* wrap_xiansuo_defalt@2x.png */; };
 		6A4117481AA954DA00E6337B /* wrap_xiansuo_defalt_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FE1AA954DA00E6337B /* wrap_xiansuo_defalt_on.png */; };
 		6A4117491AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FF1AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png */; };
+		6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5B1AAB090000B6E7C4 /* WaterFlowActions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5D1AAB090000B6E7C4 /* WaterFlowBaseClass.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A7A9E671AAB090000B6E7C4 /* WaterFlowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5F1AAB090000B6E7C4 /* WaterFlowComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E611AAB090000B6E7C4 /* WaterFlowData.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6A7A9E691AAB090000B6E7C4 /* WaterFlowItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E631AAB090000B6E7C4 /* WaterFlowItems.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9A1AA88E930049CA3E /* BannerAction.m */; };
 		6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9C1AA88E930049CA3E /* BannerBaseClass.m */; };
 		6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9E1AA88E930049CA3E /* BannerComponent.m */; };
@@ -715,16 +716,6 @@
 		596DDB7F9DC70CF729C3BB30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A38BFBF1AAAC91500539963 /* PullViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullViewCell.h; sourceTree = "<group>"; };
 		6A38BFC01AAAC91500539963 /* PullViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullViewCell.m; sourceTree = "<group>"; };
-		6A41124A1AA94BD700E6337B /* WaterFlowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowAction.h; sourceTree = "<group>"; };
-		6A41124B1AA94BD700E6337B /* WaterFlowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowAction.m; sourceTree = "<group>"; };
-		6A41124C1AA94BD700E6337B /* WaterFlowBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowBaseClass.h; sourceTree = "<group>"; };
-		6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowBaseClass.m; sourceTree = "<group>"; };
-		6A41124E1AA94BD700E6337B /* WaterFlowComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowComponent.h; sourceTree = "<group>"; };
-		6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowComponent.m; sourceTree = "<group>"; };
-		6A4112501AA94BD700E6337B /* WaterFlowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowData.h; sourceTree = "<group>"; };
-		6A4112511AA94BD700E6337B /* WaterFlowData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowData.m; sourceTree = "<group>"; };
-		6A4112521AA94BD700E6337B /* WaterFlowItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowItems.h; sourceTree = "<group>"; };
-		6A4112531AA94BD700E6337B /* WaterFlowItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowItems.m; sourceTree = "<group>"; };
 		6A41125B1AA954B200E6337B /* nav_bar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_bg@2x.png"; sourceTree = "<group>"; };
 		6A41125C1AA954B200E6337B /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
 		6A41125D1AA954B200E6337B /* nav_btn_bbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_btn_bbs.png; sourceTree = "<group>"; };
@@ -1344,6 +1335,18 @@
 		6A4114FD1AA954DA00E6337B /* wrap_xiansuo_defalt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrap_xiansuo_defalt@2x.png"; sourceTree = "<group>"; };
 		6A4114FE1AA954DA00E6337B /* wrap_xiansuo_defalt_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrap_xiansuo_defalt_on.png; sourceTree = "<group>"; };
 		6A4114FF1AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrap_xiansuo_defalt_on@2x.png"; sourceTree = "<group>"; };
+		6A7A9E581AAB090000B6E7C4 /* WaterFlowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowAction.h; sourceTree = "<group>"; };
+		6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowAction.m; sourceTree = "<group>"; };
+		6A7A9E5A1AAB090000B6E7C4 /* WaterFlowActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowActions.h; sourceTree = "<group>"; };
+		6A7A9E5B1AAB090000B6E7C4 /* WaterFlowActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowActions.m; sourceTree = "<group>"; };
+		6A7A9E5C1AAB090000B6E7C4 /* WaterFlowBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowBaseClass.h; sourceTree = "<group>"; };
+		6A7A9E5D1AAB090000B6E7C4 /* WaterFlowBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowBaseClass.m; sourceTree = "<group>"; };
+		6A7A9E5E1AAB090000B6E7C4 /* WaterFlowComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowComponent.h; sourceTree = "<group>"; };
+		6A7A9E5F1AAB090000B6E7C4 /* WaterFlowComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowComponent.m; sourceTree = "<group>"; };
+		6A7A9E601AAB090000B6E7C4 /* WaterFlowData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowData.h; sourceTree = "<group>"; };
+		6A7A9E611AAB090000B6E7C4 /* WaterFlowData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowData.m; sourceTree = "<group>"; };
+		6A7A9E621AAB090000B6E7C4 /* WaterFlowItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowItems.h; sourceTree = "<group>"; };
+		6A7A9E631AAB090000B6E7C4 /* WaterFlowItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowItems.m; sourceTree = "<group>"; };
 		6A7BBD991AA88E930049CA3E /* BannerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerAction.h; sourceTree = "<group>"; };
 		6A7BBD9A1AA88E930049CA3E /* BannerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerAction.m; sourceTree = "<group>"; };
 		6A7BBD9B1AA88E930049CA3E /* BannerBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerBaseClass.h; sourceTree = "<group>"; };
@@ -1562,16 +1565,18 @@
 		6A4112591AA94BDB00E6337B /* WaterFlow */ = {
 			isa = PBXGroup;
 			children = (
-				6A41124A1AA94BD700E6337B /* WaterFlowAction.h */,
-				6A41124B1AA94BD700E6337B /* WaterFlowAction.m */,
-				6A41124C1AA94BD700E6337B /* WaterFlowBaseClass.h */,
-				6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */,
-				6A41124E1AA94BD700E6337B /* WaterFlowComponent.h */,
-				6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */,
-				6A4112501AA94BD700E6337B /* WaterFlowData.h */,
-				6A4112511AA94BD700E6337B /* WaterFlowData.m */,
-				6A4112521AA94BD700E6337B /* WaterFlowItems.h */,
-				6A4112531AA94BD700E6337B /* WaterFlowItems.m */,
+				6A7A9E581AAB090000B6E7C4 /* WaterFlowAction.h */,
+				6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */,
+				6A7A9E5A1AAB090000B6E7C4 /* WaterFlowActions.h */,
+				6A7A9E5B1AAB090000B6E7C4 /* WaterFlowActions.m */,
+				6A7A9E5C1AAB090000B6E7C4 /* WaterFlowBaseClass.h */,
+				6A7A9E5D1AAB090000B6E7C4 /* WaterFlowBaseClass.m */,
+				6A7A9E5E1AAB090000B6E7C4 /* WaterFlowComponent.h */,
+				6A7A9E5F1AAB090000B6E7C4 /* WaterFlowComponent.m */,
+				6A7A9E601AAB090000B6E7C4 /* WaterFlowData.h */,
+				6A7A9E611AAB090000B6E7C4 /* WaterFlowData.m */,
+				6A7A9E621AAB090000B6E7C4 /* WaterFlowItems.h */,
+				6A7A9E631AAB090000B6E7C4 /* WaterFlowItems.m */,
 			);
 			name = WaterFlow;
 			sourceTree = "<group>";
@@ -3092,28 +3097,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7A9E691AAB090000B6E7C4 /* WaterFlowItems.m in Sources */,
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
+				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
 				6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */,
+				6A7A9E671AAB090000B6E7C4 /* WaterFlowComponent.m in Sources */,
 				521BB9B51AA7930600426FC6 /* PragueViewController.m in Sources */,
 				521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */,
 				521BB9B81AA7931C00426FC6 /* PragueLeftViewController.m in Sources */,
-				6A4112571AA94BD700E6337B /* WaterFlowData.m in Sources */,
 				521BB9A91AA792BB00426FC6 /* FeaturesViewController.m in Sources */,
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
-				6A4112561AA94BD700E6337B /* WaterFlowComponent.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
-				6A4112541AA94BD700E6337B /* WaterFlowAction.m in Sources */,
+				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,
+				6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */,
 				521BB9AF1AA792E200426FC6 /* TuanViewController.m in Sources */,
 				521BB9231AA7583000426FC6 /* main.m in Sources */,
 				521BB9441AA7865300426FC6 /* MyTabBarController.m in Sources */,
+				6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
-				6A4112581AA94BD700E6337B /* WaterFlowItems.m in Sources */,
-				6A4112551AA94BD700E6337B /* WaterFlowBaseClass.m in Sources */,
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,

@@ -26,6 +26,8 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+        _waterFlowItemsArray = [[NSMutableArray alloc] initWithCapacity:0];
+        
         _tableView1Index = [[NSMutableArray alloc] init];
         _tableView2Index = [[NSMutableArray alloc] init];
         _tableView3Index = [[NSMutableArray alloc] init];
@@ -48,6 +50,7 @@
     [_tableView1 release];
 
     [_segmentControll release];
+    self.carousel = nil;
 }
 #pragma mark - View Life Cycle
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,11 +81,6 @@
     [self createCoverFlow];
     [self createCategoryTitlebar];
     
-}
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    self.carousel = nil;
 }
 
 #pragma mark - Create UI
@@ -131,11 +129,18 @@
     _tableView4.delegate = self;
     [self.view addSubview:_tableView4];
     
-    
-//    _tableView1.sectionHeaderHeight = 260;
-//    _tableView2.sectionHeaderHeight = 260;
-//    _tableView3.sectionHeaderHeight = 260;
-//    _tableView4.sectionHeaderHeight = 260;
+    [_tableView1 addInfiniteScrollingWithActionHandler:^{
+        [self infiniteScrollingActionHandler];
+    }];
+    [_tableView2 addInfiniteScrollingWithActionHandler:^{
+        [self infiniteScrollingActionHandler];
+    }];
+    [_tableView3 addInfiniteScrollingWithActionHandler:^{
+        [self infiniteScrollingActionHandler];
+    }];
+    [_tableView4 addInfiniteScrollingWithActionHandler:^{
+        [self infiniteScrollingActionHandler];
+    }];
     
     _tableView1.showsVerticalScrollIndicator = NO;
     _tableView2.showsVerticalScrollIndicator = NO;
@@ -177,19 +182,29 @@
     [self.carousel scrollToItemAtIndex:newIndex duration:0.5];
 }
 #pragma mark - Request Data
+- (void)infiniteScrollingActionHandler{
+    NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
+    [self requestWithCategory:categoryArray[_segmentControll.selectedSegmentIndex]];
+}
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
+    [_waterFlowItemsArray removeAllObjects];
     NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
     [self requestWithCategory:categoryArray[sender.selectedSegmentIndex]];
 }
 - (void)requestWithCategory:(NSString *)category{
-    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=1425470373&pin=124371",category];
+    WaterFlowItems *item = [_waterFlowItemsArray lastObject];
+    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=%@&lts=&pin=",category,item.component.showId];
+    if (item.component.showId == nil) {
+        urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=&pin=",category];
+    }
+    NSLog(@"\n\n urlString == %@",urlString);
     //汉字转码
     urlString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //瀑布流数据源
         _waterFlowBaseClass = [[WaterFlowBaseClass alloc] initWithDictionary:responseObject];
-        _waterFlowItemsArray = _waterFlowBaseClass.data.items;
+        [_waterFlowItemsArray addObjectsFromArray:_waterFlowBaseClass.data.items];
         //刷新4个TableView
         [self tableViewsReloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -216,6 +231,11 @@
     [_tableView2Index removeAllObjects];
     [_tableView3Index removeAllObjects];
     [_tableView4Index removeAllObjects];
+    
+    [_tableView1.infiniteScrollingView stopAnimating];
+    [_tableView2.infiniteScrollingView stopAnimating];
+    [_tableView3.infiniteScrollingView stopAnimating];
+    [_tableView4.infiniteScrollingView stopAnimating];
     
     int imageIndex = 0; //记录当前索引
     

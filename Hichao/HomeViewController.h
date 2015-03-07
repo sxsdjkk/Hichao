@@ -38,7 +38,7 @@
     
     //解析WaterFlow
     WaterFlowBaseClass *_waterFlowBaseClass;
-    NSArray *_waterFlowItemsArray;
+    NSMutableArray *_waterFlowItemsArray;
 }
 @property (nonatomic, strong) iCarousel *carousel;
 @property (nonatomic, strong) UINavigationItem *navItem;

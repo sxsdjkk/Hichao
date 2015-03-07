@@ -1,7 +1,7 @@
 //
 //  WaterFlowAction.h
 //
-//  Created by zhiyou3g  on 15/3/6
+//  Created by zhiyou3g  on 15/3/7
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,14 +11,14 @@
 
 @interface WaterFlowAction : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, retain) NSString *actionType;
-@property (nonatomic, retain) NSString *height;
-@property (nonatomic, retain) NSString *actionIdentifier;
-@property (nonatomic, retain) NSString *width;
-@property (nonatomic, retain) NSString *trackValue;
-@property (nonatomic, retain) NSString *normalPicUrl;
-@property (nonatomic, retain) NSString *type;
-@property (nonatomic, retain) NSString *commentCount;
+@property (nonatomic, strong) NSString *actionType;
+@property (nonatomic, strong) NSString *height;
+@property (nonatomic, strong) NSString *actionIdentifier;
+@property (nonatomic, strong) NSString *width;
+@property (nonatomic, strong) NSString *trackValue;
+@property (nonatomic, strong) NSString *normalPicUrl;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *commentCount;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

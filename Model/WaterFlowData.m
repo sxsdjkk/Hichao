@@ -1,7 +1,7 @@
 //
 //  WaterFlowData.m
 //
-//  Created by zhiyou3g  on 15/3/6
+//  Created by zhiyou3g  on 15/3/7
 //  Copyright (c) 2015 __MyCompanyName__. All rights reserved.
 //
 
@@ -9,8 +9,10 @@
 #import "WaterFlowItems.h"
 
 
-NSString *const kWaterFlowDataItems = @"items";
 NSString *const kWaterFlowDataFlag = @"flag";
+NSString *const kWaterFlowDataLts = @"lts";
+NSString *const kWaterFlowDataItems = @"items";
+NSString *const kWaterFlowDataPin = @"pin";
 NSString *const kWaterFlowDataAppApi = @"appApi";
 
 
@@ -22,8 +24,10 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
 
 @implementation WaterFlowData
 
-@synthesize items = _items;
 @synthesize flag = _flag;
+@synthesize lts = _lts;
+@synthesize items = _items;
+@synthesize pin = _pin;
 @synthesize appApi = _appApi;
 
 
@@ -39,6 +43,8 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
+            self.flag = [self objectOrNilForKey:kWaterFlowDataFlag fromDictionary:dict];
+            self.lts = [self objectOrNilForKey:kWaterFlowDataLts fromDictionary:dict];
     NSObject *receivedWaterFlowItems = [dict objectForKey:kWaterFlowDataItems];
     NSMutableArray *parsedWaterFlowItems = [NSMutableArray array];
     if ([receivedWaterFlowItems isKindOfClass:[NSArray class]]) {
@@ -52,7 +58,7 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
     }
 
     self.items = [NSArray arrayWithArray:parsedWaterFlowItems];
-            self.flag = [self objectOrNilForKey:kWaterFlowDataFlag fromDictionary:dict];
+            self.pin = [self objectOrNilForKey:kWaterFlowDataPin fromDictionary:dict];
             self.appApi = [self objectOrNilForKey:kWaterFlowDataAppApi fromDictionary:dict];
 
     }
@@ -64,6 +70,8 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+    [mutableDict setValue:self.flag forKey:kWaterFlowDataFlag];
+    [mutableDict setValue:self.lts forKey:kWaterFlowDataLts];
     NSMutableArray *tempArrayForItems = [NSMutableArray array];
     for (NSObject *subArrayObject in self.items) {
         if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
@@ -75,7 +83,7 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
         }
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForItems] forKey:kWaterFlowDataItems];
-    [mutableDict setValue:self.flag forKey:kWaterFlowDataFlag];
+    [mutableDict setValue:self.pin forKey:kWaterFlowDataPin];
     [mutableDict setValue:self.appApi forKey:kWaterFlowDataAppApi];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
@@ -100,8 +108,10 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
 {
     self = [super init];
 
-    self.items = [aDecoder decodeObjectForKey:kWaterFlowDataItems];
     self.flag = [aDecoder decodeObjectForKey:kWaterFlowDataFlag];
+    self.lts = [aDecoder decodeObjectForKey:kWaterFlowDataLts];
+    self.items = [aDecoder decodeObjectForKey:kWaterFlowDataItems];
+    self.pin = [aDecoder decodeObjectForKey:kWaterFlowDataPin];
     self.appApi = [aDecoder decodeObjectForKey:kWaterFlowDataAppApi];
     return self;
 }
@@ -109,8 +119,10 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeObject:_items forKey:kWaterFlowDataItems];
     [aCoder encodeObject:_flag forKey:kWaterFlowDataFlag];
+    [aCoder encodeObject:_lts forKey:kWaterFlowDataLts];
+    [aCoder encodeObject:_items forKey:kWaterFlowDataItems];
+    [aCoder encodeObject:_pin forKey:kWaterFlowDataPin];
     [aCoder encodeObject:_appApi forKey:kWaterFlowDataAppApi];
 }
 
@@ -120,21 +132,15 @@ NSString *const kWaterFlowDataAppApi = @"appApi";
     
     if (copy) {
 
-        copy.items = [self.items copyWithZone:zone];
         copy.flag = [self.flag copyWithZone:zone];
+        copy.lts = [self.lts copyWithZone:zone];
+        copy.items = [self.items copyWithZone:zone];
+        copy.pin = [self.pin copyWithZone:zone];
         copy.appApi = [self.appApi copyWithZone:zone];
     }
     
     return copy;
 }
 
-
-- (void)dealloc
-{
-    [_items release];
-    [_flag release];
-    [_appApi release];
-    [super dealloc];
-}
 
 @end
