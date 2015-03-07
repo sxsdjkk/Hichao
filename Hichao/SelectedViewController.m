@@ -14,10 +14,17 @@
 
 @implementation SelectedViewController
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        _hasCarousel = NO;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
 
 }
 

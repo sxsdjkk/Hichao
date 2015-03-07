@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeViewController.h"
 
-@interface SelectedViewController : UIViewController
+@interface SelectedViewController : HomeViewController
 
 @end

@@ -26,6 +26,8 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
+        _hasCarousel = YES;
+        
         _waterFlowItemsArray = [[NSMutableArray alloc] initWithCapacity:0];
         
         _tableView1Index = [[NSMutableArray alloc] init];
@@ -78,7 +80,9 @@
     //创建UI
     [self createSegmentControll];
     [self createTableView];
-    [self createCoverFlow];
+    if (_hasCarousel) {
+        [self createCoverFlow];
+    }
     [self createCategoryTitlebar];
     
 }
@@ -109,22 +113,22 @@
 }
 
 - (void)createTableView{
-    _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
+    _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView1.dataSource = self;
     _tableView1.delegate = self;
     [self.view addSubview:_tableView1];
     
-    _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
+    _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView2.dataSource = self;
     _tableView2.delegate = self;
     [self.view addSubview:_tableView2];
     
-    _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
+    _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView3.dataSource = self;
     _tableView3.delegate = self;
     [self.view addSubview:_tableView3];
     
-    _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
+    _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView4.dataSource = self;
     _tableView4.delegate = self;
     [self.view addSubview:_tableView4];
@@ -338,7 +342,7 @@
 }
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 275;
+    return _hasCarousel?300:0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     

@@ -11,6 +11,8 @@
 
 @interface HomeViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,iCarouselDataSource,iCarouselDelegate>
 {
+    BOOL _hasCarousel;
+    
     //顶部选项卡
     UISegmentedControl *_segmentControll;
     
