@@ -15,6 +15,7 @@
 #import <UIImageView+WebCache.h>
 #import <FXImageView.h>
 #import <SVPullToRefresh.h>
+#import "PullViewCell.h"
 
 @interface HomeViewController ()
 
@@ -144,6 +145,11 @@
     _tableView2.tag = 42;
     _tableView3.tag = 43;
     _tableView4.tag = 44;
+    
+    [_tableView1 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView2 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView3 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
+    [_tableView4 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
 }
 - (void)createCoverFlow{
     //开启循环
@@ -280,11 +286,28 @@
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    PullViewCell *cell = (PullViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    int index;
+    switch (tableView.tag) {
+        case 41:
+            index = [_tableView1Index[indexPath.row] intValue];
+            break;
+        case 42:
+            index = [_tableView2Index[indexPath.row] intValue];
+            break;
+        case 43:
+            index = [_tableView3Index[indexPath.row] intValue];
+            break;
+        case 44:
+            index = [_tableView4Index[indexPath.row] intValue];
+            break;
+        default:
+            index = 0;
+            break;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+    WaterFlowItems *item = _waterFlowItemsArray[index];
+    cell.items = item;
     return cell;
 }
 #pragma mark - UITableViewDelegate

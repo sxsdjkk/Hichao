@@ -28,6 +28,7 @@
 		521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9BC1AA7FF4100426FC6 /* DDMenuController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C11AA84EEF00426FC6 /* FavoritesViewController.m */; };
 		521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */; };
+		6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A38BFC01AAAC91500539963 /* PullViewCell.m */; };
 		6A4112541AA94BD700E6337B /* WaterFlowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124B1AA94BD700E6337B /* WaterFlowAction.m */; };
 		6A4112551AA94BD700E6337B /* WaterFlowBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124D1AA94BD700E6337B /* WaterFlowBaseClass.m */; };
 		6A4112561AA94BD700E6337B /* WaterFlowComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A41124F1AA94BD700E6337B /* WaterFlowComponent.m */; };
@@ -712,6 +713,8 @@
 		521BB9C31AA84F0900426FC6 /* FavoritesLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesLeftViewController.h; sourceTree = "<group>"; };
 		521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesLeftViewController.m; sourceTree = "<group>"; };
 		596DDB7F9DC70CF729C3BB30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6A38BFBF1AAAC91500539963 /* PullViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullViewCell.h; sourceTree = "<group>"; };
+		6A38BFC01AAAC91500539963 /* PullViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullViewCell.m; sourceTree = "<group>"; };
 		6A41124A1AA94BD700E6337B /* WaterFlowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowAction.h; sourceTree = "<group>"; };
 		6A41124B1AA94BD700E6337B /* WaterFlowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowAction.m; sourceTree = "<group>"; };
 		6A41124C1AA94BD700E6337B /* WaterFlowBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowBaseClass.h; sourceTree = "<group>"; };
@@ -1469,6 +1472,8 @@
 				521BB99C1AA7925900426FC6 /* HomeViewController.m */,
 				521BB99E1AA7926800426FC6 /* HomeLeftViewController.h */,
 				521BB99F1AA7926800426FC6 /* HomeLeftViewController.m */,
+				6A38BFBF1AAAC91500539963 /* PullViewCell.h */,
+				6A38BFC01AAAC91500539963 /* PullViewCell.m */,
 			);
 			name = HomeVC;
 			sourceTree = "<group>";
@@ -3111,6 +3116,7 @@
 				6A4112551AA94BD700E6337B /* WaterFlowBaseClass.m in Sources */,
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
+				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,
 				6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */,
 				521BB99D1AA7925900426FC6 /* HomeViewController.m in Sources */,
 			);
