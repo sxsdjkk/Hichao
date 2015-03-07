@@ -212,6 +212,10 @@
     }];
 }
 - (void)tableViewsReloadData{
+    [_tableView1Index removeAllObjects];
+    [_tableView2Index removeAllObjects];
+    [_tableView3Index removeAllObjects];
+    [_tableView4Index removeAllObjects];
     
     int imageIndex = 0; //记录当前索引
     
