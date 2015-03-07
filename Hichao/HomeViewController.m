@@ -110,31 +110,31 @@
 }
 
 - (void)createTableView{
-    _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705)] autorelease];
+    _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView1.dataSource = self;
     _tableView1.delegate = self;
     [self.view addSubview:_tableView1];
     
-    _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 705)] autorelease];
+    _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView2.dataSource = self;
     _tableView2.delegate = self;
     [self.view addSubview:_tableView2];
     
-    _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 705)] autorelease];
+    _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView3.dataSource = self;
     _tableView3.delegate = self;
     [self.view addSubview:_tableView3];
     
-    _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 705)] autorelease];
+    _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 64, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView4.dataSource = self;
     _tableView4.delegate = self;
     [self.view addSubview:_tableView4];
     
     
-    _tableView1.sectionHeaderHeight = 260;
-    _tableView2.sectionHeaderHeight = 260;
-    _tableView3.sectionHeaderHeight = 260;
-    _tableView4.sectionHeaderHeight = 260;
+//    _tableView1.sectionHeaderHeight = 260;
+//    _tableView2.sectionHeaderHeight = 260;
+//    _tableView3.sectionHeaderHeight = 260;
+//    _tableView4.sectionHeaderHeight = 260;
     
     _tableView1.showsVerticalScrollIndicator = NO;
     _tableView2.showsVerticalScrollIndicator = NO;
@@ -150,13 +150,14 @@
     [_tableView2 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
     [_tableView3 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
     [_tableView4 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
+    
 }
 - (void)createCoverFlow{
     //开启循环
     _wrap = YES;
     //create carousel
     _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 62, 960, 260)];
-    _carousel.backgroundColor = self.view.backgroundColor;
+//    _carousel.backgroundColor = self.view.backgroundColor;
     //        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _carousel.type = iCarouselTypeCoverFlow;
     _carousel.delegate = self;
@@ -311,6 +312,9 @@
     return cell;
 }
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 275;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     int imageIndex = 0;
