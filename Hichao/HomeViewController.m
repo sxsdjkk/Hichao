@@ -79,14 +79,13 @@
     [nav setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:nav];
     [nav release];
-    //请求数据
-    [self requestBanner];
 
     //创建UI
     [self createSegmentControll];
     [self createScrollView];
     [self createTableView];
     if (_hasCarousel) {
+        [self requestBanner];
         [self createCoverFlow];
     }
     [self createCategoryTitlebar];
