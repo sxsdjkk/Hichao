@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     ;
+    
+    UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
+    
+    layOut.minimumLineSpacing = 20.0;
+    
+    layOut.minimumInteritemSpacing = 20.0;
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
