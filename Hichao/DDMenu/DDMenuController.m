@@ -26,13 +26,16 @@
 
 #import "DDMenuController.h"
 
-#define kMenuFullWidth 320.0f
-#define kMenuDisplayedWidth 200.0f
+
+#define kMenuDisplayedWidth 270.0f
+
+#define kMenuFullWidth kMenuDisplayedWidth*sqrt(2.0)
+
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
 #define kMenuBounceOffset 10.0f
 #define kMenuBounceDuration .3f
 #define kMenuSlideDuration .3f
-#define kMaxSlideDistance 300
+//#define kMaxSlideDistance kMenuFullWidth*sqrt(2.0)
 
 
 @interface DDMenuController (Internal)
@@ -54,6 +57,7 @@
 - (id)initWithRootViewController:(UIViewController*)controller {
     if ((self = [self init])) {
         _root = controller;
+        
     }
     return self;
 }
@@ -157,10 +161,11 @@
 {
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
-        NSLog(@"++++++UIGestureRecognizerStateBegan+++%f++ %@  ",self.view.frame.origin.x,self.view);
+        NSLog(@"++++++UIGestureRecognizerStateBegan+++%f++ %@  ",_root.view.frame.origin.x,self.view);
         
         [self showShadow:YES];
-        _panOriginX = self.view.frame.origin.x;
+//        _panOriginX = self.view.frame.origin.x;
+        _panOriginX = _root.view.frame.origin.x;
         _panVelocity = CGPointMake(0.0f, 0.0f);
         
         if([gesture velocityInView:self.view].x > 0)
@@ -187,9 +192,12 @@
         {
             frame.origin.x = _panOriginX + translation.x;
         }
-        else if(translation.x <= kMaxSlideDistance)
+        else if(translation.x <= kMenuFullWidth)
         {
 //            frame.origin.x = _panOriginX +200 + (translation.x-200)*(kMaxSlideDistance-);
+//            
+//            frame.origin.x = _panOriginX + sqrt(2*kMaxSlideDistance*translation.x-translation.x*translation.x);
+            frame.origin.x = sqrt(2*kMenuFullWidth*translation.x-translation.x*translation.x);
         }
         
         
@@ -225,7 +233,8 @@
                 
                 _menuFlags.showingRightView = YES;
                 CGRect frame = self.view.bounds;
-                frame.origin.x += frame.size.width - kMenuFullWidth;
+                //????
+                frame.origin.x += frame.size.width;
                 frame.size.width = kMenuFullWidth;
                 self.rightViewController.view.frame = frame;
                 [self.view insertSubview:self.rightViewController.view atIndex:0];
@@ -241,7 +250,7 @@
     }
     else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled)
     {
-        NSLog(@"velocity-----%@------gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled",NSStringFromCGPoint([gesture velocityInView:self.view]));
+//        NSLog(@"velocity-----%@------gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled",NSStringFromCGPoint([gesture velocityInView:self.view]));
         
         //  Finishing moving to left, right or root view with current pan velocity
         [self.view setUserInteractionEnabled:NO];
@@ -358,13 +367,14 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    NSLog(@"----------%s------",__FUNCTION__);
+//    NSLog(@"----------%s------",__FUNCTION__);
     if (gestureRecognizer == _pan) {
         
         UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer*)gestureRecognizer;
         CGPoint translation = [panGesture translationInView:self.view];
         
-        if ([panGesture velocityInView:self.view].x < 600 && sqrt(translation.x * translation.x) / sqrt(translation.y * translation.y) > 1) {
+        if ([panGesture velocityInView:self.view].x < 600 && sqrt(translation.x * translation.x) / sqrt(translation.y * translation.y) > 1)
+        {
             return YES;
         }
         return NO;
@@ -440,7 +450,7 @@
 
 - (void)showShadow:(BOOL)val
 {
-    NSLog(@"----------%s------",__FUNCTION__);
+//    NSLog(@"----------%s------",__FUNCTION__);
 
     if (!_root) return;
     
@@ -457,7 +467,7 @@
 
 - (void)showRootController:(BOOL)animated {
     
-    NSLog(@"----------%s------",__FUNCTION__);
+//    NSLog(@"----------%s------",__FUNCTION__);
     
     [_tap setEnabled:NO];
     _root.view.userInteractionEnabled = YES;
@@ -591,7 +601,7 @@
     delegate = val;
     _menuFlags.respondsToWillShowViewController = [(id)self.delegate respondsToSelector:@selector(menuController:willShowViewController:)];
     
-    NSLog(@"--%s---",__func__);
+//    NSLog(@"--%s---",__func__);
 }
 
 - (void)setRightViewController:(UIViewController *)rightController {
