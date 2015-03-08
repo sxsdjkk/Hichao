@@ -222,9 +222,8 @@
     [self requestWithCategory:_categoryArray[sender.selectedSegmentIndex]];
 }
 - (void)requestWithCategory:(NSString *)category{
-    WaterFlowItems *item = [_waterFlowItemsArray lastObject];
-    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=%@&lts=&pin=",category,item.component.showId];
-    if (item.component.showId == nil) {
+    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=%@&lts=&pin=",category,_waterFlowBaseClass.data.flag];
+    if (_waterFlowBaseClass.data.flag == nil) {
         urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=&pin=",category];
     }
     NSLog(@"\n\n urlString == %@",urlString);
