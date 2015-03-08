@@ -21,9 +21,7 @@
 #import "PragueLeftViewController.h"
 #import "FavoritesLeftViewController.h"
 
-
 #import "DDMenuController.h"
-
 
 #define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define M_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -276,7 +274,8 @@ static NSInteger selectBtn = 1;
     if ([menuController isKindOfClass:[DDMenuController class]])
     {
         [menuController showRootController:YES];
-    }}
+    }
+}
 
 - (void)showTabBar
 {
@@ -287,33 +286,6 @@ static NSInteger selectBtn = 1;
 {
     _tabBarBackgroundImageView.hidden = YES;
 }
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    NSLog(@"touchBegan------------------+++++++");
-//}
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    NSLog(@"touchsMoved------------------+++++++");
-//}
-
-//- (void)closeSideBarWithAnimate:(BOOL)bAnimate complete:(void(^)(BOOL finished))complete
-//{
-//    CGAffineTransform oriT = CGAffineTransformIdentity;
-//    if (bAnimate)
-//    {
-//        [UIView animateWithDuration:_0.5 animations:^{
-//                             _mainContentView.transform = oriT;
-//                         }
-//                         completion:^(BOOL finished) {
-//                             _tapGestureRec.enabled = NO;
-//                            
-//                             showingLeft=NO;
-//                             _MainVC.view.userInteractionEnabled=YES;
-//                             complete(finished);
-//                         }];
-//    }
-//}
 
 
 - (void)didReceiveMemoryWarning
