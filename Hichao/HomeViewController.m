@@ -28,6 +28,9 @@
     if (self) {
         _hasCarousel = YES;
         
+        _categoryArray = [[NSArray alloc] initWithObjects:@"全部", @"热门榜", @"猜你喜欢", nil];
+        _segmentItemsArray = [[NSArray alloc] initWithObjects:@"最新", @"最热", @"猜你喜欢", nil];
+        
         _waterFlowItemsArray = [[NSMutableArray alloc] initWithCapacity:0];
         
         _tableView1Index = [[NSMutableArray alloc] init];
@@ -44,6 +47,8 @@
 }
 - (void)dealloc{
     [super dealloc];
+    [_categoryArray release];
+    
     [_tableView1Index release];
     [_tableView2Index release];
     [_tableView3Index release];
@@ -90,7 +95,7 @@
 #pragma mark - Create UI
 - (void)createSegmentControll{
     //选项卡 刷新瀑布流
-    _segmentControll = [[UISegmentedControl alloc] initWithItems:@[@"最新",@"最热",@"猜你喜欢"]];
+    _segmentControll = [[UISegmentedControl alloc] initWithItems:_segmentItemsArray];
     _segmentControll.frame = CGRectMake(0, 0, 600, 35);
     _segmentControll.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
     //绑定方法，值改变发送请求
@@ -187,13 +192,11 @@
 }
 #pragma mark - Request Data
 - (void)infiniteScrollingActionHandler{
-    NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
-    [self requestWithCategory:categoryArray[_segmentControll.selectedSegmentIndex]];
+    [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
 }
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
     [_waterFlowItemsArray removeAllObjects];
-    NSArray *categoryArray = @[@"全部",@"热门榜",@"猜你喜欢"];
-    [self requestWithCategory:categoryArray[sender.selectedSegmentIndex]];
+    [self requestWithCategory:_categoryArray[sender.selectedSegmentIndex]];
 }
 - (void)requestWithCategory:(NSString *)category{
     WaterFlowItems *item = [_waterFlowItemsArray lastObject];

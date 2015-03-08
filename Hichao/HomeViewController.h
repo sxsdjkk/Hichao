@@ -13,6 +13,9 @@
 {
     BOOL _hasCarousel;
     
+    NSArray *_categoryArray;
+    NSArray *_segmentItemsArray;
+    
     //顶部选项卡
     UISegmentedControl *_segmentControll;
     

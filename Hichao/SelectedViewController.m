@@ -18,6 +18,8 @@
     self = [super init];
     if (self) {
         _hasCarousel = NO;
+        
+        _segmentItemsArray = [[NSArray alloc] initWithObjects:@"推荐", @"值得买", nil];
     }
     return self;
 }
