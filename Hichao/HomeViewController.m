@@ -84,6 +84,7 @@
 
     //创建UI
     [self createSegmentControll];
+    [self createScrollView];
     [self createTableView];
     if (_hasCarousel) {
         [self createCoverFlow];
@@ -117,39 +118,47 @@
     
 }
 
+- (void)createScrollView{
+    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    _scrollView.delegate = self;
+    //下拉刷新
+    [_scrollView addPullToRefreshWithActionHandler:^{
+        [self pullToRefreshWithActionHandler];
+    }];
+    //上拉加载
+    [_scrollView addInfiniteScrollingWithActionHandler:^{
+        [self infiniteScrollingActionHandler];
+    }];
+    _scrollView.showsVerticalScrollIndicator = YES;
+    [self.view addSubview:_scrollView];
+    [_scrollView release];
+}
 - (void)createTableView{
     _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView1.dataSource = self;
     _tableView1.delegate = self;
-    [self.view addSubview:_tableView1];
+    
     
     _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView2.dataSource = self;
     _tableView2.delegate = self;
-    [self.view addSubview:_tableView2];
+    
     
     _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView3.dataSource = self;
     _tableView3.delegate = self;
-    [self.view addSubview:_tableView3];
+    
     
     _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView4.dataSource = self;
     _tableView4.delegate = self;
-    [self.view addSubview:_tableView4];
     
-    [_tableView1 addInfiniteScrollingWithActionHandler:^{
-        [self infiniteScrollingActionHandler];
-    }];
-    [_tableView2 addInfiniteScrollingWithActionHandler:^{
-        [self infiniteScrollingActionHandler];
-    }];
-    [_tableView3 addInfiniteScrollingWithActionHandler:^{
-        [self infiniteScrollingActionHandler];
-    }];
-    [_tableView4 addInfiniteScrollingWithActionHandler:^{
-        [self infiniteScrollingActionHandler];
-    }];
+    
+    _tableView1.scrollEnabled = NO;
+    _tableView2.scrollEnabled = NO;
+    _tableView3.scrollEnabled = NO;
+    _tableView4.scrollEnabled = NO;
+    
     
     _tableView1.showsVerticalScrollIndicator = NO;
     _tableView2.showsVerticalScrollIndicator = NO;
@@ -166,6 +175,10 @@
     [_tableView3 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
     [_tableView4 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
     
+    [_scrollView addSubview:_tableView1];
+    [_scrollView addSubview:_tableView2];
+    [_scrollView addSubview:_tableView3];
+    [_scrollView addSubview:_tableView4];
 }
 - (void)createCoverFlow{
     //开启循环
@@ -179,7 +192,7 @@
     _carousel.dataSource = self;
     
     //add carousel to view
-    [self.view addSubview:_carousel];
+    [_scrollView addSubview:_carousel];
     [_carousel release];
 }
 -(void) scrollCarousel {
@@ -191,6 +204,10 @@
     [self.carousel scrollToItemAtIndex:newIndex duration:0.5];
 }
 #pragma mark - Request Data
+- (void)pullToRefreshWithActionHandler{
+    [_waterFlowItemsArray removeAllObjects];
+    [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
+}
 - (void)infiniteScrollingActionHandler{
     [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
 }
@@ -239,10 +256,9 @@
     [_tableView3Index removeAllObjects];
     [_tableView4Index removeAllObjects];
     
-    [_tableView1.infiniteScrollingView stopAnimating];
-    [_tableView2.infiniteScrollingView stopAnimating];
-    [_tableView3.infiniteScrollingView stopAnimating];
-    [_tableView4.infiniteScrollingView stopAnimating];
+    //停止刷新动画
+    [_scrollView.pullToRefreshView stopAnimating];
+    [_scrollView.infiniteScrollingView stopAnimating];
     
     int imageIndex = 0; //记录当前索引
     
@@ -292,7 +308,18 @@
         }
         imageIndex++;
     }
-    
+    //找到最高的tableView
+    float tableViewMaxHeight = 0.0f;
+    for (int i = 0; i < 4 ; i++)
+    {
+        UITableView *tableView = (UITableView *)[_scrollView viewWithTag:i+41];
+        [tableView reloadData];
+        // 获取表的内容大小 再赋给_ScrollView
+        if (tableViewMaxHeight <tableView.contentSize.height) {
+            tableViewMaxHeight = tableView.contentSize.height;
+        }
+    }
+    _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, tableViewMaxHeight+64);
     [_tableView1 reloadData];
     [_tableView2 reloadData];
     [_tableView3 reloadData];
@@ -380,12 +407,38 @@
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //同步滚动
-    _tableView1.contentOffset = scrollView.contentOffset;
-    _tableView2.contentOffset = scrollView.contentOffset;
-    _tableView3.contentOffset = scrollView.contentOffset;
-    _tableView4.contentOffset = scrollView.contentOffset;
-    _carousel.frame = CGRectMake(0, 62-scrollView.contentOffset.y, 960, 260);
+    float y = scrollView.contentOffset.y;
+    //    NSLog(@"Scroll-->%@",NSStringFromCGPoint(_scollView.contentOffset));
+    
+    if (y< 0) {
+        return;
+    }
+    for (UIView * view in scrollView.subviews)
+    {
+        
+        if ([view isKindOfClass:[UITableView class]])
+        {
+            UITableView * tview =(UITableView *)view;
+            //判断最多拉到下边的高度
+            float maxHeight =tview.contentSize.height-tview.frame.size.height;
+            if (y>= (maxHeight))
+            {
+                continue;// 一个break语句只向外跳一层。
+                // continue语句的作用是跳过循环本中剩余的语句而强行执行下一次循环。continue语句只用在for、while、do-while等循环体中,常与if条件语句一起使用,用来加速循环
+            }
+            //            NSLog(@"tableoffset---->%@",NSStringFromCGPoint(tview.contentOffset));
+            
+            tview.contentOffset= scrollView.contentOffset;
+            // 对表的 y 值进行修改 让其始终保持一致
+            tview.frame = CGRectMake(tview.frame.origin.x,y+10, tview.frame.size.width, tview.frame.size.height);
+        }
+    }
+//    //同步滚动
+//    _tableView1.contentOffset = scrollView.contentOffset;
+//    _tableView2.contentOffset = scrollView.contentOffset;
+//    _tableView3.contentOffset = scrollView.contentOffset;
+//    _tableView4.contentOffset = scrollView.contentOffset;
+//    _carousel.frame = CGRectMake(0, 62-scrollView.contentOffset.y, 960, 260);
     if (scrollView.contentOffset.y>=0) {
         //上拉加载
     }else{
