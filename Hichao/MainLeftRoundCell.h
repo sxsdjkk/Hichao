@@ -11,5 +11,6 @@
 @interface MainLeftRoundCell : UICollectionViewCell
 
 @property (nonatomic,retain)UILabel *textLabel;
+@property (nonatomic,retain)UIImageView *backgroundImage;
 
 @end
