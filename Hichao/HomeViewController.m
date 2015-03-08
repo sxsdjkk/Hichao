@@ -204,15 +204,22 @@
     [self.carousel scrollToItemAtIndex:newIndex duration:0.5];
 }
 #pragma mark - Request Data
-- (void)pullToRefreshWithActionHandler{
+- (void)cleanDataSource{
     [_waterFlowItemsArray removeAllObjects];
+    [_tableView1Index removeAllObjects];
+    [_tableView2Index removeAllObjects];
+    [_tableView3Index removeAllObjects];
+    [_tableView4Index removeAllObjects];
+}
+- (void)pullToRefreshWithActionHandler{
+    [self cleanDataSource];
     [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
 }
 - (void)infiniteScrollingActionHandler{
     [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
 }
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
-    [_waterFlowItemsArray removeAllObjects];
+    [self cleanDataSource];
     [self requestWithCategory:_categoryArray[sender.selectedSegmentIndex]];
 }
 - (void)requestWithCategory:(NSString *)category{
@@ -251,10 +258,6 @@
     }];
 }
 - (void)tableViewsReloadData{
-    [_tableView1Index removeAllObjects];
-    [_tableView2Index removeAllObjects];
-    [_tableView3Index removeAllObjects];
-    [_tableView4Index removeAllObjects];
     
     //停止刷新动画
     [_scrollView.pullToRefreshView stopAnimating];
