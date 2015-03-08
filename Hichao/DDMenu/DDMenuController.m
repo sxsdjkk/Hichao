@@ -159,7 +159,7 @@
 {
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
-        NSLog(@"++++++UIGestureRecognizerStateBegan+++%f++ %@  ",_root.view.frame.origin.x,self.view);
+//        NSLog(@"++++++UIGestureRecognizerStateBegan+++%f++ %@  ",_root.view.frame.origin.x,self.view);
         
         [self showShadow:YES];
 //        _panOriginX = self.view.frame.origin.x;
