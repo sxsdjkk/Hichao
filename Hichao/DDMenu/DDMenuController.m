@@ -30,7 +30,6 @@
 #define kMenuDisplayedWidth 270.0f
 
 #define kMenuFullWidth kMenuDisplayedWidth*sqrt(2.0)
-
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
 #define kMenuBounceOffset 10.0f
 #define kMenuBounceDuration .3f
@@ -188,19 +187,27 @@
         CGPoint translation = [gesture translationInView:self.view];
         CGRect frame = _root.view.frame;
         
-        if (translation.x < kMenuFullWidth)
+//        if (translation.x < kMenuFullWidth)
+        if (frame.origin.x< kMenuFullWidth)
         {
             frame.origin.x = _panOriginX + translation.x;
         }
-        else if(translation.x <= kMenuFullWidth)
+//        else if(translation.x <= kMenuFullWidth)
+        else if(frame.origin.x <= kMenuFullWidth)
         {
 //            frame.origin.x = _panOriginX +200 + (translation.x-200)*(kMaxSlideDistance-);
 //            
 //            frame.origin.x = _panOriginX + sqrt(2*kMaxSlideDistance*translation.x-translation.x*translation.x);
+            
+//            if(_menuFlags.showingLeftView == YES)
+//            {
+//                frame.origin.x = sqrt(2*kMenuFullWidth*(translation.x-kMenuDisplayedWidth)-(translation.x-kMenuDisplayedWidth)*(translation.x-kMenuDisplayedWidth));
+//            }
+//            else
+//            {
             frame.origin.x = sqrt(2*kMenuFullWidth*translation.x-translation.x*translation.x);
+//            }
         }
-        
-        
         
         if (frame.origin.x > 0.0f && !_menuFlags.showingLeftView)
         {
@@ -210,15 +217,17 @@
                 [self.rightViewController.view removeFromSuperview];
             }
             
-            if (_menuFlags.canShowLeft) {
-                
+            if (_menuFlags.canShowLeft)
+            {
                 _menuFlags.showingLeftView = YES;
                 CGRect frame = self.view.bounds;
                 frame.size.width = kMenuFullWidth;
                 self.leftViewController.view.frame = frame;
                 [self.view insertSubview:self.leftViewController.view atIndex:0];
                 
-            } else {
+            }
+            else
+            {
                 frame.origin.x = 0.0f; // ignore right view if it's not set
             }
             
