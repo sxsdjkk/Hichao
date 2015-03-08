@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
+#import <SVPullToRefresh.h>
 #import <iCarousel.h>
 
 @interface HomeViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,iCarouselDataSource,iCarouselDelegate>
 {
     BOOL _hasCarousel;
+    NSString *_baseUrlString;
     
     NSArray *_categoryArray;
     NSArray *_segmentItemsArray;
@@ -50,5 +54,8 @@
 @property (nonatomic, strong) UINavigationItem *navItem;
 @property (nonatomic, assign) BOOL wrap;
 @property (nonatomic, strong) NSMutableArray *items;
+
+- (void)tableViewsReloadData;
+- (void)cleanDataSource;
 
 @end

@@ -11,10 +11,7 @@
 //原图 640*260
 
 #import "HomeViewController.h"
-#import <AFNetworking.h>
-#import <UIImageView+WebCache.h>
 #import <FXImageView.h>
-#import <SVPullToRefresh.h>
 #import "PullViewCell.h"
 
 @interface HomeViewController ()
@@ -27,6 +24,7 @@
     self = [super init];
     if (self) {
         _hasCarousel = YES;
+        _baseUrlString = @"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=全部&flag=&lts=&pin=";
         
         _categoryArray = [[NSArray alloc] initWithObjects:@"全部", @"热门榜", @"猜你喜欢", nil];
         _segmentItemsArray = [[NSArray alloc] initWithObjects:@"最新", @"最热", @"猜你喜欢", nil];
@@ -194,7 +192,7 @@
     [_scrollView addSubview:_carousel];
     [_carousel release];
 }
--(void) scrollCarousel {
+- (void)scrollCarousel {
     NSInteger newIndex=self.carousel.currentItemIndex+1;
     if (newIndex > self.carousel.numberOfItems) {
         newIndex=0;
@@ -204,6 +202,8 @@
 }
 #pragma mark - Request Data
 - (void)cleanDataSource{
+    [_waterFlowBaseClass release];
+    _waterFlowBaseClass = nil;
     [_waterFlowItemsArray removeAllObjects];
     [_tableView1Index removeAllObjects];
     [_tableView2Index removeAllObjects];
@@ -265,48 +265,47 @@
     int imageIndex = 0; //记录当前索引
     
     for (WaterFlowItems *waterFlowItem in _waterFlowItemsArray) {
-        if (!waterFlowItem.component.picUrl) {
-            continue;
-        }
-        float width;
-        float height = waterFlowItem.height.floatValue;
-        //固定宽计算高
-        width = _tableView1.bounds.size.width;
-        height = width * height / width;
-        
-        int minIndex = 0; //存放最低高
-        
-        float col1=MIN(colHeight[0], colHeight[1]);
-        float col2=MIN(colHeight[2], colHeight[3]);
-        
-        float minHeight=MIN(col1, col2);
-        
-//        float minHeight = colHeight[0];
-        for (int i=0; i<4; i++) {
-            if (colHeight[i]==minHeight) {
-                minHeight = colHeight[i];
-                minIndex = i; //记录这个最低高在一维数组中的索引
+        if (waterFlowItem.component.picUrl) {
+            float width;
+            float height = waterFlowItem.height.floatValue;
+            //固定宽计算高
+            width = _tableView1.bounds.size.width;
+            height = width * height / width;
+            
+            int minIndex = 0; //存放最低高
+            
+            float col1=MIN(colHeight[0], colHeight[1]);
+            float col2=MIN(colHeight[2], colHeight[3]);
+            
+            float minHeight=MIN(col1, col2);
+            
+    //        float minHeight = colHeight[0];
+            for (int i=0; i<4; i++) {
+                if (colHeight[i]==minHeight) {
+                    minHeight = colHeight[i];
+                    minIndex = i; //记录这个最低高在一维数组中的索引
+                }
             }
-        }
-        colHeight[minIndex] += height;
-        
-        //将当前的索引添加到相应的数组中。
-        switch (minIndex) {
-            case 0:
-                NSLog(@"%d",imageIndex);
-                [_tableView1Index addObject:[NSNumber numberWithInt:imageIndex]];
-                break;
-            case 1:
-                [_tableView2Index addObject:[NSNumber numberWithInt:imageIndex]];
-                break;
-            case 2:
-                [_tableView3Index addObject:[NSNumber numberWithInt:imageIndex]];
-                break;
-            case 3:
-                [_tableView4Index addObject:[NSNumber numberWithInt:imageIndex]];
-                break;
-            default:
-                break;
+            colHeight[minIndex] += height;
+            
+            //将当前的索引添加到相应的数组中。
+            switch (minIndex) {
+                case 0:
+                    NSLog(@"%d",imageIndex);
+                    [_tableView1Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    break;
+                case 1:
+                    [_tableView2Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    break;
+                case 2:
+                    [_tableView3Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    break;
+                case 3:
+                    [_tableView4Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    break;
+                default:
+                    break;
+            }
         }
         imageIndex++;
     }
