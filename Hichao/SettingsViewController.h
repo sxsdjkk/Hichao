@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
-
-@property (nonatomic,assign)BOOL show;
+@interface SettingsViewController : UINavigationController <UITableViewDataSource,UITableViewDelegate>
+{
+    NSArray *_titleArray;
+    NSArray *_imageNameArray;
+}
 @property (nonatomic,assign)CGRect showFrame;
 @property (nonatomic,assign)CGRect hideFrame;
 

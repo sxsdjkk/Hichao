@@ -220,6 +220,15 @@
     }
 }
 
+- (void)removeSettingsVC:(UIButton *)sender{
+    //移除
+    [UIView animateWithDuration:0.5 animations:^{
+        _settingsVC.view.frame = _settingsVC.hideFrame;
+        sender.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [sender removeFromSuperview];
+    }];
+}
 
 static NSInteger selectBtn = 1;
 
@@ -228,19 +237,18 @@ static NSInteger selectBtn = 1;
     
     if (button.tag == 7)
     {
-        if (_settingsVC.show == YES) {
-            //展示
-            [UIView animateWithDuration:0.5 animations:^{
-                _settingsVC.view.frame = _settingsVC.showFrame;
-            }];
-            _settingsVC.show = NO;
-        }else{
-            //隐藏
-            [UIView animateWithDuration:0.5 animations:^{
-                _settingsVC.view.frame = _settingsVC.hideFrame;
-            }];
-            _settingsVC.show = YES;
-        }
+        //展示
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = self.view.frame;
+        button.backgroundColor = [UIColor blackColor];
+        button.alpha = 0.0f;
+        [button addTarget:self action:@selector(removeSettingsVC:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        [self.view bringSubviewToFront:_settingsVC.view];
+        [UIView animateWithDuration:0.5 animations:^{
+            _settingsVC.view.frame = _settingsVC.showFrame;
+            button.alpha = 0.5f;
+        }];
         return;
     }
     _tabBarController.selectedIndex = button.tag-1;
