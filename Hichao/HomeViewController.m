@@ -136,6 +136,18 @@
     [_scrollView release];
 }
 - (void)createTableView{
+    for (int i=0; i<4; i++) {
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(8+238*i, 40, 230, 705) style:UITableViewStyleGrouped];
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        tableView.scrollEnabled = NO;
+        tableView.showsVerticalScrollIndicator = NO;
+        tableView.tag = i+41;
+        [tableView registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
+        [_scrollView addSubview:tableView];
+        [tableView release];
+    }
+    /*
     _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
     _tableView1.dataSource = self;
     _tableView1.delegate = self;
@@ -181,6 +193,7 @@
     [_scrollView addSubview:_tableView2];
     [_scrollView addSubview:_tableView3];
     [_scrollView addSubview:_tableView4];
+     */
 }
 - (void)createCoverFlow{
     //开启循环
@@ -270,7 +283,7 @@
             float width;
             float height = waterFlowItem.height.floatValue;
             //固定宽计算高
-            width = _tableView1.bounds.size.width;
+            width = 230;
             height = width * height / width;
             
             int minIndex = 0; //存放最低高
@@ -322,10 +335,10 @@
         }
     }
     _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, tableViewMaxHeight+64);
-    [_tableView1 reloadData];
-    [_tableView2 reloadData];
-    [_tableView3 reloadData];
-    [_tableView4 reloadData];
+//    [tab] reloadData];
+//    [_tableView2 reloadData];
+//    [_tableView3 reloadData];
+//    [_tableView4 reloadData];
     //停止刷新动画
     [_scrollView.pullToRefreshView stopAnimating];
     [_scrollView.infiniteScrollingView stopAnimating];
@@ -406,7 +419,7 @@
     float width = waterFlowItem.width.floatValue;
     float height = waterFlowItem.height.floatValue;
     
-    height = _tableView1.bounds.size.width * height / width;
+    height = tableView.bounds.size.width * height / width;
     
     return height+newHeight;
 }
