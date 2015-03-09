@@ -14,6 +14,8 @@
 {
     UICollectionView *_collectionView;
     NSIndexPath *_selectedIndexPath;
+    
+    NSArray *_categoryArray;
 }
 @end
 
@@ -22,8 +24,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSString *urlStr = @"http://api2.hichao.com/config?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&splash_version=19&screen_width=1536&config_version=39&screen_height=2048";
     
-    _selectedIndexPath = [[NSIndexPath indexPathForItem:0 inSection:0] retain];
+    _categoryArray = [@[@"全部",@"欧美",@"日韩",@"本土",@"潮男",@"热播",@"明星"] retain];
+    
+//    _selectedIndexPath = [[NSIndexPath indexPathForItem:0 inSection:0] retain];
     
     self.view.backgroundColor = M_LIGHT_GRAY_COLOR;
     
@@ -51,11 +57,15 @@
     
     _collectionView.delegate = self;
     
+    _collectionView.allowsMultipleSelection = NO;
+    
     _collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
     
     [self.view addSubview:_collectionView];
     
     [_collectionView release];
+    
+    
 }
 
 
@@ -68,22 +78,38 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 7;
+    return section==0?_categoryArray.count:10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    static int i = 0;
     if (indexPath.section==0)
     {
         MainLeftRoundCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RoundCell" forIndexPath:indexPath];
         
-        cell.textLabel.text = [NSString stringWithFormat:@"%d-%d",indexPath.section,indexPath.row];
+        cell.textLabel.text = [_categoryArray objectAtIndex:indexPath.row];
         
-        if (indexPath == _selectedIndexPath)
+//        NSLog(@"--%@----%@--",indexPath,_selectedIndexPath);
+        if (i==0)
         {
-            cell.backgroundImage.image = [UIImage imageNamed:@"home_left_btn_type@2x.png"];
+            if(_selectedIndexPath)
+            {
+                [_selectedIndexPath release];
+            }
+            
+            _selectedIndexPath = [indexPath retain];
         }
-        
+        if(_selectedIndexPath)
+        {
+            if (indexPath.section==_selectedIndexPath.section&&indexPath.row==_selectedIndexPath.row)
+            {
+                [cell setSelected:YES];
+//                _selectedIndexPath = indexPath;
+            }
+        }
+
+        i++;
         return cell;
     }
     else
@@ -94,11 +120,16 @@
         
         cell.titleImageView.image = [UIImage imageNamed:@"home_left_btn_type@2x.png"];
         
-        if (indexPath == _selectedIndexPath)
+        if(_selectedIndexPath)
         {
-            cell.backgroundColor = M_PINK_COLOR;
+            if (indexPath.section==_selectedIndexPath.section&&indexPath.row==_selectedIndexPath.row)
+            {
+                [cell setSelected:YES];
+                //                _selectedIndexPath = indexPath;
+            }
         }
-        
+
+        i++;
         return cell;
     }
 }
@@ -116,8 +147,40 @@
             [view removeFromSuperview];
         }
         
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 240, 80)];
-        label.backgroundColor = [UIColor orangeColor];
+        UILabel *label = [[UILabel alloc] init];
+                          
+        label.font = [UIFont systemFontOfSize:24];
+        
+        if (indexPath.section==0)
+        {
+            label.text = @"搭配类别";
+            
+        }
+        else
+        {
+            label.text = @"最近热门搜索";
+        }
+        
+        CGRect rect = [label.text boundingRectWithSize:CGSizeMake(0, 0) options:
+                       NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:nil];
+        
+        label.bounds = rect;
+        
+        label.center = CGPointMake(view.frame.size.width/2, view.frame.size.height-20);
+        
+        label.backgroundColor = M_LIGHT_GRAY_COLOR;
+        
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        UIView *lineView = [[UIView alloc]init];
+        
+        lineView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1.0];
+        
+        lineView.bounds = CGRectMake(0, 0, 200, 2);
+        
+        lineView.center = label.center;
+        
+        [view addSubview:lineView];
         
         [view addSubview:label];
         
@@ -136,7 +199,7 @@
             [view removeFromSuperview];
         }
 
-        UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 240, 30)];
+        UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:view.bounds];
         
         searchBar.autoresizingMask = YES;
         
@@ -167,7 +230,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return section==0?CGSizeMake(240, 80):CGSizeMake(240, 40);
+    return section==0?CGSizeMake(240, 80):CGSizeMake(240, 50);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
@@ -177,7 +240,18 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@",indexPath);
+
+    if(indexPath != _selectedIndexPath)
+    {
+        if (_selectedIndexPath)
+        {
+            [_selectedIndexPath release];
+        }
+        
+        _selectedIndexPath = [indexPath retain];
+        
+        [collectionView reloadData];
+    }
 }
 
 #pragma mark- search bar delegate
@@ -190,23 +264,27 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-     NSLog(@"----%s---",__func__);
+    [searchBar setShowsCancelButton:YES animated:YES];
     
-    [searchBar setShowsCancelButton:YES animated:YES];	// 修改UISearchBar右侧的取消按钮文字颜色及背景图片
-    for (UIView *searchbuttons in [searchBar subviews])
+    // 修改UISearchBar右侧的取消按钮文字颜色及背景图片
+    for (UIView * searchbuttons in searchBar.subviews)
     {
-        NSLog(@"==============%@",searchbuttons);
-        
-        if ([searchbuttons isKindOfClass:[UIView class]])
-        {
-            UIView *cancelButton = (UIButton*)searchbuttons;	// 修改文字颜色
-            
-            for (UIView *view in cancelButton.subviews)
-            {
-                [view removeFromSuperview];
-            }
-
-        }
+        for (id view in [searchbuttons subviews] ) {
+            if ( [view isKindOfClass: [UIButton class]] ) {
+                UIButton * cancelButton = (UIButton*)view;
+                cancelButton.enabled = YES;
+                
+                [cancelButton setTitleColor: [UIColor colorWithWhite:0.4 alpha:1.0] forState:UIControlStateNormal];
+                
+//                cancelButton.layer.borderWidth = 1.0;
+                
+                cancelButton.layer.borderColor = [[UIColor colorWithWhite:0.4 alpha:1.0] CGColor];
+                
+                [cancelButton setTitle:@"取消" forState:UIControlStateNormal];//文字
+  
+                break; 
+            } 
+        } 
     }
 }
 
@@ -222,6 +300,15 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"%s",__func__);
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    
+    [_categoryArray release];
+    
+    [_selectedIndexPath release];
 }
 
 @end

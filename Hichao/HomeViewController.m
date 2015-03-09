@@ -290,7 +290,7 @@
         }
         imageIndex++;
     }
-    NSLog(@"\n%@\n%@\n%@\n%@",_tableView1Index,_tableView2Index,_tableView3Index,_tableView4Index);
+//    NSLog(@"\n%@\n%@\n%@\n%@",_tableView1Index,_tableView2Index,_tableView3Index,_tableView4Index);
     //找到最高的tableView
     float tableViewMaxHeight = 0.0f;
     for (int i = 0; i < 4 ; i++)

@@ -20,9 +20,9 @@
         
         _titleImageView = [[UIImageView alloc]init];
         
-        _titleImageView.bounds = CGRectMake(0, 0, self.frame.size.height-10, self.frame.size.height-10);
+        _titleImageView.bounds = CGRectMake(0, 0, self.frame.size.height-8, self.frame.size.height-8);
         
-        _titleImageView.center = CGPointMake(self.frame.size.height-10, self.frame.size.height/2.0);
+        _titleImageView.center = CGPointMake(self.frame.size.height-18, self.frame.size.height/2.0);
         
         _titleImageView.layer.cornerRadius = _titleImageView.frame.size.width/2.0;
         
@@ -41,7 +41,7 @@
         
         [_textLabel release];
         
-        UIImageView *accessoryView = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height*0.8, self.frame.size.height*0.3, self.frame.size.height*0.4, self.frame.size.height*0.4)];
+        UIImageView *accessoryView = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height*0.8, self.frame.size.height*0.35, self.frame.size.height*0.3, self.frame.size.height*0.3)];
         
         accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_right@2x.png"];
         
