@@ -87,7 +87,12 @@
         [self createCoverFlow];
     }
     [self createCategoryTitlebar];
-    
+    //开始第一次下拉刷新
+    [self firstFresh];
+}
+- (void)firstFresh{
+    [_scrollView.pullToRefreshView startAnimating];
+    [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
 }
 
 #pragma mark - Create UI
@@ -219,6 +224,7 @@
 }
 - (void)segmentValueChanged:(UISegmentedControl *)sender{
     [self cleanDataSource];
+    [_scrollView.pullToRefreshView startAnimating];
     [self requestWithCategory:_categoryArray[sender.selectedSegmentIndex]];
 }
 - (void)requestWithCategory:(NSString *)category{
@@ -256,10 +262,6 @@
     }];
 }
 - (void)tableViewsReloadData{
-    
-    //停止刷新动画
-    [_scrollView.pullToRefreshView stopAnimating];
-    [_scrollView.infiniteScrollingView stopAnimating];
     
     int imageIndex = 0; //记录当前索引
     
@@ -324,6 +326,9 @@
     [_tableView2 reloadData];
     [_tableView3 reloadData];
     [_tableView4 reloadData];
+    //停止刷新动画
+    [_scrollView.pullToRefreshView stopAnimating];
+    [_scrollView.infiniteScrollingView stopAnimating];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
