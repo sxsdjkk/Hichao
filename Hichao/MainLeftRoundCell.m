@@ -16,17 +16,23 @@
     
     if (self)
     {
-        self.backgroundImage = [[UIImageView alloc]initWithFrame:self.bounds];
+        _backgroundImage = [[UIImageView alloc]initWithFrame:self.bounds];
         
         [self addSubview:_backgroundImage];
+        
+        self.backgroundImage.image = [UIImage imageNamed:@"home_left_btn_type@2x.png"];
         
         [_backgroundImage release];
         
         _textLabel = [[UILabel alloc] initWithFrame:self.bounds];
         
         [self addSubview:_textLabel];
-        
+
         [_textLabel release];
+
+        NSLog(@"_textLabel--retainCount---%d",_textLabel.retainCount);
+
+        
         
 //        _textLabel.layer.cornerRadius = _textLabel.frame.size.width/2.0;
 //        
