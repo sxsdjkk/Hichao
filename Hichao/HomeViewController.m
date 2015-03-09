@@ -9,7 +9,7 @@
 //CoverFlow 64,62,960,270
 //正图 460*200
 //原图 640*260
-#define iCarousel_Height 270.0f
+#define iCarousel_Height 240.0f
 
 #import "HomeViewController.h"
 #import <FXImageView.h>
@@ -120,7 +120,7 @@
 }
 
 - (void)createScrollView{
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height)];
     _scrollView.delegate = self;
     //下拉刷新
     [_scrollView addPullToRefreshWithActionHandler:^{
@@ -151,7 +151,7 @@
     //开启循环
     _wrap = YES;
     //create carousel
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 5, 960, iCarousel_Height)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, 960, iCarousel_Height)];
 //    _carousel.backgroundColor = self.view.backgroundColor;
     //        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _carousel.type = iCarouselTypeCoverFlow;
@@ -340,7 +340,7 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     //必须返回一个不为0的高度，否则默认高度
-    return _hasCarousel?iCarousel_Height:20.0f;
+    return _hasCarousel?iCarousel_Height:8.0f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
