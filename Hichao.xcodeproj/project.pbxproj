@@ -674,6 +674,7 @@
 		6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9E1AA88E930049CA3E /* BannerComponent.m */; };
 		6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA01AA88E930049CA3E /* BannerData.m */; };
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
+		6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1403,6 +1404,8 @@
 		6A7BBDA11AA88E930049CA3E /* BannerItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerItems.h; sourceTree = "<group>"; };
 		6A7BBDA21AA88E930049CA3E /* BannerItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerItems.m; sourceTree = "<group>"; };
 		6A7BBDA31AA88E930049CA3E /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		6ADDC15B1AADA1CC009B8ED2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1631,6 +1634,8 @@
 			children = (
 				6A3142C51AAD73E000E4750D /* SettingsViewController.h */,
 				6A3142C61AAD73E000E4750D /* SettingsViewController.m */,
+				6ADDC15B1AADA1CC009B8ED2 /* LoginViewController.h */,
+				6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */,
 			);
 			name = SettingsVC;
 			sourceTree = "<group>";
@@ -3208,6 +3213,7 @@
 				52A5713B1AAC72150075F3C0 /* MLVItemStarCategories.m in Sources */,
 				52A571331AAC72150075F3C0 /* MLCountly.m in Sources */,
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
+				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,

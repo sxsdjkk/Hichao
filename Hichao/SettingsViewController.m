@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "LoginViewController.h"
 
 @interface SettingsViewController ()
 
@@ -38,7 +39,7 @@
     tableView.delegate = self;
     [self.view addSubview:tableView];
     [tableView release];
-    
+
     CGRect navBarFrame = CGRectMake(0, 0, tableView.frame.size.width, 44.0);
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:navBarFrame];
     UINavigationItem *navItem = [UINavigationItem alloc];
@@ -47,6 +48,7 @@
     [navItem release];
     [self.view addSubview:navBar];
     [navBar release];
+    
     
 }
 
@@ -62,6 +64,15 @@
     }
     cell.textLabel.text = _titleArray[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"选中了 %d",indexPath.row);
+    
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.title = @"登录";
+    //[self pushViewController:loginVC animated:YES];
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 
 
