@@ -9,7 +9,7 @@
 //CoverFlow 64,62,960,270
 //正图 460*200
 //原图 640*260
-#define iCarousel_Height 240.0f
+#define iCarousel_Height 250.0f
 
 #import "HomeViewController.h"
 #import <FXImageView.h>
@@ -69,13 +69,23 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //239 240 233 灰色
-    self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
-
+    self.view.backgroundColor = M_GRAY_COLOR;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage alloc] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    
     UINavigationBar *nav = [[UINavigationBar alloc] init];
-    [nav setBackgroundColor:[UIColor blackColor]];
+    [nav setBackgroundColor:M_GRAY_COLOR];
     [self.view addSubview:nav];
     [nav release];
+    
+    UIImageView *line = [[UIImageView alloc] init];
+    line.backgroundColor = [UIColor lightGrayColor];
+    line.alpha = .5;
+    line.frame = CGRectMake(0, 63, self.view.frame.size.width, 1);
+    [self.view addSubview:line];
+    [line release];
 
     //创建UI
     [self createSegmentControll];
@@ -99,7 +109,7 @@
     //选项卡 刷新瀑布流
     _segmentControll = [[UISegmentedControl alloc] initWithItems:_segmentItemsArray];
     _segmentControll.frame = CGRectMake(0, 0, 600, 35);
-    _segmentControll.tintColor = [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0];
+    _segmentControll.tintColor = M_PINK_COLOR;
     //绑定方法，值改变发送请求
     [_segmentControll addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
     _segmentControll.selectedSegmentIndex = 0;
@@ -137,6 +147,7 @@
 - (void)createTableView{
     for (int i=0; i<4; i++) {
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(8+238*i, 0, 230, 705) style:UITableViewStyleGrouped];
+        tableView.backgroundColor = M_GRAY_COLOR;
         tableView.dataSource = self;
         tableView.delegate = self;
         tableView.scrollEnabled = NO;
@@ -151,7 +162,7 @@
     //开启循环
     _wrap = YES;
     //create carousel
-    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 0, 960, iCarousel_Height)];
+    _carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, -10, 960, iCarousel_Height)];
 //    _carousel.backgroundColor = self.view.backgroundColor;
     //        _carousel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _carousel.type = iCarouselTypeCoverFlow;
@@ -396,7 +407,7 @@
             
             tview.contentOffset= scrollView.contentOffset;
             // 对表的 y 值进行修改 让其始终保持一致
-            tview.frame = CGRectMake(tview.frame.origin.x,y+10, tview.frame.size.width, tview.frame.size.height);
+            tview.frame = CGRectMake(tview.frame.origin.x,y, tview.frame.size.width, tview.frame.size.height);
         }
     }
 }
@@ -428,7 +439,6 @@
         view.layer.masksToBounds = YES;
         //圆角
         view.layer.cornerRadius = 8;
-        view.backgroundColor = [UIColor whiteColor];
         
         //适应大小
         view.contentMode = UIViewContentModeScaleToFill;
