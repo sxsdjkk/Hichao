@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UINavigationController <UITableViewDataSource,UITableViewDelegate>
+@interface SettingsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 {
     NSArray *_titleArray;
     NSArray *_imageNameArray;

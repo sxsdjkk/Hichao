@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface HomeLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
 
 @end

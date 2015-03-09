@@ -136,9 +136,25 @@
             [view removeFromSuperview];
         }
 
-        UISearchBar *seachBar = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 0, 240-20, 30)];
+        UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 240, 30)];
         
-        [view addSubview:seachBar];
+        searchBar.autoresizingMask = YES;
+        
+//        searchBar setImage:<#(UIImage *)#> forSearchBarIcon:<#(UISearchBarIcon)#> state:<#(UIControlState)#>
+        
+        searchBar.tintColor = [UIColor whiteColor];
+        
+        searchBar.searchBarStyle = UISearchBarStyleMinimal;
+        
+        searchBar.placeholder = @"搜索明星，达人，搭配图  ";
+        
+//        searchBar.barTintColor = [UIColor blueColor];
+        
+        searchBar.delegate = self;
+        
+        [view addSubview:searchBar];
+        
+        [searchBar release];
         
         return view;
     }
@@ -151,17 +167,61 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(240, 30);
+    return section==0?CGSizeMake(240, 80):CGSizeMake(240, 40);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return section==0?CGSizeMake(240, 80):CGSizeMake(0, 0);
+    return section==0?CGSizeMake(240, 30):CGSizeMake(0, 0);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%@",indexPath);
+}
+
+#pragma mark- search bar delegate
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    return YES;
+}
+
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+     NSLog(@"----%s---",__func__);
+    
+    [searchBar setShowsCancelButton:YES animated:YES];	// 修改UISearchBar右侧的取消按钮文字颜色及背景图片
+    for (UIView *searchbuttons in [searchBar subviews])
+    {
+        NSLog(@"==============%@",searchbuttons);
+        
+        if ([searchbuttons isKindOfClass:[UIView class]])
+        {
+            UIView *cancelButton = (UIButton*)searchbuttons;	// 修改文字颜色
+            
+            for (UIView *view in cancelButton.subviews)
+            {
+                [view removeFromSuperview];
+            }
+
+        }
+    }
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = NO;
+    [searchBar resignFirstResponder];
+}
+
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSLog(@"%s",__func__);
 }
 
 @end

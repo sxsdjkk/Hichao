@@ -14,7 +14,6 @@
 		521BB92B1AA7583000426FC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9291AA7583000426FC6 /* LaunchScreen.xib */; };
 		521BB9371AA7583100426FC6 /* HichaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9361AA7583100426FC6 /* HichaoTests.m */; };
 		521BB9441AA7865300426FC6 /* MyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9431AA7865300426FC6 /* MyTabBarController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		521BB99A1AA78EAB00426FC6 /* cloudConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9991AA78EAB00426FC6 /* cloudConfig.json */; };
 		521BB99D1AA7925900426FC6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB99C1AA7925900426FC6 /* HomeViewController.m */; };
 		521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB99F1AA7926800426FC6 /* HomeLeftViewController.m */; };
 		521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9A21AA7929100426FC6 /* SelectedViewController.m */; };
@@ -701,7 +700,6 @@
 		521BB9361AA7583100426FC6 /* HichaoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HichaoTests.m; sourceTree = "<group>"; };
 		521BB9421AA7865300426FC6 /* MyTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabBarController.h; sourceTree = "<group>"; };
 		521BB9431AA7865300426FC6 /* MyTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabBarController.m; sourceTree = "<group>"; };
-		521BB9991AA78EAB00426FC6 /* cloudConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cloudConfig.json; sourceTree = "<group>"; };
 		521BB99B1AA7925900426FC6 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		521BB99C1AA7925900426FC6 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		521BB99E1AA7926800426FC6 /* HomeLeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeLeftViewController.h; sourceTree = "<group>"; };
@@ -1474,7 +1472,6 @@
 				521BB9251AA7583000426FC6 /* AppDelegate.m */,
 				521BB9271AA7583000426FC6 /* Images.xcassets */,
 				521BB9291AA7583000426FC6 /* LaunchScreen.xib */,
-				521BB9991AA78EAB00426FC6 /* cloudConfig.json */,
 				521BB9201AA7583000426FC6 /* Supporting Files */,
 			);
 			path = Hichao;
@@ -2751,7 +2748,6 @@
 				6A4115BB1AA954DA00E6337B /* button_comment_list_icon_hover.png in Resources */,
 				6A4112A81AA954B200E6337B /* nav_pic_slider_pannel@2x.png in Resources */,
 				6A4117231AA954DA00E6337B /* taobao-pre-bottom-hover@2x.png in Resources */,
-				521BB99A1AA78EAB00426FC6 /* cloudConfig.json in Resources */,
 				6A41165D1AA954DA00E6337B /* icon_message_myleft@2x.png in Resources */,
 				6A41165E1AA954DA00E6337B /* icon_message_myleft_on.png in Resources */,
 				6A4116D21AA954DA00E6337B /* icon_xiansuo_waitao_on.png in Resources */,

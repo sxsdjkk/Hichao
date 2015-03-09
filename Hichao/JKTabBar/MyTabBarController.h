@@ -18,6 +18,8 @@
     UIImageView *_indicatorView;
     
     SettingsViewController *_settingsVC;
+    
+    UINavigationController *_settingNav;
 }
 
 - (void)showTabBar;

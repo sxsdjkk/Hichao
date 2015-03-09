@@ -123,8 +123,9 @@
     [_tabBarController setViewControllers:menuVCArray animated:YES];
 
     _settingsVC = [[SettingsViewController alloc] init];
-    _settingsVC.view.frame = _settingsVC.hideFrame;
-    [self.view addSubview:_settingsVC.view];
+    _settingNav = [[UINavigationController alloc]initWithRootViewController:_settingsVC];
+    _settingNav.view.frame = _settingsVC.hideFrame;
+    [self.view addSubview:_settingNav.view];
 }
 
 
@@ -223,9 +224,10 @@
 - (void)removeSettingsVC:(UIButton *)sender{
     //移除
     [UIView animateWithDuration:0.5 animations:^{
-        _settingsVC.view.frame = _settingsVC.hideFrame;
+        _settingNav.view.frame = _settingsVC.hideFrame;
         sender.alpha = 0.0f;
-    } completion:^(BOOL finished) {
+    } completion:^(BOOL finished)
+    {
         [sender removeFromSuperview];
     }];
 }
@@ -244,9 +246,10 @@ static NSInteger selectBtn = 1;
         button.alpha = 0.0f;
         [button addTarget:self action:@selector(removeSettingsVC:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
-        [self.view bringSubviewToFront:_settingsVC.view];
-        [UIView animateWithDuration:0.5 animations:^{
-            _settingsVC.view.frame = _settingsVC.showFrame;
+        [self.view bringSubviewToFront:_settingNav.view];
+        [UIView animateWithDuration:0.5 animations:^
+        {
+            _settingNav.view.frame = _settingsVC.showFrame;
             button.alpha = 0.5f;
         }];
         return;
