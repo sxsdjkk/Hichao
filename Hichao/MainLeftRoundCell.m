@@ -41,6 +41,20 @@
     return self;
 }
 
+- (void)setSelected:(BOOL)selected
+{
+    if (selected)
+    {
+        self.backgroundImage.image = [UIImage imageNamed:@"home_left_btn_type_on@2x.png"];
+        self.textLabel.textColor = [UIColor whiteColor];
+    }
+    else
+    {
+        self.backgroundImage.image = [UIImage imageNamed:@"home_left_btn_type@2x.png"];
+        self.textLabel.textColor = [UIColor blackColor];
+    }
+}
+
 - (void)dealloc
 {
     [super dealloc];

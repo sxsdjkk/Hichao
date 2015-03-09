@@ -13,6 +13,16 @@
 #define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define M_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+//粉色
+#define M_PINK_COLOR [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0]
+//主视图背景灰
+#define M_GRAY_COLOR [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0]
+//左视图背景灰
+#define M_LIGHT_GRAY_COLOR [UIColor colorWithRed:247/255.0 green:248/255.0 blue:245/255.0 alpha:1.0]
+
+#import <AFNetworking.h>
 #import "DataModels.h"
+
+
 
 #endif

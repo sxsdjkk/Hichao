@@ -71,7 +71,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //239 240 233
+    //239 240 233 灰色
     self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
 
     UINavigationBar *nav = [[UINavigationBar alloc] init];

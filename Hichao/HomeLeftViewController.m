@@ -22,7 +22,9 @@
     [super viewDidLoad];
     
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];;
     
     UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
     
