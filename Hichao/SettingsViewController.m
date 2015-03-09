@@ -32,23 +32,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
-
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 500, 384)];
+    self.view.backgroundColor = M_GRAY_COLOR;
+    self.title = @"设置";
+    
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 500, 400)];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.rowHeight = 54;
     [self.view addSubview:tableView];
     [tableView release];
 
-    CGRect navBarFrame = CGRectMake(0, 0, tableView.frame.size.width, 44.0);
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:navBarFrame];
-    UINavigationItem *navItem = [UINavigationItem alloc];
-    navItem.title = @"设置";
-    [navBar pushNavigationItem:navItem animated:false];
-    [navItem release];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    [navBar setBackgroundColor:M_GRAY_COLOR];
     [self.view addSubview:navBar];
     [navBar release];
-    
     
 }
 
@@ -70,8 +69,7 @@
     NSLog(@"选中了 %d",indexPath.row);
     
     LoginViewController *loginVC = [[LoginViewController alloc] init];
-    loginVC.title = @"登录";
-    //[self pushViewController:loginVC animated:YES];
+    loginVC.title = @"用户登录";
     [self.navigationController pushViewController:loginVC animated:YES];
 }
 

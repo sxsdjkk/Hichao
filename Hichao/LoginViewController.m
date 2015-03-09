@@ -16,10 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(10, 10, 50, 30);
-    button.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:button];
+    self.view.backgroundColor = M_GRAY_COLOR;
+    self.view.frame = CGRectMake(0, 0, 500, 200);
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, 500, 20)];
+    label.text = @"----------  请选择登录方式  ----------";
+    label.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:label];
+    
+    UIButton *weiboLogin = [UIButton buttonWithType:UIButtonTypeCustom];
+    weiboLogin.frame = CGRectMake(80, 180, 85, 85);
+    [weiboLogin setImage:[UIImage imageNamed:@"icon_login_weibo"] forState:UIControlStateNormal];
+    [self.view addSubview:weiboLogin];
 }
 
 - (void)didReceiveMemoryWarning {
