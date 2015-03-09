@@ -53,8 +53,6 @@
     [_tableView3Index release];
     [_tableView4Index release];
     
-    [_tableView1 release];
-
     [_segmentControll release];
     self.carousel = nil;
 }
@@ -148,53 +146,6 @@
         [_scrollView addSubview:tableView];
         [tableView release];
     }
-    /*
-    _tableView1 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*0, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
-    _tableView1.dataSource = self;
-    _tableView1.delegate = self;
-    
-    
-    _tableView2 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*1, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
-    _tableView2.dataSource = self;
-    _tableView2.delegate = self;
-    
-    
-    _tableView3 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*2, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
-    _tableView3.dataSource = self;
-    _tableView3.delegate = self;
-    
-    
-    _tableView4 = [[[UITableView alloc] initWithFrame:CGRectMake(8+238*3, 40, 230, 705) style:UITableViewStyleGrouped] autorelease];
-    _tableView4.dataSource = self;
-    _tableView4.delegate = self;
-    
-    
-    _tableView1.scrollEnabled = NO;
-    _tableView2.scrollEnabled = NO;
-    _tableView3.scrollEnabled = NO;
-    _tableView4.scrollEnabled = NO;
-    
-    
-    _tableView1.showsVerticalScrollIndicator = NO;
-    _tableView2.showsVerticalScrollIndicator = NO;
-    _tableView3.showsVerticalScrollIndicator = NO;
-    _tableView4.showsVerticalScrollIndicator = NO;
-    
-    _tableView1.tag = 41;
-    _tableView2.tag = 42;
-    _tableView3.tag = 43;
-    _tableView4.tag = 44;
-    
-    [_tableView1 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
-    [_tableView2 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
-    [_tableView3 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
-    [_tableView4 registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
-    
-    [_scrollView addSubview:_tableView1];
-    [_scrollView addSubview:_tableView2];
-    [_scrollView addSubview:_tableView3];
-    [_scrollView addSubview:_tableView4];
-     */
 }
 - (void)createCoverFlow{
     //开启循环
@@ -228,6 +179,10 @@
     [_tableView2Index removeAllObjects];
     [_tableView3Index removeAllObjects];
     [_tableView4Index removeAllObjects];
+    colHeight[0] = 0;
+    colHeight[1] = 0;
+    colHeight[2] = 0;
+    colHeight[3] = 0;
 }
 - (void)pullToRefreshWithActionHandler{
     [self cleanDataSource];
@@ -289,24 +244,19 @@
             
             int minIndex = 0; //存放最低高
             
-            float col1=MIN(colHeight[0], colHeight[1]);
-            float col2=MIN(colHeight[2], colHeight[3]);
-            
-            float minHeight=MIN(col1, col2);
-            
-    //        float minHeight = colHeight[0];
+            float minHeight = colHeight[0];
             for (int i=0; i<4; i++) {
-                if (colHeight[i]==minHeight) {
+                if (minHeight>=colHeight[i]) {
                     minHeight = colHeight[i];
-                    minIndex = i; //记录这个最低高在一维数组中的索引
+                    minIndex = i;
                 }
             }
+
             colHeight[minIndex] += height;
             
             //将当前的索引添加到相应的数组中。
             switch (minIndex) {
                 case 0:
-                    NSLog(@"%d",imageIndex);
                     [_tableView1Index addObject:[NSNumber numberWithInt:imageIndex]];
                     break;
                 case 1:
@@ -324,6 +274,7 @@
         }
         imageIndex++;
     }
+    NSLog(@"\n%@\n%@\n%@\n%@",_tableView1Index,_tableView2Index,_tableView3Index,_tableView4Index);
     //找到最高的tableView
     float tableViewMaxHeight = 0.0f;
     for (int i = 0; i < 4 ; i++)
@@ -336,10 +287,6 @@
         }
     }
     _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, tableViewMaxHeight+64);
-//    [tab] reloadData];
-//    [_tableView2 reloadData];
-//    [_tableView3 reloadData];
-//    [_tableView4 reloadData];
     //停止刷新动画
     [_scrollView.pullToRefreshView stopAnimating];
     [_scrollView.infiniteScrollingView stopAnimating];
@@ -428,7 +375,6 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     float y = scrollView.contentOffset.y;
-    //    NSLog(@"Scroll-->%@",NSStringFromCGPoint(_scollView.contentOffset));
     
     if (y< 0) {
         return;
@@ -453,20 +399,7 @@
             tview.frame = CGRectMake(tview.frame.origin.x,y+10, tview.frame.size.width, tview.frame.size.height);
         }
     }
-//    //同步滚动
-//    _tableView1.contentOffset = scrollView.contentOffset;
-//    _tableView2.contentOffset = scrollView.contentOffset;
-//    _tableView3.contentOffset = scrollView.contentOffset;
-//    _tableView4.contentOffset = scrollView.contentOffset;
-//    _carousel.frame = CGRectMake(0, 62-scrollView.contentOffset.y, 960, 260);
-    if (scrollView.contentOffset.y>=0) {
-        //上拉加载
-    }else{
-        //下拉刷新
-    }
-    
 }
-
 
 #pragma mark - iCarouselDataSource
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{

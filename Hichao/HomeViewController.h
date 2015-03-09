@@ -25,10 +25,6 @@
     
     //用4个tableView实现瀑布流
     UIScrollView *_scrollView;
-    UITableView *_tableView1;
-    UITableView *_tableView2;
-    UITableView *_tableView3;
-    UITableView *_tableView4;
     
     //4个Index
     NSMutableArray *_tableView1Index;
