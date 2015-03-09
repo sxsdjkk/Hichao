@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsViewController.h"
 
 @interface MyTabBarController : UIViewController
 {
@@ -15,6 +16,8 @@
     UITabBarController *_tabBarController;
     
     UIImageView *_indicatorView;
+    
+    SettingsViewController *_settingsVC;
 }
 
 - (void)showTabBar;

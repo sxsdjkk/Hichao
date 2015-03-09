@@ -120,7 +120,9 @@
     
     [_tabBarController setViewControllers:menuVCArray animated:YES];
 
-
+    _settingsVC = [[SettingsViewController alloc] init];
+    _settingsVC.view.frame = _settingsVC.hideFrame;
+    [self.view addSubview:_settingsVC.view];
 }
 
 
@@ -224,6 +226,19 @@ static NSInteger selectBtn = 1;
     
     if (button.tag == 7)
     {
+        if (_settingsVC.show == YES) {
+            //展示
+            [UIView animateWithDuration:0.5 animations:^{
+                _settingsVC.view.frame = _settingsVC.showFrame;
+            }];
+            _settingsVC.show = NO;
+        }else{
+            //隐藏
+            [UIView animateWithDuration:0.5 animations:^{
+                _settingsVC.view.frame = _settingsVC.hideFrame;
+            }];
+            _settingsVC.show = YES;
+        }
         return;
     }
     _tabBarController.selectedIndex = button.tag-1;
