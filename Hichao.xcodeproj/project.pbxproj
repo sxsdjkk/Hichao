@@ -674,6 +674,7 @@
 		6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA01AA88E930049CA3E /* BannerData.m */; };
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
 		6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */; };
+		6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1404,6 +1405,8 @@
 		6A7BBDA31AA88E930049CA3E /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
 		6ADDC15B1AADA1CC009B8ED2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		6ADDC15E1AADCAD5009B8ED2 /* HomeRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRightViewController.h; sourceTree = "<group>"; };
+		6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRightViewController.m; sourceTree = "<group>"; };
 		C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1519,6 +1522,8 @@
 			children = (
 				521BB99B1AA7925900426FC6 /* HomeViewController.h */,
 				521BB99C1AA7925900426FC6 /* HomeViewController.m */,
+				6ADDC15E1AADCAD5009B8ED2 /* HomeRightViewController.h */,
+				6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */,
 				521BB99E1AA7926800426FC6 /* HomeLeftViewController.h */,
 				521BB99F1AA7926800426FC6 /* HomeLeftViewController.m */,
 				6A38BFBF1AAAC91500539963 /* PullViewCell.h */,
@@ -3212,6 +3217,7 @@
 				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
+				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,
 				52A571341AAC72150075F3C0 /* MLData.m in Sources */,
 				52A571351AAC72150075F3C0 /* MLMobileSubjectCategories.m in Sources */,

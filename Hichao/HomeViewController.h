@@ -11,6 +11,7 @@
 #import <UIImageView+WebCache.h>
 #import <SVPullToRefresh.h>
 #import <iCarousel.h>
+#import "HomeRightViewController.h"
 
 @interface HomeViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,iCarouselDataSource,iCarouselDelegate>
 {
@@ -45,6 +46,9 @@
     //解析WaterFlow
     WaterFlowBaseClass *_waterFlowBaseClass;
     NSMutableArray *_waterFlowItemsArray;
+    
+    //右边划过来的View
+    HomeRightViewController *_homeRightVC;
 }
 @property (nonatomic, strong) iCarousel *carousel;
 @property (nonatomic, strong) UINavigationItem *navItem;

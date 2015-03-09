@@ -98,6 +98,11 @@
     [self createCategoryTitlebar];
     //开始第一次下拉刷新
     [self firstFresh];
+    
+    //右边视图
+    _homeRightVC = [[HomeRightViewController alloc] init];
+    _homeRightVC.view.frame = _homeRightVC.hideFrame;
+    [self.view addSubview:_homeRightVC.view];
 }
 - (void)firstFresh{
     [_scrollView.pullToRefreshView startAnimating];
@@ -349,6 +354,27 @@
     return cell;
 }
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIControl *controll = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    controll.alpha = 0.0f;
+    controll.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:controll];
+    [controll release];
+    [controll addTarget:self action:@selector(rmBlackView:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view bringSubviewToFront:_homeRightVC.view];
+    [UIView animateWithDuration:0.5 animations:^{
+        _homeRightVC.view.frame = _homeRightVC.showFrame;
+        controll.alpha = 0.5f;
+    }];
+}
+- (void)rmBlackView:(UIControl *)controll{
+    [UIView animateWithDuration:0.5 animations:^{
+        _homeRightVC.view.frame = _homeRightVC.hideFrame;
+        controll.alpha = 0.5f;
+    } completion:^(BOOL finished) {
+        [controll removeFromSuperview];
+    }];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     //必须返回一个不为0的高度，否则默认高度
     return _hasCarousel?iCarousel_Height:8.0f;
@@ -383,6 +409,7 @@
     
     return height+newHeight;
 }
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     float y = scrollView.contentOffset.y;
