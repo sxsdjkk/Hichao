@@ -21,6 +21,8 @@
 #import "PragueLeftViewController.h"
 #import "FavoritesLeftViewController.h"
 
+
+
 #import "DDMenuController.h"
 
 #define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -224,6 +226,9 @@ static NSInteger selectBtn = 1;
     
     if (button.tag == 7)
     {
+        //在这儿写settingVC
+
+        
         return;
     }
     _tabBarController.selectedIndex = button.tag-1;
