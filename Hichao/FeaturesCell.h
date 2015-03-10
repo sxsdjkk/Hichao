@@ -14,6 +14,7 @@
     UILabel *_tagLabel;
     UILabel *_titleLabel;
     UILabel *_timeLabel;
+    UILabel *_collectionLabel;
 }
 
 @property (nonatomic,retain) TopicsItems *items;

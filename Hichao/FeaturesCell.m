@@ -41,6 +41,25 @@
         _timeLabel.textColor = [UIColor grayColor];
         [self addSubview:_timeLabel];
         [_timeLabel release];
+        
+        UIImageView *leftLine = [[UIImageView alloc] initWithFrame:CGRectMake(100, 260, 100, 3)];
+        [leftLine setImage:[UIImage imageNamed:@"line_dot_detail_mingxing"]];
+        [self addSubview:leftLine];
+        [leftLine release];
+        
+        UIImageView *lineView = [[UIImageView alloc] initWithFrame:CGRectMake(280, 260, 100, 3)];
+        [lineView setImage:[UIImage imageNamed:@"line_dot_detail_mingxing"]];
+        [self addSubview:lineView];
+        [lineView release];
+        
+        UIImageView *collectView = [[UIImageView alloc] initWithFrame:CGRectMake(210, 244, 32, 32)];
+        [collectView setImage:[UIImage imageNamed:@"nav_btn_collect"]];
+        [self addSubview:collectView];
+        [collectView release];
+        
+        _collectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(242, 245, 60, 30)];
+        [self addSubview:_collectionLabel];
+        [_collectionLabel release];
     }
     return self;
 }
@@ -50,6 +69,7 @@
     [_tagLabel release];
     [_tagLabel release];
     [_timeLabel release];
+    [_collectionLabel release];
 }
 
 - (void)setItems:(TopicsItems *)items{
@@ -58,6 +78,7 @@
     _tagLabel.text = _items.component.category;
     _titleLabel.text = _items.component.title;
     _timeLabel.text = [NSString stringWithFormat:@"%@.%@.%@",items.component.year,items.component.month,items.component.day];
+    _collectionLabel.text = _items.component.collectionCount;
     [_imageView sd_setImageWithURL:[NSURL URLWithString:_items.component.picUrl]];
 }
 
