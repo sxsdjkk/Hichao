@@ -19,5 +19,13 @@
     UITableView *       leftView;
     UITableView *       rightView;
     
+    
+     NSMutableArray *leftIndex;
+     NSMutableArray *rightIndex;
+    
+     float colHeight[2];
+    
+    
+    
 }
 @end

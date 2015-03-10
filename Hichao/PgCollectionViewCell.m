@@ -20,6 +20,7 @@
         
         _titleImageView = [[UIImageView alloc]init];
         
+        
         _titleImageView.bounds = CGRectMake(0, 0, self.frame.size.height-8, self.frame.size.height-8);
         
         _titleImageView.center = CGPointMake(self.frame.size.height-18, self.frame.size.height/2.0);

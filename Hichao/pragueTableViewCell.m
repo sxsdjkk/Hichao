@@ -16,6 +16,8 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         _titleImage.backgroundColor = [UIColor redColor];
         _titleImage = [[UIImageView alloc] init];
         [self addSubview:_titleImage];
@@ -93,6 +95,57 @@
         
     }
     
+    if (_items.component.pics==nil) {
+ 
+        [_userImage sd_setImageWithURL:[NSURL URLWithString:_items.component.userAvatar]];
+        _userImage.frame = CGRectMake(30, 192-125, 40, 40);
+        [_userBut setTitle:_items.component.userName forState:UIControlStateNormal];
+        _userBut.frame = CGRectMake(86, 192-125, 150, 22);
+        _dateImage.image=[UIImage imageNamed:@"icon_bbs_time@2x"];
+        _dateImage.frame = CGRectMake(82, 214-125, 15, 15);
+        _dateLable.text = _items.component.publishDate;
+        NSLog(@"------------%@",_items.component.publishDate);
+        _dateLable.frame = CGRectMake(98, 214-125, 82, 15);
+        
+        
+        _vImage.frame = CGRectMake(318, 210-125, 19, 20);
+        _vLabel.text = _items.component.v;
+        _vLabel.frame = CGRectMake(345, 210-125, 42, 21);
+        
+        _CommentCountImage.frame = CGRectMake(195, 210-125, 19, 20);
+        _CommentCountLabel.text = _items.component.commentCount;
+        _CommentCountLabel.frame = CGRectMake(420, 210-125, 30, 21);
+    
+    }else{
+        
+        
+        [_userImage sd_setImageWithURL:[NSURL URLWithString:_items.component.userAvatar]];
+        _userImage.frame = CGRectMake(30, 192, 40, 40);
+        [_userBut setTitle:_items.component.userName forState:UIControlStateNormal];
+        _userBut.frame = CGRectMake(86, 192, 150, 22);
+        _dateImage.image=[UIImage imageNamed:@"icon_bbs_time@2x"];
+        _dateImage.frame = CGRectMake(82, 214, 15, 15);
+        _dateLable.text = _items.component.publishDate;
+        NSLog(@"------------%@",_items.component.publishDate);
+        _dateLable.frame = CGRectMake(98, 214, 82, 15);
+        
+        
+        _vImage.frame = CGRectMake(318, 210, 19, 20);
+        _vLabel.text = _items.component.v;
+        _vLabel.frame = CGRectMake(345, 210, 42, 21);
+        
+        _CommentCountImage.frame = CGRectMake(195, 210, 19, 20);
+        _CommentCountLabel.text = _items.component.commentCount;
+        _CommentCountLabel.frame = CGRectMake(420, 210, 30, 21);
+        
+        
+        
+        
+
+        
+        
+        
+    }
    
     
     
@@ -101,24 +154,26 @@
     _centreImage.frame = CGRectMake(175, 48, 120, 120);
     _rightImage.frame = CGRectMake(327, 48, 120, 120);
     
-    [_userImage sd_setImageWithURL:[NSURL URLWithString:_items.component.userAvatar]];
-    _userImage.frame = CGRectMake(30, 192, 40, 40);
-    [_userBut setTitle:_items.component.userName forState:UIControlStateNormal];
-    _userBut.frame = CGRectMake(86, 192, 150, 22);
-    _dateImage.image=[UIImage imageNamed:@"icon_bbs_time@2x"];
-    _dateImage.frame = CGRectMake(82, 214, 15, 15);
-    _dateLable.text = _items.component.publishDate;
-    NSLog(@"------------%@",_items.component.publishDate);
-    _dateLable.frame = CGRectMake(98, 214, 82, 15);
-
     
-    _vImage.frame = CGRectMake(318, 210, 19, 20);
-    _vLabel.text = _items.component.v;
-    _vLabel.frame = CGRectMake(345, 210, 42, 21);
-
-    _CommentCountImage.frame = CGRectMake(195, 210, 19, 20);
-    _CommentCountLabel.text = _items.component.commentCount;
-    _CommentCountLabel.frame = CGRectMake(420, 210, 30, 21);
+//    
+//    [_userImage sd_setImageWithURL:[NSURL URLWithString:_items.component.userAvatar]];
+//    _userImage.frame = CGRectMake(30, 192, 40, 40);
+//    [_userBut setTitle:_items.component.userName forState:UIControlStateNormal];
+//    _userBut.frame = CGRectMake(86, 192, 150, 22);
+//    _dateImage.image=[UIImage imageNamed:@"icon_bbs_time@2x"];
+//    _dateImage.frame = CGRectMake(82, 214, 15, 15);
+//    _dateLable.text = _items.component.publishDate;
+//    NSLog(@"------------%@",_items.component.publishDate);
+//    _dateLable.frame = CGRectMake(98, 214, 82, 15);
+//
+//    
+//    _vImage.frame = CGRectMake(318, 210, 19, 20);
+//    _vLabel.text = _items.component.v;
+//    _vLabel.frame = CGRectMake(345, 210, 42, 21);
+//
+//    _CommentCountImage.frame = CGRectMake(195, 210, 19, 20);
+//    _CommentCountLabel.text = _items.component.commentCount;
+//    _CommentCountLabel.frame = CGRectMake(420, 210, 30, 21);
     
 }
 

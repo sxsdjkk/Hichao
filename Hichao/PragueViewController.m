@@ -16,6 +16,19 @@
 
 @implementation PragueViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        leftIndex = [[NSMutableArray array] retain];
+        rightIndex = [[NSMutableArray array] retain];
+        colHeight[0] = 0.0f;
+        colHeight[1] = 0.0f;
+    }
+    return self;
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -27,6 +40,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    self.title = @"全部";
 
     AFHTTPRequestOperationManager * manager = [AFHTTPRequestOperationManager manager];
     
@@ -36,26 +53,29 @@
         
         _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
         
+        [self loadPullView];
+        
         [leftView reloadData];
         [rightView reloadData];
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
         
     }];
     
     
     
     float height = self.view.frame.size.height;
-    leftView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, COORD, height)];
+    leftView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, COORD, height)style:UITableViewStylePlain];
     leftView.delegate = self;
     leftView.dataSource = self;
     leftView.tag = 100;
+
     leftView.rowHeight = 250;
     
     [leftView registerClass:[pragueTableViewCell class] forCellReuseIdentifier:@"cell_1"];
     [self.view addSubview:leftView];
     
-    rightView = [[UITableView alloc] initWithFrame:CGRectMake(COORD, 0, 480, height)];
+    rightView = [[UITableView alloc] initWithFrame:CGRectMake(COORD, 044, 480, height)style:UITableViewStylePlain];
     rightView.delegate = self;
     rightView.dataSource = self;
     rightView.tag = 101;
@@ -65,25 +85,89 @@
     [self.view addSubview:rightView];
     
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+bool isOk;
+-(void)loadPullView{
+    for (PgItems *itmes in _baseClass.data.items) {
+        if (itmes.component.pics == nil) {
+            [leftIndex addObject:itmes];
+            colHeight[0] += 125;
+        }else{
+            int index = colHeight[0] <= colHeight[1]?0:1;
+            colHeight[index] += 250;
+            
+            if (index == 0) {
+            [leftIndex addObject:itmes];
+            }else{
+                [rightIndex addObject: itmes];
+            }
+        }
+    }
     
-    return _baseClass.data.items.count;
+    [leftView reloadData];
+    [rightView reloadData];
+    
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView.tag == 100) {
+        return leftIndex.count;
+    }
+    return rightIndex.count;
    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    pragueTableViewCell *cell = (pragueTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     
-     pragueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_1" forIndexPath:indexPath];
     if (!cell) {
         cell = [[pragueTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell_1"];
     }
-    cell.items = _baseClass.data.items[indexPath.row];
     
+    if (tableView.tag == 100) {
+        cell.items = leftIndex[indexPath.row];
+    }else{
+        cell.items = rightIndex[indexPath.row];
+    }
+
     return cell;
 }
 
 
 
 #pragma mark - UIScrollViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    
+    
+    PgItems *item = [[PgItems alloc] init];
+    
+    if (tableView.tag == 100) {
+        
+        item = leftIndex[indexPath.row];
+        if (item.component.pics == nil) {
+            return 125;
+        }else{
+            return 250;
+        }
+    }else{
+        item = rightIndex[indexPath.row];
+        if (item.component.pics == nil) {
+            return 125;
+        }else{
+            return 250;
+        }
+    }
+    
+//    item = _baseClass.data.items[indexPath.row];
+//    if (item.component.pics == nil) {
+//        
+//        return 125;
+//    }else{
+//        
+//        return 250;
+//    }
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView == leftView) {

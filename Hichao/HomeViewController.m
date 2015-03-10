@@ -457,6 +457,7 @@
         controll.alpha = 0.5f;
     }];
 }
+
 - (void)rmBlackView:(UIControl *)controll{
     [UIView animateWithDuration:0.5 animations:^{
         _homeRightVC.view.frame = _homeRightVC.hideFrame;

@@ -81,16 +81,12 @@
     //    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
     
     NSLog(@"您点是%d",indexPath.row);
-    
-    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     return CGSizeMake(240, 20);
 }
-
-
 
 
 
