@@ -278,7 +278,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    NSLog(@"选择%ld",indexPath.row);
+    NSLog(@"选择%ld",(long)indexPath.row);
     
 }
 //返回这个UICollectionView是否可以被选择

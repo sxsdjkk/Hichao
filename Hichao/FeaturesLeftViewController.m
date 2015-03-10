@@ -10,6 +10,7 @@
 #import "FeatureLeftCell.h"
 #import "FeaturesViewController.h"
 #import <UIImageView+WebCache.h>
+#import "DDMenuController.h"
 
 
 @interface FeaturesLeftViewController ()
@@ -93,14 +94,14 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-//    DDMenuController *menuController = self.menuController;
-//    
-//    UINavigationController *featuresNav = menuController.rootViewController;
-//    
-//    FeaturesViewController *featuresVC = featuresNav.viewControllers[0];
-//    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    DDMenuController *menuController = self.menuController;
     
-#warning reload homeVC data
+    UINavigationController *featuresNav = (UINavigationController *)menuController.rootViewController;
+    
+    FeaturesViewController *featuresVC = (FeaturesViewController *)featuresNav.viewControllers[0];
+    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    
+#warning reload featureVC data
     
 
 }

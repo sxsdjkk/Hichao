@@ -282,8 +282,10 @@
     // 修改UISearchBar右侧的取消按钮文字颜色及背景图片
     for (UIView * searchbuttons in searchBar.subviews)
     {
-        for (id view in [searchbuttons subviews] ) {
-            if ( [view isKindOfClass: [UIButton class]] ) {
+        for (id view in [searchbuttons subviews] )
+        {
+            if ( [view isKindOfClass: [UIButton class]] )
+            {
                 UIButton * cancelButton = (UIButton*)view;
                 cancelButton.enabled = YES;
                 
