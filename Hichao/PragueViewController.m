@@ -36,20 +36,12 @@
         
         _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
         
-         NSLog(@"%d---",_baseClass.data.items.count);
-       // NSLog(@"%@",responseObject);
-        
         [leftView reloadData];
         [rightView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
-    
-    
-    
-    
-    
     
     
     
@@ -80,8 +72,12 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-     pragueTableViewCell *cell = (pragueTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell_1" forIndexPath:indexPath];
-
+     pragueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell_1" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[pragueTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell_1"];
+    }
+    cell.items = _baseClass.data.items[indexPath.row];
+    
     return cell;
 }
 

@@ -224,6 +224,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
+    
     return section==0?CGSizeMake(240, 80):CGSizeMake(240, 50);
 }
 

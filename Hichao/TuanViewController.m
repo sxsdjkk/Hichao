@@ -175,13 +175,13 @@
         
         NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/tuan?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&tuan_id=%@&flag=",startAction.actionIdentifier];
         
-        NSLog(@"%@",startAction.actionIdentifier);
+        //NSLog(@"%@",startAction.actionIdentifier);
         
         [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             _baseClassH = [HStarBaseClass modelObjectWithDictionary:responseObject];
             
-            NSLog(@"title---%@--%@",_baseClassH,_items.component.title);
+           // NSLog(@"title---%@--%@",_baseClassH,_items.component.title);
             [_collectionView reloadData];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -220,10 +220,10 @@
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:data.component.picUrl]];//[NSURL URLWithString:_items.component.picUrl]];
     
-    NSLog(@"%@",_items.component.picUrl);
+    //NSLog(@"%@",_items.component.picUrl);
     
     [cell.tuanButton setTitle:@"参加抢购" forState:UIControlStateNormal];
-    [cell.tuanButton setBackgroundImage:[UIImage imageNamed:@"button_tuangou_buy_detail.png"] forState:UIControlStateNormal];
+    [cell.tuanButton setBackgroundImage:[UIImage imageNamed:@"icon_zhidemai_list_zhekou@2x.png"] forState:UIControlStateNormal];
     
 
     cell.titleLabel.text = data.component.title;
@@ -246,6 +246,7 @@
     
     cell.peopleImage.image = [UIImage imageNamed:@"icon_zhidemai_list_user@2x"];
     cell.peopleLabel.text = data.component.peopleCount;
+    
     
    
     

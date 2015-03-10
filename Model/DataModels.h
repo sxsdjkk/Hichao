@@ -34,37 +34,36 @@
 #import "MLSplash.h"
 #import "MLTopicCategories.h"
 
+
 //首页左视图热词
 #import "MLHWBaseClass.h"
 #import "MLHWQuerys.h"
 #import "MLHWData.h"
 
-#warning 陈成加个注释
 
+//明星左表
 #import "StarComponent.h"
 #import "StarData.h"
 #import "StarItems.h"
 #import "StarBaseClass.h"
 #import "StarAction.h"
 
-
+//明星右表
 #import "HStarComponent.h"
 #import "HStarData.h"
 #import "HStarItems.h"
 #import "HStarBaseClass.h"
 #import "HStarAction.h"
 
-
+//布拉格首页全部
 #import "PgComponent.h"
 #import "PgData.h"
 #import "PgItems.h"
 #import "PgActions.h"
 #import "PgBaseClass.h"
 
-//<<<<<<< HEAD
 
-//=======
 //iTunes商店 检查更新
 #import "iTunesLookupResults.h"
 #import "iTunesLookupBaseClass.h"
-//>>>>>>> origin/master
+

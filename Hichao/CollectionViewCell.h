@@ -29,7 +29,7 @@
 
 @property(nonatomic ,strong)UIImageView * peopleImage;
 @property(nonatomic ,strong)UILabel * peopleLabel;
-
+//icon_zhidemai_list_zhekou@2x.png
 //button_tuangou_buy_detail.png
 @property(nonatomic ,strong)UIButton * tuanButton;
 

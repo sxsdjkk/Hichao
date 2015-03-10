@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E24AA31AAEDC28006B8F1D /* PgCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E24AA21AAEDC28006B8F1D /* PgCollectionViewCell.m */; };
 		2CF41FD2E91E5F599A640288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C2361280FC46550B6F41C5 /* libPods.a */; };
 		521BB9231AA7583000426FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9221AA7583000426FC6 /* main.m */; };
 		521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9251AA7583000426FC6 /* AppDelegate.m */; };
@@ -713,6 +714,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04E24AA11AAEDC28006B8F1D /* PgCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgCollectionViewCell.h; sourceTree = "<group>"; };
+		04E24AA21AAEDC28006B8F1D /* PgCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgCollectionViewCell.m; sourceTree = "<group>"; };
 		19C2361280FC46550B6F41C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB91D1AA7583000426FC6 /* Hichao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hichao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB9211AA7583000426FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1662,6 +1665,8 @@
 				521BB9B71AA7931C00426FC6 /* PragueLeftViewController.m */,
 				52A0D88A1AAEA577000C6ED2 /* pragueTableViewCell.h */,
 				52A0D88B1AAEA577000C6ED2 /* pragueTableViewCell.m */,
+				04E24AA11AAEDC28006B8F1D /* PgCollectionViewCell.h */,
+				04E24AA21AAEDC28006B8F1D /* PgCollectionViewCell.m */,
 			);
 			name = PragueVC;
 			sourceTree = "<group>";
@@ -3428,6 +3433,7 @@
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
 				52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */,
 				52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */,
+				04E24AA31AAEDC28006B8F1D /* PgCollectionViewCell.m in Sources */,
 				52A571311AAC72150075F3C0 /* MLBaseClass.m in Sources */,
 				52A0D8791AAEA389000C6ED2 /* HStarBaseClass.m in Sources */,
 				521BB99D1AA7925900426FC6 /* HomeViewController.m in Sources */,

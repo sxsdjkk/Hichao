@@ -41,7 +41,7 @@
     if (_waterFlowBaseClass.data.flag == nil) {
         urlString = [NSString stringWithFormat:@"http://api2.hichao.com/items?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=%@&flag=&more_items=1",category];
     }
-    NSLog(@"\n\n urlString == %@",urlString);
+    //NSLog(@"\n\n urlString == %@",urlString);
     //汉字转码
     urlString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

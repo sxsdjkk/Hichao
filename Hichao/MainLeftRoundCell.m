@@ -30,7 +30,7 @@
 
         [_textLabel release];
 
-        NSLog(@"_textLabel--retainCount---%d",_textLabel.retainCount);
+        //NSLog(@"_textLabel--retainCount---%d",_textLabel.retainCount);
 
         
         

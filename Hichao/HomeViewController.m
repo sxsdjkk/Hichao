@@ -115,7 +115,7 @@
 
 #pragma mark - Create UI
 - (void)reloadView{
-    NSLog(@"%@",_subject);
+    //NSLog(@"%@",_subject);
     if ([_subject isEqualToString:@"全部"]) {
         if (!_hasCarousel) {
             [self createCoverFlow];

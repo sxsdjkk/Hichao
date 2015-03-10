@@ -7,7 +7,7 @@
 //
 
 #import "PragueLeftViewController.h"
-
+#import "PgCollectionViewCell.h"
 @interface PragueLeftViewController ()
 
 #define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -20,28 +20,83 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, M_SCREEN_WIDTH, M_SCREEN_HEIGHT) style:UITableViewStylePlain];
-    _tableView.dataSource=self;
-    _tableView.delegate=self;
-    [self.view addSubview:_tableView];
+    [self creatCollectionView];
     
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+- (void)creatCollectionView
+{
+    UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
+    
+    layOut.minimumLineSpacing = 0.0;
+    
+    layOut.minimumInteritemSpacing = 0.0;
+    
+    layOut.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    
+    layOut.itemSize = CGSizeMake(240, 50);
+    
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 240, M_SCREEN_HEIGHT) collectionViewLayout:layOut];
+    
+    [collectionView registerClass:[PgCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    
+    collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
+    
+    [self.view addSubview:collectionView];
+    
+    
+    [collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionTop];
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 8;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PgCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    static NSString * str = @"cell";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
-    }
+//    MLMobileTopicCategories *category = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    
+//    [cell.titleImageView sd_setImageWithURL:[NSURL URLWithString:category.picUrl]];
+//    cell.textLabel.text = category.name;
     
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //    DDMenuController *menuController = self.menuController;
+    //
+    //    UINavigationController *featuresNav = menuController.rootViewController;
+    //
+    //    FeaturesViewController *featuresVC = featuresNav.viewControllers[0];
+    //    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    
+    NSLog(@"您点是%d",indexPath.row);
+    
+    
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(240, 20);
+}
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

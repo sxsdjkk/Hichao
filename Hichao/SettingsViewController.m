@@ -67,7 +67,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"选中了 %d",indexPath.row);
+   // NSLog(@"选中了 %d",indexPath.row);
     if (indexPath.row == 0) {
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         loginVC.title = @"用户登录";

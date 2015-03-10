@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PragueLeftViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface PragueLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     
-    UITableView  *      _tableView;
+    //UITableView  *      _tableView;
     
     
 }
