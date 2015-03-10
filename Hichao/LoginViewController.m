@@ -32,7 +32,7 @@
 }
 
 - (void)weiboLogin{
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, 500, 400)];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(-150, 44, 800, 400)];
     NSURL *url = [NSURL URLWithString:@"http://auth.hichao.com/connect/weibo/authorize"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
