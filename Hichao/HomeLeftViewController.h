@@ -12,7 +12,7 @@
 
 @interface HomeLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
 
-//DDMenu中的rootViewController
+//DDMenuController
 @property (nonatomic,assign)DDMenuController *menuController;
 
 @end

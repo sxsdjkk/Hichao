@@ -1,14 +1,15 @@
 //
-//  MainLeftRectCell.m
+//  FeatureLeftCell.m
 //  Hichao
 //
-//  Created by sxsdjkk on 15/3/9.
+//  Created by sxsdjkk on 15/3/10.
 //  Copyright (c) 2015年 JK. All rights reserved.
 //
 
-#import "MainLeftRectCell.h"
+#import "FeatureLeftCell.h"
 
-@implementation MainLeftRectCell
+@implementation FeatureLeftCell
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -35,7 +36,7 @@
         
         _textLabel.frame = CGRectMake(self.frame.size.height*1.5, 0, self.frame.size.width - self.frame.size.height*2.5, self.frame.size.height);
         
-        _textLabel.font = [UIFont systemFontOfSize:12];
+        _textLabel.font = [UIFont systemFontOfSize:16];
         
         [self addSubview:_textLabel];
         
@@ -48,6 +49,14 @@
         [self addSubview:accessoryView];
         
         [accessoryView release];
+        
+        UIView *sepratorLine = [[UIView alloc]initWithFrame:CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 1)];
+        
+        sepratorLine.backgroundColor = [UIColor lightGrayColor];
+        
+        [self addSubview:sepratorLine];
+        
+        [sepratorLine release];
     }
     return self;
 }
@@ -56,8 +65,8 @@
 {
     if (selected)
     {
-        self.backgroundColor = M_PINK_COLOR;
-        self.textLabel.textColor = [UIColor whiteColor];
+//        self.backgroundColor = M_PINK_COLOR;
+        self.textLabel.textColor = M_PINK_COLOR;
     }
     else
     {
@@ -67,15 +76,13 @@
 }
 
 
-
-
 - (void)dealloc
 {
     [super dealloc];
     [_textLabel release];
     [_titleImageView release];
-    
 }
+
 
 
 @end

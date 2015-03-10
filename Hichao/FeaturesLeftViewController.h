@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeaturesLeftViewController : UIViewController
+@class DDMenuController;
+
+@interface FeaturesLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+
+//DDMenuController
+@property (nonatomic,assign)DDMenuController *menuController;
 
 @end

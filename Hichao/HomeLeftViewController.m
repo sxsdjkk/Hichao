@@ -256,7 +256,9 @@
         [collectionView reloadData];
     }
     
-    HomeViewController *homeVC = (HomeViewController *)self.menuController.rootViewController;
+    UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
+    
+    HomeViewController *homeVC = homeNav.viewControllers[0];
     homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
     
 #warning reload homeVC data

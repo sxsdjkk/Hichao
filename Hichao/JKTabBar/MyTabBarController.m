@@ -96,11 +96,14 @@
     selectedMenuController.leftViewController = selectedLeftVC;
     
     
-    FeaturesViewController *FeaturesVC = [[FeaturesViewController alloc] init];
-    DDMenuController *featuresMenuController = [[DDMenuController alloc]initWithRootViewController:FeaturesVC];
+    
+    
+    FeaturesViewController *featuresVC = [[FeaturesViewController alloc] init];
+    UINavigationController *featuresNav = [[UINavigationController alloc]initWithRootViewController:featuresVC];
+    DDMenuController *featuresMenuController = [[DDMenuController alloc]initWithRootViewController:featuresNav];
     FeaturesLeftViewController *featuresLeftVC = [[FeaturesLeftViewController alloc] init];
     featuresMenuController.leftViewController = featuresLeftVC;
-    
+    featuresLeftVC.menuController = featuresMenuController;
     
     
     TuanViewController *tuanVC = [[TuanViewController alloc] init];

@@ -28,6 +28,7 @@
 		521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C11AA84EEF00426FC6 /* FavoritesViewController.m */; };
 		521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */; };
 		52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52399CC51AAD2BE900658C36 /* MainLeftRectCell.m */; };
+		52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52399CCC1AAE814E00658C36 /* FeatureLeftCell.m */; };
 		52A571301AAC72150075F3C0 /* MLApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A571191AAC72150075F3C0 /* MLApp.m */; };
 		52A571311AAC72150075F3C0 /* MLBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5711B1AAC72150075F3C0 /* MLBaseClass.m */; };
 		52A571321AAC72150075F3C0 /* MLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5711D1AAC72150075F3C0 /* MLConfig.m */; };
@@ -731,6 +732,8 @@
 		521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesLeftViewController.m; sourceTree = "<group>"; };
 		52399CC41AAD2BE900658C36 /* MainLeftRectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLeftRectCell.h; sourceTree = "<group>"; };
 		52399CC51AAD2BE900658C36 /* MainLeftRectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLeftRectCell.m; sourceTree = "<group>"; };
+		52399CCB1AAE814E00658C36 /* FeatureLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureLeftCell.h; sourceTree = "<group>"; };
+		52399CCC1AAE814E00658C36 /* FeatureLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureLeftCell.m; sourceTree = "<group>"; };
 		52A571181AAC72150075F3C0 /* MLApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLApp.h; sourceTree = "<group>"; };
 		52A571191AAC72150075F3C0 /* MLApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLApp.m; sourceTree = "<group>"; };
 		52A5711A1AAC72150075F3C0 /* MLBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBaseClass.h; sourceTree = "<group>"; };
@@ -1557,6 +1560,8 @@
 				521BB9A81AA792BB00426FC6 /* FeaturesViewController.m */,
 				521BB9AA1AA792D000426FC6 /* FeaturesLeftViewController.h */,
 				521BB9AB1AA792D000426FC6 /* FeaturesLeftViewController.m */,
+				52399CCB1AAE814E00658C36 /* FeatureLeftCell.h */,
+				52399CCC1AAE814E00658C36 /* FeatureLeftCell.m */,
 			);
 			name = FeaturesVC;
 			sourceTree = "<group>";
@@ -3204,6 +3209,7 @@
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
 				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
+				52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */,
 				6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */,
 				52A571301AAC72150075F3C0 /* MLApp.m in Sources */,
 				52A571321AAC72150075F3C0 /* MLConfig.m in Sources */,
