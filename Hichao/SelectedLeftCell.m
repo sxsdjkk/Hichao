@@ -17,11 +17,22 @@
     
     if (self)
     {
-        _imageView = [[UIImageView alloc]initWithFrame:self.bounds];
+        _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
         
         [self addSubview:_imageView];
         
         [_imageView release];
+        
+        _textLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.width, self.frame.size.width, self.frame.size.height-self.frame.size.width)];
+        
+        _textLabel.font = [UIFont systemFontOfSize:12];
+        
+        _textLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [self addSubview:_textLabel];
+        
+        [_textLabel release];
+        
     }
     return self;
 }

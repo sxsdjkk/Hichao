@@ -16,8 +16,8 @@
 #define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define M_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
-//粉色
-#define M_PINK_COLOR [UIColor colorWithRed:239/255.0 green:46/255.0 blue:130/255.0 alpha:1.0]
+//粉色//239 46 130
+#define M_PINK_COLOR [UIColor colorWithRed:239/255.0 green:98/255.0 blue:161/255.0 alpha:1.0]
 //主视图背景灰
 #define M_GRAY_COLOR [UIColor colorWithRed:239/255.0 green:240/255.0 blue:233/255.0 alpha:1.0]
 //左视图背景灰

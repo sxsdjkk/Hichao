@@ -12,4 +12,6 @@
 
 @property (nonatomic,retain) UIImageView *imageView;
 
+@property (nonatomic,retain) UILabel *textLabel;
+
 @end

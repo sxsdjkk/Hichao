@@ -53,6 +53,16 @@
         [self addSubview:_accessoryView];
         
         [_accessoryView release];
+        
+        UIView *sepratorLine = [[UIView alloc]init];
+        
+        sepratorLine.frame = CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 1);
+        
+        sepratorLine.backgroundColor = [UIColor lightGrayColor];
+        
+        [self addSubview:sepratorLine];
+        
+        [sepratorLine release];
 
     }
     return self;

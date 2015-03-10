@@ -34,13 +34,13 @@
        
         UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
         
-        layOut.minimumLineSpacing = 0.0;
+        layOut.minimumLineSpacing = 10.0;
         
         layOut.minimumInteritemSpacing = 0.0;
         
         layOut.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0);
         
-        layOut.itemSize = CGSizeMake(60, 60);
+        layOut.itemSize = CGSizeMake(48, 70);
 
         UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, 240, M_SCREEN_HEIGHT-64) collectionViewLayout:layOut];
         
@@ -67,22 +67,28 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return _baseClass.data.querys.count;
+    return _baseClass.data.querys.count+1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [[_baseClass.data.querys objectAtIndex:section] items].count;
+    if (section==0)
+    {
+        return 0;
+    }
+    return [[_baseClass.data.querys objectAtIndex:section-1] items].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    SLIDMItems *item = [[[_baseClass.data.querys objectAtIndex:indexPath.section] items] objectAtIndex:indexPath.row];
+    SLIDMItems *item = [[[_baseClass.data.querys objectAtIndex:indexPath.section-1] items] objectAtIndex:indexPath.row];
     
     SelectedLeftCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:item.component.picUrl]];
+    
+    cell.textLabel.text = item.component.action.title;
     
     return cell;
 
@@ -92,24 +98,44 @@
 {
     SelectedLeftHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
     
+    if (indexPath.section==0)
+    {
+        view.textLabel.text = @"全部";
+        
+        [view.titleImageView sd_setImageWithURL:[NSURL URLWithString:@"http://m5.pimg.cn/images/images/20140310/8130523b-ecaf-4a46-8436-9f34f5e5cde9.png"]];
+        
+        view.accessoryView.hidden = YES;
+
+    }
+    else
+    {
+        SLIDMQuerys *query = [_baseClass.data.querys objectAtIndex:indexPath.section-1];
+        
+        [view.titleImageView sd_setImageWithURL:[NSURL URLWithString:query.cateimg]];
+        
+        view.textLabel.text = query.title;
+        
+        view.accessoryView.hidden = NO;
+    }
+    
     return view;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return  indexPath.section==0?CGSizeMake(53, 53):CGSizeMake(240, 60);
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return  CGSizeMake(50, 65);
+//}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     
-    return section==0?CGSizeMake(240, 80):CGSizeMake(240, 50);
+    return CGSizeMake(240, 50);
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-    return section==0?CGSizeMake(240, 30):CGSizeMake(0, 0);
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+//{
+//    return section==0?CGSizeMake(240, 30):CGSizeMake(0, 0);
+//}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -139,7 +165,7 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return section==0?UIEdgeInsetsMake(10, 10, 10, 10):UIEdgeInsetsMake(10, 0, 10, 0);
+    return section==0?UIEdgeInsetsZero:UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 
