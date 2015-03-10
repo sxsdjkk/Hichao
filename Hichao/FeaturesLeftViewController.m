@@ -8,6 +8,7 @@
 
 #import "FeaturesLeftViewController.h"
 #import "FeatureLeftCell.h"
+#import "FeaturesViewController.h"
 #import <UIImageView+WebCache.h>
 
 
@@ -89,8 +90,25 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
 
+//    DDMenuController *menuController = self.menuController;
+//    
+//    UINavigationController *featuresNav = menuController.rootViewController;
+//    
+//    FeaturesViewController *featuresVC = featuresNav.viewControllers[0];
+//    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    
+#warning reload homeVC data
+    
 
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(240, 20);
+}
 
 - (void)dealloc
 {

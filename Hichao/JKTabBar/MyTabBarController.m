@@ -111,7 +111,8 @@
     
     
     PragueViewController *pragueVC = [[PragueViewController alloc] init];
-    DDMenuController *pragueMenuController = [[DDMenuController alloc]initWithRootViewController:pragueVC];
+    UINavigationController *pragueNav = [[UINavigationController alloc]initWithRootViewController:pragueVC];
+    DDMenuController *pragueMenuController = [[DDMenuController alloc]initWithRootViewController:pragueNav];
     PragueLeftViewController *pragueLeftVC = [[PragueLeftViewController alloc] init];
     pragueMenuController.leftViewController = pragueLeftVC;
     

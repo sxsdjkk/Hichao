@@ -10,4 +10,6 @@
 
 @interface FeaturesViewController : UIViewController
 
+@property (nonatomic,copy) NSString *subject;
+
 @end
