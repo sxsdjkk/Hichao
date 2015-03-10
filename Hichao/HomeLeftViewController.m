@@ -9,6 +9,9 @@
 #import "HomeLeftViewController.h"
 #import "MainLeftRoundCell.h"
 #import "MainLeftRectCell.h"
+#import "DDMenuController.h"
+#import "HomeViewController.h"
+
 
 @interface HomeLeftViewController ()
 {
@@ -78,7 +81,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return section==0?_categoryArray.count:10;
+    return section==0?_categoryArray.count:7;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -125,7 +128,7 @@
             if (indexPath.section==_selectedIndexPath.section&&indexPath.row==_selectedIndexPath.row)
             {
                 [cell setSelected:YES];
-                //                _selectedIndexPath = indexPath;
+                //_selectedIndexPath = indexPath;
             }
         }
 
@@ -252,6 +255,12 @@
         
         [collectionView reloadData];
     }
+    
+    HomeViewController *homeVC = (HomeViewController *)self.menuController.rootViewController;
+    homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
+    
+#warning reload homeVC data
+    
 }
 
 #pragma mark- search bar delegate

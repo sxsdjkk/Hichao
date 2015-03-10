@@ -86,6 +86,7 @@
     DDMenuController *homeMenuController = [[DDMenuController alloc]initWithRootViewController:homeNav];
     HomeLeftViewController *homeLeftVC = [[HomeLeftViewController alloc] init];
     homeMenuController.leftViewController = homeLeftVC;
+    homeLeftVC.menuController = homeMenuController;
     
     
     SelectedViewController *selectedVC = [[SelectedViewController alloc] init];

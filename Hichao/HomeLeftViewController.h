@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DDMenuController;
+
 
 @interface HomeLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate>
+
+//DDMenu中的rootViewController
+@property (nonatomic,assign)DDMenuController *menuController;
 
 @end
