@@ -40,6 +40,12 @@
 #import "MLHWQuerys.h"
 #import "MLHWData.h"
 
+//精品
+#import "TopicsComponent.h"
+#import "TopicsData.h"
+#import "TopicsItems.h"
+#import "TopicsBaseClass.h"
+#import "TopicsAction.h"
 
 //明星左表
 #import "StarComponent.h"

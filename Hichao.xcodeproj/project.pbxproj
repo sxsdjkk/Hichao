@@ -698,9 +698,14 @@
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
 		6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */; };
 		6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */; };
-		6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */; };
-		6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */; };
+		6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6AF138881AAEF8040035B7FF /* FeaturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF138871AAEF8040035B7FF /* FeaturesCell.m */; };
+		6AF138951AAF160A0035B7FF /* TopicsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1388C1AAF160A0035B7FF /* TopicsAction.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6AF138961AAF160A0035B7FF /* TopicsBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1388E1AAF160A0035B7FF /* TopicsBaseClass.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6AF138971AAF160A0035B7FF /* TopicsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF138901AAF160A0035B7FF /* TopicsComponent.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6AF138981AAF160A0035B7FF /* TopicsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF138921AAF160A0035B7FF /* TopicsData.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF138941AAF160A0035B7FF /* TopicsItems.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1486,6 +1491,16 @@
 		6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iTunesLookupResults.m; path = iTunesLookup/iTunesLookupResults.m; sourceTree = "<group>"; };
 		6AF138861AAEF8040035B7FF /* FeaturesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesCell.h; sourceTree = "<group>"; };
 		6AF138871AAEF8040035B7FF /* FeaturesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesCell.m; sourceTree = "<group>"; };
+		6AF1388B1AAF160A0035B7FF /* TopicsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsAction.h; path = Topics/TopicsAction.h; sourceTree = "<group>"; };
+		6AF1388C1AAF160A0035B7FF /* TopicsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsAction.m; path = Topics/TopicsAction.m; sourceTree = "<group>"; };
+		6AF1388D1AAF160A0035B7FF /* TopicsBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsBaseClass.h; path = Topics/TopicsBaseClass.h; sourceTree = "<group>"; };
+		6AF1388E1AAF160A0035B7FF /* TopicsBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsBaseClass.m; path = Topics/TopicsBaseClass.m; sourceTree = "<group>"; };
+		6AF1388F1AAF160A0035B7FF /* TopicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsComponent.h; path = Topics/TopicsComponent.h; sourceTree = "<group>"; };
+		6AF138901AAF160A0035B7FF /* TopicsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsComponent.m; path = Topics/TopicsComponent.m; sourceTree = "<group>"; };
+		6AF138911AAF160A0035B7FF /* TopicsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsData.h; path = Topics/TopicsData.h; sourceTree = "<group>"; };
+		6AF138921AAF160A0035B7FF /* TopicsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsData.m; path = Topics/TopicsData.m; sourceTree = "<group>"; };
+		6AF138931AAF160A0035B7FF /* TopicsItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicsItems.h; path = Topics/TopicsItems.h; sourceTree = "<group>"; };
+		6AF138941AAF160A0035B7FF /* TopicsItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicsItems.m; path = Topics/TopicsItems.m; sourceTree = "<group>"; };
 		C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2580,6 +2595,7 @@
 		6A7BBD981AA88E930049CA3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6AF138891AAF15FB0035B7FF /* Topics */,
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
 				52A0D8931AAEE34A000C6ED2 /* MainLeftHotWords */,
 				6AE5AE181AAED35300557DDD /* iTunesLookup */,
@@ -2602,6 +2618,23 @@
 				6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */,
 			);
 			name = iTunesLookup;
+			sourceTree = "<group>";
+		};
+		6AF138891AAF15FB0035B7FF /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				6AF1388B1AAF160A0035B7FF /* TopicsAction.h */,
+				6AF1388C1AAF160A0035B7FF /* TopicsAction.m */,
+				6AF1388D1AAF160A0035B7FF /* TopicsBaseClass.h */,
+				6AF1388E1AAF160A0035B7FF /* TopicsBaseClass.m */,
+				6AF1388F1AAF160A0035B7FF /* TopicsComponent.h */,
+				6AF138901AAF160A0035B7FF /* TopicsComponent.m */,
+				6AF138911AAF160A0035B7FF /* TopicsData.h */,
+				6AF138921AAF160A0035B7FF /* TopicsData.m */,
+				6AF138931AAF160A0035B7FF /* TopicsItems.h */,
+				6AF138941AAF160A0035B7FF /* TopicsItems.m */,
+			);
+			name = Topics;
 			sourceTree = "<group>";
 		};
 		F091FFE189CC9E01527569B3 /* Pods */ = {
@@ -3369,6 +3402,7 @@
 				52A571381AAC72150075F3C0 /* MLStarCategories.m in Sources */,
 				6A7A9E691AAB090000B6E7C4 /* WaterFlowItems.m in Sources */,
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
+				6AF138961AAF160A0035B7FF /* TopicsBaseClass.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
 				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
 				52A0D8811AAEA389000C6ED2 /* PgItems.m in Sources */,
@@ -3380,6 +3414,7 @@
 				52A571301AAC72150075F3C0 /* MLApp.m in Sources */,
 				52A571321AAC72150075F3C0 /* MLConfig.m in Sources */,
 				6A7A9E671AAB090000B6E7C4 /* WaterFlowComponent.m in Sources */,
+				6AF138971AAF160A0035B7FF /* TopicsComponent.m in Sources */,
 				52A571391AAC72150075F3C0 /* MLSubjectCategories.m in Sources */,
 				521BB9B51AA7930600426FC6 /* PragueViewController.m in Sources */,
 				521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */,
@@ -3388,6 +3423,7 @@
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
 				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
+				6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
 				52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */,
@@ -3423,6 +3459,7 @@
 				6AF138881AAEF8040035B7FF /* FeaturesCell.m in Sources */,
 				52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */,
 				52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */,
+				6AF138951AAF160A0035B7FF /* TopicsAction.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,
 				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,
@@ -3430,6 +3467,7 @@
 				52A0D8851AAEA389000C6ED2 /* StarData.m in Sources */,
 				52A0D8861AAEA389000C6ED2 /* StarItems.m in Sources */,
 				52A0D89C1AAEE34A000C6ED2 /* MLHWData.m in Sources */,
+				6AF138981AAF160A0035B7FF /* TopicsData.m in Sources */,
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
 				52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */,
 				52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */,

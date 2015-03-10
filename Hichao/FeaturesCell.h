@@ -10,4 +10,8 @@
 
 @interface FeaturesCell : UICollectionViewCell
 
+@property (nonatomic,retain) UIImageView *imageView;
+
+@property (nonatomic,retain) TopicsItems *items;
+
 @end
