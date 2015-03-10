@@ -115,8 +115,10 @@
 - (void)reloadView{
     NSLog(@"%@",_subject);
     if ([_subject isEqualToString:@"全部"]) {
-        [self createCoverFlow];
-        _hasCarousel = YES;
+        if (!_hasCarousel) {
+            [self createCoverFlow];
+            _hasCarousel = YES;
+        }
     }else if (![_subject isEqualToString:@"全部"]) {
         if (_hasCarousel) {
             [_carousel removeFromSuperview];
