@@ -16,9 +16,10 @@
 @interface HomeLeftViewController ()
 {
     UICollectionView *_collectionView;
-    NSIndexPath *_selectedIndexPath;
+//    NSIndexPath *_selectedIndexPath;
     
     NSArray *_categoryArray;
+    NSArray *_hotWordsArray;
 }
 @end
 
@@ -27,12 +28,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+//热词 http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=hot&version=
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSString *urlStr = @"http://api2.hichao.com/config?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&splash_version=19&screen_width=1536&config_version=39&screen_height=2048";
+    NSString *urlStr = @"http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=hot&version=";
     
     _categoryArray = [@[@"全部",@"欧美",@"日韩",@"本土",@"潮男",@"热播",@"明星"] retain];
     
-//    _selectedIndexPath = [[NSIndexPath indexPathForItem:0 inSection:0] retain];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        MLHWBaseClass *baseClass = [MLHWBaseClass modelObjectWithDictionary:responseObject];
+        
+        _hotWordsArray = [baseClass.data.querys retain];
+        
+        [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:1]];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+    }];
+    
     
     self.view.backgroundColor = M_LIGHT_GRAY_COLOR;
     
@@ -42,7 +59,7 @@
     
     layOut.minimumInteritemSpacing = 0.0;
     
-    layOut.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layOut.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0);
     
     layOut.itemSize = CGSizeMake(60, 60);
     
@@ -64,6 +81,8 @@
     
     _collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
     
+    [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    
     [self.view addSubview:_collectionView];
     
     [_collectionView release];
@@ -81,58 +100,30 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return section==0?_categoryArray.count:7;
+    return section==0?_categoryArray.count:_hotWordsArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static int i = 0;
+//    static int i = 0;
     if (indexPath.section==0)
     {
         MainLeftRoundCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RoundCell" forIndexPath:indexPath];
         
         cell.textLabel.text = [_categoryArray objectAtIndex:indexPath.row];
         
-//        NSLog(@"--%@----%@--",indexPath,_selectedIndexPath);
-        if (i==0)
-        {
-            if(_selectedIndexPath)
-            {
-                [_selectedIndexPath release];
-            }
-            
-            _selectedIndexPath = [indexPath retain];
-        }
-        if(_selectedIndexPath)
-        {
-            if (indexPath.section==_selectedIndexPath.section&&indexPath.row==_selectedIndexPath.row)
-            {
-                [cell setSelected:YES];
-//                _selectedIndexPath = indexPath;
-            }
-        }
-
-        i++;
         return cell;
     }
     else
     {
         MainLeftRectCell*cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RectCell" forIndexPath:indexPath];
         
-        cell.textLabel.text = [NSString stringWithFormat:@"%d-%d",indexPath.section,indexPath.row];
+        MLHWQuerys *data = [_hotWordsArray objectAtIndex:indexPath.row];
         
-        cell.titleImageView.image = [UIImage imageNamed:@"home_left_btn_type@2x.png"];
+        cell.textLabel.text = data.title;
         
-        if(_selectedIndexPath)
-        {
-            if (indexPath.section==_selectedIndexPath.section&&indexPath.row==_selectedIndexPath.row)
-            {
-                [cell setSelected:YES];
-                //_selectedIndexPath = indexPath;
-            }
-        }
-
-        i++;
+        [cell.titleImageView sd_setImageWithURL:[NSURL URLWithString:data.picUrl]];
+        
         return cell;
     }
 }
@@ -244,17 +235,17 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    if(indexPath != _selectedIndexPath)
-    {
-        if (_selectedIndexPath)
-        {
-            [_selectedIndexPath release];
-        }
-        
-        _selectedIndexPath = [indexPath retain];
-        
-        [collectionView reloadData];
-    }
+//    if(indexPath != _selectedIndexPath)
+//    {
+//        if (_selectedIndexPath)
+//        {
+//            [_selectedIndexPath release];
+//        }
+//        
+//        _selectedIndexPath = [indexPath retain];
+//        
+//        [collectionView reloadData];
+//    }
     
     UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
     
@@ -265,6 +256,11 @@
     [homeVC reloadView];
     
     [self.menuController showRootController:YES];
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return section==0?UIEdgeInsetsMake(10, 10, 10, 10):UIEdgeInsetsMake(10, 0, 10, 0);
 }
 
 #pragma mark- search bar delegate
@@ -323,7 +319,7 @@
     
     [_categoryArray release];
     
-    [_selectedIndexPath release];
+//    [_selectedIndexPath release];
 }
 
 @end

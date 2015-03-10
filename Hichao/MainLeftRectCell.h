@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MainLeftRectCell : UICollectionViewCell
-
+{
+    UIImageView *_accessoryView;
+}
 
 @property (nonatomic,retain)UIImageView *titleImageView;
 

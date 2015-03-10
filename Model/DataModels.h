@@ -20,7 +20,7 @@
 #import "WaterFlowBaseClass.h"
 #import "WaterFlowAction.h"
 
-//首页左视图
+//首页左视图圆主题词
 #import "MLBaseClass.h"
 #import "MLMobileSubjectCategories.h"
 #import "MLVItemStarCategories.h"
@@ -33,6 +33,11 @@
 #import "MLData.h"
 #import "MLSplash.h"
 #import "MLTopicCategories.h"
+
+//首页左视图热词
+#import "MLHWBaseClass.h"
+#import "MLHWQuerys.h"
+#import "MLHWData.h"
 
 #warning 陈成加个注释
 
@@ -55,3 +60,5 @@
 #import "PgItems.h"
 #import "PgActions.h"
 #import "PgBaseClass.h"
+
+

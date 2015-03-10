@@ -192,6 +192,8 @@
         tableView.scrollEnabled = NO;
         tableView.showsVerticalScrollIndicator = NO;
         tableView.tag = i+41;
+        
+     
         [tableView registerClass:[PullViewCell class] forCellReuseIdentifier:@"cell"];
         [_scrollView addSubview:tableView];
         [tableView release];

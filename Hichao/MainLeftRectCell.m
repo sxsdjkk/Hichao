@@ -35,19 +35,19 @@
         
         _textLabel.frame = CGRectMake(self.frame.size.height*1.5, 0, self.frame.size.width - self.frame.size.height*2.5, self.frame.size.height);
         
-        _textLabel.font = [UIFont systemFontOfSize:12];
+        _textLabel.font = [UIFont systemFontOfSize:16];
         
         [self addSubview:_textLabel];
         
         [_textLabel release];
         
-        UIImageView *accessoryView = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height*0.8, self.frame.size.height*0.35, self.frame.size.height*0.3, self.frame.size.height*0.3)];
+        _accessoryView = [[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width-self.frame.size.height*0.8, self.frame.size.height*0.35, self.frame.size.height*0.3, self.frame.size.height*0.3)];
         
-        accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_right@2x.png"];
+        _accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_right@2x.png"];
         
-        [self addSubview:accessoryView];
+        [self addSubview:_accessoryView];
         
-        [accessoryView release];
+        [_accessoryView release];
     }
     return self;
 }
@@ -58,11 +58,13 @@
     {
         self.backgroundColor = M_PINK_COLOR;
         self.textLabel.textColor = [UIColor whiteColor];
+        _accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_right_white@2x.png"];
     }
     else
     {
         self.backgroundColor = M_LIGHT_GRAY_COLOR;
         self.textLabel.textColor = [UIColor blackColor];
+        _accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_right@2x.png"];
     }
 }
 
