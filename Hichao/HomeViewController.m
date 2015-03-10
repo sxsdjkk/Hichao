@@ -27,6 +27,7 @@
         _hasCarousel = YES;
         _baseUrlString = @"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=全部&flag=&lts=&pin=";
         
+        _subject = @"全部";
         _categoryArray = [[NSArray alloc] initWithObjects:@"全部", @"热门榜", @"猜你喜欢", nil];
         _segmentItemsArray = [[NSArray alloc] initWithObjects:@"最新", @"最热", @"猜你喜欢", nil];
         
