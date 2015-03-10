@@ -458,7 +458,7 @@
     
     int imageIndex = 0;
     
-    float newHeight = 44.0f;
+    float newHeight = 100.0f;
     
     switch (tableView.tag) {
         case 41:
