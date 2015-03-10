@@ -41,7 +41,7 @@
         [self addSubview:_collectBtn];
         
         _itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_itemBtn setImage:[UIImage imageNamed:@"btn_part"] forState:UIControlStateNormal];
+        [_itemBtn setImage:[UIImage imageNamed:@"icon_bbs_detail_link.png"] forState:UIControlStateNormal];
         [self addSubview:_itemBtn];
     }
     return self;
