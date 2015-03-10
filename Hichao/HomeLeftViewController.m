@@ -261,7 +261,7 @@
     HomeViewController *homeVC = homeNav.viewControllers[0];
     homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
     
-#warning reload homeVC data
+// reload homeVC data
     [homeVC reloadView];
 }
 

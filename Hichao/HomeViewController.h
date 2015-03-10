@@ -20,6 +20,7 @@
     NSArray *_categoryArray;
     NSArray *_segmentItemsArray;
     
+    UILabel *_titleLabel;
     //顶部选项卡
     UISegmentedControl *_segmentControll;
     

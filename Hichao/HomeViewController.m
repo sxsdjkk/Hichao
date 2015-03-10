@@ -90,6 +90,7 @@
     [line release];
 
     //创建UI
+    [self createTitle];
     [self createSegmentControll];
     [self createScrollView];
     [self createTableView];
@@ -117,15 +118,30 @@
     if ([_subject isEqualToString:@"全部"]) {
         if (!_hasCarousel) {
             [self createCoverFlow];
+            [_titleLabel removeFromSuperview];
+            self.navigationItem.titleView = _segmentControll;
             _hasCarousel = YES;
         }
     }else if (![_subject isEqualToString:@"全部"]) {
         if (_hasCarousel) {
             [_carousel removeFromSuperview];
+            self.navigationItem.title = _subject;
             _hasCarousel = NO;
+            [self createTitle];
         }
+        _titleLabel.text = _subject;
     }
-    [self tableViewsReloadData];
+    [self cleanDataSource];
+    [_scrollView.pullToRefreshView startAnimating];
+    [self requestWithCategory:_categoryArray[_segmentControll.selectedSegmentIndex]];
+}
+- (void)createTitle{
+    _titleLabel = [[UILabel alloc] init];
+    _titleLabel.frame = CGRectMake(0, 0, 100, 35);
+    _titleLabel.textAlignment = NSTextAlignmentCenter;
+    _titleLabel.tintColor = M_PINK_COLOR;
+    self.navigationItem.titleView = _titleLabel;
+    [_titleLabel release];
 }
 - (void)createSegmentControll{
     //选项卡 刷新瀑布流
@@ -231,7 +247,13 @@
     [_scrollView.pullToRefreshView startAnimating];
     [self requestWithCategory:_categoryArray[sender.selectedSegmentIndex]];
 }
-- (void)requestWithCategory:(NSString *)category{
+- (void)requestWithCategory:(NSString *)sender{
+    NSString *category;
+    if ([_subject isEqualToString:@"全部"]) {
+        category = sender;
+    }else{
+        category = _subject;
+    }
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=%@&lts=&pin=",category,_waterFlowBaseClass.data.flag];
     if (_waterFlowBaseClass.data.flag == nil) {
         urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=&pin=",category];
