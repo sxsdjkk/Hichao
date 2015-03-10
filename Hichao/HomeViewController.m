@@ -59,8 +59,10 @@
 #pragma mark - View Life Cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!_scrollTimer) {
-        _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollCarousel) userInfo:nil repeats:YES];
+    if (_hasCarousel) {
+        if (!_scrollTimer) {
+            _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollCarousel) userInfo:nil repeats:YES];
+        }
     }
 }
 - (void)viewDidDisappear:(BOOL)animated{
@@ -110,6 +112,19 @@
 }
 
 #pragma mark - Create UI
+- (void)reloadView{
+    NSLog(@"%@",_subject);
+    if ([_subject isEqualToString:@"全部"]) {
+        [self createCoverFlow];
+        _hasCarousel = YES;
+    }else if (![_subject isEqualToString:@"全部"]) {
+        if (_hasCarousel) {
+            [_carousel removeFromSuperview];
+            _hasCarousel = NO;
+        }
+    }
+    [self tableViewsReloadData];
+}
 - (void)createSegmentControll{
     //选项卡 刷新瀑布流
     _segmentControll = [[UISegmentedControl alloc] initWithItems:_segmentItemsArray];
@@ -179,12 +194,14 @@
     [_carousel release];
 }
 - (void)scrollCarousel {
-    NSInteger newIndex=self.carousel.currentItemIndex+1;
-    if (newIndex > self.carousel.numberOfItems) {
-        newIndex=0;
+    if (_hasCarousel) {
+        NSInteger newIndex=self.carousel.currentItemIndex+1;
+        if (newIndex > self.carousel.numberOfItems) {
+            newIndex=0;
+        }
+        
+        [self.carousel scrollToItemAtIndex:newIndex duration:0.5];
     }
-    
-    [self.carousel scrollToItemAtIndex:newIndex duration:0.5];
 }
 #pragma mark - Request Data
 - (void)cleanDataSource{

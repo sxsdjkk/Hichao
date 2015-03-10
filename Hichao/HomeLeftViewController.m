@@ -262,7 +262,7 @@
     homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
     
 #warning reload homeVC data
-    
+    [homeVC reloadView];
 }
 
 #pragma mark- search bar delegate

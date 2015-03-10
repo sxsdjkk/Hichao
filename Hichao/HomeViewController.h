@@ -15,7 +15,6 @@
 
 @interface HomeViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,iCarouselDataSource,iCarouselDelegate>
 {
-    BOOL _hasCarousel;
     NSString *_baseUrlString;
     
     NSArray *_categoryArray;
@@ -50,6 +49,7 @@
     //右边划过来的View
     HomeRightViewController *_homeRightVC;
 }
+@property (nonatomic, assign) BOOL hasCarousel;
 @property (nonatomic, strong) iCarousel *carousel;
 @property (nonatomic, strong) UINavigationItem *navItem;
 @property (nonatomic, assign) BOOL wrap;
@@ -59,5 +59,6 @@
 
 - (void)tableViewsReloadData;
 - (void)cleanDataSource;
+- (void)reloadView;
 
 @end

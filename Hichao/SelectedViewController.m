@@ -17,7 +17,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        _hasCarousel = NO;
+        self.hasCarousel = NO;
         
         _categoryArray = [[NSArray alloc] initWithObjects:@"selection", @"worthy", nil];
         _segmentItemsArray = [[NSArray alloc] initWithObjects:@"推荐", @"值得买", nil];
