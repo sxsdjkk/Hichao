@@ -18,6 +18,7 @@
 
 @property (nonatomic,assign)UIScrollView *scrollView;
 
+- (void)createItemView;
 - (void)createScrollView;
 
 @end

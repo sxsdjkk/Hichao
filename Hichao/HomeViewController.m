@@ -386,8 +386,12 @@
     WaterFlowItems *item = _waterFlowItemsArray[index];
     _homeRightVC.currentItem = item;
     
-    if (item.component.description) {
+    if (!_hasCarousel) {
+        [_homeRightVC createItemView];
+    }else if (item.component.description) {
         [_homeRightVC createScrollView];
+    }else{
+        //tuanVC
     }
 
     [UIView animateWithDuration:0.5 animations:^{
