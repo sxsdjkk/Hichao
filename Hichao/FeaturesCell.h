@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface FeaturesCell : UICollectionViewCell
-
-@property (nonatomic,retain) UIImageView *imageView;
+{
+    UIImageView *_imageView;
+    UILabel *_tagLabel;
+    UILabel *_titleLabel;
+    UILabel *_timeLabel;
+}
 
 @property (nonatomic,retain) TopicsItems *items;
 
