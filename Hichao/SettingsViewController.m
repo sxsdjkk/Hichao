@@ -67,11 +67,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"选中了 %d",indexPath.row);
+    if (indexPath.row == 0) {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        loginVC.title = @"用户登录";
+        [self.navigationController pushViewController:loginVC animated:YES];
+        [loginVC release];
+    }else if (indexPath.row == 1) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您没有安装微信" message:@"请安装微信" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
     
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    loginVC.title = @"用户登录";
-    [self.navigationController pushViewController:loginVC animated:YES];
-    [loginVC release];
+
 }
 
 
