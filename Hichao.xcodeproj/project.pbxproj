@@ -675,6 +675,7 @@
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
 		6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */; };
 		6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */; };
+		6AE5AE141AAE7E7C00557DDD /* WeChatShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE131AAE7E7C00557DDD /* WeChatShareViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1407,6 +1408,8 @@
 		6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6ADDC15E1AADCAD5009B8ED2 /* HomeRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRightViewController.h; sourceTree = "<group>"; };
 		6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRightViewController.m; sourceTree = "<group>"; };
+		6AE5AE121AAE7E7C00557DDD /* WeChatShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatShareViewController.h; sourceTree = "<group>"; };
+		6AE5AE131AAE7E7C00557DDD /* WeChatShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatShareViewController.m; sourceTree = "<group>"; };
 		C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1638,6 +1641,8 @@
 				6A3142C61AAD73E000E4750D /* SettingsViewController.m */,
 				6ADDC15B1AADA1CC009B8ED2 /* LoginViewController.h */,
 				6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */,
+				6AE5AE121AAE7E7C00557DDD /* WeChatShareViewController.h */,
+				6AE5AE131AAE7E7C00557DDD /* WeChatShareViewController.m */,
 			);
 			name = SettingsVC;
 			sourceTree = "<group>";
@@ -3216,6 +3221,7 @@
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
+				6AE5AE141AAE7E7C00557DDD /* WeChatShareViewController.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,

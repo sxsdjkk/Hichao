@@ -362,6 +362,34 @@
     [controll release];
     [controll addTarget:self action:@selector(rmBlackView:) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:_homeRightVC.view];
+    
+    //传值
+    _homeRightVC.waterFlowItemsArray = _waterFlowItemsArray;
+    int index;
+    switch (tableView.tag) {
+        case 41:
+            index = [_tableView1Index[indexPath.row] intValue];
+            break;
+        case 42:
+            index = [_tableView2Index[indexPath.row] intValue];
+            break;
+        case 43:
+            index = [_tableView3Index[indexPath.row] intValue];
+            break;
+        case 44:
+            index = [_tableView4Index[indexPath.row] intValue];
+            break;
+        default:
+            index = 0;
+            break;
+    }
+    WaterFlowItems *item = _waterFlowItemsArray[index];
+    _homeRightVC.currentItem = item;
+    
+    if (item.component.description) {
+        [_homeRightVC createScrollView];
+    }
+
     [UIView animateWithDuration:0.5 animations:^{
         _homeRightVC.view.frame = _homeRightVC.showFrame;
         controll.alpha = 0.5f;
@@ -373,6 +401,7 @@
         controll.alpha = 0.5f;
     } completion:^(BOOL finished) {
         [controll removeFromSuperview];
+        [_homeRightVC.scrollView removeFromSuperview];
     }];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

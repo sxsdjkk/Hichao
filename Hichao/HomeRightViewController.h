@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeRightViewController : UIViewController
+@interface HomeRightViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic,assign)CGRect showFrame;
 @property (nonatomic,assign)CGRect hideFrame;
+
+@property (nonatomic,assign)NSMutableArray *waterFlowItemsArray;
+@property (nonatomic,assign)WaterFlowItems *currentItem;
+
+@property (nonatomic,assign)UIScrollView *scrollView;
+
+- (void)createScrollView;
 
 @end

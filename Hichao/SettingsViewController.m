@@ -71,6 +71,7 @@
     LoginViewController *loginVC = [[LoginViewController alloc] init];
     loginVC.title = @"用户登录";
     [self.navigationController pushViewController:loginVC animated:YES];
+    [loginVC release];
 }
 
 
