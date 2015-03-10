@@ -51,6 +51,13 @@
 		52A0D89B1AAEE34A000C6ED2 /* MLHWBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8961AAEE34A000C6ED2 /* MLHWBaseClass.m */; };
 		52A0D89C1AAEE34A000C6ED2 /* MLHWData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8981AAEE34A000C6ED2 /* MLHWData.m */; };
 		52A0D89D1AAEE34A000C6ED2 /* MLHWQuerys.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D89A1AAEE34A000C6ED2 /* MLHWQuerys.m */; };
+		52A0D8AD1AAF1C34000C6ED2 /* SLIDMAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8A01AAF1C34000C6ED2 /* SLIDMAction.m */; };
+		52A0D8AE1AAF1C34000C6ED2 /* SLIDMBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8A21AAF1C34000C6ED2 /* SLIDMBaseClass.m */; };
+		52A0D8AF1AAF1C34000C6ED2 /* SLIDMComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8A41AAF1C34000C6ED2 /* SLIDMComponent.m */; };
+		52A0D8B01AAF1C34000C6ED2 /* SLIDMData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8A61AAF1C34000C6ED2 /* SLIDMData.m */; };
+		52A0D8B11AAF1C34000C6ED2 /* SLIDMItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8A81AAF1C34000C6ED2 /* SLIDMItems.m */; };
+		52A0D8B21AAF1C34000C6ED2 /* SLIDMQuerys.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8AA1AAF1C34000C6ED2 /* SLIDMQuerys.m */; };
+		52A0D8B31AAF1C34000C6ED2 /* SLIDMWords.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8AC1AAF1C34000C6ED2 /* SLIDMWords.m */; };
 		52A571301AAC72150075F3C0 /* MLApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A571191AAC72150075F3C0 /* MLApp.m */; };
 		52A571311AAC72150075F3C0 /* MLBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5711B1AAC72150075F3C0 /* MLBaseClass.m */; };
 		52A571321AAC72150075F3C0 /* MLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5711D1AAC72150075F3C0 /* MLConfig.m */; };
@@ -808,6 +815,20 @@
 		52A0D8981AAEE34A000C6ED2 /* MLHWData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLHWData.m; sourceTree = "<group>"; };
 		52A0D8991AAEE34A000C6ED2 /* MLHWQuerys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLHWQuerys.h; sourceTree = "<group>"; };
 		52A0D89A1AAEE34A000C6ED2 /* MLHWQuerys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLHWQuerys.m; sourceTree = "<group>"; };
+		52A0D89F1AAF1C34000C6ED2 /* SLIDMAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMAction.h; sourceTree = "<group>"; };
+		52A0D8A01AAF1C34000C6ED2 /* SLIDMAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMAction.m; sourceTree = "<group>"; };
+		52A0D8A11AAF1C34000C6ED2 /* SLIDMBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMBaseClass.h; sourceTree = "<group>"; };
+		52A0D8A21AAF1C34000C6ED2 /* SLIDMBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMBaseClass.m; sourceTree = "<group>"; };
+		52A0D8A31AAF1C34000C6ED2 /* SLIDMComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMComponent.h; sourceTree = "<group>"; };
+		52A0D8A41AAF1C34000C6ED2 /* SLIDMComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMComponent.m; sourceTree = "<group>"; };
+		52A0D8A51AAF1C34000C6ED2 /* SLIDMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMData.h; sourceTree = "<group>"; };
+		52A0D8A61AAF1C34000C6ED2 /* SLIDMData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMData.m; sourceTree = "<group>"; };
+		52A0D8A71AAF1C34000C6ED2 /* SLIDMItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMItems.h; sourceTree = "<group>"; };
+		52A0D8A81AAF1C34000C6ED2 /* SLIDMItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMItems.m; sourceTree = "<group>"; };
+		52A0D8A91AAF1C34000C6ED2 /* SLIDMQuerys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMQuerys.h; sourceTree = "<group>"; };
+		52A0D8AA1AAF1C34000C6ED2 /* SLIDMQuerys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMQuerys.m; sourceTree = "<group>"; };
+		52A0D8AB1AAF1C34000C6ED2 /* SLIDMWords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLIDMWords.h; sourceTree = "<group>"; };
+		52A0D8AC1AAF1C34000C6ED2 /* SLIDMWords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLIDMWords.m; sourceTree = "<group>"; };
 		52A571181AAC72150075F3C0 /* MLApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLApp.h; sourceTree = "<group>"; };
 		52A571191AAC72150075F3C0 /* MLApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLApp.m; sourceTree = "<group>"; };
 		52A5711A1AAC72150075F3C0 /* MLBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBaseClass.h; sourceTree = "<group>"; };
@@ -1771,6 +1792,27 @@
 			path = MainLeftHotWords;
 			sourceTree = "<group>";
 		};
+		52A0D89E1AAF1C34000C6ED2 /* SelectedLeftItem */ = {
+			isa = PBXGroup;
+			children = (
+				52A0D89F1AAF1C34000C6ED2 /* SLIDMAction.h */,
+				52A0D8A01AAF1C34000C6ED2 /* SLIDMAction.m */,
+				52A0D8A11AAF1C34000C6ED2 /* SLIDMBaseClass.h */,
+				52A0D8A21AAF1C34000C6ED2 /* SLIDMBaseClass.m */,
+				52A0D8A31AAF1C34000C6ED2 /* SLIDMComponent.h */,
+				52A0D8A41AAF1C34000C6ED2 /* SLIDMComponent.m */,
+				52A0D8A51AAF1C34000C6ED2 /* SLIDMData.h */,
+				52A0D8A61AAF1C34000C6ED2 /* SLIDMData.m */,
+				52A0D8A71AAF1C34000C6ED2 /* SLIDMItems.h */,
+				52A0D8A81AAF1C34000C6ED2 /* SLIDMItems.m */,
+				52A0D8A91AAF1C34000C6ED2 /* SLIDMQuerys.h */,
+				52A0D8AA1AAF1C34000C6ED2 /* SLIDMQuerys.m */,
+				52A0D8AB1AAF1C34000C6ED2 /* SLIDMWords.h */,
+				52A0D8AC1AAF1C34000C6ED2 /* SLIDMWords.m */,
+			);
+			path = SelectedLeftItem;
+			sourceTree = "<group>";
+		};
 		52A571161AAC72150075F3C0 /* MainLeftDM */ = {
 			isa = PBXGroup;
 			children = (
@@ -2597,6 +2639,10 @@
 			children = (
 				6AF138891AAF15FB0035B7FF /* Topics */,
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+
+
+				52A0D89E1AAF1C34000C6ED2 /* SelectedLeftItem */,
+
 				52A0D8931AAEE34A000C6ED2 /* MainLeftHotWords */,
 				6AE5AE181AAED35300557DDD /* iTunesLookup */,
 				52A0D8561AAEA389000C6ED2 /* HStar */,
@@ -3407,6 +3453,7 @@
 				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
 				52A0D8811AAEA389000C6ED2 /* PgItems.m in Sources */,
 				52A0D87E1AAEA389000C6ED2 /* PgBaseClass.m in Sources */,
+				52A0D8AF1AAF1C34000C6ED2 /* SLIDMComponent.m in Sources */,
 				6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */,
 				52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */,
 				6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */,
@@ -3423,7 +3470,11 @@
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
 				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
+
 				6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */,
+
+				52A0D8B01AAF1C34000C6ED2 /* SLIDMData.m in Sources */,
+
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
 				52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */,
@@ -3432,6 +3483,7 @@
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
+				52A0D8B11AAF1C34000C6ED2 /* SLIDMItems.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
 				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
@@ -3442,11 +3494,13 @@
 				6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */,
 				52A0D89B1AAEE34A000C6ED2 /* MLHWBaseClass.m in Sources */,
 				52A0D87B1AAEA389000C6ED2 /* HStarData.m in Sources */,
+				52A0D8B31AAF1C34000C6ED2 /* SLIDMWords.m in Sources */,
 				521BB9AF1AA792E200426FC6 /* TuanViewController.m in Sources */,
 				521BB9231AA7583000426FC6 /* main.m in Sources */,
 				521BB9441AA7865300426FC6 /* MyTabBarController.m in Sources */,
 				52A571371AAC72150075F3C0 /* MLSplash.m in Sources */,
 				52A0D89D1AAEE34A000C6ED2 /* MLHWQuerys.m in Sources */,
+				52A0D8AD1AAF1C34000C6ED2 /* SLIDMAction.m in Sources */,
 				6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */,
@@ -3464,10 +3518,15 @@
 				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,
 				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,
 				6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */,
+				52A0D8B21AAF1C34000C6ED2 /* SLIDMQuerys.m in Sources */,
 				52A0D8851AAEA389000C6ED2 /* StarData.m in Sources */,
 				52A0D8861AAEA389000C6ED2 /* StarItems.m in Sources */,
 				52A0D89C1AAEE34A000C6ED2 /* MLHWData.m in Sources */,
+
 				6AF138981AAF160A0035B7FF /* TopicsData.m in Sources */,
+
+				52A0D8AE1AAF1C34000C6ED2 /* SLIDMBaseClass.m in Sources */,
+
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
 				52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */,
 				52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */,

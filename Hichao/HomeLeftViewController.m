@@ -30,6 +30,7 @@
     
     
 //热词 http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=hot&version=
+//     http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=item&version=
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *urlStr = @"http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=hot&version=";
     
@@ -47,7 +48,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        
+        NSLog(@"%@",error);
     }];
     
     
@@ -197,8 +198,6 @@
         
         searchBar.autoresizingMask = YES;
         
-//        searchBar setImage:<#(UIImage *)#> forSearchBarIcon:<#(UISearchBarIcon)#> state:<#(UIControlState)#>
-        
         searchBar.tintColor = [UIColor whiteColor];
         
         searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -247,13 +246,13 @@
 //        
 //        [collectionView reloadData];
 //    }
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
     UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
     
     HomeViewController *homeVC = homeNav.viewControllers[0];
     homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
     
-
     [homeVC reloadView];
     
     [self.menuController showRootController:YES];

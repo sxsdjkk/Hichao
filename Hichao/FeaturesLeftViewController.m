@@ -99,7 +99,7 @@
     UINavigationController *featuresNav = (UINavigationController *)menuController.rootViewController;
     
     FeaturesViewController *featuresVC = (FeaturesViewController *)featuresNav.viewControllers[0];
-    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    featuresVC.subject = [[_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row] name];
     
 #warning reload featureVC data
     NSLog(@"%@",featuresVC.subject);

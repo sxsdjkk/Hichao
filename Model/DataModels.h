@@ -34,7 +34,6 @@
 #import "MLSplash.h"
 #import "MLTopicCategories.h"
 
-
 //首页左视图热词
 #import "MLHWBaseClass.h"
 #import "MLHWQuerys.h"
@@ -46,6 +45,15 @@
 #import "TopicsItems.h"
 #import "TopicsBaseClass.h"
 #import "TopicsAction.h"
+
+//精品页左视图
+#import "SLIDMQuerys.h"
+#import "SLIDMBaseClass.h"
+#import "SLIDMAction.h"
+#import "SLIDMData.h"
+#import "SLIDMComponent.h"
+#import "SLIDMWords.h"
+#import "SLIDMItems.h"
 
 //明星左表
 #import "StarComponent.h"
