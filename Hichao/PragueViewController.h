@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "AFHTTPRequestOperationManager.h"
 
-@interface PragueViewController : UIViewController
+@interface PragueViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+{
+    
+    PgBaseClass *       _baseClass;
+    
+    
+    UITableView *       leftView;
+    UITableView *       rightView;
+    
+}
 @end

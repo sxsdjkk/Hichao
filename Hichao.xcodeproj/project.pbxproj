@@ -29,6 +29,24 @@
 		521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */; };
 		52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52399CC51AAD2BE900658C36 /* MainLeftRectCell.m */; };
 		52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52399CCC1AAE814E00658C36 /* FeatureLeftCell.m */; };
+		52A0D8781AAEA389000C6ED2 /* HStarAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8581AAEA389000C6ED2 /* HStarAction.m */; };
+		52A0D8791AAEA389000C6ED2 /* HStarBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D85A1AAEA389000C6ED2 /* HStarBaseClass.m */; };
+		52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D85C1AAEA389000C6ED2 /* HStarComponent.m */; };
+		52A0D87B1AAEA389000C6ED2 /* HStarData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D85E1AAEA389000C6ED2 /* HStarData.m */; };
+		52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8601AAEA389000C6ED2 /* HStarItems.m */; };
+		52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8631AAEA389000C6ED2 /* PgActions.m */; };
+		52A0D87E1AAEA389000C6ED2 /* PgBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8651AAEA389000C6ED2 /* PgBaseClass.m */; };
+		52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8671AAEA389000C6ED2 /* PgComponent.m */; };
+		52A0D8801AAEA389000C6ED2 /* PgData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8691AAEA389000C6ED2 /* PgData.m */; };
+		52A0D8811AAEA389000C6ED2 /* PgItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D86B1AAEA389000C6ED2 /* PgItems.m */; };
+		52A0D8821AAEA389000C6ED2 /* StarAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D86F1AAEA389000C6ED2 /* StarAction.m */; };
+		52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8711AAEA389000C6ED2 /* StarBaseClass.m */; };
+		52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8731AAEA389000C6ED2 /* StarComponent.m */; };
+		52A0D8851AAEA389000C6ED2 /* StarData.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8751AAEA389000C6ED2 /* StarData.m */; };
+		52A0D8861AAEA389000C6ED2 /* StarItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8771AAEA389000C6ED2 /* StarItems.m */; };
+		52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8881AAEA55B000C6ED2 /* TuanTableCell.m */; };
+		52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D88B1AAEA577000C6ED2 /* pragueTableViewCell.m */; };
+		52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A0D8911AAEA675000C6ED2 /* CollectionViewCell.m */; };
 		52A571301AAC72150075F3C0 /* MLApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A571191AAC72150075F3C0 /* MLApp.m */; };
 		52A571311AAC72150075F3C0 /* MLBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5711B1AAC72150075F3C0 /* MLBaseClass.m */; };
 		52A571321AAC72150075F3C0 /* MLConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5711D1AAC72150075F3C0 /* MLConfig.m */; };
@@ -733,6 +751,42 @@
 		52399CC51AAD2BE900658C36 /* MainLeftRectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLeftRectCell.m; sourceTree = "<group>"; };
 		52399CCB1AAE814E00658C36 /* FeatureLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureLeftCell.h; sourceTree = "<group>"; };
 		52399CCC1AAE814E00658C36 /* FeatureLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureLeftCell.m; sourceTree = "<group>"; };
+		52A0D8571AAEA389000C6ED2 /* HStarAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HStarAction.h; sourceTree = "<group>"; };
+		52A0D8581AAEA389000C6ED2 /* HStarAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HStarAction.m; sourceTree = "<group>"; };
+		52A0D8591AAEA389000C6ED2 /* HStarBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HStarBaseClass.h; sourceTree = "<group>"; };
+		52A0D85A1AAEA389000C6ED2 /* HStarBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HStarBaseClass.m; sourceTree = "<group>"; };
+		52A0D85B1AAEA389000C6ED2 /* HStarComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HStarComponent.h; sourceTree = "<group>"; };
+		52A0D85C1AAEA389000C6ED2 /* HStarComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HStarComponent.m; sourceTree = "<group>"; };
+		52A0D85D1AAEA389000C6ED2 /* HStarData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HStarData.h; sourceTree = "<group>"; };
+		52A0D85E1AAEA389000C6ED2 /* HStarData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HStarData.m; sourceTree = "<group>"; };
+		52A0D85F1AAEA389000C6ED2 /* HStarItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HStarItems.h; sourceTree = "<group>"; };
+		52A0D8601AAEA389000C6ED2 /* HStarItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HStarItems.m; sourceTree = "<group>"; };
+		52A0D8621AAEA389000C6ED2 /* PgActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgActions.h; sourceTree = "<group>"; };
+		52A0D8631AAEA389000C6ED2 /* PgActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgActions.m; sourceTree = "<group>"; };
+		52A0D8641AAEA389000C6ED2 /* PgBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgBaseClass.h; sourceTree = "<group>"; };
+		52A0D8651AAEA389000C6ED2 /* PgBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgBaseClass.m; sourceTree = "<group>"; };
+		52A0D8661AAEA389000C6ED2 /* PgComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgComponent.h; sourceTree = "<group>"; };
+		52A0D8671AAEA389000C6ED2 /* PgComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgComponent.m; sourceTree = "<group>"; };
+		52A0D8681AAEA389000C6ED2 /* PgData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgData.h; sourceTree = "<group>"; };
+		52A0D8691AAEA389000C6ED2 /* PgData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgData.m; sourceTree = "<group>"; };
+		52A0D86A1AAEA389000C6ED2 /* PgItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgItems.h; sourceTree = "<group>"; };
+		52A0D86B1AAEA389000C6ED2 /* PgItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgItems.m; sourceTree = "<group>"; };
+		52A0D86E1AAEA389000C6ED2 /* StarAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarAction.h; sourceTree = "<group>"; };
+		52A0D86F1AAEA389000C6ED2 /* StarAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarAction.m; sourceTree = "<group>"; };
+		52A0D8701AAEA389000C6ED2 /* StarBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarBaseClass.h; sourceTree = "<group>"; };
+		52A0D8711AAEA389000C6ED2 /* StarBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarBaseClass.m; sourceTree = "<group>"; };
+		52A0D8721AAEA389000C6ED2 /* StarComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarComponent.h; sourceTree = "<group>"; };
+		52A0D8731AAEA389000C6ED2 /* StarComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarComponent.m; sourceTree = "<group>"; };
+		52A0D8741AAEA389000C6ED2 /* StarData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarData.h; sourceTree = "<group>"; };
+		52A0D8751AAEA389000C6ED2 /* StarData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarData.m; sourceTree = "<group>"; };
+		52A0D8761AAEA389000C6ED2 /* StarItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarItems.h; sourceTree = "<group>"; };
+		52A0D8771AAEA389000C6ED2 /* StarItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarItems.m; sourceTree = "<group>"; };
+		52A0D8871AAEA55B000C6ED2 /* TuanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuanTableCell.h; sourceTree = "<group>"; };
+		52A0D8881AAEA55B000C6ED2 /* TuanTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuanTableCell.m; sourceTree = "<group>"; };
+		52A0D88A1AAEA577000C6ED2 /* pragueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pragueTableViewCell.h; sourceTree = "<group>"; };
+		52A0D88B1AAEA577000C6ED2 /* pragueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pragueTableViewCell.m; sourceTree = "<group>"; };
+		52A0D8901AAEA675000C6ED2 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		52A0D8911AAEA675000C6ED2 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		52A571181AAC72150075F3C0 /* MLApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLApp.h; sourceTree = "<group>"; };
 		52A571191AAC72150075F3C0 /* MLApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLApp.m; sourceTree = "<group>"; };
 		52A5711A1AAC72150075F3C0 /* MLBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBaseClass.h; sourceTree = "<group>"; };
@@ -1570,6 +1624,10 @@
 				521BB9AE1AA792E200426FC6 /* TuanViewController.m */,
 				521BB9B01AA792F100426FC6 /* TuanLeftViewController.h */,
 				521BB9B11AA792F100426FC6 /* TuanLeftViewController.m */,
+				52A0D8871AAEA55B000C6ED2 /* TuanTableCell.h */,
+				52A0D8881AAEA55B000C6ED2 /* TuanTableCell.m */,
+				52A0D8901AAEA675000C6ED2 /* CollectionViewCell.h */,
+				52A0D8911AAEA675000C6ED2 /* CollectionViewCell.m */,
 			);
 			name = TuanVC;
 			sourceTree = "<group>";
@@ -1581,6 +1639,8 @@
 				521BB9B41AA7930600426FC6 /* PragueViewController.m */,
 				521BB9B61AA7931C00426FC6 /* PragueLeftViewController.h */,
 				521BB9B71AA7931C00426FC6 /* PragueLeftViewController.m */,
+				52A0D88A1AAEA577000C6ED2 /* pragueTableViewCell.h */,
+				52A0D88B1AAEA577000C6ED2 /* pragueTableViewCell.m */,
 			);
 			name = PragueVC;
 			sourceTree = "<group>";
@@ -1603,6 +1663,57 @@
 				521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */,
 			);
 			name = FavoritesVC;
+			sourceTree = "<group>";
+		};
+		52A0D8561AAEA389000C6ED2 /* HStar */ = {
+			isa = PBXGroup;
+			children = (
+				52A0D8571AAEA389000C6ED2 /* HStarAction.h */,
+				52A0D8581AAEA389000C6ED2 /* HStarAction.m */,
+				52A0D8591AAEA389000C6ED2 /* HStarBaseClass.h */,
+				52A0D85A1AAEA389000C6ED2 /* HStarBaseClass.m */,
+				52A0D85B1AAEA389000C6ED2 /* HStarComponent.h */,
+				52A0D85C1AAEA389000C6ED2 /* HStarComponent.m */,
+				52A0D85D1AAEA389000C6ED2 /* HStarData.h */,
+				52A0D85E1AAEA389000C6ED2 /* HStarData.m */,
+				52A0D85F1AAEA389000C6ED2 /* HStarItems.h */,
+				52A0D8601AAEA389000C6ED2 /* HStarItems.m */,
+			);
+			path = HStar;
+			sourceTree = "<group>";
+		};
+		52A0D8611AAEA389000C6ED2 /* PgDM */ = {
+			isa = PBXGroup;
+			children = (
+				52A0D8621AAEA389000C6ED2 /* PgActions.h */,
+				52A0D8631AAEA389000C6ED2 /* PgActions.m */,
+				52A0D8641AAEA389000C6ED2 /* PgBaseClass.h */,
+				52A0D8651AAEA389000C6ED2 /* PgBaseClass.m */,
+				52A0D8661AAEA389000C6ED2 /* PgComponent.h */,
+				52A0D8671AAEA389000C6ED2 /* PgComponent.m */,
+				52A0D8681AAEA389000C6ED2 /* PgData.h */,
+				52A0D8691AAEA389000C6ED2 /* PgData.m */,
+				52A0D86A1AAEA389000C6ED2 /* PgItems.h */,
+				52A0D86B1AAEA389000C6ED2 /* PgItems.m */,
+			);
+			path = PgDM;
+			sourceTree = "<group>";
+		};
+		52A0D86C1AAEA389000C6ED2 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				52A0D86E1AAEA389000C6ED2 /* StarAction.h */,
+				52A0D86F1AAEA389000C6ED2 /* StarAction.m */,
+				52A0D8701AAEA389000C6ED2 /* StarBaseClass.h */,
+				52A0D8711AAEA389000C6ED2 /* StarBaseClass.m */,
+				52A0D8721AAEA389000C6ED2 /* StarComponent.h */,
+				52A0D8731AAEA389000C6ED2 /* StarComponent.m */,
+				52A0D8741AAEA389000C6ED2 /* StarData.h */,
+				52A0D8751AAEA389000C6ED2 /* StarData.m */,
+				52A0D8761AAEA389000C6ED2 /* StarItems.h */,
+				52A0D8771AAEA389000C6ED2 /* StarItems.m */,
+			);
+			path = Star;
 			sourceTree = "<group>";
 		};
 		52A571161AAC72150075F3C0 /* MainLeftDM */ = {
@@ -2430,6 +2541,9 @@
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				52A0D8561AAEA389000C6ED2 /* HStar */,
+				52A0D8611AAEA389000C6ED2 /* PgDM */,
+				52A0D86C1AAEA389000C6ED2 /* Star */,
 				52A571161AAC72150075F3C0 /* MainLeftDM */,
 				6A4112491AA94AE100E6337B /* Banner */,
 				6A4112591AA94BDB00E6337B /* WaterFlow */,
@@ -3204,8 +3318,11 @@
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
 				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
+				52A0D8811AAEA389000C6ED2 /* PgItems.m in Sources */,
+				52A0D87E1AAEA389000C6ED2 /* PgBaseClass.m in Sources */,
 				52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */,
 				6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */,
+				52A0D8801AAEA389000C6ED2 /* PgData.m in Sources */,
 				52A571301AAC72150075F3C0 /* MLApp.m in Sources */,
 				52A571321AAC72150075F3C0 /* MLConfig.m in Sources */,
 				6A7A9E671AAB090000B6E7C4 /* WaterFlowComponent.m in Sources */,
@@ -3216,19 +3333,24 @@
 				521BB9A91AA792BB00426FC6 /* FeaturesViewController.m in Sources */,
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
+				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
+				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
+				52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */,
 				52A5713B1AAC72150075F3C0 /* MLVItemStarCategories.m in Sources */,
 				52A571331AAC72150075F3C0 /* MLCountly.m in Sources */,
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
+				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,
 				52A571341AAC72150075F3C0 /* MLData.m in Sources */,
 				52A571351AAC72150075F3C0 /* MLMobileSubjectCategories.m in Sources */,
 				52A5713E1AAC9C210075F3C0 /* MainLeftRoundCell.m in Sources */,
 				6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */,
+				52A0D87B1AAEA389000C6ED2 /* HStarData.m in Sources */,
 				521BB9AF1AA792E200426FC6 /* TuanViewController.m in Sources */,
 				521BB9231AA7583000426FC6 /* main.m in Sources */,
 				521BB9441AA7865300426FC6 /* MyTabBarController.m in Sources */,
@@ -3237,13 +3359,23 @@
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
+				52A0D8781AAEA389000C6ED2 /* HStarAction.m in Sources */,
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
+				52A0D8821AAEA389000C6ED2 /* StarAction.m in Sources */,
 				6A3142C71AAD73E000E4750D /* SettingsViewController.m in Sources */,
+				52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */,
+				52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
+				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,
 				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,
 				6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */,
+				52A0D8851AAEA389000C6ED2 /* StarData.m in Sources */,
+				52A0D8861AAEA389000C6ED2 /* StarItems.m in Sources */,
+				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
+				52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */,
 				52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */,
 				52A571311AAC72150075F3C0 /* MLBaseClass.m in Sources */,
+				52A0D8791AAEA389000C6ED2 /* HStarBaseClass.m in Sources */,
 				521BB99D1AA7925900426FC6 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

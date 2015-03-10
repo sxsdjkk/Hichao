@@ -8,7 +8,6 @@
 
 #import "HomeRightViewController.h"
 #import <UIImageView+WebCache.h>
-#import <AFNetworking.h>
 
 @interface HomeRightViewController ()
 

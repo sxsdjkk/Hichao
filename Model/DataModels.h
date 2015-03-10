@@ -34,4 +34,24 @@
 #import "MLSplash.h"
 #import "MLTopicCategories.h"
 
+#warning 陈成加个注释
 
+#import "StarComponent.h"
+#import "StarData.h"
+#import "StarItems.h"
+#import "StarBaseClass.h"
+#import "StarAction.h"
+
+
+#import "HStarComponent.h"
+#import "HStarData.h"
+#import "HStarItems.h"
+#import "HStarBaseClass.h"
+#import "HStarAction.h"
+
+
+#import "PgComponent.h"
+#import "PgData.h"
+#import "PgItems.h"
+#import "PgActions.h"
+#import "PgBaseClass.h"

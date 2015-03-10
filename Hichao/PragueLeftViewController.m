@@ -10,13 +10,37 @@
 
 @interface PragueLeftViewController ()
 
+#define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define M_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
 @end
 
 @implementation PragueLeftViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    _tableView=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, M_SCREEN_WIDTH, M_SCREEN_HEIGHT) style:UITableViewStylePlain];
+    _tableView.dataSource=self;
+    _tableView.delegate=self;
+    [self.view addSubview:_tableView];
+    
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 8;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString * str = @"cell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:str];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
+    }
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {

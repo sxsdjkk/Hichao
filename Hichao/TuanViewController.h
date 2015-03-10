@@ -8,6 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TuanViewController : UIViewController
+
+@interface TuanViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
+
+{
+    
+    StarBaseClass *      _baseClass;
+    
+    HStarBaseClass  *    _baseClassH;
+    
+    
+    UITableView *       _laftView;
+    UITableView *       _rightView;
+    
+   
+    
+    HStarItems *        _items;
+    
+
+    NSString *  _str;
+
+}
+
+@property (nonatomic,strong)UICollectionView *collectionView;
 
 @end
