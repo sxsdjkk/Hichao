@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectedLeftViewController : UIViewController
+@interface SelectedLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end

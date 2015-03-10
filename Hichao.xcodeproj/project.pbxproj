@@ -71,6 +71,8 @@
 		52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5712D1AAC72150075F3C0 /* MLTopicCategories.m */; };
 		52A5713B1AAC72150075F3C0 /* MLVItemStarCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5712F1AAC72150075F3C0 /* MLVItemStarCategories.m */; };
 		52A5713E1AAC9C210075F3C0 /* MainLeftRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5713D1AAC9C210075F3C0 /* MainLeftRoundCell.m */; };
+		52E9E4B61AAF2D5E00AD60F6 /* SelectedLeftHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E9E4B51AAF2D5E00AD60F6 /* SelectedLeftHeaderView.m */; };
+		52E9E4B91AAF371400AD60F6 /* SelectedLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E9E4B81AAF371400AD60F6 /* SelectedLeftCell.m */; };
 		6A3142C71AAD73E000E4750D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3142C61AAD73E000E4750D /* SettingsViewController.m */; };
 		6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A38BFC01AAAC91500539963 /* PullViewCell.m */; };
 		6A4112821AA954B200E6337B /* nav_bar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125B1AA954B200E6337B /* nav_bar_bg@2x.png */; };
@@ -855,6 +857,10 @@
 		52A5712F1AAC72150075F3C0 /* MLVItemStarCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVItemStarCategories.m; sourceTree = "<group>"; };
 		52A5713C1AAC9C210075F3C0 /* MainLeftRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLeftRoundCell.h; sourceTree = "<group>"; };
 		52A5713D1AAC9C210075F3C0 /* MainLeftRoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLeftRoundCell.m; sourceTree = "<group>"; };
+		52E9E4B41AAF2D5E00AD60F6 /* SelectedLeftHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedLeftHeaderView.h; sourceTree = "<group>"; };
+		52E9E4B51AAF2D5E00AD60F6 /* SelectedLeftHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedLeftHeaderView.m; sourceTree = "<group>"; };
+		52E9E4B71AAF371400AD60F6 /* SelectedLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedLeftCell.h; sourceTree = "<group>"; };
+		52E9E4B81AAF371400AD60F6 /* SelectedLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedLeftCell.m; sourceTree = "<group>"; };
 		596DDB7F9DC70CF729C3BB30 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A3142C51AAD73E000E4750D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		6A3142C61AAD73E000E4750D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -1658,6 +1664,10 @@
 				521BB9A21AA7929100426FC6 /* SelectedViewController.m */,
 				521BB9A41AA792A700426FC6 /* SelectedLeftViewController.h */,
 				521BB9A51AA792A700426FC6 /* SelectedLeftViewController.m */,
+				52E9E4B41AAF2D5E00AD60F6 /* SelectedLeftHeaderView.h */,
+				52E9E4B51AAF2D5E00AD60F6 /* SelectedLeftHeaderView.m */,
+				52E9E4B71AAF371400AD60F6 /* SelectedLeftCell.h */,
+				52E9E4B81AAF371400AD60F6 /* SelectedLeftCell.m */,
 			);
 			name = SelectedVC;
 			sourceTree = "<group>";
@@ -2639,10 +2649,7 @@
 			children = (
 				6AF138891AAF15FB0035B7FF /* Topics */,
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
-
-
 				52A0D89E1AAF1C34000C6ED2 /* SelectedLeftItem */,
-
 				52A0D8931AAEE34A000C6ED2 /* MainLeftHotWords */,
 				6AE5AE181AAED35300557DDD /* iTunesLookup */,
 				52A0D8561AAEA389000C6ED2 /* HStar */,
@@ -3470,11 +3477,8 @@
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
 				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
-
 				6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */,
-
 				52A0D8B01AAF1C34000C6ED2 /* SLIDMData.m in Sources */,
-
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
 				52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */,
@@ -3483,6 +3487,7 @@
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
+				52E9E4B91AAF371400AD60F6 /* SelectedLeftCell.m in Sources */,
 				52A0D8B11AAF1C34000C6ED2 /* SLIDMItems.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
 				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
@@ -3491,6 +3496,7 @@
 				52A571341AAC72150075F3C0 /* MLData.m in Sources */,
 				52A571351AAC72150075F3C0 /* MLMobileSubjectCategories.m in Sources */,
 				52A5713E1AAC9C210075F3C0 /* MainLeftRoundCell.m in Sources */,
+				52E9E4B61AAF2D5E00AD60F6 /* SelectedLeftHeaderView.m in Sources */,
 				6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */,
 				52A0D89B1AAEE34A000C6ED2 /* MLHWBaseClass.m in Sources */,
 				52A0D87B1AAEA389000C6ED2 /* HStarData.m in Sources */,
@@ -3522,11 +3528,8 @@
 				52A0D8851AAEA389000C6ED2 /* StarData.m in Sources */,
 				52A0D8861AAEA389000C6ED2 /* StarItems.m in Sources */,
 				52A0D89C1AAEE34A000C6ED2 /* MLHWData.m in Sources */,
-
 				6AF138981AAF160A0035B7FF /* TopicsData.m in Sources */,
-
 				52A0D8AE1AAF1C34000C6ED2 /* SLIDMBaseClass.m in Sources */,
-
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
 				52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */,
 				52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */,
