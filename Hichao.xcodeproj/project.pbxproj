@@ -699,6 +699,7 @@
 		6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */; };
 		6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */; };
 		6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */; };
+		6AF138881AAEF8040035B7FF /* FeaturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF138871AAEF8040035B7FF /* FeaturesCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1480,6 +1481,8 @@
 		6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iTunesLookupBaseClass.m; path = iTunesLookup/iTunesLookupBaseClass.m; sourceTree = "<group>"; };
 		6AE5AE1B1AAED37C00557DDD /* iTunesLookupResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iTunesLookupResults.h; path = iTunesLookup/iTunesLookupResults.h; sourceTree = "<group>"; };
 		6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iTunesLookupResults.m; path = iTunesLookup/iTunesLookupResults.m; sourceTree = "<group>"; };
+		6AF138861AAEF8040035B7FF /* FeaturesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesCell.h; sourceTree = "<group>"; };
+		6AF138871AAEF8040035B7FF /* FeaturesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesCell.m; sourceTree = "<group>"; };
 		C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1625,6 +1628,8 @@
 			children = (
 				521BB9A71AA792BB00426FC6 /* FeaturesViewController.h */,
 				521BB9A81AA792BB00426FC6 /* FeaturesViewController.m */,
+				6AF138861AAEF8040035B7FF /* FeaturesCell.h */,
+				6AF138871AAEF8040035B7FF /* FeaturesCell.m */,
 				521BB9AA1AA792D000426FC6 /* FeaturesLeftViewController.h */,
 				521BB9AB1AA792D000426FC6 /* FeaturesLeftViewController.m */,
 				52399CCB1AAE814E00658C36 /* FeatureLeftCell.h */,
@@ -2571,11 +2576,8 @@
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
-//<<<<<<< HEAD
 				52A0D8931AAEE34A000C6ED2 /* MainLeftHotWords */,
-//=======
 				6AE5AE181AAED35300557DDD /* iTunesLookup */,
-//>>>>>>> origin/master
 				52A0D8561AAEA389000C6ED2 /* HStar */,
 				52A0D8611AAEA389000C6ED2 /* PgDM */,
 				52A0D86C1AAEA389000C6ED2 /* Star */,
@@ -3413,6 +3415,7 @@
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
 				52A0D8821AAEA389000C6ED2 /* StarAction.m in Sources */,
 				6A3142C71AAD73E000E4750D /* SettingsViewController.m in Sources */,
+				6AF138881AAEF8040035B7FF /* FeaturesCell.m in Sources */,
 				52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */,
 				52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,

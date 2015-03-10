@@ -7,6 +7,7 @@
 //
 
 #import "FeaturesViewController.h"
+#import "FeaturesCell.h"
 
 @interface FeaturesViewController ()
 
@@ -27,8 +28,32 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithWhite:53/255.0 alpha:1.0];
     
+    [self creatCollectionView];
 }
-
+- (void)creatCollectionView{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 0.0;
+    layout.minimumInteritemSpacing = 0.0;
+    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.itemSize = CGSizeMake(460, 300);
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 240, self.view.frame.size.height) collectionViewLayout:layout];
+    collectionView.backgroundColor = M_GRAY_COLOR;
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    [self.view addSubview:collectionView];
+    
+    [collectionView registerClass:[FeaturesCell class] forCellWithReuseIdentifier:@"cell"];
+    
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 0;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    FeaturesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    return cell;
+}
 
 
 

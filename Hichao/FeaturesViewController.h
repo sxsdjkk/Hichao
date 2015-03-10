@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeaturesViewController : UIViewController
+@interface FeaturesViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic,copy) NSString *subject;
 
