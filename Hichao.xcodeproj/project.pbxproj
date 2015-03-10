@@ -694,6 +694,8 @@
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
 		6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */; };
 		6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */; };
+		6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */; };
+		6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1464,6 +1466,10 @@
 		6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6ADDC15E1AADCAD5009B8ED2 /* HomeRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRightViewController.h; sourceTree = "<group>"; };
 		6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRightViewController.m; sourceTree = "<group>"; };
+		6AE5AE191AAED37C00557DDD /* iTunesLookupBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iTunesLookupBaseClass.h; path = iTunesLookup/iTunesLookupBaseClass.h; sourceTree = "<group>"; };
+		6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iTunesLookupBaseClass.m; path = iTunesLookup/iTunesLookupBaseClass.m; sourceTree = "<group>"; };
+		6AE5AE1B1AAED37C00557DDD /* iTunesLookupResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iTunesLookupResults.h; path = iTunesLookup/iTunesLookupResults.h; sourceTree = "<group>"; };
+		6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iTunesLookupResults.m; path = iTunesLookup/iTunesLookupResults.m; sourceTree = "<group>"; };
 		C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2541,6 +2547,7 @@
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				6AE5AE181AAED35300557DDD /* iTunesLookup */,
 				52A0D8561AAEA389000C6ED2 /* HStar */,
 				52A0D8611AAEA389000C6ED2 /* PgDM */,
 				52A0D86C1AAEA389000C6ED2 /* Star */,
@@ -2549,6 +2556,17 @@
 				6A4112591AA94BDB00E6337B /* WaterFlow */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6AE5AE181AAED35300557DDD /* iTunesLookup */ = {
+			isa = PBXGroup;
+			children = (
+				6AE5AE191AAED37C00557DDD /* iTunesLookupBaseClass.h */,
+				6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */,
+				6AE5AE1B1AAED37C00557DDD /* iTunesLookupResults.h */,
+				6AE5AE1C1AAED37C00557DDD /* iTunesLookupResults.m */,
+			);
+			name = iTunesLookup;
 			sourceTree = "<group>";
 		};
 		F091FFE189CC9E01527569B3 /* Pods */ = {
@@ -3320,6 +3338,7 @@
 				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
 				52A0D8811AAEA389000C6ED2 /* PgItems.m in Sources */,
 				52A0D87E1AAEA389000C6ED2 /* PgBaseClass.m in Sources */,
+				6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */,
 				52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */,
 				6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */,
 				52A0D8801AAEA389000C6ED2 /* PgData.m in Sources */,
@@ -3357,6 +3376,7 @@
 				52A571371AAC72150075F3C0 /* MLSplash.m in Sources */,
 				6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
+				6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
 				52A0D8781AAEA389000C6ED2 /* HStarAction.m in Sources */,

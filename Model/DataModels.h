@@ -55,3 +55,7 @@
 #import "PgItems.h"
 #import "PgActions.h"
 #import "PgBaseClass.h"
+
+//iTunes商店 检查更新
+#import "iTunesLookupResults.h"
+#import "iTunesLookupBaseClass.h"
