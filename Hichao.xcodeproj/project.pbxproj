@@ -2647,8 +2647,8 @@
 		6A7BBD981AA88E930049CA3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6AF138891AAF15FB0035B7FF /* Topics */,
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				6AF138891AAF15FB0035B7FF /* Topics */,
 				52A0D89E1AAF1C34000C6ED2 /* SelectedLeftItem */,
 				52A0D8931AAEE34A000C6ED2 /* MainLeftHotWords */,
 				6AE5AE181AAED35300557DDD /* iTunesLookup */,
@@ -3653,6 +3653,7 @@
 			baseConfigurationReference = C19610ACAD5ADA3BD6AE8F9A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hichao/PrefixHeader.pch;
@@ -3667,6 +3668,7 @@
 			baseConfigurationReference = 596DDB7F9DC70CF729C3BB30 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hichao/PrefixHeader.pch;

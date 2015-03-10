@@ -32,16 +32,25 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    
-    
-    
-    
+    [super viewWillAppear:animated];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
+    self.view.backgroundColor = M_GRAY_COLOR;
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage alloc] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithWhite:53/255.0 alpha:1.0];
+    
+    UINavigationBar *nav = [[UINavigationBar alloc] init];
+    [nav setBackgroundColor:M_GRAY_COLOR];
+    [self.view addSubview:nav];
+    [nav release];
     
     self.title = @"全部";
 
@@ -62,10 +71,7 @@
         
     }];
     
-    
-    
-    float height = self.view.frame.size.height;
-    leftView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, COORD, height)style:UITableViewStylePlain];
+    leftView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, COORD, M_SCREEN_HEIGHT-64)style:UITableViewStylePlain];
     leftView.delegate = self;
     leftView.dataSource = self;
     leftView.tag = 100;
@@ -75,7 +81,7 @@
     [leftView registerClass:[pragueTableViewCell class] forCellReuseIdentifier:@"cell_1"];
     [self.view addSubview:leftView];
     
-    rightView = [[UITableView alloc] initWithFrame:CGRectMake(COORD, 044, 480, height)style:UITableViewStylePlain];
+    rightView = [[UITableView alloc] initWithFrame:CGRectMake(COORD, 64, 480, M_SCREEN_HEIGHT-64)style:UITableViewStylePlain];
     rightView.delegate = self;
     rightView.dataSource = self;
     rightView.tag = 101;

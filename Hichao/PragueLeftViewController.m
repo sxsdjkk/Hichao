@@ -7,19 +7,33 @@
 //
 
 #import "PragueLeftViewController.h"
-#import "PgCollectionViewCell.h"
-@interface PragueLeftViewController ()
+//#import "PgCollectionViewCell.h"
+#import "AppDelegate.h"
+#import "FeatureLeftCell.h"
+#import <UIImageView+WebCache.h>
 
-#define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define M_SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+@interface PragueLeftViewController ()
+{
+    UICollectionView *_collectionView;
+}
 
 @end
 
 @implementation PragueLeftViewController
 
+- (id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reLoadCollectionView) name:@"configOnline" object:nil];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     [self creatCollectionView];
     
 }
@@ -37,35 +51,36 @@
     
     layOut.itemSize = CGSizeMake(240, 50);
     
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 240, M_SCREEN_HEIGHT) collectionViewLayout:layOut];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 240, M_SCREEN_HEIGHT) collectionViewLayout:layOut];
     
-    [collectionView registerClass:[PgCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [_collectionView registerClass:[FeatureLeftCell class] forCellWithReuseIdentifier:@"cell"];
     
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
     
-    collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
+    _collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
     
-    [self.view addSubview:collectionView];
+    [self.view addSubview:_collectionView];
     
     
-    [collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionTop];
+    [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionTop];
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 8;
+    return _subjetCategoriesArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PgCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    FeatureLeftCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-//    MLMobileTopicCategories *category = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+    MLMobileSubjectCategories *category = [_subjetCategoriesArray objectAtIndex:indexPath.row];
     
-//    [cell.titleImageView sd_setImageWithURL:[NSURL URLWithString:category.picUrl]];
-//    cell.textLabel.text = category.name;
+    [cell.titleImageView sd_setImageWithURL:[NSURL URLWithString:category.picUrl]];
+
+    cell.textLabel.text = category.name;
     
     return cell;
 }
@@ -91,13 +106,20 @@
 
 
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark- notify called selector
+- (void)reLoadCollectionView
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    _subjetCategoriesArray = delegate.configBaseClass.data.config.mobileSubjectCategories;
+    
+    [_collectionView reloadData];
 }
 
+
+- (void)dealloc
+{
+    [super dealloc];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"configOnline" object:nil];
+}
 
 @end

@@ -25,8 +25,31 @@
     MyTabBarController *tabBarController = [[MyTabBarController alloc] init];
     
     self.window.rootViewController = tabBarController;
-
+    
+    [self performSelectorInBackground:@selector(getConfigOnline) withObject:nil];
+    
     return YES;
+}
+
+- (void)getConfigOnline
+{
+    NSString *urlStr = @"http://api2.hichao.com/config?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&splash_version=&screen_width=1536&config_version=39&screen_height=2048";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        _configBaseClass = [[MLBaseClass modelObjectWithDictionary:responseObject] retain];
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"configOnline" object:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"网络错误，请检查网络" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        [alert release];
+    }];
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -49,6 +72,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    [_configBaseClass release];
 }
 
 @end

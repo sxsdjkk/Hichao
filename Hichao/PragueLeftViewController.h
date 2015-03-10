@@ -10,10 +10,7 @@
 
 @interface PragueLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 {
-    
-    //UITableView  *      _tableView;
-    
-    
+    NSArray *_subjetCategoriesArray;    
 }
 
 

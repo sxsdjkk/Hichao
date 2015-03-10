@@ -31,7 +31,7 @@
     
 //热词 http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=hot&version=
 //     http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=item&version=
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
     NSString *urlStr = @"http://api2.hichao.com/hotwords?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&type=hot&version=";
     
     _categoryArray = [@[@"全部",@"欧美",@"日韩",@"本土",@"潮男",@"热播",@"明星"] retain];
@@ -144,7 +144,7 @@
         
         UILabel *label = [[UILabel alloc] init];
                           
-        label.font = [UIFont systemFontOfSize:24];
+        label.font = [UIFont systemFontOfSize:20];
         
         if (indexPath.section==0)
         {
@@ -158,6 +158,7 @@
         
         CGRect rect = [label.text boundingRectWithSize:CGSizeMake(0, 0) options:
                        NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:label.font} context:nil];
+        rect.size.width += 10;
         
         label.bounds = rect;
         
