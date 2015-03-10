@@ -16,4 +16,6 @@
 }
 @property (nonatomic,copy) NSString *subject;
 
+- (void)reloadView;
+
 @end

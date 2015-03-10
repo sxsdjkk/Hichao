@@ -48,8 +48,13 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithWhite:53/255.0 alpha:1.0];
     
-    [self requestData];
     [self creatCollectionView];
+    [self reloadView];
+}
+- (void)reloadView{
+    [self requestData];
+    [_topicsItemsArray removeAllObjects];
+    self.navigationItem.title = _subject;
 }
 - (void)requestData{
     NSString *topicsString = [NSString stringWithFormat:@"http://api2.hichao.com/topics?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=",_subject];

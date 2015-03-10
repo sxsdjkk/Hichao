@@ -102,7 +102,8 @@
     featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
     
 #warning reload featureVC data
-    
+    NSLog(@"%@",featuresVC.subject);
+//    [featuresVC reloadView];
 
 }
 
