@@ -261,8 +261,10 @@
     HomeViewController *homeVC = homeNav.viewControllers[0];
     homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
     
-// reload homeVC data
+
     [homeVC reloadView];
+    
+    [self.menuController showRootController:YES];
 }
 
 #pragma mark- search bar delegate
