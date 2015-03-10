@@ -374,7 +374,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PullViewCell *cell = (PullViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     int index;
     switch (tableView.tag) {
         case 41:
@@ -460,7 +460,7 @@
     
     int imageIndex = 0;
     
-    float newHeight = 44.0f;
+    float newHeight = 100.0f;
     
     switch (tableView.tag) {
         case 41:

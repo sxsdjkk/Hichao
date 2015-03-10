@@ -60,6 +60,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.textLabel.text = _titleArray[indexPath.row];
     return cell;
@@ -76,6 +77,22 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您没有安装微信" message:@"请安装微信" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil];
         [alert show];
         [alert release];
+    }else if (indexPath.row == 7) {
+        NSString *updateString = @"https://itunes.apple.com/cn/lookup?id=582628075";
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager GET:updateString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            iTunesLookupBaseClass *iTunesBaseClass = [[iTunesLookupBaseClass alloc] initWithDictionary:responseObject];
+            NSArray *array = iTunesBaseClass.results;
+            iTunesLookupResults *result = [array lastObject];
+            
+            NSString *message = [NSString stringWithFormat:@"最新版是%@",result.version];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"版本更新" message:message delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil];
+            [alert show];
+            [alert release];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@",error);
+        }];
     }
     
 

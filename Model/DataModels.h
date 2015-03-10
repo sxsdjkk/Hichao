@@ -61,4 +61,10 @@
 #import "PgActions.h"
 #import "PgBaseClass.h"
 
+//<<<<<<< HEAD
 
+//=======
+//iTunes商店 检查更新
+#import "iTunesLookupResults.h"
+#import "iTunesLookupBaseClass.h"
+//>>>>>>> origin/master

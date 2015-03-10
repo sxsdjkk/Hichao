@@ -12,6 +12,15 @@
 {
     UIImageView *_imageView;
     UILabel *_titleLabel;
+    
+    UIImageView *_horizonalLine;
+    
+    UIButton *_collectBtn;
+    UILabel *_leftLabel;
+    
+    UIButton *_itemBtn;
+    UILabel *_rightLabel;
+    
 }
 @property (nonatomic,retain) WaterFlowItems *items;
 @end
