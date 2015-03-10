@@ -304,15 +304,29 @@
             
             int minIndex = 0; //存放最低高
             
-            float minHeight = colHeight[0];
+            //排序算法
+            
+            /*
             for (int i=0; i<4; i++) {
                 if (minHeight>=colHeight[i]) {
                     minHeight = colHeight[i];
                     minIndex = i;
                 }
             }
-
-            colHeight[minIndex] += height;
+            */
+            minIndex = 0;
+            if (colHeight[0] > colHeight[1]) {
+                minIndex = 1;
+                if (colHeight[1] > colHeight[2]) {
+                    minIndex = 2;
+                    if (colHeight[2] > colHeight[3]) {
+                        minIndex = 3;
+                    }
+                }
+            }
+            
+            
+            colHeight[minIndex] += height+100;
             
             //将当前的索引添加到相应的数组中。
             switch (minIndex) {
