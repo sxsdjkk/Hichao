@@ -100,9 +100,9 @@
     float height = [_items.height floatValue];
     
     height = self.bounds.size.width * height / width;
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:_items.component.picUrl]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:_items.component.picUrl] placeholderImage:[UIImage imageNamed:@"background"]];
     
-    if (items.component.weekDay == nil) {
+    if (items.component.weekDay == nil && _items.component.collectionCount != nil) {
         
         _titleLabel.text = _items.component.componentDescription;
         _leftLabel.text = _items.component.collectionCount;
@@ -148,6 +148,7 @@
         [self addSubview:pubLabel];
         [pubLabel release];
         
+        [self bringSubviewToFront:_imageView];
     }
     
 }
