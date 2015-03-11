@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MyTabBarController.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 
 @interface AppDelegate ()
 
@@ -32,7 +33,12 @@
     
     return YES;
 }
-
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [TencentOAuth HandleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [TencentOAuth HandleOpenURL:url];
+}
 - (void)getConfigOnline
 {
     NSString *urlStr = @"http://api2.hichao.com/config?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&splash_version=&screen_width=1536&config_version=39&screen_height=2048";

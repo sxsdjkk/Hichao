@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 
-@interface LoginViewController : UIViewController
-
+@interface LoginViewController : UIViewController <TencentSessionDelegate,TencentLoginDelegate>
+{
+    TencentOAuth *_tencentOAuth;
+}
 @end

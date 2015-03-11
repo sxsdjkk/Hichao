@@ -42,6 +42,7 @@
     [taobaoLogin addTarget:self action:@selector(taobaoLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:taobaoLogin];
     
+    _tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"" andDelegate:self];
 }
 
 - (void)weiboLogin{
@@ -52,7 +53,8 @@
     [self.view addSubview:webView];
 }
 - (void)qqLogin{
-    
+    NSArray *permissions = [[NSArray arrayWithObjects:@"get_user_info",@"get_simple_userinfo", @"add_t", nil] retain];
+    [_tencentOAuth authorize:permissions inSafari:YES];
 }
 - (void)taobaoLogin{
     

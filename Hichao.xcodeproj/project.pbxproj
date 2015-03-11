@@ -716,6 +716,16 @@
 		6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9E1AA88E930049CA3E /* BannerComponent.m */; };
 		6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA01AA88E930049CA3E /* BannerData.m */; };
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
+		6A98E45A1AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A98E4581AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		6A98E45B1AB088AE000C46D5 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4591AB088AE000C46D5 /* TencentOpenAPI.framework */; };
+		6A98E45D1AB088FB000C46D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E45C1AB088FB000C46D5 /* Security.framework */; };
+		6A98E4611AB08910000C46D5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4601AB08910000C46D5 /* SystemConfiguration.framework */; };
+		6A98E4631AB08916000C46D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4621AB08916000C46D5 /* CoreGraphics.framework */; };
+		6A98E4651AB0891E000C46D5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4641AB0891E000C46D5 /* libsqlite3.dylib */; };
+		6A98E4671AB08924000C46D5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4661AB08924000C46D5 /* CoreTelephony.framework */; };
+		6A98E4691AB0892D000C46D5 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4681AB0892D000C46D5 /* libstdc++.dylib */; };
+		6A98E46B1AB08936000C46D5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E46A1AB08936000C46D5 /* libz.dylib */; };
+		6A98E46D1AB08947000C46D5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E46C1AB08947000C46D5 /* libiconv.dylib */; };
 		6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */; };
 		6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADDC15F1AADCAD5009B8ED2 /* HomeRightViewController.m */; };
 		6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE5AE1A1AAED37C00557DDD /* iTunesLookupBaseClass.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -1541,6 +1551,18 @@
 		6A7BBDA11AA88E930049CA3E /* BannerItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerItems.h; sourceTree = "<group>"; };
 		6A7BBDA21AA88E930049CA3E /* BannerItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerItems.m; sourceTree = "<group>"; };
 		6A7BBDA31AA88E930049CA3E /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		6A98E4581AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		6A98E4591AB088AE000C46D5 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = SDK/TencentOpenAPI.framework; sourceTree = "<group>"; };
+		6A98E45C1AB088FB000C46D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6A98E45E1AB08909000C46D5 /* libiconv.2.4.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.4.0.dylib; path = usr/lib/libiconv.2.4.0.dylib; sourceTree = SDKROOT; };
+		6A98E4601AB08910000C46D5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6A98E4621AB08916000C46D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6A98E4641AB0891E000C46D5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6A98E4661AB08924000C46D5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6A98E4681AB0892D000C46D5 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		6A98E46A1AB08936000C46D5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6A98E46C1AB08947000C46D5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		6A98E46E1AB089F1000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = ../SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		6ADDC15B1AADA1CC009B8ED2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		6ADDC15C1AADA1CC009B8ED2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6ADDC15E1AADCAD5009B8ED2 /* HomeRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRightViewController.h; sourceTree = "<group>"; };
@@ -1569,7 +1591,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A98E46B1AB08936000C46D5 /* libz.dylib in Frameworks */,
+				6A98E4691AB0892D000C46D5 /* libstdc++.dylib in Frameworks */,
+				6A98E4671AB08924000C46D5 /* CoreTelephony.framework in Frameworks */,
+				6A98E4651AB0891E000C46D5 /* libsqlite3.dylib in Frameworks */,
+				6A98E4631AB08916000C46D5 /* CoreGraphics.framework in Frameworks */,
+				6A98E4611AB08910000C46D5 /* SystemConfiguration.framework in Frameworks */,
+				6A98E46D1AB08947000C46D5 /* libiconv.dylib in Frameworks */,
+				6A98E45D1AB088FB000C46D5 /* Security.framework in Frameworks */,
 				2CF41FD2E91E5F599A640288 /* libPods.a in Frameworks */,
+				6A98E45B1AB088AE000C46D5 /* TencentOpenAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1586,6 +1617,17 @@
 		46492D723B0CCA987081A6BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6A98E46C1AB08947000C46D5 /* libiconv.dylib */,
+				6A98E46A1AB08936000C46D5 /* libz.dylib */,
+				6A98E4681AB0892D000C46D5 /* libstdc++.dylib */,
+				6A98E4661AB08924000C46D5 /* CoreTelephony.framework */,
+				6A98E4641AB0891E000C46D5 /* libsqlite3.dylib */,
+				6A98E4621AB08916000C46D5 /* CoreGraphics.framework */,
+				6A98E4601AB08910000C46D5 /* SystemConfiguration.framework */,
+				6A98E45E1AB08909000C46D5 /* libiconv.2.4.0.dylib */,
+				6A98E45C1AB088FB000C46D5 /* Security.framework */,
+				6A98E4581AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */,
+				6A98E4591AB088AE000C46D5 /* TencentOpenAPI.framework */,
 				19C2361280FC46550B6F41C5 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1637,6 +1679,7 @@
 		521BB9201AA7583000426FC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A98E46E1AB089F1000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */,
 				521BB9211AA7583000426FC6 /* Info.plist */,
 				521BB9221AA7583000426FC6 /* main.m */,
 				521BB9BE1AA8352E00426FC6 /* PrefixHeader.pch */,
@@ -2844,6 +2887,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A98E45A1AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				6A4115B51AA954DA00E6337B /* button_bbs_send_pic_add_on.png in Resources */,
 				6A4117101AA954DA00E6337B /* share_to_weibo.png in Resources */,
 				6A4117151AA954DA00E6337B /* share_to_weixin_pengyouquan@2x.png in Resources */,
@@ -3729,11 +3773,39 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hichao/PrefixHeader.pch;
 				INFOPLIST_FILE = Hichao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-FXImageView\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-SVPullToRefresh\"",
+					"-l\"Pods-iCarousel\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3744,11 +3816,39 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Hichao/PrefixHeader.pch;
 				INFOPLIST_FILE = Hichao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-AFNetworking\"",
+					"-l\"Pods-FXImageView\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-SVPullToRefresh\"",
+					"-l\"Pods-iCarousel\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
