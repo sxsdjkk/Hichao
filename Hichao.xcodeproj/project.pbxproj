@@ -18,6 +18,8 @@
 		520BAE351AB0B1D900FC4D2F /* HVCDItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE2C1AB0B1D900FC4D2F /* HVCDItemList.m */; };
 		520BAE361AB0B1D900FC4D2F /* HVCDItemPicUrlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE2E1AB0B1D900FC4D2F /* HVCDItemPicUrlList.m */; };
 		520BAE371AB0B1D900FC4D2F /* HVCDItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE301AB0B1D900FC4D2F /* HVCDItems.m */; };
+		520BAE3A1AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE391AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m */; };
+		520BAE3D1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE3C1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m */; };
 		521BB9231AA7583000426FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9221AA7583000426FC6 /* main.m */; };
 		521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9251AA7583000426FC6 /* AppDelegate.m */; };
 		521BB9281AA7583000426FC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9271AA7583000426FC6 /* Images.xcassets */; };
@@ -777,6 +779,10 @@
 		520BAE2E1AB0B1D900FC4D2F /* HVCDItemPicUrlList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDItemPicUrlList.m; sourceTree = "<group>"; };
 		520BAE2F1AB0B1D900FC4D2F /* HVCDItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDItems.h; sourceTree = "<group>"; };
 		520BAE301AB0B1D900FC4D2F /* HVCDItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDItems.m; sourceTree = "<group>"; };
+		520BAE381AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellDetailIndexImageCell.h; sourceTree = "<group>"; };
+		520BAE391AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellDetailIndexImageCell.m; sourceTree = "<group>"; };
+		520BAE3B1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellDetailGoodsListCell.h; sourceTree = "<group>"; };
+		520BAE3C1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellDetailGoodsListCell.m; sourceTree = "<group>"; };
 		521BB91D1AA7583000426FC6 /* Hichao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hichao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB9211AA7583000426FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521BB9221AA7583000426FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1773,6 +1779,10 @@
 				52399CC51AAD2BE900658C36 /* MainLeftRectCell.m */,
 				520BAE1F1AB07F8E00FC4D2F /* HomeNormalItemDetailCell.h */,
 				520BAE201AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m */,
+				520BAE381AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.h */,
+				520BAE391AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m */,
+				520BAE3B1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.h */,
+				520BAE3C1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m */,
 			);
 			name = HomeVC;
 			sourceTree = "<group>";
@@ -3628,6 +3638,7 @@
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
 				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
+				520BAE3D1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m in Sources */,
 				6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */,
 				52A0D8B01AAF1C34000C6ED2 /* SLIDMData.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
@@ -3682,6 +3693,7 @@
 				52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */,
 				52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */,
 				6A5CEAF81AB03AE500D14132 /* TopicShare.m in Sources */,
+				520BAE3A1AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m in Sources */,
 				6AF138951AAF160A0035B7FF /* TopicsAction.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,

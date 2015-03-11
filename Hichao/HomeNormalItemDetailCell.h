@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeNormalItemDetailCell : UICollectionViewCell
+
+@interface HomeNormalItemDetailCell : UICollectionViewCell //详情页
 
 @property (nonatomic,retain)UIImageView *userHeader;
 
