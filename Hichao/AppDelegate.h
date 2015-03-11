@@ -16,5 +16,8 @@
 
 @property (nonatomic,retain) iTunesLookupResults *iTunesResult;
 
+
+- (BOOL)isLogedIn;
+
 @end
 
