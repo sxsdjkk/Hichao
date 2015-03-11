@@ -118,7 +118,7 @@
     [window bringSubviewToFront:_featuresRightVC.view];
     
     _featuresRightVC.item = _topicsItemsArray[indexPath.row];
-    [_featuresRightVC requestData];
+    [_featuresRightVC reloadView];
     [UIView animateWithDuration:0.5 animations:^{
         control.alpha = 0.5f;
         _featuresRightVC.view.frame = _featuresRightVC.showFrame;

@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeaturesRightViewController : UIViewController
-
+@interface FeaturesRightViewController : UIViewController <UIWebViewDelegate>
+{
+    NSMutableArray *_topicItemsArray;
+    UIWebView *_webView;
+}
 @property (nonatomic,assign)CGRect showFrame;
 @property (nonatomic,assign)CGRect hideFrame;
 
 @property (nonatomic,assign)TopicsItems *item;
 
-- (void)requestData;
+- (void)reloadView;
 
 @end
