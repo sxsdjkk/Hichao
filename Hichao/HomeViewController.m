@@ -296,11 +296,10 @@
     
     for (WaterFlowItems *waterFlowItem in _waterFlowItemsArray) {
         if (waterFlowItem.component.picUrl) {
-            float width;
-            float height = waterFlowItem.height.floatValue;
             //固定宽计算高
-            width = 230;
-            height = width * height / width;
+            float width = waterFlowItem.width.floatValue;
+            float height = waterFlowItem.height.floatValue;
+            height = waterFlowItem.height.floatValue * height / width + 100;
             
             int minIndex = 0; //存放最低高
             
@@ -314,6 +313,7 @@
                 }
             }
             */
+            /*
             minIndex = 0;
             if (colHeight[0] > colHeight[1]) {
                 minIndex = 1;
@@ -324,9 +324,12 @@
                     }
                 }
             }
+             */
+            minIndex = colHeight[0] <= colHeight[1]?0:1;
+            minIndex = colHeight[minIndex] <= colHeight[2]?minIndex:2;
+            minIndex = colHeight[minIndex] <= colHeight[3]?minIndex:3;
             
-            
-            colHeight[minIndex] += height+100;
+            colHeight[minIndex] += height;
             
             //将当前的索引添加到相应的数组中。
             switch (minIndex) {
