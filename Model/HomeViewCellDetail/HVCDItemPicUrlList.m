@@ -101,9 +101,10 @@ NSString *const kHVCDItemPicUrlListPart = @"part";
 
 - (void)dealloc
 {
+    [super dealloc];
     [_picUrl release];
     [_part release];
-    [super dealloc];
+    
 }
 
 @end

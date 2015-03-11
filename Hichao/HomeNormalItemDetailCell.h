@@ -9,15 +9,17 @@
 #import <UIKit/UIKit.h>
 
 
-@interface HomeNormalItemDetailCell : UICollectionViewCell //详情页
-
+@interface HomeNormalItemDetailCell : UICollectionViewCell<UICollectionViewDataSource,UICollectionViewDelegate>//详情页
+{
+    HVCDBaseClass *_baseClass;
+}
 @property (nonatomic,retain)UIImageView *userHeader;
 
 @property (nonatomic,retain)UILabel *userNameLabel;
 
 @property (nonatomic,retain)UILabel *descriptionLabel;
 
-@property (nonatomic,retain)UIImageView *mainImageView;
+@property (nonatomic,retain)UIButton *mainImageView;
 
 @property (nonatomic,retain)UICollectionView *indexCollectionView;
 

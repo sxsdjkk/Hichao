@@ -10,4 +10,6 @@
 
 @interface HomeCellDetailIndexImageCell : UICollectionViewCell
 
+@property (nonatomic,retain)UIImageView *indexImageView;
+
 @end

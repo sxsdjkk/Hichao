@@ -7,7 +7,10 @@
 //
 
 #import "HomeNormalItemDetailCell.h"
+#import "HomeCellDetailIndexImageCell.h"
+#import "HomeCellDetailGoodsListCell.h"
 #import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
 
 @implementation HomeNormalItemDetailCell
 
@@ -26,7 +29,7 @@
 //        _userHeader.backgroundColor = M_GRAY_COLOR;
         
         _userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 20, 200, 30)];
-//        _userNameLabel.textColor = M_PINK_COLOR;
+        _userNameLabel.textColor = M_PINK_COLOR;
         _userNameLabel.font = [UIFont systemFontOfSize:20];
         [self addSubview:_userNameLabel];
         [_userNameLabel release];
@@ -39,7 +42,7 @@
         [_descriptionLabel release];
 //        _descriptionLabel.backgroundColor = M_GRAY_COLOR;
         
-        _mainImageView = [[UIImageView alloc]initWithFrame:CGRectMake(80, 100, 350, 550)];
+        _mainImageView = [[UIButton alloc]initWithFrame:CGRectMake(80, 100, 350, 550)];
         [self addSubview:_mainImageView];
         [_mainImageView release];
         _mainImageView.backgroundColor = M_GRAY_COLOR;
@@ -53,7 +56,9 @@
         
 
         _indexCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(500, 20, 400, 80) collectionViewLayout:layOut];
-//        [_indexCollectionView registerClass:[UIImageView class] forCellWithReuseIdentifier:@"indexcell"];
+        [_indexCollectionView registerClass:[HomeCellDetailIndexImageCell class] forCellWithReuseIdentifier:@"indexcell"];
+        _indexCollectionView.dataSource = self;
+        _indexCollectionView.dataSource = self;
         [self addSubview:_indexCollectionView];
         [_indexCollectionView release];
         [layOut release];
@@ -82,7 +87,7 @@
     
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        HVCDBaseClass *_baseClass = [HVCDBaseClass modelObjectWithDictionary:responseObject];
+        _baseClass = [[HVCDBaseClass modelObjectWithDictionary:responseObject] retain];
         
         [_userHeader sd_setImageWithURL:[NSURL URLWithString:_baseClass.data.userAvatar]];
         
@@ -90,10 +95,9 @@
         
         _descriptionLabel.text = _baseClass.data.dataDescription;
         
-        [_mainImageView sd_setImageWithURL:[NSURL URLWithString:_baseClass.data.picUrl]];
+        [_mainImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:_baseClass.data.picUrl] forState:UIControlStateNormal];
         
-        
-        
+        [_indexCollectionView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -102,6 +106,30 @@
     
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if (collectionView==_indexCollectionView)
+    {
+        return _baseClass.data.itemPicUrlList.count;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    HomeCellDetailIndexImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"indexcell" forIndexPath:indexPath];
+    
+    HVCDItemPicUrlList *list = [_baseClass.data.itemPicUrlList objectAtIndex:indexPath.row];
+    
+    [cell.indexImageView sd_setImageWithURL:[NSURL URLWithString:list.picUrl]];
+    
+    return cell;
+}
 
 - (void)dealloc
 {
@@ -112,6 +140,7 @@
     [_mainImageView release];
     [_indexCollectionView release];
     [_goodsCollectionView release];
+    [_baseClass release];
 }
 
 @end
