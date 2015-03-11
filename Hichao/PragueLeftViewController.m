@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "FeatureLeftCell.h"
 #import <UIImageView+WebCache.h>
+#import "PragueLeftViewController.h"
 
 @interface PragueLeftViewController ()
 {
@@ -88,12 +89,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //    DDMenuController *menuController = self.menuController;
-    //
-    //    UINavigationController *featuresNav = menuController.rootViewController;
-    //
-    //    FeaturesViewController *featuresVC = featuresNav.viewControllers[0];
-    //    featuresVC.subject = [_baseClass.data.config.mobileTopicCategories objectAtIndex:indexPath.row];
+      //  DDMenuController *menuController = self.menuController;
+    
+    
+    
+    
+    
+    
+    
+    
     
     NSLog(@"您点是%d",indexPath.row);
 }
@@ -109,10 +113,12 @@
 #pragma mark- notify called selector
 - (void)reLoadCollectionView
 {
+    
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     _subjetCategoriesArray = delegate.configBaseClass.data.config.mobileSubjectCategories;
     
     [_collectionView reloadData];
+    
 }
 
 
@@ -122,4 +128,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"configOnline" object:nil];
 }
 
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&flag=
+
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=3&type=latest&flag=
+
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=110&type=latest&flag=
+
+
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=104&type=latest&flag=
+
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=106&type=latest&flag=
+
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=113&type=latest&flag=
+
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=108&type=latest&flag=
 @end

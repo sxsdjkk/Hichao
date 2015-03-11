@@ -67,6 +67,7 @@
     {
         //        self.backgroundColor = M_PINK_COLOR;
         self.textLabel.textColor = M_PINK_COLOR;
+        
     }
     else
     {

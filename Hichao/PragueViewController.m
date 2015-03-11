@@ -29,15 +29,19 @@
     return self;
 }
 
-
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationItem.title = _subject;
     
-    [super viewWillAppear:animated];
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (_subject == nil) {
+        _subject = @"全部";
+    }
+
     
     self.view.backgroundColor = M_GRAY_COLOR;
     

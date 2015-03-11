@@ -20,6 +20,7 @@
     self = [super init];
     if (self) {
         _topicsItemsArray = [[NSMutableArray alloc] initWithCapacity:0];
+        
     }
     return self;
 }

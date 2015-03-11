@@ -16,7 +16,7 @@
     if (self) {
         
         _imageView = [[UIImageView alloc] init];
-        _imageView.backgroundColor=[UIColor redColor];
+        
         [self addSubview:_imageView];
         
         _titleLabel = [[UILabel alloc] init];

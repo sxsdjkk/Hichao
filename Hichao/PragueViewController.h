@@ -28,4 +28,5 @@
     
     
 }
+@property (nonatomic,copy) NSString *subject;
 @end

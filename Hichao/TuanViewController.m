@@ -65,6 +65,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = M_GRAY_COLOR;
+    
     _laftView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, (1024-64)/2, M_SCREEN_HEIGHT)];
     _laftView.delegate = self;
     _laftView.dataSource = self;
@@ -75,6 +77,7 @@
     _laftView.rowHeight=350;
     [self.view addSubview:_laftView];
     [_laftView release];
+    _laftView.backgroundColor=M_GRAY_COLOR;
     
     [self collectionUI];
     
@@ -250,7 +253,7 @@
     cell.peopleLabel.text = data.component.peopleCount;
     
     
-   
+    cell.backgroundColor = M_GRAY_COLOR;
     
     
     return cell;
