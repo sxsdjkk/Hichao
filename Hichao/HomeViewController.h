@@ -12,6 +12,7 @@
 #import <SVPullToRefresh.h>
 #import <iCarousel.h>
 #import "HomeRightViewController.h"
+#import "FeaturesRightViewController.h"
 
 @interface HomeViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,iCarouselDataSource,iCarouselDelegate>
 {
@@ -49,6 +50,7 @@
     
     //右边划过来的View
     HomeRightViewController *_homeRightVC;
+    FeaturesRightViewController *_featuresRightVC;
 }
 @property (nonatomic, assign) BOOL hasCarousel;
 @property (nonatomic, strong) iCarousel *carousel;

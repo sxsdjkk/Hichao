@@ -16,7 +16,7 @@
 @property (nonatomic,assign)CGRect showFrame;
 @property (nonatomic,assign)CGRect hideFrame;
 
-@property (nonatomic,assign)TopicsItems *item;
+@property (nonatomic,assign)int topicId;
 
 - (void)reloadView;
 

@@ -108,6 +108,11 @@
     _homeRightVC = [[HomeRightViewController alloc] init];
     _homeRightVC.view.frame = _homeRightVC.hideFrame;
     [window addSubview:_homeRightVC.view];
+    
+    //右边视图
+    _featuresRightVC = [[FeaturesRightViewController alloc] init];
+    _featuresRightVC.view.frame = _featuresRightVC.hideFrame;
+    [window addSubview:_featuresRightVC.view];
 }
 - (void)firstFresh{
     [_scrollView.pullToRefreshView startAnimating];
@@ -626,6 +631,33 @@
         }
     }
 }
-
+#pragma mark - iCarouselDelegate
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    UIControl *control = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    control.alpha = 0.0f;
+    control.backgroundColor = [UIColor blackColor];
+    [window addSubview:control];
+    [control release];
+    [control addTarget:self action:@selector(rmBannerView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [window bringSubviewToFront:_featuresRightVC.view];
+    
+    BannerItems *item = _bannerItemsArray[index];
+    _featuresRightVC.topicId = item.component.action.bannerId.intValue;
+    [_featuresRightVC reloadView];
+    [UIView animateWithDuration:0.5 animations:^{
+        control.alpha = 0.5f;
+        _featuresRightVC.view.frame = _featuresRightVC.showFrame;
+    }];
+}
+- (void)rmBannerView:(UIControl *)control{
+    [UIView animateWithDuration:0.5 animations:^{
+        _featuresRightVC.view.frame = _featuresRightVC.hideFrame;
+        control.alpha = 0.5f;
+    } completion:^(BOOL finished) {
+        [control removeFromSuperview];
+    }];
+}
 
 @end
