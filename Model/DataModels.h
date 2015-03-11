@@ -28,6 +28,16 @@
 #import "HVCDComponent.h"
 #import "HVCDItemPicUrlList.h"
 #import "HVCDItems.h"
+//首页 cell详情 商品列表
+#import "HDGLItems.h"
+#import "HDGLAction.h"
+#import "HDGLBaseClass.h"
+#import "HDGLData.h"
+#import "HDGLTitleStyle.h"
+#import "HDGLComponent.h"
+#import "HDGLShareAction.h"
+#import "HDGLShare.h"
+#import "HDGLItemList.h"
 
 //首页左视图圆主题词
 #import "MLBaseClass.h"

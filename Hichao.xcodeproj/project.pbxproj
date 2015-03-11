@@ -20,6 +20,15 @@
 		520BAE371AB0B1D900FC4D2F /* HVCDItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE301AB0B1D900FC4D2F /* HVCDItems.m */; };
 		520BAE3A1AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE391AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m */; };
 		520BAE3D1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE3C1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m */; };
+		520BAE511AB0DC0A00FC4D2F /* HDGLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE401AB0DC0A00FC4D2F /* HDGLAction.m */; };
+		520BAE521AB0DC0A00FC4D2F /* HDGLBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE421AB0DC0A00FC4D2F /* HDGLBaseClass.m */; };
+		520BAE531AB0DC0A00FC4D2F /* HDGLComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE441AB0DC0A00FC4D2F /* HDGLComponent.m */; };
+		520BAE541AB0DC0A00FC4D2F /* HDGLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE461AB0DC0A00FC4D2F /* HDGLData.m */; };
+		520BAE551AB0DC0A00FC4D2F /* HDGLItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE481AB0DC0A00FC4D2F /* HDGLItemList.m */; };
+		520BAE561AB0DC0A00FC4D2F /* HDGLItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE4A1AB0DC0A00FC4D2F /* HDGLItems.m */; };
+		520BAE571AB0DC0A00FC4D2F /* HDGLShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE4C1AB0DC0A00FC4D2F /* HDGLShare.m */; };
+		520BAE581AB0DC0A00FC4D2F /* HDGLShareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE4E1AB0DC0A00FC4D2F /* HDGLShareAction.m */; };
+		520BAE591AB0DC0A00FC4D2F /* HDGLTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE501AB0DC0A00FC4D2F /* HDGLTitleStyle.m */; };
 		521BB9231AA7583000426FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9221AA7583000426FC6 /* main.m */; };
 		521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9251AA7583000426FC6 /* AppDelegate.m */; };
 		521BB9281AA7583000426FC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9271AA7583000426FC6 /* Images.xcassets */; };
@@ -783,6 +792,24 @@
 		520BAE391AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellDetailIndexImageCell.m; sourceTree = "<group>"; };
 		520BAE3B1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellDetailGoodsListCell.h; sourceTree = "<group>"; };
 		520BAE3C1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellDetailGoodsListCell.m; sourceTree = "<group>"; };
+		520BAE3F1AB0DC0A00FC4D2F /* HDGLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLAction.h; sourceTree = "<group>"; };
+		520BAE401AB0DC0A00FC4D2F /* HDGLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLAction.m; sourceTree = "<group>"; };
+		520BAE411AB0DC0A00FC4D2F /* HDGLBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLBaseClass.h; sourceTree = "<group>"; };
+		520BAE421AB0DC0A00FC4D2F /* HDGLBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLBaseClass.m; sourceTree = "<group>"; };
+		520BAE431AB0DC0A00FC4D2F /* HDGLComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLComponent.h; sourceTree = "<group>"; };
+		520BAE441AB0DC0A00FC4D2F /* HDGLComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLComponent.m; sourceTree = "<group>"; };
+		520BAE451AB0DC0A00FC4D2F /* HDGLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLData.h; sourceTree = "<group>"; };
+		520BAE461AB0DC0A00FC4D2F /* HDGLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLData.m; sourceTree = "<group>"; };
+		520BAE471AB0DC0A00FC4D2F /* HDGLItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLItemList.h; sourceTree = "<group>"; };
+		520BAE481AB0DC0A00FC4D2F /* HDGLItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLItemList.m; sourceTree = "<group>"; };
+		520BAE491AB0DC0A00FC4D2F /* HDGLItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLItems.h; sourceTree = "<group>"; };
+		520BAE4A1AB0DC0A00FC4D2F /* HDGLItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLItems.m; sourceTree = "<group>"; };
+		520BAE4B1AB0DC0A00FC4D2F /* HDGLShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLShare.h; sourceTree = "<group>"; };
+		520BAE4C1AB0DC0A00FC4D2F /* HDGLShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLShare.m; sourceTree = "<group>"; };
+		520BAE4D1AB0DC0A00FC4D2F /* HDGLShareAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLShareAction.h; sourceTree = "<group>"; };
+		520BAE4E1AB0DC0A00FC4D2F /* HDGLShareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLShareAction.m; sourceTree = "<group>"; };
+		520BAE4F1AB0DC0A00FC4D2F /* HDGLTitleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDGLTitleStyle.h; sourceTree = "<group>"; };
+		520BAE501AB0DC0A00FC4D2F /* HDGLTitleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDGLTitleStyle.m; sourceTree = "<group>"; };
 		521BB91D1AA7583000426FC6 /* Hichao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hichao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB9211AA7583000426FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521BB9221AA7583000426FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1679,6 +1706,31 @@
 				520BAE301AB0B1D900FC4D2F /* HVCDItems.m */,
 			);
 			path = HomeViewCellDetail;
+			sourceTree = "<group>";
+		};
+		520BAE3E1AB0DC0A00FC4D2F /* HomeDetailGoodsList */ = {
+			isa = PBXGroup;
+			children = (
+				520BAE3F1AB0DC0A00FC4D2F /* HDGLAction.h */,
+				520BAE401AB0DC0A00FC4D2F /* HDGLAction.m */,
+				520BAE411AB0DC0A00FC4D2F /* HDGLBaseClass.h */,
+				520BAE421AB0DC0A00FC4D2F /* HDGLBaseClass.m */,
+				520BAE431AB0DC0A00FC4D2F /* HDGLComponent.h */,
+				520BAE441AB0DC0A00FC4D2F /* HDGLComponent.m */,
+				520BAE451AB0DC0A00FC4D2F /* HDGLData.h */,
+				520BAE461AB0DC0A00FC4D2F /* HDGLData.m */,
+				520BAE471AB0DC0A00FC4D2F /* HDGLItemList.h */,
+				520BAE481AB0DC0A00FC4D2F /* HDGLItemList.m */,
+				520BAE491AB0DC0A00FC4D2F /* HDGLItems.h */,
+				520BAE4A1AB0DC0A00FC4D2F /* HDGLItems.m */,
+				520BAE4B1AB0DC0A00FC4D2F /* HDGLShare.h */,
+				520BAE4C1AB0DC0A00FC4D2F /* HDGLShare.m */,
+				520BAE4D1AB0DC0A00FC4D2F /* HDGLShareAction.h */,
+				520BAE4E1AB0DC0A00FC4D2F /* HDGLShareAction.m */,
+				520BAE4F1AB0DC0A00FC4D2F /* HDGLTitleStyle.h */,
+				520BAE501AB0DC0A00FC4D2F /* HDGLTitleStyle.m */,
+			);
+			path = HomeDetailGoodsList;
 			sourceTree = "<group>";
 		};
 		521BB9141AA7582F00426FC6 = {
@@ -2805,6 +2857,7 @@
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				520BAE3E1AB0DC0A00FC4D2F /* HomeDetailGoodsList */,
 				520BAE221AB0B1D900FC4D2F /* HomeViewCellDetail */,
 				6A5CEAE11AB03AD600D14132 /* Topic */,
 				6AF138891AAF15FB0035B7FF /* Topics */,
@@ -3636,20 +3689,25 @@
 				521BB9B81AA7931C00426FC6 /* PragueLeftViewController.m in Sources */,
 				521BB9A91AA792BB00426FC6 /* FeaturesViewController.m in Sources */,
 				521BB9C51AA84F0900426FC6 /* FavoritesLeftViewController.m in Sources */,
+				520BAE571AB0DC0A00FC4D2F /* HDGLShare.m in Sources */,
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
 				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
 				520BAE3D1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m in Sources */,
 				6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */,
 				52A0D8B01AAF1C34000C6ED2 /* SLIDMData.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
+				520BAE561AB0DC0A00FC4D2F /* HDGLItems.m in Sources */,
 				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
+				520BAE591AB0DC0A00FC4D2F /* HDGLTitleStyle.m in Sources */,
 				52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */,
 				6A5CEAF31AB03AE500D14132 /* TopicBaseClass.m in Sources */,
 				52A5713B1AAC72150075F3C0 /* MLVItemStarCategories.m in Sources */,
 				52A571331AAC72150075F3C0 /* MLCountly.m in Sources */,
+				520BAE521AB0DC0A00FC4D2F /* HDGLBaseClass.m in Sources */,
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
 				6ADDC15D1AADA1CC009B8ED2 /* LoginViewController.m in Sources */,
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
+				520BAE511AB0DC0A00FC4D2F /* HDGLAction.m in Sources */,
 				52E9E4B91AAF371400AD60F6 /* SelectedLeftCell.m in Sources */,
 				52A0D8B11AAF1C34000C6ED2 /* SLIDMItems.m in Sources */,
 				6A5CEAE01AB01FEB00D14132 /* FeaturesRightViewController.m in Sources */,
@@ -3658,6 +3716,7 @@
 				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
 				6A5CEAF71AB03AE500D14132 /* TopicItems.m in Sources */,
+				520BAE531AB0DC0A00FC4D2F /* HDGLComponent.m in Sources */,
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,
 				52A571341AAC72150075F3C0 /* MLData.m in Sources */,
 				52A571351AAC72150075F3C0 /* MLMobileSubjectCategories.m in Sources */,
@@ -3681,6 +3740,7 @@
 				520BAE331AB0B1D900FC4D2F /* HVCDComponent.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */,
+				520BAE581AB0DC0A00FC4D2F /* HDGLShareAction.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
 				6A5CEAF21AB03AE500D14132 /* TopicAction.m in Sources */,
@@ -3691,12 +3751,14 @@
 				6A3142C71AAD73E000E4750D /* SettingsViewController.m in Sources */,
 				6AF138881AAEF8040035B7FF /* FeaturesCell.m in Sources */,
 				52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */,
+				520BAE541AB0DC0A00FC4D2F /* HDGLData.m in Sources */,
 				52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */,
 				6A5CEAF81AB03AE500D14132 /* TopicShare.m in Sources */,
 				520BAE3A1AB0B98300FC4D2F /* HomeCellDetailIndexImageCell.m in Sources */,
 				6AF138951AAF160A0035B7FF /* TopicsAction.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,
+				520BAE551AB0DC0A00FC4D2F /* HDGLItemList.m in Sources */,
 				520BAE351AB0B1D900FC4D2F /* HVCDItemList.m in Sources */,
 				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,
 				6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */,
