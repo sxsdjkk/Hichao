@@ -32,5 +32,6 @@
 
 @property (nonatomic,copy) NSString *topicId;
 
+-(void)reloadView;
 
 @end

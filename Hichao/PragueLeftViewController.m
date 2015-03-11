@@ -98,12 +98,14 @@
     UINavigationController *pragueNav = (UINavigationController *)menuController.rootViewController;
 
     PragueViewController *pragueViewContreoller = pragueNav.viewControllers[0];
+     MLMobileSubjectCategories *category = [_subjetCategoriesArray objectAtIndex:indexPath.row];
+    self.categories = category;
     
-    pragueViewContreoller.topicId = [_subjetCategoriesArray objectAtIndex:indexPath.row];
+    pragueViewContreoller.topicId = category.mobileSubjectCategoriesIdentifier;
     
-//    NSLog(@"您点是%d",indexPath.row);
-#warning
-//    [pragueViewContreoller reloadView];
+    
+    NSLog(@"============%@",pragueViewContreoller.topicId);
+    [pragueViewContreoller reloadView];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section

@@ -19,6 +19,7 @@
 
 @property (nonatomic,assign)DDMenuController *menuController;
 
+@property (nonatomic,retain)MLMobileSubjectCategories *categories;
 
 
 @end

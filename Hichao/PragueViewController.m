@@ -9,6 +9,8 @@
 #import "PragueViewController.h"
 #import "pragueTableViewCell.h"
 
+#import "PragueLeftViewController.h"
+
 
 @interface PragueViewController ()
 
@@ -30,31 +32,60 @@
     }
     return self;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"11111");
+}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     self.navigationItem.title = _subject;
-    
+//    [self reloadView];
+    NSLog(@"2222");
 }
 
-
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+//{
+//    NSLog(@"===========8888888");
+//}
 -(void)reloadView{
+
+    NSLog(@"============111111");
+
+//    PragueLeftViewController *VC =[[PragueLeftViewController alloc] init];
+//    [VC addObserver:self forKeyPath:@"categories" options:NSKeyValueObservingOptionNew context:nil];
     
-//    NSString * url = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=%@&type=latest&flag=",_topicId];
-//    
-//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-//    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    
+    NSString * url = nil;
+    
+    if ([_topicId integerValue] <3) {
+        
+        url =@"http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&flag=";
+        
+    }else{
+        url = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=%@&type=latest&flag=",self.topicId];
+    }
+        
+    
+    
+   
+    
+    
+    NSLog(@"%@",self.topicId);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"%@",responseObject);
-//       
-//        _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
-//        
-//        
-//        [leftView reloadData];
-//        [rightView reloadData];
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%@",error);
-//    }];
+       
+        _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
+//        _baseClass = [[PgBaseClass alloc] initWithDictionary:responseObject];
+        
+//        NSLog(@"%@",_baseClass);
+        [self loadPullView];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
 
     
     
@@ -67,8 +98,9 @@
     if (_subject == nil) {
         _subject = @"全部";
     }
-
+    NSLog(@"99999");
     
+    //[self reloadView];
     self.view.backgroundColor = M_GRAY_COLOR;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage alloc] forBarMetrics:UIBarMetricsDefault];
@@ -93,9 +125,8 @@
         _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
         
         [self loadPullView];
-        
-        [leftView reloadData];
-        [rightView reloadData];
+//        [leftView reloadData];
+//        [rightView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         
@@ -122,8 +153,10 @@
     
 }
 
-bool isOk;
+//bool isOk;
 -(void)loadPullView{
+    [leftIndex removeAllObjects];
+    [rightIndex removeAllObjects];
     for (PgItems *itmes in _baseClass.data.items) {
         if (itmes.component.pics == nil) {
             [leftIndex addObject:itmes];
@@ -141,6 +174,7 @@ bool isOk;
     }
     
     [leftView reloadData];
+    
     [rightView reloadData];
     
 }
