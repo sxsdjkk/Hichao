@@ -74,7 +74,8 @@
     _showFrame = CGRectMake(64, 20, 1024-64, 768-20);
     _hideFrame = CGRectMake([UIScreen mainScreen].bounds.size.width, _showFrame.origin.y, _showFrame.size.width, _showFrame.size.height);
     _collectionView.frame = CGRectMake(0, 40, 1024-64, 768-20);
-//    _collectionView.contentSize = CGSizeMake(_collectionView.frame.size.width*_waterFlowItemsArray.count, _collectionView.frame.size.height);
+    [_collectionView reloadData];
+
     
     
 //    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
@@ -105,12 +106,15 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    NSLog(@"++++%@",_waterFlowItemsArray);
+    return _waterFlowItemsArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HomeNormalItemDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    [cell setCellWithItem:[_waterFlowItemsArray objectAtIndex:indexPath.row]];
     
     return cell;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "HomeNormalItemDetailCell.h"
+#import <UIImageView+WebCache.h>
 
 @implementation HomeNormalItemDetailCell
 
@@ -71,5 +72,25 @@
     }
     return self;
 }
+
+- (void)setCellWithItem:(WaterFlowItems *)item
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        HVCDBaseClass *_baseClass = [HVCDBaseClass modelObjectWithDictionary:responseObject];
+        
+//        [_userHeader sd_setImageWithURL:_base];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+    }];
+    
+    
+}
+
 
 @end

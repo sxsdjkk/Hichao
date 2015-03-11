@@ -87,8 +87,6 @@
     [self.view addSubview:_collectionView];
     
     [_collectionView release];
-    
-    
 }
 
 

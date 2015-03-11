@@ -11,6 +11,13 @@
 		04EE6B531AAFF41100478656 /* DiscussViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6B521AAFF41100478656 /* DiscussViewController.m */; };
 		2CF41FD2E91E5F599A640288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C2361280FC46550B6F41C5 /* libPods.a */; };
 		520BAE211AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE201AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m */; };
+		520BAE311AB0B1D900FC4D2F /* HVCDAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE241AB0B1D900FC4D2F /* HVCDAction.m */; };
+		520BAE321AB0B1D900FC4D2F /* HVCDBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE261AB0B1D900FC4D2F /* HVCDBaseClass.m */; };
+		520BAE331AB0B1D900FC4D2F /* HVCDComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE281AB0B1D900FC4D2F /* HVCDComponent.m */; };
+		520BAE341AB0B1D900FC4D2F /* HVCDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE2A1AB0B1D900FC4D2F /* HVCDData.m */; };
+		520BAE351AB0B1D900FC4D2F /* HVCDItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE2C1AB0B1D900FC4D2F /* HVCDItemList.m */; };
+		520BAE361AB0B1D900FC4D2F /* HVCDItemPicUrlList.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE2E1AB0B1D900FC4D2F /* HVCDItemPicUrlList.m */; };
+		520BAE371AB0B1D900FC4D2F /* HVCDItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE301AB0B1D900FC4D2F /* HVCDItems.m */; };
 		521BB9231AA7583000426FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9221AA7583000426FC6 /* main.m */; };
 		521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9251AA7583000426FC6 /* AppDelegate.m */; };
 		521BB9281AA7583000426FC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9271AA7583000426FC6 /* Images.xcassets */; };
@@ -756,6 +763,20 @@
 		19C2361280FC46550B6F41C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		520BAE1F1AB07F8E00FC4D2F /* HomeNormalItemDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNormalItemDetailCell.h; sourceTree = "<group>"; };
 		520BAE201AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNormalItemDetailCell.m; sourceTree = "<group>"; };
+		520BAE231AB0B1D900FC4D2F /* HVCDAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDAction.h; sourceTree = "<group>"; };
+		520BAE241AB0B1D900FC4D2F /* HVCDAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDAction.m; sourceTree = "<group>"; };
+		520BAE251AB0B1D900FC4D2F /* HVCDBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDBaseClass.h; sourceTree = "<group>"; };
+		520BAE261AB0B1D900FC4D2F /* HVCDBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDBaseClass.m; sourceTree = "<group>"; };
+		520BAE271AB0B1D900FC4D2F /* HVCDComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDComponent.h; sourceTree = "<group>"; };
+		520BAE281AB0B1D900FC4D2F /* HVCDComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDComponent.m; sourceTree = "<group>"; };
+		520BAE291AB0B1D900FC4D2F /* HVCDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDData.h; sourceTree = "<group>"; };
+		520BAE2A1AB0B1D900FC4D2F /* HVCDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDData.m; sourceTree = "<group>"; };
+		520BAE2B1AB0B1D900FC4D2F /* HVCDItemList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDItemList.h; sourceTree = "<group>"; };
+		520BAE2C1AB0B1D900FC4D2F /* HVCDItemList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDItemList.m; sourceTree = "<group>"; };
+		520BAE2D1AB0B1D900FC4D2F /* HVCDItemPicUrlList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDItemPicUrlList.h; sourceTree = "<group>"; };
+		520BAE2E1AB0B1D900FC4D2F /* HVCDItemPicUrlList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDItemPicUrlList.m; sourceTree = "<group>"; };
+		520BAE2F1AB0B1D900FC4D2F /* HVCDItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HVCDItems.h; sourceTree = "<group>"; };
+		520BAE301AB0B1D900FC4D2F /* HVCDItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HVCDItems.m; sourceTree = "<group>"; };
 		521BB91D1AA7583000426FC6 /* Hichao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hichao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB9211AA7583000426FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521BB9221AA7583000426FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1631,6 +1652,27 @@
 				19C2361280FC46550B6F41C5 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		520BAE221AB0B1D900FC4D2F /* HomeViewCellDetail */ = {
+			isa = PBXGroup;
+			children = (
+				520BAE231AB0B1D900FC4D2F /* HVCDAction.h */,
+				520BAE241AB0B1D900FC4D2F /* HVCDAction.m */,
+				520BAE251AB0B1D900FC4D2F /* HVCDBaseClass.h */,
+				520BAE261AB0B1D900FC4D2F /* HVCDBaseClass.m */,
+				520BAE271AB0B1D900FC4D2F /* HVCDComponent.h */,
+				520BAE281AB0B1D900FC4D2F /* HVCDComponent.m */,
+				520BAE291AB0B1D900FC4D2F /* HVCDData.h */,
+				520BAE2A1AB0B1D900FC4D2F /* HVCDData.m */,
+				520BAE2B1AB0B1D900FC4D2F /* HVCDItemList.h */,
+				520BAE2C1AB0B1D900FC4D2F /* HVCDItemList.m */,
+				520BAE2D1AB0B1D900FC4D2F /* HVCDItemPicUrlList.h */,
+				520BAE2E1AB0B1D900FC4D2F /* HVCDItemPicUrlList.m */,
+				520BAE2F1AB0B1D900FC4D2F /* HVCDItems.h */,
+				520BAE301AB0B1D900FC4D2F /* HVCDItems.m */,
+			);
+			path = HomeViewCellDetail;
 			sourceTree = "<group>";
 		};
 		521BB9141AA7582F00426FC6 = {
@@ -2753,6 +2795,7 @@
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				520BAE221AB0B1D900FC4D2F /* HomeViewCellDetail */,
 				6A5CEAE11AB03AD600D14132 /* Topic */,
 				6AF138891AAF15FB0035B7FF /* Topics */,
 				52A0D89E1AAF1C34000C6ED2 /* SelectedLeftItem */,
@@ -3607,9 +3650,11 @@
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,
 				52A571341AAC72150075F3C0 /* MLData.m in Sources */,
 				52A571351AAC72150075F3C0 /* MLMobileSubjectCategories.m in Sources */,
+				520BAE341AB0B1D900FC4D2F /* HVCDData.m in Sources */,
 				52A5713E1AAC9C210075F3C0 /* MainLeftRoundCell.m in Sources */,
 				52E9E4B61AAF2D5E00AD60F6 /* SelectedLeftHeaderView.m in Sources */,
 				6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */,
+				520BAE361AB0B1D900FC4D2F /* HVCDItemPicUrlList.m in Sources */,
 				52A0D89B1AAEE34A000C6ED2 /* MLHWBaseClass.m in Sources */,
 				52A0D87B1AAEA389000C6ED2 /* HStarData.m in Sources */,
 				52A0D8B31AAF1C34000C6ED2 /* SLIDMWords.m in Sources */,
@@ -3622,11 +3667,13 @@
 				52A0D8AD1AAF1C34000C6ED2 /* SLIDMAction.m in Sources */,
 				6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */,
 				6A5CEAF51AB03AE500D14132 /* TopicComponent.m in Sources */,
+				520BAE331AB0B1D900FC4D2F /* HVCDComponent.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
 				6A5CEAF21AB03AE500D14132 /* TopicAction.m in Sources */,
+				520BAE371AB0B1D900FC4D2F /* HVCDItems.m in Sources */,
 				52A0D8781AAEA389000C6ED2 /* HStarAction.m in Sources */,
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
 				52A0D8821AAEA389000C6ED2 /* StarAction.m in Sources */,
@@ -3638,12 +3685,15 @@
 				6AF138951AAF160A0035B7FF /* TopicsAction.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,
+				520BAE351AB0B1D900FC4D2F /* HVCDItemList.m in Sources */,
 				6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */,
 				6A7BBDA41AA88E930049CA3E /* BannerAction.m in Sources */,
 				52A0D8B21AAF1C34000C6ED2 /* SLIDMQuerys.m in Sources */,
 				52A0D8851AAEA389000C6ED2 /* StarData.m in Sources */,
 				52A0D8861AAEA389000C6ED2 /* StarItems.m in Sources */,
 				52A0D89C1AAEE34A000C6ED2 /* MLHWData.m in Sources */,
+				520BAE311AB0B1D900FC4D2F /* HVCDAction.m in Sources */,
+				520BAE321AB0B1D900FC4D2F /* HVCDBaseClass.m in Sources */,
 				6AF138981AAF160A0035B7FF /* TopicsData.m in Sources */,
 				52A0D8AE1AAF1C34000C6ED2 /* SLIDMBaseClass.m in Sources */,
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,

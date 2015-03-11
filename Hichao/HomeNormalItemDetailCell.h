@@ -22,6 +22,6 @@
 
 @property (nonatomic,retain)UICollectionView *goodsCollectionView;
 
-
+- (void)setCellWithItem:(WaterFlowItems *)item;
 
 @end

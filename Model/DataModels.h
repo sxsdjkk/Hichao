@@ -20,6 +20,15 @@
 #import "WaterFlowBaseClass.h"
 #import "WaterFlowAction.h"
 
+//首页 cell详情
+#import "HVCDItemList.h"
+#import "HVCDBaseClass.h"
+#import "HVCDAction.h"
+#import "HVCDData.h"
+#import "HVCDComponent.h"
+#import "HVCDItemPicUrlList.h"
+#import "HVCDItems.h"
+
 //首页左视图圆主题词
 #import "MLBaseClass.h"
 #import "MLMobileSubjectCategories.h"
