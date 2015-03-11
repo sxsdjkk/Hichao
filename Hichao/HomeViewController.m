@@ -125,13 +125,17 @@
             _hasCarousel = YES;
         }
     }else if (![_subject isEqualToString:@"全部"]) {
+        NSString *query = _subject;
+        if ([_subject hasPrefix:@"搜索"]) {
+            query = [[_subject componentsSeparatedByString:@"搜索"] lastObject];
+        }
         if (_hasCarousel) {
             [_carousel removeFromSuperview];
-            self.navigationItem.title = _subject;
+            self.navigationItem.title = query;
             _hasCarousel = NO;
             [self createTitle];
         }
-        _titleLabel.text = _subject;
+        _titleLabel.text = query;
     }
     [self cleanDataSource];
     [_scrollView.pullToRefreshView startAnimating];
@@ -139,7 +143,7 @@
 }
 - (void)createTitle{
     _titleLabel = [[UILabel alloc] init];
-    _titleLabel.frame = CGRectMake(0, 0, 100, 35);
+    _titleLabel.frame = CGRectMake(0, 0, 300, 35);
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     _titleLabel.tintColor = M_PINK_COLOR;
     self.navigationItem.titleView = _titleLabel;
@@ -261,6 +265,13 @@
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=%@&lts=&pin=",category,_waterFlowBaseClass.data.flag];
     if (_waterFlowBaseClass.data.flag == nil) {
         urlString = [NSString stringWithFormat:@"http://api2.hichao.com/stars?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&category=%@&flag=&lts=&pin=",category];
+    }
+    if ([_subject hasPrefix:@"搜索"]) {
+        NSString *query = [[_subject componentsSeparatedByString:@"搜索"] lastObject];
+        urlString = [NSString stringWithFormat:@"http://api2.hichao.com/search?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&crop=1&type=star&query=%@&more_items=1&flag=%@&lts=&pin=",query,_waterFlowBaseClass.data.flag];
+        if (_waterFlowBaseClass.data.flag == nil) {
+            urlString = [NSString stringWithFormat:@"http://api2.hichao.com/search?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&crop=1&type=star&query=%@&more_items=1&flag=&lts=&pin=",query];
+        }
     }
     NSLog(@"\n\n urlString == %@",urlString);
     //汉字转码
