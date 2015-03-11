@@ -12,10 +12,11 @@
 #import "AppDelegate.h"
 #import "FeatureLeftCell.h"
 #import <UIImageView+WebCache.h>
-
+<<<<<<< HEAD
 #import "PragueLeftViewController.h"
-
+=======
 #import "DDMenuController.h"
+>>>>>>> origin/master
 
 @interface PragueLeftViewController ()
 {
@@ -93,16 +94,27 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
+<<<<<<< HEAD
+      //  DDMenuController *menuController = self.menuController;
+    
+    
+    
+    
+    
+    
+    
+    
+=======
     DDMenuController *menuController = self.menuController;
 
     UINavigationController *pragueNav = (UINavigationController *)menuController.rootViewController;
 
     PragueViewController *pragueViewContreoller = pragueNav.viewControllers[0];
     
-    pragueViewContreoller.topicId = [[_subjetCategoriesArray objectAtIndex:indexPath.row] identifier];
+    pragueViewContreoller.topicId = [_baseClass.data objectAtIndex:indexPath.row];
+>>>>>>> origin/master
     
-    NSLog(@"您点是%@",pragueViewContreoller.topicId);
+    NSLog(@"您点是%d",indexPath.row);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
