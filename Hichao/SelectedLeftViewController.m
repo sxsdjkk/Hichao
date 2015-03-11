@@ -35,6 +35,13 @@
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         _baseClass = [SLIDMBaseClass modelObjectWithDictionary:responseObject];
+        
+        _openedArray = [[NSMutableArray alloc] init];
+        
+        for (int i=0; i<_baseClass.data.querys.count+1; i++)
+        {
+            [_openedArray addObject:[NSNumber numberWithBool:NO]];
+        }
        
         UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
         
@@ -76,11 +83,17 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section==0)
+//    if (section==0)
+//    {
+//        return 0;
+//    }
+    if([[_openedArray objectAtIndex:section] boolValue]){
+        return [[_baseClass.data.querys objectAtIndex:section-1] items].count;
+    }
+    else
     {
         return 0;
-    }
-    return [[_baseClass.data.querys objectAtIndex:section-1] items].count;
+    }    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -121,6 +134,8 @@
         
         view.accessoryView.hidden = NO;
     }
+    
+    [view setOpened:[[_openedArray objectAtIndex:indexPath.section] boolValue]];
     
     view.tag = indexPath.section+500;
     
@@ -167,38 +182,57 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return section==0?UIEdgeInsetsZero:UIEdgeInsetsMake(10, 10, 10, 10);
+    if ([[_openedArray objectAtIndex:section] boolValue])
+    {
+        return UIEdgeInsetsMake(10, 10, 10, 10);
+    }
+    else
+    {
+        return UIEdgeInsetsZero;
+    }
 }
 
 #pragma mark-
 
-static NSInteger selectedSectionIndex = 100;
-
 - (void)headerBtnClicked:(UIButton *)button
 {
-//    if (button.tag==100)
-//    {
-//        UINavigationController *selectedNav = (UINavigationController *)self.menuController.rootViewController;
-//        
-//        SelectedViewController *selectedVC = selectedNav.viewControllers[0];
-//        
-//        selectedVC.subject = @"全部";
-//        
-//        [selectedVC reloadView];
-//        
-//        [self.menuController showRootController:YES];
-//    }
-//    else
-//    {
-//        SelectedLeftHeaderView *headerViewOld = (SelectedLeftHeaderView *)[_collectionView viewWithTag:selectedSectionIndex+400];
-//        
-//        [headerViewOld setOpened:NO];
-//        
-//        SelectedLeftHeaderView *headerViewNew = (SelectedLeftHeaderView *)[_collectionView viewWithTag:button.tag+400];
-//        
-//        [headerViewNew setOpened:YES];
-//        
-//    }
+    
+    
+    if (button.tag==100)
+    {
+        SelectedLeftHeaderView *firstHeader = (SelectedLeftHeaderView *)[_collectionView viewWithTag:500];
+        
+        [firstHeader setOpened:YES];
+        
+        UINavigationController *selectedNav = (UINavigationController *)self.menuController.rootViewController;
+        
+        SelectedViewController *selectedVC = selectedNav.viewControllers[0];
+        
+        selectedVC.subject = @"全部";
+        
+        [selectedVC reloadView];
+        
+        [self.menuController showRootController:YES];
+    }
+    else
+    {
+        SelectedLeftHeaderView *firstHeader = (SelectedLeftHeaderView *)[_collectionView viewWithTag:500];
+        
+        [firstHeader setOpened:NO];
+        
+        NSNumber *newIsOpen = [NSNumber numberWithBool:![[_openedArray objectAtIndex:button.tag-100] boolValue]];
+        
+        [_openedArray removeObjectAtIndex:button.tag-100];
+        
+        [_openedArray insertObject:newIsOpen atIndex:button.tag-100];
+        
+        SelectedLeftHeaderView *headerViewNew = (SelectedLeftHeaderView *)[_collectionView viewWithTag:button.tag+400];
+        
+        [headerViewNew setOpened:newIsOpen.boolValue];
+
+        [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:button.tag-100]];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
