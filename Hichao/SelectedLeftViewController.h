@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DDMenuController;
 
 @interface SelectedLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+
+@property (nonatomic,assign) DDMenuController *menuController;
 
 @end

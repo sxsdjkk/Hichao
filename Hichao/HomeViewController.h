@@ -56,7 +56,7 @@
 @property (nonatomic, assign) BOOL wrap;
 @property (nonatomic, strong) NSMutableArray *items;
 
-@property (nonatomic,retain)  NSString *subject;
+@property (nonatomic,copy)  NSString *subject;
 
 - (void)tableViewsReloadData;
 - (void)cleanDataSource;

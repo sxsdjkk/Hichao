@@ -10,6 +10,8 @@
 #import "SelectedLeftCell.h"
 #import "SelectedLeftHeaderView.h"
 #import <UIImageView+WebCache.h>
+#import "DDMenuController.h"
+#import "SelectedViewController.h"
 
 @interface SelectedLeftViewController ()
 {
@@ -140,27 +142,22 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //    if(indexPath != _selectedIndexPath)
-    //    {
-    //        if (_selectedIndexPath)
-    //        {
-    //            [_selectedIndexPath release];
-    //        }
-    //
-    //        _selectedIndexPath = [indexPath retain];
-    //
-    //        [collectionView reloadData];
-    //    }
-    //    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    SLIDMItems *item = [[[_baseClass.data.querys objectAtIndex:indexPath.section-1] items] objectAtIndex:indexPath.row];
     
-//    UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
-//    
-//    HomeViewController *homeVC = homeNav.viewControllers[0];
-//    homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
-//    
-//    [homeVC reloadView];
-//    
-//    [self.menuController showRootController:YES];
+    
+    
+    
+    UINavigationController *selectedNav = (UINavigationController *)self.menuController.rootViewController;
+    
+    SelectedViewController *selectedVC = selectedNav.viewControllers[0];
+    
+    selectedVC.subject = item.component.action.title;
+    
+    NSLog(@"-----%@",selectedVC.subject);
+    
+    [selectedVC reloadView];
+    
+    [self.menuController showRootController:YES];
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section

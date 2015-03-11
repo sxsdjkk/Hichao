@@ -94,6 +94,7 @@
     DDMenuController *selectedMenuController = [[DDMenuController alloc]initWithRootViewController:selectedNav];
     SelectedLeftViewController *selectedLeftVC = [[SelectedLeftViewController alloc] init];
     selectedMenuController.leftViewController = selectedLeftVC;
+    selectedLeftVC.menuController = selectedMenuController;
     
     
     
