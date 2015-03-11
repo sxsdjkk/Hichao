@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeaturesRightViewController.h"
 
-@interface FeaturesViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface FeaturesViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegate>
 {
     TopicsBaseClass *_topicsBaseClass;
     NSMutableArray *_topicsItemsArray;
     UICollectionView *_collectionView;
+    
+    //右边划过来的View
+    FeaturesRightViewController *_featuresRightVC;
 }
 @property (nonatomic,copy) NSString *subject;
 

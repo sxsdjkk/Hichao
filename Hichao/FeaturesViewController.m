@@ -50,6 +50,12 @@
     
     [self creatCollectionView];
     [self reloadView];
+    
+    //右边视图
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    _featuresRightVC = [[FeaturesRightViewController alloc] init];
+    _featuresRightVC.view.frame = _featuresRightVC.hideFrame;
+    [window addSubview:_featuresRightVC.view];
 }
 - (void)reloadView{
     [self requestData];
@@ -98,9 +104,34 @@
     cell.items = item;
     return cell;
 }
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    UIControl *control = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    control.alpha = 0.0f;
+    control.backgroundColor = [UIColor blackColor];
+    [window addSubview:control];
+    [control release];
+    [control addTarget:self action:@selector(rmBlackView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [window bringSubviewToFront:_featuresRightVC.view];
+    
+    _featuresRightVC.item = _topicsItemsArray[indexPath.row];
+    [_featuresRightVC requestData];
+    [UIView animateWithDuration:0.5 animations:^{
+        control.alpha = 0.5f;
+        _featuresRightVC.view.frame = _featuresRightVC.showFrame;
+    }];
+}
 
-
-
+- (void)rmBlackView:(UIControl *)control{
+    [UIView animateWithDuration:0.5 animations:^{
+        _featuresRightVC.view.frame = _featuresRightVC.hideFrame;
+        control.alpha = 0.5f;
+    } completion:^(BOOL finished) {
+        [control removeFromSuperview];
+    }];
+}
 
 
 @end

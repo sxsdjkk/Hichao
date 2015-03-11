@@ -695,6 +695,7 @@
 		6A4117471AA954DA00E6337B /* wrap_xiansuo_defalt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FD1AA954DA00E6337B /* wrap_xiansuo_defalt@2x.png */; };
 		6A4117481AA954DA00E6337B /* wrap_xiansuo_defalt_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FE1AA954DA00E6337B /* wrap_xiansuo_defalt_on.png */; };
 		6A4117491AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FF1AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png */; };
+		6A5CEAE01AB01FEB00D14132 /* FeaturesRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEADF1AB01FEB00D14132 /* FeaturesRightViewController.m */; };
 		6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5B1AAB090000B6E7C4 /* WaterFlowActions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5D1AAB090000B6E7C4 /* WaterFlowBaseClass.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -1488,6 +1489,8 @@
 		6A4114FD1AA954DA00E6337B /* wrap_xiansuo_defalt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrap_xiansuo_defalt@2x.png"; sourceTree = "<group>"; };
 		6A4114FE1AA954DA00E6337B /* wrap_xiansuo_defalt_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrap_xiansuo_defalt_on.png; sourceTree = "<group>"; };
 		6A4114FF1AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrap_xiansuo_defalt_on@2x.png"; sourceTree = "<group>"; };
+		6A5CEADE1AB01FEB00D14132 /* FeaturesRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesRightViewController.h; sourceTree = "<group>"; };
+		6A5CEADF1AB01FEB00D14132 /* FeaturesRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesRightViewController.m; sourceTree = "<group>"; };
 		6A7A9E581AAB090000B6E7C4 /* WaterFlowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowAction.h; sourceTree = "<group>"; };
 		6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowAction.m; sourceTree = "<group>"; };
 		6A7A9E5A1AAB090000B6E7C4 /* WaterFlowActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowActions.h; sourceTree = "<group>"; };
@@ -1680,6 +1683,8 @@
 			children = (
 				521BB9A71AA792BB00426FC6 /* FeaturesViewController.h */,
 				521BB9A81AA792BB00426FC6 /* FeaturesViewController.m */,
+				6A5CEADE1AB01FEB00D14132 /* FeaturesRightViewController.h */,
+				6A5CEADF1AB01FEB00D14132 /* FeaturesRightViewController.m */,
 				6AF138861AAEF8040035B7FF /* FeaturesCell.h */,
 				6AF138871AAEF8040035B7FF /* FeaturesCell.m */,
 				521BB9AA1AA792D000426FC6 /* FeaturesLeftViewController.h */,
@@ -3494,6 +3499,7 @@
 				6A7BBDA51AA88E930049CA3E /* BannerBaseClass.m in Sources */,
 				52E9E4B91AAF371400AD60F6 /* SelectedLeftCell.m in Sources */,
 				52A0D8B11AAF1C34000C6ED2 /* SLIDMItems.m in Sources */,
+				6A5CEAE01AB01FEB00D14132 /* FeaturesRightViewController.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
 				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
