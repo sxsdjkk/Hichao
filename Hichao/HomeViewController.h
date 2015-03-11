@@ -61,5 +61,6 @@
 - (void)tableViewsReloadData;
 - (void)cleanDataSource;
 - (void)reloadView;
+- (void)createTitle;
 
 @end
