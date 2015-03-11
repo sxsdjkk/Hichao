@@ -159,10 +159,7 @@
 {
     if (gesture.state == UIGestureRecognizerStateBegan)
     {
-//        NSLog(@"++++++UIGestureRecognizerStateBegan+++%f++ %@  ",_root.view.frame.origin.x,self.view);
-        
         [self showShadow:YES];
-//        _panOriginX = self.view.frame.origin.x;
         _panOriginX = _root.view.frame.origin.x;
         _panVelocity = CGPointMake(0.0f, 0.0f);
         
@@ -258,8 +255,6 @@
     }
     else if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled)
     {
-//        NSLog(@"velocity-----%@------gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled",NSStringFromCGPoint([gesture velocityInView:self.view]));
-        
         //  Finishing moving to left, right or root view with current pan velocity
         [self.view setUserInteractionEnabled:NO];
         
@@ -375,7 +370,6 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-//    NSLog(@"----------%s------",__FUNCTION__);
     if (gestureRecognizer == _pan) {
         
         UIPanGestureRecognizer *panGesture = (UIPanGestureRecognizer*)gestureRecognizer;
@@ -458,7 +452,6 @@
 
 - (void)showShadow:(BOOL)val
 {
-//    NSLog(@"----------%s------",__FUNCTION__);
 
     if (!_root) return;
     
@@ -474,8 +467,6 @@
 }
 
 - (void)showRootController:(BOOL)animated {
-    
-//    NSLog(@"----------%s------",__FUNCTION__);
     
     [_tap setEnabled:NO];
     _root.view.userInteractionEnabled = YES;

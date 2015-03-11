@@ -122,8 +122,8 @@
 }
 
 #pragma mark - Create UI
-- (void)reloadView{
-    NSLog(@"%@",_subject);
+- (void)reloadView
+{
     if ([_subject isEqualToString:@"全部"]) {
         if (!_hasCarousel) {
             [self createCoverFlow];
@@ -280,7 +280,6 @@
             urlString = [NSString stringWithFormat:@"http://api2.hichao.com/search?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&crop=1&type=star&query=%@&more_items=1&flag=&lts=&pin=",query];
         }
     }
-    NSLog(@"\n\n urlString == %@",urlString);
     //汉字转码
     urlString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -554,7 +553,6 @@
                 continue;// 一个break语句只向外跳一层。
                 // continue语句的作用是跳过循环本中剩余的语句而强行执行下一次循环。continue语句只用在for、while、do-while等循环体中,常与if条件语句一起使用,用来加速循环
             }
-            //            NSLog(@"tableoffset---->%@",NSStringFromCGPoint(tview.contentOffset));
             
             tview.contentOffset= scrollView.contentOffset;
             // 对表的 y 值进行修改 让其始终保持一致

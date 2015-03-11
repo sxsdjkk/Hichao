@@ -49,7 +49,7 @@
         
         UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
         layOut.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layOut.minimumLineSpacing = 0.0;
+        layOut.minimumLineSpacing = 10.0;
         layOut.minimumInteritemSpacing = 10.0;
         layOut.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         layOut.itemSize = CGSizeMake(60, 60);
@@ -65,15 +65,18 @@
         _indexCollectionView.backgroundColor = M_GRAY_COLOR;
         
         UICollectionViewFlowLayout *layOut1 = [[UICollectionViewFlowLayout alloc]init];
-        layOut.minimumLineSpacing = 10.0;
-        layOut.minimumInteritemSpacing = 10.0;
-        layOut.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        layOut.itemSize = CGSizeMake(200, 200);
+        layOut1.minimumLineSpacing = 10.0;
+        layOut1.minimumInteritemSpacing = 10.0;
+        layOut1.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        layOut1.itemSize = CGSizeMake(200, 200);
         
         _goodsCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(500, 120, 400, M_SCREEN_HEIGHT-120) collectionViewLayout:layOut1];
+        [_goodsCollectionView registerClass:[HomeCellDetailGoodsListCell class] forCellWithReuseIdentifier:@"goodscell"];
+        _goodsCollectionView.dataSource = self;
+        _goodsCollectionView.delegate = self;
         [self addSubview:_goodsCollectionView];
         [_goodsCollectionView release];
-        [layOut release];
+        [layOut1 release];
         _goodsCollectionView.backgroundColor = M_GRAY_COLOR;
     }
     return self;
@@ -81,6 +84,8 @@
 
 - (void)setCellWithItem:(WaterFlowItems *)item
 {
+    _indexViewSelectedIndex = 0;
+    
     NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -99,6 +104,8 @@
         
         [_indexCollectionView reloadData];
         
+        [_indexCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         
@@ -114,21 +121,34 @@
     }
     else
     {
-        return 0;
+        NSArray *itemArray = _baseClass.data.items;
+        
+        return itemArray.count;
     }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
-    HomeCellDetailIndexImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"indexcell" forIndexPath:indexPath];
-    
-    HVCDItemPicUrlList *list = [_baseClass.data.itemPicUrlList objectAtIndex:indexPath.row];
-    
-    [cell.indexImageView sd_setImageWithURL:[NSURL URLWithString:list.picUrl]];
-    
-    return cell;
+    if (collectionView==_indexCollectionView)
+    {
+        HomeCellDetailIndexImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"indexcell" forIndexPath:indexPath];
+        
+        HVCDItemPicUrlList *list = [_baseClass.data.itemPicUrlList objectAtIndex:indexPath.row];
+        
+        [cell.indexImageView sd_setImageWithURL:[NSURL URLWithString:list.picUrl]];
+        
+        return cell;
+    }
+    else
+    {
+        HomeCellDetailGoodsListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"goodscell" forIndexPath:indexPath];
+        
+        HVCDItemList *list = [[[_baseClass.data.items objectAtIndex:_indexViewSelectedIndex] itemList] objectAtIndex:indexPath.row];
+     
+        cell.backgroundColor = [UIColor redColor];
+        
+        return cell;
+    }
 }
 
 - (void)dealloc

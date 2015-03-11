@@ -106,7 +106,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"++++%@",_waterFlowItemsArray);
     return _waterFlowItemsArray.count;
 }
 

@@ -12,6 +12,8 @@
 @interface HomeNormalItemDetailCell : UICollectionViewCell<UICollectionViewDataSource,UICollectionViewDelegate>//详情页
 {
     HVCDBaseClass *_baseClass;
+    
+    NSInteger _indexViewSelectedIndex;
 }
 @property (nonatomic,retain)UIImageView *userHeader;
 

@@ -28,11 +28,7 @@
         
         [self addSubview:_textLabel];
 
-        [_textLabel release];
-
-        //NSLog(@"_textLabel--retainCount---%d",_textLabel.retainCount);
-
-        
+        [_textLabel release];        
         
 //        _textLabel.layer.cornerRadius = _textLabel.frame.size.width/2.0;
 //        

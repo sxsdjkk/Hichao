@@ -10,4 +10,6 @@
 
 @interface HomeCellDetailGoodsListCell : UICollectionViewCell
 
+//@property ()
+
 @end

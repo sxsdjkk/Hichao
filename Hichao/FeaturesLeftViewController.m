@@ -32,7 +32,6 @@
     
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
-        //NSLog(@"%@",responseObject);
         _baseClass = [MLBaseClass modelObjectWithDictionary:responseObject];
         [self creatCollectionView];
         

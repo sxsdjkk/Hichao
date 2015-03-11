@@ -40,8 +40,8 @@
 - (void)requestData{
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/topic?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&width=482&more_items=1&topic_id=%d&twm=1",_topicId];
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
-    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
         TopicBaseClass *topicBaseClass = [[TopicBaseClass alloc] initWithDictionary:responseObject];
         [_topicItemsArray addObjectsFromArray:topicBaseClass.data.items];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
