@@ -14,6 +14,8 @@
 #import "HomeViewController.h"
 #import <FXImageView.h>
 #import "PullViewCell.h"
+#import "SelectedViewController.h"
+
 
 @interface HomeViewController ()
 
@@ -434,7 +436,8 @@
     return cell;
 }
 #pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UIWindow *window = [UIApplication sharedApplication].delegate.window;
     UIControl *control = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     control.alpha = 0.0f;
@@ -442,8 +445,7 @@
     [window addSubview:control];
     [control release];
     [control addTarget:self action:@selector(rmBlackView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+
     [window bringSubviewToFront:_homeRightVC.view];
     
     //传值
@@ -469,9 +471,14 @@
     WaterFlowItems *item = _waterFlowItemsArray[index];
     _homeRightVC.currentItem = item;
     
-    if (!_hasCarousel) {
+    if (!_hasCarousel&&(![self isKindOfClass:[SelectedViewController class]]))
+    {
+        _homeRightVC.contentType = ContentTypeNormal;
         [_homeRightVC createItemView];
-    }else if (item.component.description) {
+        
+    }else if (item.component.description)
+    {
+        _homeRightVC.contentType = ContentTypeNormal;
         [_homeRightVC createScrollView];
     }else{
         //tuanVC

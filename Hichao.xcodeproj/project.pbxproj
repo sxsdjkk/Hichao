@@ -10,6 +10,7 @@
 		04E24AA31AAEDC28006B8F1D /* PgCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E24AA21AAEDC28006B8F1D /* PgCollectionViewCell.m */; };
 		04EE6B531AAFF41100478656 /* DiscussViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6B521AAFF41100478656 /* DiscussViewController.m */; };
 		2CF41FD2E91E5F599A640288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C2361280FC46550B6F41C5 /* libPods.a */; };
+		520BAE211AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAE201AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m */; };
 		521BB9231AA7583000426FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9221AA7583000426FC6 /* main.m */; };
 		521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9251AA7583000426FC6 /* AppDelegate.m */; };
 		521BB9281AA7583000426FC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9271AA7583000426FC6 /* Images.xcassets */; };
@@ -743,6 +744,8 @@
 		04EE6B511AAFF41100478656 /* DiscussViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscussViewController.h; sourceTree = "<group>"; };
 		04EE6B521AAFF41100478656 /* DiscussViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscussViewController.m; sourceTree = "<group>"; };
 		19C2361280FC46550B6F41C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		520BAE1F1AB07F8E00FC4D2F /* HomeNormalItemDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNormalItemDetailCell.h; sourceTree = "<group>"; };
+		520BAE201AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNormalItemDetailCell.m; sourceTree = "<group>"; };
 		521BB91D1AA7583000426FC6 /* Hichao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hichao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB9211AA7583000426FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521BB9221AA7583000426FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1683,6 +1686,8 @@
 				52A5713D1AAC9C210075F3C0 /* MainLeftRoundCell.m */,
 				52399CC41AAD2BE900658C36 /* MainLeftRectCell.h */,
 				52399CC51AAD2BE900658C36 /* MainLeftRectCell.m */,
+				520BAE1F1AB07F8E00FC4D2F /* HomeNormalItemDetailCell.h */,
+				520BAE201AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m */,
 			);
 			name = HomeVC;
 			sourceTree = "<group>";
@@ -3551,6 +3556,7 @@
 				52A0D8B11AAF1C34000C6ED2 /* SLIDMItems.m in Sources */,
 				6A5CEAE01AB01FEB00D14132 /* FeaturesRightViewController.m in Sources */,
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
+				520BAE211AB07F8E00FC4D2F /* HomeNormalItemDetailCell.m in Sources */,
 				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
 				6A5CEAF71AB03AE500D14132 /* TopicItems.m in Sources */,

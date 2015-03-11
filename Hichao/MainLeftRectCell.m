@@ -29,6 +29,7 @@
         _titleImageView.layer.masksToBounds = YES;
         
         [self addSubview:_titleImageView];
+        
         [_titleImageView release];
         
         _textLabel = [[UILabel alloc] init];

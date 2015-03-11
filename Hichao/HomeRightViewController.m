@@ -8,9 +8,12 @@
 
 #import "HomeRightViewController.h"
 #import <UIImageView+WebCache.h>
+#import "HomeNormalItemDetailCell.h"
 
 @interface HomeRightViewController ()
-
+{
+    UICollectionView *_collectionView;
+}
 @end
 
 @implementation HomeRightViewController
@@ -30,7 +33,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = M_GRAY_COLOR;
     
+    UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
+    layOut.minimumLineSpacing = 0.0;
+    layOut.minimumInteritemSpacing = 0.0;
+    layOut.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    layOut.itemSize = CGSizeMake(640, 704);
 
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 640, 704) collectionViewLayout:layOut];
+
+    [_collectionView registerClass:[HomeNormalItemDetailCell class] forCellWithReuseIdentifier:@"cell"];
+    _collectionView.backgroundColor = M_PINK_COLOR;
+    [self.view addSubview:_collectionView];
+    _collectionView.hidden = YES;
+    
 }
 - (void)createItemView{
 //    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/sku?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&id=%@",_currentItem.component.action.actionIdentifier];
@@ -47,27 +62,34 @@
     [imageView release];
 //    UIButtonType
 }
-- (void)createScrollView{
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
-    _scrollView.delegate = self;
-    _scrollView.showsHorizontalScrollIndicator = YES;
-    _scrollView.pagingEnabled = YES;
-    [self.view addSubview:_scrollView];
-    int i = 0;
-    for (WaterFlowItems *item in _waterFlowItemsArray) {
-        if (item.component.action.normalPicUrl) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(640*i, 0, 640, 704)];
-            NSURL *url = [NSURL URLWithString:item.component.action.normalPicUrl];
-            [imageView sd_setImageWithURL:url];
-            [_scrollView addSubview:imageView];
-            [imageView release];
-            if (_currentItem.component.showId == item.component.showId) {
-                [_scrollView setContentOffset:CGPointMake(640*i, 0)];
-            }
-            i++;
-        }
-    }
-    _scrollView.contentSize = CGSizeMake(640*i, 704);
+- (void)createScrollView
+{
+    _collectionView.frame = CGRectMake(0, 0, 640, 704);
+    
+//    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
+//    _scrollView.delegate = self;
+//    _scrollView.showsHorizontalScrollIndicator = YES;
+//    _scrollView.pagingEnabled = YES;
+//    [self.view addSubview:_scrollView];
+//    int i = 0;
+//    for (WaterFlowItems *item in _waterFlowItemsArray)
+//    {
+//        if (item.component.action.normalPicUrl) {
+//            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(640*i, 0, 640, 704)];
+//            NSURL *url = [NSURL URLWithString:item.component.action.normalPicUrl];
+//            [imageView sd_setImageWithURL:url];
+//            [_scrollView addSubview:imageView];
+//            [imageView release];
+//            if (_currentItem.component.showId == item.component.showId)
+//            {
+//                [_scrollView setContentOffset:CGPointMake(640*i, 0)];
+//            }
+//            i++;
+//        }
+        
+        
+//    }
+//    _scrollView.contentSize = CGSizeMake(640*i, 704);
 }
 
 

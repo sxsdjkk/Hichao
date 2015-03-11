@@ -10,8 +10,9 @@
 
 typedef NS_ENUM(NSInteger, ContentType)
 {
-    ContentTypeSelected = 0,
-    ContentTypeNormal,
+    ContentTypeCarousel  = 0,//旋转木马 和 瀑布流第一项
+    ContentTypeNormal,  //瀑布流普通项
+    ContentTypeSelected,    //精品页
 };
 
 
@@ -25,6 +26,7 @@ typedef NS_ENUM(NSInteger, ContentType)
 
 @property (nonatomic,assign)UIScrollView *scrollView;
 
+@property (nonatomic,assign)ContentType contentType;
 
 - (instancetype)init;
 

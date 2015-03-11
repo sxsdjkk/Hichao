@@ -101,7 +101,9 @@
     
     pragueViewContreoller.topicId = [_subjetCategoriesArray objectAtIndex:indexPath.row];
     
-    NSLog(@"您点是%d",indexPath.row);
+//    NSLog(@"您点是%d",indexPath.row);
+#warning
+//    [pragueViewContreoller reloadView];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
