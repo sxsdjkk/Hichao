@@ -76,6 +76,15 @@
 #import "PgActions.h"
 #import "PgBaseClass.h"
 
+//布拉格点
+//#import "PgRightAction.h"
+//#import "PgRightBaseClass.h"
+//#import "PgRightComponent.h"
+//#import "PgRightData.h"
+//#import "PgRightImgs.h"
+//#import "PgRightShare.h"
+//#import "PgRightShareAction.h"
+
 
 //iTunes商店 检查更新
 #import "iTunesLookupResults.h"

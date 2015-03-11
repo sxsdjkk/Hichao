@@ -114,9 +114,11 @@
     [_laftView addInfiniteScrollingWithActionHandler:^{
         NSLog(@"下拉加载");
         
+        
     }];
  
 }
+
 
 
 -(void)collectionUI{

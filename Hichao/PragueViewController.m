@@ -165,14 +165,7 @@ bool isOk;
         }
     }
     
-//    item = _baseClass.data.items[indexPath.row];
-//    if (item.component.pics == nil) {
-//        
-//        return 125;
-//    }else{
-//        
-//        return 250;
-//    }
+
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -186,9 +179,49 @@ bool isOk;
 
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    
+    PgItems * item = _baseClass.data.items[indexPath.row];
+    
+    NSString * pgAction = item.component.componentIdentifier;
+    
+    
+    AFHTTPRequestOperationManager * managerH = [AFHTTPRequestOperationManager manager];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/thread?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&thread_id=%@&flag=&state=0",pgAction];
+    
+    
+    [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+       
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+    }];
+
+    
+    
+    
+    
+    
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=&type=latest&flag=
+
+
+//http://api2.hichao.com/new_forum/thread?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&thread_id=125478&flag=&state=0
+
+//http://api2.hichao.com/new_forum/thread?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&thread_id=124797&flag=&state=0
+
+
 
 @end
