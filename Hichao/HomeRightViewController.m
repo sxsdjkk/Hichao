@@ -15,10 +15,11 @@
 
 @implementation HomeRightViewController
 
-- (instancetype)init
+- (instancetype)initWithContentType:(ContentType)type andCurrentItem:(WaterFlowItems *)item
 {
     self = [super init];
     if (self) {
+        
         _showFrame = CGRectMake(1024-640, 64, 640, 704);
         _hideFrame = CGRectMake([UIScreen mainScreen].bounds.size.width, _showFrame.origin.y, _showFrame.size.width, _showFrame.size.height);
     }

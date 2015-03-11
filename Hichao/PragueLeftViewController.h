@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class DDMenuController;
+
+
 @interface PragueLeftViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 {
     NSArray *_subjetCategoriesArray;    
 }
+
+
+@property (nonatomic,assign)DDMenuController *menuController;
 
 
 @end
