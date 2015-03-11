@@ -68,4 +68,29 @@
     return self;
 }
 
+- (void)setOpened:(BOOL)isOpen
+{
+    if (isOpen)
+    {
+        _textLabel.textColor = M_PINK_COLOR;
+        
+        _accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_up@2x.png"];
+    }
+    else
+    {
+        _textLabel.textColor = [UIColor blackColor];
+        
+        _accessoryView.image = [UIImage imageNamed:@"icon_arrow_leftstyle_down@2x.png"];
+    }
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+    [_backgroundBtn release];
+    [_titleImageView release];
+    [_textLabel release];
+    [_accessoryView release];
+}
+
 @end

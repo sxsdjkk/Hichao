@@ -19,4 +19,7 @@
 
 @property (nonatomic,retain) UIImageView *accessoryView;
 
+
+- (void)setOpened:(BOOL)isOpen;
+
 @end

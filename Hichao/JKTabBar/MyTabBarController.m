@@ -191,7 +191,7 @@
         if (i>=5)
         {
             titleImage.frame = CGRectMake(15, 5+(M_SCREEN_HEIGHT-150)+45*(i-5), 35, 35);
-            [titleLabel removeFromSuperview];
+            titleLabel.hidden = YES;
         }
     }
 

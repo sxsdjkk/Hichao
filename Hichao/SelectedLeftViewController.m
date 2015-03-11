@@ -16,6 +16,8 @@
 @interface SelectedLeftViewController ()
 {
     SLIDMBaseClass *_baseClass;
+    UICollectionView *_collectionView;
+    NSMutableArray *_openedArray;
 }
 @end
 
@@ -44,19 +46,19 @@
         
         layOut.itemSize = CGSizeMake(48, 70);
 
-        UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, 240, M_SCREEN_HEIGHT-64) collectionViewLayout:layOut];
+        _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, 240, M_SCREEN_HEIGHT-64) collectionViewLayout:layOut];
         
-        collectionView.dataSource = self;
+        _collectionView.dataSource = self;
         
-        collectionView.delegate = self;
+        _collectionView.delegate = self;
         
-        collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
+        _collectionView.backgroundColor = M_LIGHT_GRAY_COLOR;
         
-        [collectionView registerClass:[SelectedLeftCell class] forCellWithReuseIdentifier:@"cell"];
+        [_collectionView registerClass:[SelectedLeftCell class] forCellWithReuseIdentifier:@"cell"];
         
-        [collectionView registerClass:[SelectedLeftHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [_collectionView registerClass:[SelectedLeftHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
         
-        [self.view addSubview:collectionView];
+        [self.view addSubview:_collectionView];
         
     }failure:^(AFHTTPRequestOperation *operation, NSError *error)
     {
@@ -120,6 +122,12 @@
         view.accessoryView.hidden = NO;
     }
     
+    view.tag = indexPath.section+500;
+    
+    view.backgroundBtn.tag = indexPath.section+100;
+    
+    [view.backgroundBtn addTarget:self action:@selector(headerBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     return view;
 }
 
@@ -144,14 +152,11 @@
     
     SLIDMItems *item = [[[_baseClass.data.querys objectAtIndex:indexPath.section-1] items] objectAtIndex:indexPath.row];
     
-    
-    
-    
     UINavigationController *selectedNav = (UINavigationController *)self.menuController.rootViewController;
     
     SelectedViewController *selectedVC = selectedNav.viewControllers[0];
     
-    selectedVC.subject = item.component.action.title;
+    selectedVC.subject = item.component.action.query;//[NSString stringWithFormat:@"%@%2c%@",,item.component.action.title];
     
     NSLog(@"-----%@",selectedVC.subject);
     
@@ -165,7 +170,36 @@
     return section==0?UIEdgeInsetsZero:UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
+#pragma mark-
 
+static NSInteger selectedSectionIndex = 100;
+
+- (void)headerBtnClicked:(UIButton *)button
+{
+//    if (button.tag==100)
+//    {
+//        UINavigationController *selectedNav = (UINavigationController *)self.menuController.rootViewController;
+//        
+//        SelectedViewController *selectedVC = selectedNav.viewControllers[0];
+//        
+//        selectedVC.subject = @"全部";
+//        
+//        [selectedVC reloadView];
+//        
+//        [self.menuController showRootController:YES];
+//    }
+//    else
+//    {
+//        SelectedLeftHeaderView *headerViewOld = (SelectedLeftHeaderView *)[_collectionView viewWithTag:selectedSectionIndex+400];
+//        
+//        [headerViewOld setOpened:NO];
+//        
+//        SelectedLeftHeaderView *headerViewNew = (SelectedLeftHeaderView *)[_collectionView viewWithTag:button.tag+400];
+//        
+//        [headerViewNew setOpened:YES];
+//        
+//    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
