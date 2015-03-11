@@ -21,8 +21,8 @@
 #import "PragueLeftViewController.h"
 #import "FavoritesLeftViewController.h"
 
-
-
+#import "LoginViewController.h"
+#import "AppDelegate.h"
 #import "DDMenuController.h"
 
 #define M_SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
@@ -260,13 +260,38 @@ static NSInteger selectBtn = 1;
         }];
         return;
     }
-    _tabBarController.selectedIndex = button.tag-1;
+
     
     //如果选中和当前的相同的话返回
     if (selectBtn == button.tag)
     {
         return;
     }
+    if(button.tag==6)
+    {
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        
+        if (![delegate isLogedIn])
+        {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+            button.frame = self.view.frame;
+            button.backgroundColor = [UIColor blackColor];
+            button.alpha = 0.0f;
+            [button addTarget:self action:@selector(removeSettingsVC:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:button];
+            [self.view bringSubviewToFront:_settingNav.view];
+            
+            [UIView animateWithDuration:0.5 animations:^
+             {
+                 _settingNav.view.frame = _settingsVC.showFrame;
+                 button.alpha = 0.5f;
+                 LoginViewController *loginVC = [[LoginViewController alloc]init];
+                 [_settingNav pushViewController:loginVC animated:YES];
+             }];
+            return;
+        }
+    }
+    _tabBarController.selectedIndex = button.tag-1;
     
     UIImageView *btn1 = (UIImageView *)[_tabBarBackgroundImageView viewWithTag:button.tag + 10];
 
