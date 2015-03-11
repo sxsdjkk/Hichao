@@ -104,9 +104,10 @@
     [self firstFresh];
     
     //右边视图
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
     _homeRightVC = [[HomeRightViewController alloc] init];
     _homeRightVC.view.frame = _homeRightVC.hideFrame;
-    [self.view addSubview:_homeRightVC.view];
+    [window addSubview:_homeRightVC.view];
 }
 - (void)firstFresh{
     [_scrollView.pullToRefreshView startAnimating];
@@ -115,6 +116,7 @@
 
 #pragma mark - Create UI
 - (void)reloadView{
+    NSLog(@"%@",_subject);
     if ([_subject isEqualToString:@"全部"]) {
         if (!_hasCarousel) {
             [self createCoverFlow];
@@ -417,13 +419,16 @@
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIControl *controll = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    controll.alpha = 0.0f;
-    controll.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:controll];
-    [controll release];
-    [controll addTarget:self action:@selector(rmBlackView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view bringSubviewToFront:_homeRightVC.view];
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    UIControl *control = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    control.alpha = 0.0f;
+    control.backgroundColor = [UIColor blackColor];
+    [window addSubview:control];
+    [control release];
+    [control addTarget:self action:@selector(rmBlackView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [window bringSubviewToFront:_homeRightVC.view];
     
     //传值
     _homeRightVC.waterFlowItemsArray = _waterFlowItemsArray;
@@ -458,16 +463,16 @@
 
     [UIView animateWithDuration:0.5 animations:^{
         _homeRightVC.view.frame = _homeRightVC.showFrame;
-        controll.alpha = 0.5f;
+        control.alpha = 0.5f;
     }];
 }
 
-- (void)rmBlackView:(UIControl *)controll{
+- (void)rmBlackView:(UIControl *)control{
     [UIView animateWithDuration:0.5 animations:^{
         _homeRightVC.view.frame = _homeRightVC.hideFrame;
-        controll.alpha = 0.5f;
+        control.alpha = 0.5f;
     } completion:^(BOOL finished) {
-        [controll removeFromSuperview];
+        [control removeFromSuperview];
         [_homeRightVC.scrollView removeFromSuperview];
     }];
 }
