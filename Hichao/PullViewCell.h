@@ -21,6 +21,10 @@
     UIButton *_itemBtn;
     UILabel *_rightLabel;
     
+    UILabel *_dayLabel;
+    UILabel *_weekDay;
+    UILabel *_yearMonth;
+    UILabel *_showTime;
 }
 @property (nonatomic,retain) WaterFlowItems *items;
 @end

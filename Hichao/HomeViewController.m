@@ -412,6 +412,8 @@
     }
     WaterFlowItems *item = _waterFlowItemsArray[index];
     cell.items = item;
+    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = 5;
     return cell;
 }
 #pragma mark - UITableViewDelegate
