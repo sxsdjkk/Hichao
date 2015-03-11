@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 //#import "AFHTTPRequestOperationManager.h"
 
 @interface PragueViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
@@ -25,8 +26,13 @@
     
      float colHeight[2];
     
-    
-    
 }
+<<<<<<< HEAD
 @property (nonatomic,copy) NSString *subject;
+=======
+
+
+@property (nonatomic,copy) NSString *topicId;
+
+>>>>>>> origin/master
 @end

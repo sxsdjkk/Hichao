@@ -116,6 +116,7 @@
     DDMenuController *pragueMenuController = [[DDMenuController alloc]initWithRootViewController:pragueNav];
     PragueLeftViewController *pragueLeftVC = [[PragueLeftViewController alloc] init];
     pragueMenuController.leftViewController = pragueLeftVC;
+    pragueLeftVC.menuController = pragueMenuController;
     
     
     FavoritesViewController *favoritesVC = [[FavoritesViewController alloc] init];

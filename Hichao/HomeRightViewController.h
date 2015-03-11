@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ContentType)
+{
+    ContentTypeSelected = 0,
+    ContentTypeNormal,
+};
+
+
 @interface HomeRightViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic,assign)CGRect showFrame;
@@ -19,6 +26,7 @@
 @property (nonatomic,assign)UIScrollView *scrollView;
 
 
+- (instancetype)initWithContentType:(ContentType)type andCurrentItem:(WaterFlowItems *)item;
 
 - (void)createItemView;
 - (void)createScrollView;
