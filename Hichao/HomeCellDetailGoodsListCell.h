@@ -10,6 +10,9 @@
 
 @interface HomeCellDetailGoodsListCell : UICollectionViewCell
 
-//@property ()
+@property (nonatomic,retain)UIImageView *imageView;
+@property (nonatomic,retain)UILabel *descriptionLabel;
+@property (nonatomic,retain)UILabel *priceLabel;
+@property (nonatomic,retain)UIButton *collectButton;
 
 @end

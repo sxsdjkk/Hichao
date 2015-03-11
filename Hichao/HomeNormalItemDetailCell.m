@@ -35,7 +35,7 @@
         [_userNameLabel release];
 //        _userNameLabel.backgroundColor = M_GRAY_COLOR;
         
-        _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, 380, 32)];
+        _descriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 50, 380, 40)];
         _descriptionLabel.font = [UIFont systemFontOfSize:14];
         _descriptionLabel.numberOfLines = 0;
         [self addSubview:_descriptionLabel];
@@ -105,6 +105,10 @@
         [_indexCollectionView reloadData];
         
         [_indexCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+        
+        NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star_clues?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
+        
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

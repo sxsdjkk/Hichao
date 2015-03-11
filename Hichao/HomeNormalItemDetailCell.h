@@ -13,6 +13,8 @@
 {
     HVCDBaseClass *_baseClass;
     
+    HDGLBaseClass *_goodsListBaseClass;
+    
     NSInteger _indexViewSelectedIndex;
 }
 @property (nonatomic,retain)UIImageView *userHeader;
