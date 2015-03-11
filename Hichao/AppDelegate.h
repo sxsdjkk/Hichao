@@ -14,5 +14,7 @@
 
 @property (nonatomic,retain) MLBaseClass *configBaseClass;
 
+@property (nonatomic,retain) iTunesLookupResults *iTunesResult;
+
 @end
 

@@ -28,6 +28,8 @@
     
     [self performSelectorInBackground:@selector(getConfigOnline) withObject:nil];
     
+    [self performSelectorInBackground:@selector(onCheckVersion) withObject:nil];
+    
     return YES;
 }
 
@@ -51,6 +53,52 @@
     }];
 
 }
+
+- (BOOL)isLogedIn
+{
+    return NO;
+}
+
+-(void)onCheckVersion
+{
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    
+    NSString *currentVersion = [infoDic objectForKey:@"CFBundleVersion"];
+    
+    NSLog(@"----%@",currentVersion);
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/lookup?id=%@",M_APP_ID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        iTunesLookupBaseClass *iTunesBaseClass = [iTunesLookupBaseClass modelObjectWithDictionary:responseObject];
+        
+        _iTunesResult = [[iTunesBaseClass.results objectAtIndex:0] retain];
+        
+        NSString *versionOnAppStore = [_iTunesResult version];
+        
+        if ([currentVersion isEqualToString:versionOnAppStore])
+        {
+            return;
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"有新版本更新了" message:_iTunesResult.resultsDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+            [alert release];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"%@",error);
+    }];
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -78,6 +126,7 @@
 {
     [super dealloc];
     [_configBaseClass release];
+    [_iTunesResult release];
 }
 
 @end
