@@ -39,7 +39,7 @@
         [self addSubview:_collectBtn];
         
         _itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_itemBtn setImage:[UIImage imageNamed:@"icon_bbs_detail_link.png"] forState:UIControlStateNormal];
+        [_itemBtn setImage:[UIImage imageNamed:@"icon_bbs_detail_link"] forState:UIControlStateNormal];
         [self addSubview:_itemBtn];
         
         _dayLabel = [[UILabel alloc] init];
@@ -78,10 +78,10 @@
     [_titleLabel release];
     [_leftLabel release];
     [_rightLabel release];
-    [_dayLabel release];
-    [_weekDay release];
-    [_yearMonth release];
-    [_showTime release];
+//    [_dayLabel release];
+//    [_weekDay release];
+//    [_yearMonth release];
+//    [_showTime release];
 }
 
 - (void)awakeFromNib {
@@ -102,7 +102,7 @@
     height = self.bounds.size.width * height / width;
     [_imageView sd_setImageWithURL:[NSURL URLWithString:_items.component.picUrl] placeholderImage:[UIImage imageNamed:@"background"]];
     
-    if (items.component.weekDay == nil && _items.component.collectionCount != nil) {
+    if (items.component.weekDay == nil && _items.component.collectionCount != nil && _items.component.itemsCount != nil) {
         
         _titleLabel.text = _items.component.componentDescription;
         _leftLabel.text = _items.component.collectionCount;
@@ -118,6 +118,47 @@
         _itemBtn.frame = CGRectMake(135, height+20+_titleLabel.frame.size.height-5, 40, 40);
         
         _horizonalLine.frame = CGRectMake(8, height+_titleLabel.frame.size.height+10, self.bounds.size.width-8, 3);
+        
+        [_itemBtn setImage:[UIImage imageNamed:@"icon_bbs_detail_link"] forState:UIControlStateNormal];
+    }else if (_items.component.collectionCount != nil){
+        //精品-推荐
+        
+        _titleLabel.text = _items.component.componentDescription;
+        _leftLabel.text = _items.component.collectionCount;
+        _rightLabel.text = _items.component.price;
+        
+        
+        _imageView.frame = CGRectMake(0, 0, self.bounds.size.width, height);
+        _titleLabel.frame = CGRectMake(8, height+8, self.bounds.size.width-8, 40.0f);
+        
+        _leftLabel.frame = CGRectMake(60, height+20+_titleLabel.frame.size.height, 60, 30);
+        _collectBtn.frame = CGRectMake(25, height+20+_titleLabel.frame.size.height, 30, 30);
+        
+        _rightLabel.frame = CGRectMake(170, height+20+_titleLabel.frame.size.height, 60, 30);
+        _itemBtn.frame = CGRectMake(135, height+20+_titleLabel.frame.size.height-5, 40, 40);
+        
+        _horizonalLine.frame = CGRectMake(8, height+_titleLabel.frame.size.height+10, self.bounds.size.width-8, 3);
+        
+        [_itemBtn setImage:[UIImage imageNamed:@"icon_price_clothes"] forState:UIControlStateNormal];
+    }
+    else if (_items.component.discount != nil){
+        //精品-值得买
+        _titleLabel.text = _items.component.componentDescription;
+        _leftLabel.text = _items.component.discount;
+        _rightLabel.text = _items.component.price;
+        
+        _imageView.frame = CGRectMake(0, 0, self.bounds.size.width, height);
+         _titleLabel.frame = CGRectMake(8, _imageView.frame.size.height+8, self.bounds.size.width-8, 40.0f);
+        
+        _leftLabel.frame = CGRectMake(60, height+20+_titleLabel.frame.size.height, 60, 30);
+        _collectBtn.frame = CGRectMake(25, height+20+_titleLabel.frame.size.height, 30, 30);
+        
+        _rightLabel.frame = CGRectMake(170, height+20+_titleLabel.frame.size.height, 60, 30);
+        _itemBtn.frame = CGRectMake(135, height+20+_titleLabel.frame.size.height-5, 40, 40);
+        
+        _horizonalLine.frame = CGRectMake(8, height+_titleLabel.frame.size.height+10, self.bounds.size.width-8, 3);
+        
+        [_itemBtn setImage:[UIImage imageNamed:@"icon_price_clothes"] forState:UIControlStateNormal];
         
     }else{
         UIImageView *blackLine = [[UIImageView alloc] init];
@@ -149,6 +190,8 @@
         [pubLabel release];
         
         [self bringSubviewToFront:_imageView];
+        
+        [_itemBtn setImage:[UIImage imageNamed:@"icon_bbs_detail_link"] forState:UIControlStateNormal];
     }
     
 }

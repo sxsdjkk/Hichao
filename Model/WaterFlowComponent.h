@@ -40,6 +40,8 @@
 @property (nonatomic, strong) NSString *dayColor;
 @property (nonatomic, strong) NSString *showType;
 @property (nonatomic, strong) NSString *componentDescription;
+@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *discount;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

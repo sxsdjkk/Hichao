@@ -39,7 +39,8 @@ NSString *const kWaterFlowComponentActions = @"actions";
 NSString *const kWaterFlowComponentDayColor = @"dayColor";
 NSString *const kWaterFlowComponentShowType = @"showType";
 NSString *const kWaterFlowComponentDescription = @"description";
-
+NSString *const kWaterFlowComponentPrice = @"price";
+NSString *const kWaterFlowComponentDiscount = @"discount";
 
 @interface WaterFlowComponent ()
 
@@ -78,7 +79,8 @@ NSString *const kWaterFlowComponentDescription = @"description";
 @synthesize dayColor = _dayColor;
 @synthesize showType = _showType;
 @synthesize componentDescription = _componentDescription;
-
+@synthesize price = _price;
+@synthesize discount = _discount;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
@@ -117,6 +119,9 @@ NSString *const kWaterFlowComponentDescription = @"description";
             self.weekDayColor = [self objectOrNilForKey:kWaterFlowComponentWeekDayColor fromDictionary:dict];
             self.collectionCount = [self objectOrNilForKey:kWaterFlowComponentCollectionCount fromDictionary:dict];
             self.commentCount = [self objectOrNilForKey:kWaterFlowComponentCommentCount fromDictionary:dict];
+            self.commentCount = [self objectOrNilForKey:kWaterFlowComponentCommentCount fromDictionary:dict];
+            self.price = [self objectOrNilForKey:kWaterFlowComponentPrice fromDictionary:dict];
+            self.discount = [self objectOrNilForKey:kWaterFlowComponentDiscount fromDictionary:dict];
     NSObject *receivedWaterFlowActions = [dict objectForKey:kWaterFlowComponentActions];
     NSMutableArray *parsedWaterFlowActions = [NSMutableArray array];
     if ([receivedWaterFlowActions isKindOfClass:[NSArray class]]) {
