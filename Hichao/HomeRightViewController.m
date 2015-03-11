@@ -15,7 +15,7 @@
 
 @implementation HomeRightViewController
 
-- (instancetype)initWithContentType:(ContentType)type andCurrentItem:(WaterFlowItems *)item andItemsArray:(NSArray *)array
+- (instancetype)init;
 {
     self = [super init];
     if (self) {

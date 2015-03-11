@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, ContentType)
 @property (nonatomic,assign)UIScrollView *scrollView;
 
 
-- (instancetype)initWithContentType:(ContentType)type andCurrentItem:(WaterFlowItems *)item andItemsArray:(NSArray *)array;
+- (instancetype)init;
 
 - (void)createItemView;
 - (void)createScrollView;
