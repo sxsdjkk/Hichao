@@ -106,7 +106,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static int i = 0;
     if (indexPath.section==0)
     {
         MainLeftRoundCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RoundCell" forIndexPath:indexPath];
@@ -235,24 +234,20 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-//    if(indexPath != _selectedIndexPath)
-//    {
-//        if (_selectedIndexPath)
-//        {
-//            [_selectedIndexPath release];
-//        }
-//        
-//        _selectedIndexPath = [indexPath retain];
-//        
-//        [collectionView reloadData];
-//    }
-//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
     UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
     
     HomeViewController *homeVC = homeNav.viewControllers[0];
-    homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
+    
+    if(indexPath==0)
+    {
+        homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        MLHWQuerys *data = [_hotWordsArray objectAtIndex:indexPath.row];
+        homeVC.subject = [NSString stringWithFormat:@"搜索%@",data.query];
+    }
+    
     
     [homeVC reloadView];
     
@@ -311,7 +306,16 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"%s",__func__);
+    UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
+    
+#warning 搜索框传值
+    
+    HomeViewController *homeVC = homeNav.viewControllers[0];
+    homeVC.subject = [NSString stringWithFormat:@"搜索%@",searchBar.text];
+    
+    [homeVC reloadView];
+    
+    [self.menuController showRootController:YES];
 }
 
 - (void)dealloc
