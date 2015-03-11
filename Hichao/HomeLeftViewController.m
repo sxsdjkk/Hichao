@@ -238,7 +238,7 @@
     
     HomeViewController *homeVC = homeNav.viewControllers[0];
     
-    if(indexPath==0)
+    if(indexPath.section==0)
     {
         homeVC.subject = [_categoryArray objectAtIndex:indexPath.row];
     }

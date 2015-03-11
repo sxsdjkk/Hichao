@@ -15,7 +15,7 @@
 
 @implementation HomeRightViewController
 
-- (instancetype)initWithType
+- (instancetype)init
 {
     self = [super init];
     if (self) {
