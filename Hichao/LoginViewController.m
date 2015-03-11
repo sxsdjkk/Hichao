@@ -60,6 +60,19 @@
     
 }
 
+#pragma mark - TencentSessionDelegate
+- (void)tencentDidLogin
+{
+
+}
+-(void)tencentDidNotLogin:(BOOL)cancelled
+{
+
+}
+-(void)tencentDidNotNetWork
+{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
