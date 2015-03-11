@@ -10,4 +10,18 @@
 
 @interface HomeNormalItemDetailCell : UICollectionViewCell
 
+@property (nonatomic,retain)UIImageView *userHeader;
+
+@property (nonatomic,retain)UILabel *userNameLabel;
+
+@property (nonatomic,retain)UILabel *descriptionLabel;
+
+@property (nonatomic,retain)UIImageView *mainImageView;
+
+@property (nonatomic,retain)UICollectionView *indexCollectionView;
+
+@property (nonatomic,retain)UICollectionView *goodsCollectionView;
+
+
+
 @end

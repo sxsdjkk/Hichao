@@ -34,20 +34,25 @@
     self.view.backgroundColor = M_GRAY_COLOR;
     
     UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
+    layOut.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layOut.minimumLineSpacing = 0.0;
     layOut.minimumInteritemSpacing = 0.0;
     layOut.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    layOut.itemSize = CGSizeMake(640, 704);
+    layOut.itemSize = CGSizeMake(1024-64, 768-20);
 
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 640, 704) collectionViewLayout:layOut];
 
     [_collectionView registerClass:[HomeNormalItemDetailCell class] forCellWithReuseIdentifier:@"cell"];
-    _collectionView.backgroundColor = M_PINK_COLOR;
+    _collectionView.pagingEnabled = YES;
+ 
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
     _collectionView.hidden = YES;
     
 }
-- (void)createItemView{
+- (void)createItemView
+{
 //    NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/sku?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&id=%@",_currentItem.component.action.actionIdentifier];
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -55,6 +60,7 @@
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        NSLog(@"%@",error);
 //    }];
+    
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
     NSURL *url = [NSURL URLWithString:_currentItem.component.picUrl];
     [imageView sd_setImageWithURL:url];
@@ -64,7 +70,12 @@
 }
 - (void)createScrollView
 {
-    _collectionView.frame = CGRectMake(0, 0, 640, 704);
+    _collectionView.hidden = NO;
+    _showFrame = CGRectMake(64, 20, 1024-64, 768-20);
+    _hideFrame = CGRectMake([UIScreen mainScreen].bounds.size.width, _showFrame.origin.y, _showFrame.size.width, _showFrame.size.height);
+    _collectionView.frame = CGRectMake(0, 40, 1024-64, 768-20);
+//    _collectionView.contentSize = CGSizeMake(_collectionView.frame.size.width*_waterFlowItemsArray.count, _collectionView.frame.size.height);
+    
     
 //    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
 //    _scrollView.delegate = self;
@@ -92,5 +103,16 @@
 //    _scrollView.contentSize = CGSizeMake(640*i, 704);
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    HomeNormalItemDetailCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    return cell;
+}
 
 @end

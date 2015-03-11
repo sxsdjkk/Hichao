@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, ContentType)
 };
 
 
-@interface HomeRightViewController : UIViewController <UIScrollViewDelegate>
+@interface HomeRightViewController : UIViewController <UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic,assign)CGRect showFrame;
 @property (nonatomic,assign)CGRect hideFrame;
