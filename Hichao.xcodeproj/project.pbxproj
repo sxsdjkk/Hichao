@@ -696,6 +696,14 @@
 		6A4117481AA954DA00E6337B /* wrap_xiansuo_defalt_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FE1AA954DA00E6337B /* wrap_xiansuo_defalt_on.png */; };
 		6A4117491AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4114FF1AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png */; };
 		6A5CEAE01AB01FEB00D14132 /* FeaturesRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEADF1AB01FEB00D14132 /* FeaturesRightViewController.m */; };
+		6A5CEAF21AB03AE500D14132 /* TopicAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAE31AB03AE400D14132 /* TopicAction.m */; };
+		6A5CEAF31AB03AE500D14132 /* TopicBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAE51AB03AE400D14132 /* TopicBaseClass.m */; };
+		6A5CEAF41AB03AE500D14132 /* TopicCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAE71AB03AE400D14132 /* TopicCells.m */; };
+		6A5CEAF51AB03AE500D14132 /* TopicComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAE91AB03AE400D14132 /* TopicComponent.m */; };
+		6A5CEAF61AB03AE500D14132 /* TopicData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAEB1AB03AE400D14132 /* TopicData.m */; };
+		6A5CEAF71AB03AE500D14132 /* TopicItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAED1AB03AE400D14132 /* TopicItems.m */; };
+		6A5CEAF81AB03AE500D14132 /* TopicShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAEF1AB03AE500D14132 /* TopicShare.m */; };
+		6A5CEAF91AB03AE500D14132 /* TopicShareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CEAF11AB03AE500D14132 /* TopicShareAction.m */; };
 		6A7A9E641AAB090000B6E7C4 /* WaterFlowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5B1AAB090000B6E7C4 /* WaterFlowActions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A9E5D1AAB090000B6E7C4 /* WaterFlowBaseClass.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -1491,6 +1499,22 @@
 		6A4114FF1AA954DA00E6337B /* wrap_xiansuo_defalt_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrap_xiansuo_defalt_on@2x.png"; sourceTree = "<group>"; };
 		6A5CEADE1AB01FEB00D14132 /* FeaturesRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesRightViewController.h; sourceTree = "<group>"; };
 		6A5CEADF1AB01FEB00D14132 /* FeaturesRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesRightViewController.m; sourceTree = "<group>"; };
+		6A5CEAE21AB03AE400D14132 /* TopicAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicAction.h; path = Topic/TopicAction.h; sourceTree = "<group>"; };
+		6A5CEAE31AB03AE400D14132 /* TopicAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicAction.m; path = Topic/TopicAction.m; sourceTree = "<group>"; };
+		6A5CEAE41AB03AE400D14132 /* TopicBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicBaseClass.h; path = Topic/TopicBaseClass.h; sourceTree = "<group>"; };
+		6A5CEAE51AB03AE400D14132 /* TopicBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicBaseClass.m; path = Topic/TopicBaseClass.m; sourceTree = "<group>"; };
+		6A5CEAE61AB03AE400D14132 /* TopicCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicCells.h; path = Topic/TopicCells.h; sourceTree = "<group>"; };
+		6A5CEAE71AB03AE400D14132 /* TopicCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicCells.m; path = Topic/TopicCells.m; sourceTree = "<group>"; };
+		6A5CEAE81AB03AE400D14132 /* TopicComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicComponent.h; path = Topic/TopicComponent.h; sourceTree = "<group>"; };
+		6A5CEAE91AB03AE400D14132 /* TopicComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicComponent.m; path = Topic/TopicComponent.m; sourceTree = "<group>"; };
+		6A5CEAEA1AB03AE400D14132 /* TopicData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicData.h; path = Topic/TopicData.h; sourceTree = "<group>"; };
+		6A5CEAEB1AB03AE400D14132 /* TopicData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicData.m; path = Topic/TopicData.m; sourceTree = "<group>"; };
+		6A5CEAEC1AB03AE400D14132 /* TopicItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicItems.h; path = Topic/TopicItems.h; sourceTree = "<group>"; };
+		6A5CEAED1AB03AE400D14132 /* TopicItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicItems.m; path = Topic/TopicItems.m; sourceTree = "<group>"; };
+		6A5CEAEE1AB03AE500D14132 /* TopicShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicShare.h; path = Topic/TopicShare.h; sourceTree = "<group>"; };
+		6A5CEAEF1AB03AE500D14132 /* TopicShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicShare.m; path = Topic/TopicShare.m; sourceTree = "<group>"; };
+		6A5CEAF01AB03AE500D14132 /* TopicShareAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicShareAction.h; path = Topic/TopicShareAction.h; sourceTree = "<group>"; };
+		6A5CEAF11AB03AE500D14132 /* TopicShareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicShareAction.m; path = Topic/TopicShareAction.m; sourceTree = "<group>"; };
 		6A7A9E581AAB090000B6E7C4 /* WaterFlowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowAction.h; sourceTree = "<group>"; };
 		6A7A9E591AAB090000B6E7C4 /* WaterFlowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowAction.m; sourceTree = "<group>"; };
 		6A7A9E5A1AAB090000B6E7C4 /* WaterFlowActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowActions.h; sourceTree = "<group>"; };
@@ -2654,10 +2678,34 @@
 			path = Hichao/Image/wrap;
 			sourceTree = "<group>";
 		};
+		6A5CEAE11AB03AD600D14132 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				6A5CEAE21AB03AE400D14132 /* TopicAction.h */,
+				6A5CEAE31AB03AE400D14132 /* TopicAction.m */,
+				6A5CEAE41AB03AE400D14132 /* TopicBaseClass.h */,
+				6A5CEAE51AB03AE400D14132 /* TopicBaseClass.m */,
+				6A5CEAE61AB03AE400D14132 /* TopicCells.h */,
+				6A5CEAE71AB03AE400D14132 /* TopicCells.m */,
+				6A5CEAE81AB03AE400D14132 /* TopicComponent.h */,
+				6A5CEAE91AB03AE400D14132 /* TopicComponent.m */,
+				6A5CEAEA1AB03AE400D14132 /* TopicData.h */,
+				6A5CEAEB1AB03AE400D14132 /* TopicData.m */,
+				6A5CEAEC1AB03AE400D14132 /* TopicItems.h */,
+				6A5CEAED1AB03AE400D14132 /* TopicItems.m */,
+				6A5CEAEE1AB03AE500D14132 /* TopicShare.h */,
+				6A5CEAEF1AB03AE500D14132 /* TopicShare.m */,
+				6A5CEAF01AB03AE500D14132 /* TopicShareAction.h */,
+				6A5CEAF11AB03AE500D14132 /* TopicShareAction.m */,
+			);
+			name = Topic;
+			sourceTree = "<group>";
+		};
 		6A7BBD981AA88E930049CA3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				6A5CEAE11AB03AD600D14132 /* Topic */,
 				6AF138891AAF15FB0035B7FF /* Topics */,
 				52A0D89E1AAF1C34000C6ED2 /* SelectedLeftItem */,
 				52A0D8931AAEE34A000C6ED2 /* MainLeftHotWords */,
@@ -3464,6 +3512,7 @@
 			files = (
 				52A571381AAC72150075F3C0 /* MLStarCategories.m in Sources */,
 				6A7A9E691AAB090000B6E7C4 /* WaterFlowItems.m in Sources */,
+				6A5CEAF91AB03AE500D14132 /* TopicShareAction.m in Sources */,
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
 				6AF138961AAF160A0035B7FF /* TopicsBaseClass.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
@@ -3492,6 +3541,7 @@
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
 				52A0D8891AAEA55B000C6ED2 /* TuanTableCell.m in Sources */,
+				6A5CEAF31AB03AE500D14132 /* TopicBaseClass.m in Sources */,
 				52A5713B1AAC72150075F3C0 /* MLVItemStarCategories.m in Sources */,
 				52A571331AAC72150075F3C0 /* MLCountly.m in Sources */,
 				521BB9C21AA84EEF00426FC6 /* FavoritesViewController.m in Sources */,
@@ -3503,6 +3553,7 @@
 				6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */,
 				52A0D87C1AAEA389000C6ED2 /* HStarItems.m in Sources */,
 				6ADDC1601AADCAD5009B8ED2 /* HomeRightViewController.m in Sources */,
+				6A5CEAF71AB03AE500D14132 /* TopicItems.m in Sources */,
 				6A7A9E661AAB090000B6E7C4 /* WaterFlowBaseClass.m in Sources */,
 				52A571341AAC72150075F3C0 /* MLData.m in Sources */,
 				52A571351AAC72150075F3C0 /* MLMobileSubjectCategories.m in Sources */,
@@ -3516,13 +3567,16 @@
 				521BB9231AA7583000426FC6 /* main.m in Sources */,
 				521BB9441AA7865300426FC6 /* MyTabBarController.m in Sources */,
 				52A571371AAC72150075F3C0 /* MLSplash.m in Sources */,
+				6A5CEAF61AB03AE500D14132 /* TopicData.m in Sources */,
 				52A0D89D1AAEE34A000C6ED2 /* MLHWQuerys.m in Sources */,
 				52A0D8AD1AAF1C34000C6ED2 /* SLIDMAction.m in Sources */,
 				6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */,
+				6A5CEAF51AB03AE500D14132 /* TopicComponent.m in Sources */,
 				521BB9AC1AA792D000426FC6 /* FeaturesLeftViewController.m in Sources */,
 				6AE5AE1D1AAED37C00557DDD /* iTunesLookupBaseClass.m in Sources */,
 				521BB9A61AA792A700426FC6 /* SelectedLeftViewController.m in Sources */,
 				521BB9A31AA7929100426FC6 /* SelectedViewController.m in Sources */,
+				6A5CEAF21AB03AE500D14132 /* TopicAction.m in Sources */,
 				52A0D8781AAEA389000C6ED2 /* HStarAction.m in Sources */,
 				521BB9A01AA7926800426FC6 /* HomeLeftViewController.m in Sources */,
 				52A0D8821AAEA389000C6ED2 /* StarAction.m in Sources */,
@@ -3530,6 +3584,7 @@
 				6AF138881AAEF8040035B7FF /* FeaturesCell.m in Sources */,
 				52A0D88C1AAEA577000C6ED2 /* pragueTableViewCell.m in Sources */,
 				52A0D87F1AAEA389000C6ED2 /* PgComponent.m in Sources */,
+				6A5CEAF81AB03AE500D14132 /* TopicShare.m in Sources */,
 				6AF138951AAF160A0035B7FF /* TopicsAction.m in Sources */,
 				521BB9B21AA792F100426FC6 /* TuanLeftViewController.m in Sources */,
 				52A0D8831AAEA389000C6ED2 /* StarBaseClass.m in Sources */,
@@ -3543,6 +3598,7 @@
 				52A0D8AE1AAF1C34000C6ED2 /* SLIDMBaseClass.m in Sources */,
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
 				04EE6B531AAFF41100478656 /* DiscussViewController.m in Sources */,
+				6A5CEAF41AB03AE500D14132 /* TopicCells.m in Sources */,
 				52A0D87A1AAEA389000C6ED2 /* HStarComponent.m in Sources */,
 				52A5713A1AAC72150075F3C0 /* MLTopicCategories.m in Sources */,
 				04E24AA31AAEDC28006B8F1D /* PgCollectionViewCell.m in Sources */,

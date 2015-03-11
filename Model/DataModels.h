@@ -46,6 +46,16 @@
 #import "TopicsBaseClass.h"
 #import "TopicsAction.h"
 
+//精品详情
+#import "TopicAction.h"
+#import "TopicBaseClass.h"
+#import "TopicData.h"
+#import "TopicComponent.h"
+#import "TopicShareAction.h"
+#import "TopicShare.h"
+#import "TopicCells.h"
+#import "TopicItems.h"
+
 //精品页左视图
 #import "SLIDMQuerys.h"
 #import "SLIDMBaseClass.h"
