@@ -29,6 +29,19 @@
     [weiboLogin setImage:[UIImage imageNamed:@"icon_login_weibo"] forState:UIControlStateNormal];
     [weiboLogin addTarget:self action:@selector(weiboLogin) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:weiboLogin];
+    
+    UIButton *qqLogin = [UIButton buttonWithType:UIButtonTypeCustom];
+    qqLogin.frame = CGRectMake(200, 180, 85, 85);
+    [qqLogin setImage:[UIImage imageNamed:@"icon_login_qq"] forState:UIControlStateNormal];
+    [qqLogin addTarget:self action:@selector(qqLogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:qqLogin];
+    
+    UIButton *taobaoLogin = [UIButton buttonWithType:UIButtonTypeCustom];
+    taobaoLogin.frame = CGRectMake(320, 180, 85, 85);
+    [taobaoLogin setImage:[UIImage imageNamed:@"icon_login_taobao"] forState:UIControlStateNormal];
+    [taobaoLogin addTarget:self action:@selector(taobaoLogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:taobaoLogin];
+    
 }
 
 - (void)weiboLogin{
@@ -37,6 +50,12 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
     [self.view addSubview:webView];
+}
+- (void)qqLogin{
+    
+}
+- (void)taobaoLogin{
+    
 }
 
 - (void)didReceiveMemoryWarning {
