@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "LoginViewController.h"
+#import <SDImageCache.h>
 
 @interface SettingsViewController ()
 
@@ -69,15 +70,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    // NSLog(@"选中了 %d",indexPath.row);
     if (indexPath.row == 0) {
+        //登录
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         loginVC.title = @"用户登录";
         [self.navigationController pushViewController:loginVC animated:YES];
         [loginVC release];
     }else if (indexPath.row == 1) {
+        //推荐给微信好友
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您没有安装微信" message:@"请安装微信" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil];
         [alert show];
         [alert release];
+    }else if (indexPath.row == 2){
+        //喜欢，就给个评价呗~~~
+        
+    }else if (indexPath.row == 3){
+        //反馈意见，帮我们改进...
+        
+    }else if (indexPath.row == 4){
+        //常见问题
+        
+    }else if (indexPath.row == 5){
+        //清除缓存
+        [[SDImageCache sharedImageCache] clearDisk];
+    }else if (indexPath.row == 6){
+        //声明
+        
     }else if (indexPath.row == 7) {
+        //升级最新版本
         NSString *updateString = @"https://itunes.apple.com/cn/lookup?id=582628075";
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:updateString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
