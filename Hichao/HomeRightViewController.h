@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+//typedef NS_ENUM(NSInteger, RightViewType)
+//{
+////    RightViewType
+//};
+
 @interface HomeRightViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic,assign)CGRect showFrame;
@@ -17,6 +22,9 @@
 @property (nonatomic,assign)WaterFlowItems *currentItem;
 
 @property (nonatomic,assign)UIScrollView *scrollView;
+
+
+//- (instancetype)initWithType:()
 
 - (void)createItemView;
 - (void)createScrollView;

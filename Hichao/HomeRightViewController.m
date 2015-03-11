@@ -15,7 +15,7 @@
 
 @implementation HomeRightViewController
 
-- (instancetype)init
+- (instancetype)initWithType
 {
     self = [super init];
     if (self) {
@@ -44,6 +44,7 @@
     [imageView sd_setImageWithURL:url];
     [self.view addSubview:imageView];
     [imageView release];
+//    UIButtonType
 }
 - (void)createScrollView{
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
