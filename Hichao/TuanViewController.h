@@ -21,7 +21,7 @@
     UITableView *       _laftView;
     UITableView *       _rightView;
     
-   
+    StarBaseClass *     _itemsStr;
     
     HStarItems *        _items;
     

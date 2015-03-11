@@ -91,8 +91,9 @@
            
         }
         
+        //icon_comment_pubuliu_list.png
         
-        
+        //icon_bbs_detail_liuliang@2x.png
     }
     
     if (_items.component.pics==nil) {
@@ -105,14 +106,15 @@
         _dateImage.frame = CGRectMake(82, 214-125, 15, 15);
         _dateLable.text = _items.component.publishDate;
         NSLog(@"------------%@",_items.component.publishDate);
-        _dateLable.frame = CGRectMake(98, 214-125, 82, 15);
+        _dateLable.frame = CGRectMake(98, 214-125, 30, 15);
         
-        
+        [_vImage setImage:[UIImage imageNamed:@"icon_comment_pubuliu_list.png@2x.png"]];
         _vImage.frame = CGRectMake(318, 210-125, 19, 20);
         _vLabel.text = _items.component.v;
-        _vLabel.frame = CGRectMake(345, 210-125, 42, 21);
+        _vLabel.frame = CGRectMake(345, 210-125, 60, 21);
         
-        _CommentCountImage.frame = CGRectMake(195, 210-125, 19, 20);
+        [_CommentCountImage setImage:[UIImage imageNamed:@"icon_bbs_detail_liuliang@2x.png"]];
+        _CommentCountImage.frame = CGRectMake(320, 210-125, 19, 20);
         _CommentCountLabel.text = _items.component.commentCount;
         _CommentCountLabel.frame = CGRectMake(420, 210-125, 30, 21);
     
@@ -129,23 +131,19 @@
         NSLog(@"------------%@",_items.component.publishDate);
         _dateLable.frame = CGRectMake(98, 214, 82, 15);
         
-        
+        [_vImage setImage:[UIImage imageNamed:@"icon_comment_pubuliu_list.png@2x.png"]];
         _vImage.frame = CGRectMake(318, 210, 19, 20);
         _vLabel.text = _items.component.v;
-        _vLabel.frame = CGRectMake(345, 210, 42, 21);
+        _vLabel.frame = CGRectMake(345, 210, 60, 21);
         
-        _CommentCountImage.frame = CGRectMake(195, 210, 19, 20);
+        
+        [_CommentCountImage setImage:[UIImage imageNamed:@"icon_bbs_detail_liuliang@2x.png"]];
+        _CommentCountImage.frame = CGRectMake(320, 210, 20, 20);
         _CommentCountLabel.text = _items.component.commentCount;
-        _CommentCountLabel.frame = CGRectMake(420, 210, 30, 21);
+        _CommentCountLabel.frame = CGRectMake(420, 210, 30, 20);
         
         
-        
-        
-
-        
-        
-        
-    }
+}
    
     
     

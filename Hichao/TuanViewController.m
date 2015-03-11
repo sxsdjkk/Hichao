@@ -46,9 +46,35 @@
         
         _baseClass = [StarBaseClass modelObjectWithDictionary:responseObject];
         
-
+       // _itemsStr = _baseClass.data.items[0];
         
-        // NSLog(@"%d",_baseClass.data.items.count);
+        
+        
+        StarItems  *items = _baseClass.data.items[0];
+        
+        StarAction *startAction = items.component.action;
+        
+        AFHTTPRequestOperationManager * managerH = [AFHTTPRequestOperationManager manager];
+        
+        NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/tuan?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&tuan_id=%@&flag=",startAction.actionIdentifier];
+        
+        //NSLog(@"%@",startAction.actionIdentifier);
+        
+        [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            _baseClassH = [HStarBaseClass modelObjectWithDictionary:responseObject];
+            
+            // NSLog(@"title---%@--%@",_baseClassH,_items.component.title);
+            [_collectionView reloadData];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            
+        }];
+        
+        
+       
+        
         
         [_laftView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -80,13 +106,10 @@
     _laftView.backgroundColor=M_GRAY_COLOR;
     
     [self collectionUI];
-    
-   
-    
+
 
     [_laftView addPullToRefreshWithActionHandler:^{
-        
-        
+  
         AFHTTPRequestOperationManager * manager=[AFHTTPRequestOperationManager manager];
         
         
@@ -100,11 +123,17 @@
             
             _baseClass = [StarBaseClass modelObjectWithDictionary:responseObject];
            
-            
-            
-           // NSLog(@"%d",_baseClass.data.items.count);
+ 
             
             [_laftView reloadData];
+            
+            
+            
+            
+            
+            
+            
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
             

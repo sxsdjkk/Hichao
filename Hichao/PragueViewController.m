@@ -36,6 +36,30 @@
     self.navigationItem.title = _subject;
     
 }
+
+
+-(void)reloadView{
+    
+//    NSString * url = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=%@&type=latest&flag=",_topicId];
+//    
+//    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
+//    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"%@",responseObject);
+//       
+//        _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
+//        
+//        
+//        [leftView reloadData];
+//        [rightView reloadData];
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+
+    
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -81,7 +105,7 @@
     leftView.delegate = self;
     leftView.dataSource = self;
     leftView.tag = 100;
-
+    
     leftView.rowHeight = 250;
     
     [leftView registerClass:[pragueTableViewCell class] forCellReuseIdentifier:@"cell_1"];
