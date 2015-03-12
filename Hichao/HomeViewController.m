@@ -480,17 +480,22 @@
     WaterFlowItems *item = _waterFlowItemsArray[index];
     _homeRightVC.currentItem = item;
     
-    if (!_hasCarousel&&(![self isKindOfClass:[SelectedViewController class]]))
-    {
-        _homeRightVC.contentType = ContentTypeNormal;
-        [_homeRightVC createItemView];
-        
-    }else if (item.component.description)
+    NSLog(@"actionType------%@",item.component.action.actionType);
+//    if (!_hasCarousel&&(![self isKindOfClass:[SelectedViewController class]]))
+    if ([item.component.action.actionType isEqualToString:@"detail"])
     {
         _homeRightVC.contentType = ContentTypeNormal;
         [_homeRightVC createScrollView];
-    }else{
-        //tuanVC
+    }
+    else if ([item.component.action.actionType isEqualToString:@"tuan"])
+    {
+        _homeRightVC.contentType = ContentTypeNormal;
+        [_homeRightVC createItemView];
+    }
+    else if ([item.component.action.actionType isEqualToString:@"topicDetail"])
+    {
+        _featuresRightVC.topicId = item.component.action.actionIdentifier.integerValue;
+        [_featuresRightVC reloadView];
     }
 
     [UIView animateWithDuration:0.5 animations:^{

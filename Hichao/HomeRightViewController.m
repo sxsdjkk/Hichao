@@ -9,7 +9,7 @@
 #import "HomeRightViewController.h"
 #import <UIImageView+WebCache.h>
 #import "HomeNormalItemDetailCell.h"
-//#import ""
+#import "UIWindow+YzdHUD.h"
 
 @interface HomeRightViewController ()
 {
@@ -107,10 +107,19 @@
 {
     if (scrollView==_collectionView)
     {
-        if(_collectionView.contentOffset.x <= _collectionView.frame.size.width)
+        WaterFlowItems *firstItem = [_waterFlowItemsArray firstObject];
+        
+        if(![firstItem.component.action.actionType isEqualToString:@"detail"]&&_collectionView.contentOffset.x<_collectionView.frame.size.width)
         {
             _collectionView.contentOffset = CGPointMake(_collectionView.frame.size.width, 0);
             
+            UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+            [window showHUDWithText:@"已经是第一页" Type:ShowPhotoNo Enabled:YES];
+        }
+        else if(_collectionView.contentOffset.x > _collectionView.frame.size.width*_waterFlowItemsArray.count)
+        {
+            UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+            [window showHUDWithText:@"已经是最后一页" Type:ShowPhotoNo Enabled:YES];
         }
     }
 }
