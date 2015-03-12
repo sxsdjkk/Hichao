@@ -15,4 +15,7 @@
 @property (nonatomic,retain)UILabel *priceLabel;
 @property (nonatomic,retain)UIButton *collectButton;
 
+
+- (void)setCellWithList:(HDGLItemList *)list;
+
 @end

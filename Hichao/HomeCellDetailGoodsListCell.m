@@ -7,6 +7,8 @@
 //
 
 #import "HomeCellDetailGoodsListCell.h"
+#import <UIImageView+WebCache.h>
+
 
 @implementation HomeCellDetailGoodsListCell
 
@@ -39,6 +41,11 @@
         
     }
     return self;
+}
+
+- (void)setCellWithList:(HDGLItemList *)list
+{
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:list.component.picUrl]];
 }
 
 @end

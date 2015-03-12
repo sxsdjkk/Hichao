@@ -58,17 +58,17 @@
         _indexCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(500, 20, 400, 80) collectionViewLayout:layOut];
         [_indexCollectionView registerClass:[HomeCellDetailIndexImageCell class] forCellWithReuseIdentifier:@"indexcell"];
         _indexCollectionView.dataSource = self;
-        _indexCollectionView.dataSource = self;
+        _indexCollectionView.delegate = self;
         [self addSubview:_indexCollectionView];
         [_indexCollectionView release];
         [layOut release];
         _indexCollectionView.backgroundColor = M_GRAY_COLOR;
         
         UICollectionViewFlowLayout *layOut1 = [[UICollectionViewFlowLayout alloc]init];
-        layOut1.minimumLineSpacing = 10.0;
+        layOut1.minimumLineSpacing = 20.0;
         layOut1.minimumInteritemSpacing = 10.0;
-        layOut1.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        layOut1.itemSize = CGSizeMake(200, 200);
+        layOut1.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        layOut1.itemSize = CGSizeMake(180, 240);
         
         _goodsCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(500, 120, 400, M_SCREEN_HEIGHT-120) collectionViewLayout:layOut1];
         [_goodsCollectionView registerClass:[HomeCellDetailGoodsListCell class] forCellWithReuseIdentifier:@"goodscell"];
@@ -132,9 +132,11 @@
     }
     else
     {
-        NSArray *itemArray = _goodsListBaseClass.data.items;
+//        NSArray *itemArray = _goodsListBaseClass.data.items;
         
-        return itemArray.count;
+        HDGLItems *items = [_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex];
+        
+        return [items.itemList  count];
     }
 }
 
@@ -154,12 +156,23 @@
     {
         HomeCellDetailGoodsListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"goodscell" forIndexPath:indexPath];
         
-//         HDGLItemList *list = [[[_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex] itemList] objectAtIndex:indexPath.row];
-        HDGLItemList *itemList = [[_goodsListBaseClass.data.items] objectAtIndex:indexPath.row];
+//        HDGLItemList *list = [[[_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex] itemList] objectAtIndex:indexPath.row];
+        HDGLItems *items = [_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex];
+        HDGLItemList *list = [items.itemList objectAtIndex:indexPath.row];
         
-        cell.backgroundColor = [UIColor redColor];
-        
+        [cell setCellWithList:list];
+//        UIWebView
         return cell;
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (collectionView==_indexCollectionView)
+    {
+        _indexViewSelectedIndex = indexPath.row;
+        
+        [_goodsCollectionView reloadData];
     }
 }
 
