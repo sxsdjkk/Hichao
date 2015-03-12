@@ -34,6 +34,9 @@
     NSMutableArray *_tableView3Index;
     NSMutableArray *_tableView4Index;
     
+    //记录当前索引
+    int _imageIndex;
+    
     //记录列高度
     float colHeight[4];
     
