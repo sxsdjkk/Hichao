@@ -305,9 +305,6 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     UINavigationController *homeNav = (UINavigationController *)self.menuController.rootViewController;
-    
-#warning 搜索框传值
-    
     HomeViewController *homeVC = homeNav.viewControllers[0];
     homeVC.subject = [NSString stringWithFormat:@"搜索%@",searchBar.text];
     
