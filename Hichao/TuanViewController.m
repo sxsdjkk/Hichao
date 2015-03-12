@@ -188,6 +188,8 @@
     
     TuanTableCell * cell = (TuanTableCell*)[tableView dequeueReusableCellWithIdentifier:@"Cell_1"];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     StarItems*item=_baseClass.data.items[indexPath.row];
     
     cell.items=item;
