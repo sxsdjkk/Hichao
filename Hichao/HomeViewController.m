@@ -393,6 +393,8 @@
     //停止刷新动画
     [_scrollView.pullToRefreshView stopAnimating];
     [_scrollView.infiniteScrollingView stopAnimating];
+    
+    NSLog(@"1比2高%f,2比3高%f,3比4高%f",colHeight[0]-colHeight[1],colHeight[1]-colHeight[2],colHeight[2]-colHeight[3]);
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
