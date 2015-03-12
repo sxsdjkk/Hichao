@@ -238,6 +238,7 @@
 }
 #pragma mark - Request Data
 - (void)cleanDataSource{
+    NSLog(@"清除数据源");
     [_waterFlowBaseClass release];
     _waterFlowBaseClass = nil;
     [_waterFlowItemsArray removeAllObjects];
@@ -249,6 +250,9 @@
     colHeight[1] = 0;
     colHeight[2] = 0;
     colHeight[3] = 0;
+    
+    //索引归零
+    _imageIndex = 0;
 }
 - (void)pullToRefreshWithActionHandler{
     [self cleanDataSource];
@@ -280,13 +284,15 @@
             urlString = [NSString stringWithFormat:@"http://api2.hichao.com/search?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&crop=1&type=star&query=%@&more_items=1&flag=&lts=&pin=",query];
         }
     }
+    NSLog(@"%@",urlString);
     //汉字转码
     urlString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //瀑布流数据源
-        _waterFlowBaseClass = [[WaterFlowBaseClass alloc] initWithDictionary:responseObject];
+        _waterFlowBaseClass = [[[WaterFlowBaseClass alloc] initWithDictionary:responseObject] retain];
         [_waterFlowItemsArray addObjectsFromArray:_waterFlowBaseClass.data.items];
+        NSLog(@"数据源数组个数 %d",_waterFlowItemsArray.count);
         //刷新4个TableView
         [self tableViewsReloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -310,9 +316,9 @@
 }
 - (void)tableViewsReloadData{
     
-    int imageIndex = 0; //记录当前索引
-    
-    for (WaterFlowItems *waterFlowItem in _waterFlowItemsArray) {
+    for (int i = _imageIndex; i<_waterFlowItemsArray.count; i++) {
+        
+        WaterFlowItems *waterFlowItem = _waterFlowItemsArray[i];
         if (waterFlowItem.component.picUrl) {
             //固定宽计算高
             float width = waterFlowItem.width.floatValue;
@@ -352,22 +358,24 @@
             //将当前的索引添加到相应的数组中。
             switch (minIndex) {
                 case 0:
-                    [_tableView1Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    [_tableView1Index addObject:[NSNumber numberWithInt:_imageIndex]];
                     break;
                 case 1:
-                    [_tableView2Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    [_tableView2Index addObject:[NSNumber numberWithInt:_imageIndex]];
                     break;
                 case 2:
-                    [_tableView3Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    [_tableView3Index addObject:[NSNumber numberWithInt:_imageIndex]];
                     break;
                 case 3:
-                    [_tableView4Index addObject:[NSNumber numberWithInt:imageIndex]];
+                    [_tableView4Index addObject:[NSNumber numberWithInt:_imageIndex]];
                     break;
                 default:
                     break;
             }
+        }else{
+            NSLog(@"%d没有图片",_imageIndex);
         }
-        imageIndex++;
+        _imageIndex++;
     }
 //    NSLog(@"\n%@\n%@\n%@\n%@",_tableView1Index,_tableView2Index,_tableView3Index,_tableView4Index);
     //找到最高的tableView
