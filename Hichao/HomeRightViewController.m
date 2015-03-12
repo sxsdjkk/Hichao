@@ -10,9 +10,11 @@
 #import <UIImageView+WebCache.h>
 #import "HomeNormalItemDetailCell.h"
 
+
 @interface HomeRightViewController ()
 {
     UICollectionView *_collectionView;
+    BOOL _isFirstPage;
 }
 @end
 
@@ -66,41 +68,20 @@
     [imageView sd_setImageWithURL:url];
     [self.view addSubview:imageView];
     [imageView release];
-//    UIButtonType
+    
 }
+
 - (void)createScrollView
 {
     _collectionView.hidden = NO;
     _showFrame = CGRectMake(64, 20, 1024-64, 768-20);
     _hideFrame = CGRectMake([UIScreen mainScreen].bounds.size.width, _showFrame.origin.y, _showFrame.size.width, _showFrame.size.height);
+    _collectionView.delegate = self;
     _collectionView.frame = CGRectMake(0, 40, 1024-64, 768-20);
     [_collectionView reloadData];
     NSInteger index = [_waterFlowItemsArray indexOfObject:_currentItem];
     _collectionView.contentOffset = CGPointMake(index*_collectionView.frame.size.width, 0);
-//    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
-//    _scrollView.delegate = self;
-//    _scrollView.showsHorizontalScrollIndicator = YES;
-//    _scrollView.pagingEnabled = YES;
-//    [self.view addSubview:_scrollView];
-//    int i = 0;
-//    for (WaterFlowItems *item in _waterFlowItemsArray)
-//    {
-//        if (item.component.action.normalPicUrl) {
-//            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(640*i, 0, 640, 704)];
-//            NSURL *url = [NSURL URLWithString:item.component.action.normalPicUrl];
-//            [imageView sd_setImageWithURL:url];
-//            [_scrollView addSubview:imageView];
-//            [imageView release];
-//            if (_currentItem.component.showId == item.component.showId)
-//            {
-//                [_scrollView setContentOffset:CGPointMake(640*i, 0)];
-//            }
-//            i++;
-//        }
-        
-        
-//    }
-//    _scrollView.contentSize = CGSizeMake(640*i, 704);
+
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -115,6 +96,23 @@
     [cell setCellWithItem:[_waterFlowItemsArray objectAtIndex:indexPath.row]];
     
     return cell;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+//    NSLog(@"---%@",NSStringFromCGPoint(scrollView.contentOffset));
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView==_collectionView)
+    {
+        if(_collectionView.contentOffset.x <= _collectionView.frame.size.width)
+        {
+            _collectionView.contentOffset = CGPointMake(_collectionView.frame.size.width, 0);
+            
+        }
+    }
 }
 
 @end

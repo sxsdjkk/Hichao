@@ -28,6 +28,8 @@ typedef NS_ENUM(NSInteger, ContentType)
 
 @property (nonatomic,assign)ContentType contentType;
 
+
+
 - (instancetype)init;
 
 - (void)createItemView;
