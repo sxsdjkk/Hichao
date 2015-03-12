@@ -51,7 +51,7 @@
         layOut.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         layOut.minimumLineSpacing = 10.0;
         layOut.minimumInteritemSpacing = 10.0;
-        layOut.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        layOut.sectionInset = UIEdgeInsetsMake(0, 10, 0, 0);
         layOut.itemSize = CGSizeMake(60, 60);
         
 
@@ -67,10 +67,10 @@
         UICollectionViewFlowLayout *layOut1 = [[UICollectionViewFlowLayout alloc]init];
         layOut1.minimumLineSpacing = 20.0;
         layOut1.minimumInteritemSpacing = 10.0;
-        layOut1.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
-        layOut1.itemSize = CGSizeMake(180, 240);
+        layOut1.sectionInset = UIEdgeInsetsMake(0, 10, 20, 10);
+        layOut1.itemSize = CGSizeMake(180, 260);
         
-        _goodsCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(500, 120, 400, M_SCREEN_HEIGHT-120) collectionViewLayout:layOut1];
+        _goodsCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(500, 120, 400, self.frame.size.height-120-40) collectionViewLayout:layOut1];
         [_goodsCollectionView registerClass:[HomeCellDetailGoodsListCell class] forCellWithReuseIdentifier:@"goodscell"];
         _goodsCollectionView.dataSource = self;
         _goodsCollectionView.delegate = self;

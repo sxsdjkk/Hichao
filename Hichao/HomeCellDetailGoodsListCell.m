@@ -30,13 +30,15 @@
         
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.width+50, self.frame.size.width/2, 30)];
         _priceLabel.font = [UIFont systemFontOfSize:16];
+        _priceLabel.textColor = M_PINK_COLOR;
         _priceLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_priceLabel];
         [_priceLabel release];
         
         _collectButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _collectButton.frame = CGRectMake(self.frame.size.width/2-20, self.frame.size.width+50, self.frame.size.width/2, 35);
         [_collectButton setImage:[UIImage imageNamed:@"nav_btn_collect@2x.png"] forState:UIControlStateNormal];
-        _collectButton.titleLabel.textColor = [UIColor colorWithWhite:0.4 alpha:1.0];
+        [_collectButton setTitleColor:[UIColor colorWithWhite:0.4 alpha:1.0] forState:UIControlStateNormal];
         [self addSubview:_collectButton];
         
     }
@@ -46,6 +48,12 @@
 - (void)setCellWithList:(HDGLItemList *)list
 {
     [_imageView sd_setImageWithURL:[NSURL URLWithString:list.component.picUrl]];
+    
+    _descriptionLabel.text = list.component.action.actionDescription;
+    
+    _priceLabel.text = [NSString stringWithFormat:@"￥%@",list.component.price];
+
+    [_collectButton setTitle:list.component.collectionCount forState:UIControlStateNormal];
 }
 
 @end
