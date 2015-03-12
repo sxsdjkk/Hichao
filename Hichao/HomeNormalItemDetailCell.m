@@ -132,11 +132,11 @@
     }
     else
     {
-//        NSArray *itemArray = _goodsListBaseClass.data.items;
+        NSArray *itemArray = _goodsListBaseClass.data.items;
         
-        HDGLItems *items = [_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex];
+        HDGLItems *items = [itemArray objectAtIndex:_indexViewSelectedIndex];
         
-        return [items.itemList  count];
+        return [items.itemList count];
     }
 }
 
@@ -156,12 +156,10 @@
     {
         HomeCellDetailGoodsListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"goodscell" forIndexPath:indexPath];
         
-//        HDGLItemList *list = [[[_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex] itemList] objectAtIndex:indexPath.row];
         HDGLItems *items = [_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex];
         HDGLItemList *list = [items.itemList objectAtIndex:indexPath.row];
         
         [cell setCellWithList:list];
-//        UIWebView
         return cell;
     }
 }
