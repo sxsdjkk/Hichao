@@ -21,6 +21,7 @@
         _showFrame = CGRectMake(1024-VIEW_WIDTH, 20, VIEW_WIDTH, 748);
         _hideFrame = CGRectMake([UIScreen mainScreen].bounds.size.width*2, _showFrame.origin.y, _showFrame.size.width, _showFrame.size.height);
         _topicItemsArray = [[NSMutableArray alloc] initWithCapacity:0];
+        
     }
     return self;
 }

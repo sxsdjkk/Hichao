@@ -250,12 +250,12 @@
         
     }];
 
+
+    DiscussViewController * vc = [[DiscussViewController alloc]init];
     
+    [self addChildViewController:vc];
     
-    
-    
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {

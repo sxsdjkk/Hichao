@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DF7E0B1AB1247200F5D023 /* icon_tuangou_jinxing.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DF7E0A1AB1247200F5D023 /* icon_tuangou_jinxing.png */; };
+		04DF7E0D1AB126DD00F5D023 /* icon_tuangou_jieshu.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DF7E0C1AB126DD00F5D023 /* icon_tuangou_jieshu.png */; };
 		04E24AA31AAEDC28006B8F1D /* PgCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E24AA21AAEDC28006B8F1D /* PgCollectionViewCell.m */; };
 		04EE6B531AAFF41100478656 /* DiscussViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE6B521AAFF41100478656 /* DiscussViewController.m */; };
 		2CF41FD2E91E5F599A640288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C2361280FC46550B6F41C5 /* libPods.a */; };
@@ -780,6 +782,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04DF7E0A1AB1247200F5D023 /* icon_tuangou_jinxing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tuangou_jinxing.png; path = ../../../icon_tuangou_jinxing.png; sourceTree = "<group>"; };
+		04DF7E0C1AB126DD00F5D023 /* icon_tuangou_jieshu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_tuangou_jieshu.png; path = ../../../icon_tuangou_jieshu.png; sourceTree = "<group>"; };
 		04E24AA11AAEDC28006B8F1D /* PgCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PgCollectionViewCell.h; sourceTree = "<group>"; };
 		04E24AA21AAEDC28006B8F1D /* PgCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PgCollectionViewCell.m; sourceTree = "<group>"; };
 		04EE6B511AAFF41100478656 /* DiscussViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscussViewController.h; sourceTree = "<group>"; };
@@ -2760,8 +2764,10 @@
 		6A4114911AA954DA00E6337B /* line */ = {
 			isa = PBXGroup;
 			children = (
+				04DF7E0A1AB1247200F5D023 /* icon_tuangou_jinxing.png */,
 				6A4114921AA954DA00E6337B /* line_3d_comment_list.png */,
 				6A4114931AA954DA00E6337B /* line_3d_comment_list@2x.png */,
+				04DF7E0C1AB126DD00F5D023 /* icon_tuangou_jieshu.png */,
 				6A4114941AA954DA00E6337B /* line_detail_clothes_se.png */,
 				6A4114951AA954DA00E6337B /* line_detail_clothes_se@2x.png */,
 				6A4114961AA954DA00E6337B /* line_detail_xiansuo_on.png */,
@@ -3372,6 +3378,7 @@
 				6A4117021AA954DA00E6337B /* share_input_line.png in Resources */,
 				6A4116671AA954DA00E6337B /* icon_play_big@2x.png in Resources */,
 				6A4115111AA954DA00E6337B /* detail-pic-area-line-after@2x.png in Resources */,
+				04DF7E0B1AB1247200F5D023 /* icon_tuangou_jinxing.png in Resources */,
 				6A41160A1AA954DA00E6337B /* icon_bbs_arrow_red_left.png in Resources */,
 				6A41159C1AA954DA00E6337B /* bg_window_zhongjiang@2x.png in Resources */,
 				6A41171E1AA954DA00E6337B /* taobao-next-bottom-hover.png in Resources */,
@@ -3647,6 +3654,7 @@
 				6A4116331AA954DA00E6337B /* icon_like_defalt@2x.png in Resources */,
 				6A4115B61AA954DA00E6337B /* button_bbs_send_pic_add_on@2x.png in Resources */,
 				6A4115911AA954DA00E6337B /* bg_tuan_detail_zhekou.png in Resources */,
+				04DF7E0D1AB126DD00F5D023 /* icon_tuangou_jieshu.png in Resources */,
 				6A41156E1AA954DA00E6337B /* bg_bbs_huifu_yinyong@2x.png in Resources */,
 				6A4115A11AA954DA00E6337B /* btn_part.png in Resources */,
 				6A41129E1AA954B200E6337B /* nav_btn_set_on@2x.png in Resources */,

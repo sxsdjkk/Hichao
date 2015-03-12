@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DiscussViewController.h"
 
 //#import "AFHTTPRequestOperationManager.h"
 

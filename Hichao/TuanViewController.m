@@ -58,14 +58,12 @@
         
         NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/tuan?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&tuan_id=%@&flag=",startAction.actionIdentifier];
         
-        //NSLog(@"%@",startAction.actionIdentifier);
         
         [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             _baseClassH = [HStarBaseClass modelObjectWithDictionary:responseObject];
             
-            // NSLog(@"title---%@--%@",_baseClassH,_items.component.title);
-            [_collectionView reloadData];
+        [_collectionView reloadData];
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
@@ -82,10 +80,7 @@
         
     }];
     
-    
-    
-    
-    
+
 }
 
 - (void)viewDidLoad {
@@ -108,10 +103,10 @@
     [self collectionUI];
 
 
+    
     [_laftView addPullToRefreshWithActionHandler:^{
-  
+
         AFHTTPRequestOperationManager * manager=[AFHTTPRequestOperationManager manager];
-        
         
         NSString * url=@"http://api2.hichao.com/tuanlist?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=32DED6FD-9960-43D0-BCB4-BD1E0B7FB5BA&gs=768x1024&gos=8.1&access_token=&flag=";
         
@@ -125,7 +120,7 @@
            
  
             
-            [_laftView reloadData];
+           // [_laftView reloadData];
             
             
             
@@ -148,6 +143,8 @@
         
         
     }];
+    
+   
  
 }
 
@@ -210,8 +207,7 @@
         AFHTTPRequestOperationManager * managerH = [AFHTTPRequestOperationManager manager];
         
         NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/tuan?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&tuan_id=%@&flag=",startAction.actionIdentifier];
-        
-        //NSLog(@"%@",startAction.actionIdentifier);
+    
         
         [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
@@ -324,20 +320,6 @@
     return YES;
 }
 
-//-(CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-//{
-//    if(section == 0)
-//    {
-//        CGSize size = {320, 100};
-//        
-//        return size;
-//    }
-//    else
-//    {
-//        CGSize size = {320, 50};
-//        return size;
-//    }
-//}
 
 
 @end
