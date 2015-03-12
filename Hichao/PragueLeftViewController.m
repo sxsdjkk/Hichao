@@ -103,8 +103,8 @@
     
     pragueViewContreoller.topicId = category.mobileSubjectCategoriesIdentifier;
     
+    pragueViewContreoller.subject = category.name;
     
-    NSLog(@"============%@",pragueViewContreoller.topicId);
     [pragueViewContreoller reloadView];
 }
 

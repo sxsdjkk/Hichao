@@ -50,12 +50,7 @@
 //}
 -(void)reloadView{
 
-    NSLog(@"============111111");
-
-//    PragueLeftViewController *VC =[[PragueLeftViewController alloc] init];
-//    [VC addObserver:self forKeyPath:@"categories" options:NSKeyValueObservingOptionNew context:nil];
-    
-    
+    self.title = _subject;
     
     NSString * url = nil;
     
@@ -66,29 +61,17 @@
     }else{
         url = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/threads?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&category_id=%@&type=latest&flag=",self.topicId];
     }
-        
-    
-    
-   
-    
-    
-    NSLog(@"%@",self.topicId);
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"%@",responseObject);
-       
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
         _baseClass = [PgBaseClass modelObjectWithDictionary:responseObject];
-//        _baseClass = [[PgBaseClass alloc] initWithDictionary:responseObject];
-        
-//        NSLog(@"%@",_baseClass);
+
         [self loadPullView];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];
-
-    
-    
 }
 
 - (void)viewDidLoad

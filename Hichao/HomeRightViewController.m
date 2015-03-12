@@ -75,6 +75,8 @@
     _hideFrame = CGRectMake([UIScreen mainScreen].bounds.size.width, _showFrame.origin.y, _showFrame.size.width, _showFrame.size.height);
     _collectionView.frame = CGRectMake(0, 40, 1024-64, 768-20);
     [_collectionView reloadData];
+    NSInteger index = [_waterFlowItemsArray indexOfObject:_currentItem];
+    _collectionView.contentOffset = CGPointMake(index*_collectionView.frame.size.width, 0);
 //    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 640, 704)];
 //    _scrollView.delegate = self;
 //    _scrollView.showsHorizontalScrollIndicator = YES;
