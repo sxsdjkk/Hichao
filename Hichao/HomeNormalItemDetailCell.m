@@ -108,10 +108,17 @@
         
         NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star_clues?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
         
+        [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            _goodsListBaseClass = [HDGLBaseClass modelObjectWithDictionary:responseObject];
+            
+            [_goodsCollectionView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         
     }];
     
@@ -125,7 +132,7 @@
     }
     else
     {
-        NSArray *itemArray = _baseClass.data.items;
+        NSArray *itemArray = _goodsListBaseClass.data.items;
         
         return itemArray.count;
     }
@@ -147,8 +154,9 @@
     {
         HomeCellDetailGoodsListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"goodscell" forIndexPath:indexPath];
         
-        HVCDItemList *list = [[[_baseClass.data.items objectAtIndex:_indexViewSelectedIndex] itemList] objectAtIndex:indexPath.row];
-     
+//         HDGLItemList *list = [[[_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex] itemList] objectAtIndex:indexPath.row];
+        HDGLItemList *itemList = [[_goodsListBaseClass.data.items] objectAtIndex:indexPath.row];
+        
         cell.backgroundColor = [UIColor redColor];
         
         return cell;
