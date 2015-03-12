@@ -1733,9 +1733,17 @@
 			path = HomeDetailGoodsList;
 			sourceTree = "<group>";
 		};
+		520BAEAF1AB2155400FC4D2F /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
 		521BB9141AA7582F00426FC6 = {
 			isa = PBXGroup;
 			children = (
+				520BAEAF1AB2155400FC4D2F /* HUD */,
 				6A4112A91AA954CA00E6337B /* Image */,
 				6A7BBD981AA88E930049CA3E /* Model */,
 				521BB91F1AA7583000426FC6 /* Hichao */,
