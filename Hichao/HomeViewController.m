@@ -659,7 +659,7 @@
 - (void)rmBannerView:(UIControl *)control{
     [UIView animateWithDuration:0.5 animations:^{
         _featuresRightVC.view.frame = _featuresRightVC.hideFrame;
-        control.alpha = 0.5f;
+        control.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [control removeFromSuperview];
     }];
