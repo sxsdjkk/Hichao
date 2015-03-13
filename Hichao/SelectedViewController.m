@@ -38,14 +38,16 @@
 }
 - (void)reloadView{
     //重写reloadView方法
-    if ([self.subject isEqualToString:@"全部"]) {
+    if ([self.subject isEqualToString:@"全部"])
+    {
 //        if (!self.hasCarousel) {
 //            [self createCoverFlow];
             [_titleLabel removeFromSuperview];
             self.navigationItem.titleView = _segmentControll;
 //            _hasCarousel = YES;
 //        }
-    }else if (![self.subject isEqualToString:@"全部"]) {
+    }else if (![self.subject isEqualToString:@"全部"])
+    {
 //        if (_hasCarousel) {
 //            [_carousel removeFromSuperview];
             self.navigationItem.title = self.subject;
@@ -83,14 +85,5 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
