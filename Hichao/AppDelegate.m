@@ -31,6 +31,9 @@
     
     [self performSelectorInBackground:@selector(onCheckVersion) withObject:nil];
     
+    [DatabaseTool initDatabse];
+    [DatabaseTool createTable];
+    
     return YES;
 }
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

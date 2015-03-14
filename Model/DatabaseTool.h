@@ -17,5 +17,6 @@
 + (void)insertItemWithId:(int)identifer and:(NSString *)actionType and:(NSString *)picUrl;
 + (People *)selectId:(NSString *)identifer;
 + (NSArray *)selectAllIds;
++ (void)deleteId:(NSString *)identifer;
 
 @end

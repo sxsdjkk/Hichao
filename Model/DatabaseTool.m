@@ -25,7 +25,7 @@ static FMDatabase *__db;
 
 + (void)createTable{
     if ([__db open]) {
-        NSString *sql = @"CREATE TABLE IF NOT EXISTS collection(PRIMART KEY INTERGER id,TEXT actionType,TEXT picUrl)";
+        NSString *sql = @"CREATE TABLE IF NOT EXISTS collection (id PRIMART KEY INTERGER,actionType TEXT, picUrl TEXT)";
         [__db executeUpdate:sql];
         [__db close];
     }
@@ -33,8 +33,9 @@ static FMDatabase *__db;
 
 + (void)insertItemWithId:(int)identifer and:(NSString *)actionType and:(NSString *)picUrl{
     if ([__db open]) {
-        NSString *sql = [NSString stringWithFormat:@"INSERT INTO collection(%d,'%@','%@')",identifer,actionType,picUrl];
+        NSString *sql = [NSString stringWithFormat:@"INSERT INTO collection VALUES(%d,'%@','%@')",identifer,actionType,picUrl];
         [__db executeUpdate:sql];
+        [__db close];
     }
 }
 
@@ -54,7 +55,7 @@ static FMDatabase *__db;
 
 + (NSArray *)selectAllIds{
     if ([__db open]) {
-        NSString *sql = @"SELECT id FROM collection";
+        NSString *sql = @"SELECT * FROM collection";
         FMResultSet *set = [__db executeQuery:sql];
         NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:0];
         while ([set next]) {
@@ -67,6 +68,14 @@ static FMDatabase *__db;
         return array;
     }else{
         return @[];
+    }
+}
+
++ (void)deleteId:(NSString *)identifer{
+    if ([__db open]) {
+        NSString *sql = [NSString stringWithFormat:@"DELETE FROM collection WHERE id = %@",identifer];
+        [__db executeUpdate:sql];
+        [__db close];
     }
 }
 

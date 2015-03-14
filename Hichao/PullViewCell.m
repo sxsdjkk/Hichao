@@ -36,6 +36,7 @@
         
         _collectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+        [_collectBtn addTarget:self action:@selector(collectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_collectBtn];
         
         _itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -70,6 +71,65 @@
         _imageView.layer.cornerRadius = 5;
     }
     return self;
+}
+
+- (void)collectBtnClick:(UIButton *)sender{
+    People *p;
+    if (_items.component.action.actionIdentifier == nil) {
+        WaterFlowActions *action = _items.component.actions.lastObject;
+        _collectBtn.tag = action.actionsIdentifier.intValue;
+        p = [DatabaseTool selectId:action.actionsIdentifier];
+        if (p.actionIdentifier == action.actionsIdentifier.intValue) {
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+            //删除
+            [DatabaseTool deleteId:action.actionsIdentifier];
+            [UIView animateWithDuration:0.5 animations:^{
+                [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+                [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+            }];
+        }else{
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+            if (_items.component.action.actionIdentifier == nil) {
+                WaterFlowActions *action = _items.component.actions.lastObject;
+                //插入
+                [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:nil];
+                [UIView animateWithDuration:0.5 animations:^{
+                    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+                    [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+                }];
+            }else{
+                [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.action.normalPicUrl];
+                [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+            }
+        }
+    }else{
+        _collectBtn.tag = _items.component.action.actionIdentifier.intValue;
+        p = [DatabaseTool selectId:_items.component.action.actionIdentifier];
+        if (p.actionIdentifier == _items.component.action.actionIdentifier.intValue) {
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+            //删除
+            [DatabaseTool deleteId:_items.component.action.actionIdentifier];
+            [UIView animateWithDuration:0.5 animations:^{
+                [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+                [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+            }];
+        }else{
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+            if (_items.component.action.actionIdentifier == nil) {
+                WaterFlowActions *action = _items.component.actions.lastObject;
+                //插入
+                [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:nil];
+                [UIView animateWithDuration:0.5 animations:^{
+                    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+                    [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+                }];
+            }else{
+                [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.action.normalPicUrl];
+                [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+            }
+        }
+    }
+    [p release];
 }
 
 - (void)dealloc{
@@ -193,7 +253,25 @@
         
         [_itemBtn setImage:[UIImage imageNamed:@"icon_bbs_detail_link"] forState:UIControlStateNormal];
     }
-    
+    People *p;
+    if (_items.component.action.actionIdentifier == nil) {
+        WaterFlowActions *action = _items.component.actions.lastObject;
+        _collectBtn.tag = action.actionsIdentifier.intValue;
+        p = [DatabaseTool selectId:action.actionsIdentifier];
+        if (p.actionIdentifier == action.actionsIdentifier.intValue) {
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+        }else{
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+        }
+    }else{
+        _collectBtn.tag = _items.component.action.actionIdentifier.intValue;
+        p = [DatabaseTool selectId:_items.component.action.actionIdentifier];
+        if (p.actionIdentifier == _items.component.action.actionIdentifier.intValue) {
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+        }else{
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+        }
+    }
 }
 
 @end
