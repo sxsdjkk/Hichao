@@ -69,7 +69,7 @@
 {
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
     
-    NSString *currentVersion = [infoDic objectForKey:@"CFBundleVersion"];
+    NSString *currentVersion = [infoDic objectForKey:@"version"];
     
     NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/lookup?id=%@",M_APP_ID];
     

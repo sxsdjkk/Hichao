@@ -34,10 +34,14 @@
 //    _webView.scalesPageToFit = YES;
     [self.view addSubview:_webView];
 }
+
 - (void)reloadView{
     NSString *urlString = [NSString stringWithFormat:@"http://www.hichao.com/share/topic?id=%d",_topicId];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    
+    _webView.scrollView.delegate = self;
 }
+
 - (void)requestData{
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/topic?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&width=482&more_items=1&topic_id=%d&twm=1",_topicId];
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];

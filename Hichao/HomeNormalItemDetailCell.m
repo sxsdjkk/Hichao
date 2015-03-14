@@ -133,7 +133,7 @@
     else
     {
         NSArray *itemArray = _goodsListBaseClass.data.items;
-        
+#warning 精品页crashitemArray   	NSArray *	@"0 objects"	0x7868a7d0
         HDGLItems *items = [itemArray objectAtIndex:_indexViewSelectedIndex];
         
         return [items.itemList count];

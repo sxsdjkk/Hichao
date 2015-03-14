@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeaturesRightViewController : UIViewController <UIWebViewDelegate>
+@interface FeaturesRightViewController : UIViewController <UIWebViewDelegate,UIScrollViewDelegate>
 {
     NSMutableArray *_topicItemsArray;
     UIWebView *_webView;
