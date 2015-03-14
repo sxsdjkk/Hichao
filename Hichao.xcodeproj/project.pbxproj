@@ -745,6 +745,8 @@
 		6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBD9E1AA88E930049CA3E /* BannerComponent.m */; };
 		6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA01AA88E930049CA3E /* BannerData.m */; };
 		6A7BBDA81AA88E930049CA3E /* BannerItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BBDA21AA88E930049CA3E /* BannerItems.m */; };
+		6A8484F21AB31FCB00A307FA /* DatabaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8484F11AB31FCB00A307FA /* DatabaseTool.m */; };
+		6A8484F51AB331C500A307FA /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8484F41AB331C500A307FA /* People.m */; };
 		6A98E45A1AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6A98E4581AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		6A98E45B1AB088AE000C46D5 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E4591AB088AE000C46D5 /* TencentOpenAPI.framework */; };
 		6A98E45D1AB088FB000C46D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A98E45C1AB088FB000C46D5 /* Security.framework */; };
@@ -1632,6 +1634,10 @@
 		6A7BBDA11AA88E930049CA3E /* BannerItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerItems.h; sourceTree = "<group>"; };
 		6A7BBDA21AA88E930049CA3E /* BannerItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerItems.m; sourceTree = "<group>"; };
 		6A7BBDA31AA88E930049CA3E /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		6A8484F01AB31FCB00A307FA /* DatabaseTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseTool.h; sourceTree = "<group>"; };
+		6A8484F11AB31FCB00A307FA /* DatabaseTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseTool.m; sourceTree = "<group>"; };
+		6A8484F31AB331C500A307FA /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		6A8484F41AB331C500A307FA /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		6A98E4581AB088AE000C46D5 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = SDK/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		6A98E4591AB088AE000C46D5 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = SDK/TencentOpenAPI.framework; sourceTree = "<group>"; };
 		6A98E45C1AB088FB000C46D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -2937,6 +2943,10 @@
 				52A571161AAC72150075F3C0 /* MainLeftDM */,
 				6A4112491AA94AE100E6337B /* Banner */,
 				6A4112591AA94BDB00E6337B /* WaterFlow */,
+				6A8484F01AB31FCB00A307FA /* DatabaseTool.h */,
+				6A8484F11AB31FCB00A307FA /* DatabaseTool.m */,
+				6A8484F31AB331C500A307FA /* People.h */,
+				6A8484F41AB331C500A307FA /* People.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3743,6 +3753,7 @@
 				6A5CEAF91AB03AE500D14132 /* TopicShareAction.m in Sources */,
 				520BAECC1AB216AE00FC4D2F /* YzdHUDImageView.m in Sources */,
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
+				6A8484F51AB331C500A307FA /* People.m in Sources */,
 				6AF138961AAF160A0035B7FF /* TopicsBaseClass.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
 				520BAECE1AB216AE00FC4D2F /* YzdHUDLabel.m in Sources */,
@@ -3846,6 +3857,7 @@
 				52A0D89C1AAEE34A000C6ED2 /* MLHWData.m in Sources */,
 				520BAE311AB0B1D900FC4D2F /* HVCDAction.m in Sources */,
 				520BAE321AB0B1D900FC4D2F /* HVCDBaseClass.m in Sources */,
+				6A8484F21AB31FCB00A307FA /* DatabaseTool.m in Sources */,
 				6AF138981AAF160A0035B7FF /* TopicsData.m in Sources */,
 				52A0D8AE1AAF1C34000C6ED2 /* SLIDMBaseClass.m in Sources */,
 				52A0D87D1AAEA389000C6ED2 /* PgActions.m in Sources */,
