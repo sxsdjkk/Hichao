@@ -89,18 +89,18 @@
             }];
         }else{
             [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+            //插入
             if (_items.component.action.actionIdentifier == nil) {
                 WaterFlowActions *action = _items.component.actions.lastObject;
-                //插入
                 [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:nil];
-                [UIView animateWithDuration:0.5 animations:^{
-                    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
-                    [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
-                }];
             }else{
                 [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.action.normalPicUrl];
                 [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
             }
+            [UIView animateWithDuration:0.5 animations:^{
+                [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+                [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+            }];
         }
     }else{
         _collectBtn.tag = _items.component.action.actionIdentifier.intValue;
@@ -115,18 +115,18 @@
             }];
         }else{
             [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+            //插入
             if (_items.component.action.actionIdentifier == nil) {
                 WaterFlowActions *action = _items.component.actions.lastObject;
-                //插入
                 [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:nil];
-                [UIView animateWithDuration:0.5 animations:^{
-                    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
-                    [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
-                }];
             }else{
                 [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.action.normalPicUrl];
                 [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
             }
+            [UIView animateWithDuration:0.5 animations:^{
+                [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+                [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+            }];
         }
     }
     [p release];
