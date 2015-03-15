@@ -323,7 +323,7 @@
             //固定宽计算高
             float width = waterFlowItem.width.floatValue;
             float height = waterFlowItem.height.floatValue;
-            height = waterFlowItem.height.floatValue * height / width + 100;
+            height = 230/width*height + 100;
             
             int minIndex = 0; //存放最低高
             
