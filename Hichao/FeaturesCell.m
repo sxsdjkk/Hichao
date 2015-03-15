@@ -52,10 +52,10 @@
         [self addSubview:lineView];
         [lineView release];
         
-        UIImageView *collectView = [[UIImageView alloc] initWithFrame:CGRectMake(210, 244, 32, 32)];
-        [collectView setImage:[UIImage imageNamed:@"nav_btn_collect"]];
-        [self addSubview:collectView];
-        [collectView release];
+        _collectBtn = [[UIButton alloc] initWithFrame:CGRectMake(210, 244, 32, 32)];
+        [_collectBtn addTarget:self action:@selector(collectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_collectBtn];
+        [_collectBtn release];
         
         _collectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(242, 245, 60, 30)];
         [self addSubview:_collectionLabel];
@@ -63,6 +63,27 @@
     }
     return self;
 }
+
+- (void)collectBtnClick:(UIButton *)sender{
+    People *p = [DatabaseTool selectId:_items.component.action.actionIdentifier];
+    if (p.actionIdentifier == _items.component.action.actionIdentifier.intValue) {
+        //Delete
+        [DatabaseTool deleteId:_items.component.action.actionIdentifier];
+        [UIView animateWithDuration:0.5 animations:^{
+            [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+        }];
+    }else{
+        //Insert
+        [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.picUrl];
+        [UIView animateWithDuration:0.5 animations:^{
+            [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_collectBtn cache:YES];
+            [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+        }];
+    }
+    [p release];
+}
+
 - (void)dealloc{
     [super dealloc];
     [_imageView release];
@@ -80,6 +101,14 @@
     _timeLabel.text = [NSString stringWithFormat:@"%@.%@.%@",items.component.year,items.component.month,items.component.day];
     _collectionLabel.text = _items.component.collectionCount;
     [_imageView sd_setImageWithURL:[NSURL URLWithString:_items.component.picUrl]];
+    
+    People *p = [DatabaseTool selectId:_items.component.action.actionIdentifier];
+    if (p.actionIdentifier == _items.component.action.actionIdentifier.intValue) {
+        [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
+    }else{
+        [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect"] forState:UIControlStateNormal];
+    }
+    [p release];
 }
 
 @end

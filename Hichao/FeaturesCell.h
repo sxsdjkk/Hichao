@@ -15,6 +15,7 @@
     UILabel *_titleLabel;
     UILabel *_timeLabel;
     UILabel *_collectionLabel;
+    UIButton *_collectBtn;
 }
 
 @property (nonatomic,retain) TopicsItems *items;
