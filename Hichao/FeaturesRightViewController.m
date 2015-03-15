@@ -31,12 +31,15 @@
     self.view.backgroundColor = M_GRAY_COLOR;
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 748)];
     _webView.delegate = self;
+//    _webView.scalesPageToFit = YES;
+    _webView.scrollView.transform = CGAffineTransformMakeTranslation(2.0, 2.0);
     _webView.backgroundColor = [UIColor whiteColor];
 //    _webView.scalesPageToFit = YES;
     [self.view addSubview:_webView];
 }
 
 - (void)reloadView{
+    
     NSString *urlString = [NSString stringWithFormat:@"http://www.hichao.com/share/topic?id=%d",_topicId];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
     
@@ -45,6 +48,7 @@
 
 - (void)requestData{
     NSString *urlString = [NSString stringWithFormat:@"http://api2.hichao.com/topic?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&width=482&more_items=1&topic_id=%d&twm=1",_topicId];
+    
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] init];
     [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {

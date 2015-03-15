@@ -36,10 +36,12 @@
     
     return YES;
 }
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
     return [TencentOAuth HandleOpenURL:url];
 }
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
     return [TencentOAuth HandleOpenURL:url];
 }
 - (void)getConfigOnline
@@ -73,6 +75,8 @@
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
     
     NSString *currentVersion = [infoDic objectForKey:@"version"];
+    
+    NSLog(@"currentVersion : %@",currentVersion);
     
     NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/lookup?id=%@",M_APP_ID];
     

@@ -484,8 +484,16 @@
 //    if (!_hasCarousel&&(![self isKindOfClass:[SelectedViewController class]]))
     if ([item.component.action.actionType isEqualToString:@"detail"])
     {
-        _homeRightVC.contentType = ContentTypeNormal;
-        [_homeRightVC createScrollView];
+        if(index!=0)
+        {
+            _homeRightVC.contentType = ContentTypeNormal;
+            [_homeRightVC createScrollView];
+        }
+        else
+        {
+            NSLog(@"++++++");
+        }
+
     }
     else if ([item.component.action.actionType isEqualToString:@"tuan"])
     {
