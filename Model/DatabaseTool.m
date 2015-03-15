@@ -25,7 +25,7 @@ static FMDatabase *__db;
 
 + (void)createTable{
     if ([__db open]) {
-        NSString *sql = @"CREATE TABLE IF NOT EXISTS collection (id PRIMART KEY INTERGER,actionType TEXT, picUrl TEXT)";
+        NSString *sql = @"CREATE TABLE IF NOT EXISTS collection (id PRIMART KEY INTERGER,actionType TEXT,picUrl TEXT)";
         [__db executeUpdate:sql];
         [__db close];
     }
@@ -44,11 +44,13 @@ static FMDatabase *__db;
         NSString *sql = [NSString stringWithFormat:@"SELECT * FROM collection WHERE id=%d",identifer.intValue];
         FMResultSet *set = [__db executeQuery:sql];
         [set next];
-        People *p = [[People alloc] initWithId:[set intForColumn:@"id"] withType:[set stringForColumn:@"actionType"] with:[set stringForColumn:@"picUrl"]];
+        People *p = [[People alloc] initWithId:[set intForColumnIndex:0] withType:[set stringForColumnIndex:1] with:[set stringForColumnIndex:2]];
         [set close];
         [__db close];
         return p;
-    }else{
+    }
+    else
+    {
         return nil;
     }
 }

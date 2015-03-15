@@ -67,16 +67,16 @@
 
 - (BOOL)isLogedIn
 {
-    return NO;
+    return YES;
 }
 
 -(void)onCheckVersion
 {
     NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
     
-    NSString *currentVersion = [infoDic objectForKey:@"version"];
+    NSString *currentVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
     
-    NSLog(@"currentVersion : %@",currentVersion);
+//    NSLog(@"currentVersion : %@",infoDic);
     
     NSString *urlStr = [NSString stringWithFormat:@"https://itunes.apple.com/cn/lookup?id=%@",M_APP_ID];
     

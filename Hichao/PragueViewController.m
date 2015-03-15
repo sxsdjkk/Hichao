@@ -156,8 +156,8 @@
     _tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, COORD, 768)];
     
     _tableVIew.delegate = self;
-    _tableVIew.dataSource = self;
-    _tableVIew.tag = 102;
+//    _tableVIew.dataSource = self;
+//    _tableVIew.tag = 102;
     [_tableVIew registerClass:[RightTableViewCell class] forCellReuseIdentifier:@"cell_2"];
     _tableVIew.rowHeight = 200;
     [_rightView addSubview:_tableVIew];
@@ -264,12 +264,9 @@
 
 
 #pragma mark - UIScrollViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
     PgItems *item = [[PgItems alloc] init];
     
     if (tableView.tag == 100) {
