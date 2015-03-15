@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DiscussViewController.h"
+
+#import "FeaturesRightViewController.h"
 
 //#import "AFHTTPRequestOperationManager.h"
 
@@ -22,10 +23,21 @@
     UITableView *       rightView;
     
     
+    //右侧弹出
+    UITableView *       _tableVIew;
+    
+    
+    
+
      NSMutableArray *leftIndex;
      NSMutableArray *rightIndex;
     
      float colHeight[2];
+    
+    
+    
+     FeaturesRightViewController *_featuresRightVC;
+    UIView *        _rightView;
     
 }
 

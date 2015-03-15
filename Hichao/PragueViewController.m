@@ -8,11 +8,18 @@
 
 #import "PragueViewController.h"
 #import "pragueTableViewCell.h"
-
+#import "RightTableViewCell.h"
 #import "PragueLeftViewController.h"
+#import "UIImageView+WebCache.h"
 
 
 @interface PragueViewController ()
+{
+    
+    NSDictionary * _dataBase;
+    
+    
+}
 
 @end
 
@@ -134,6 +141,31 @@
     
     [self.view addSubview:rightView];
     
+    
+    _rightView = [[UIView alloc] initWithFrame:CGRectMake(1024, 0, 1024-64/2, 768)];
+    _rightView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_rightView];
+    
+    [self  RightView];
+    
+}
+
+//右侧弹出View
+-(void)RightView{
+    
+    _tableVIew = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, COORD, 768)];
+    
+    _tableVIew.delegate = self;
+    _tableVIew.dataSource = self;
+    _tableVIew.tag = 102;
+    [_tableVIew registerClass:[RightTableViewCell class] forCellReuseIdentifier:@"cell_2"];
+    _tableVIew.rowHeight = 200;
+    [_rightView addSubview:_tableVIew];
+    
+    
+    
+    
+    
 }
 
 //bool isOk;
@@ -165,23 +197,68 @@
     if (tableView.tag == 100) {
         return leftIndex.count;
     }
-    return rightIndex.count;
+    else if (tableView.tag == 101)
+    {
+        return rightIndex.count;
+    }
+    else
+    {
+        return 100;
+    }
    
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    pragueTableViewCell *cell = (pragueTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  //    if (!cell) {
+//        cell = [[pragueTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell_1"];
+//    }
     
-    if (!cell) {
-        cell = [[pragueTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell_1"];
-    }
-    
-    if (tableView.tag == 100) {
+    if (tableView.tag == 100)
+    {
+        pragueTableViewCell *cell = (pragueTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell_1" forIndexPath:indexPath];
         cell.items = leftIndex[indexPath.row];
-    }else{
+        return cell;
+    }else if(tableView.tag == 101)
+    {
+        pragueTableViewCell *cell = (pragueTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell_1" forIndexPath:indexPath];
         cell.items = rightIndex[indexPath.row];
+        return cell;
     }
+    else
+    {
+        RightTableViewCell *cell = (RightTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cell_2" forIndexPath:indexPath];
+        
+//        if (!cell) {
+//            cell = [[RightTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell_2"];
+        
+        return cell;
+        
 
-    return cell;
+        //遍历大的
+//        for (NSMutableArray * items in [_dataBase objectForKey:@"items"] ) {
+//            NSLog(@"====123123213===%d",items.count);
+//            
+//            //遍历里面的数组
+//            for (NSDictionary * dict in items[indexPath.row]) {
+//                
+//                //数组中字典的内容
+//                for (NSDictionary * componentDict  in [dict objectForKey:@"component"]){
+//                    
+//                    cell.userLable.text = [componentDict objectForKey:@"userName"];
+//                    [cell.userImage sd_setImageWithURL:[dict objectForKey:@"userAvatar"]];
+//                    
+//                    
+//                    
+//                }
+//                
+//            }
+//            
+//            
+//        }
+        
+    
+    }
+    
 }
 
 
@@ -216,6 +293,13 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    
+    if (scrollView ==_tableVIew) {
+        
+        return;
+        //         [_tableVIew setContentOffset:scrollView.contentOffset];
+    }
+    
     if (scrollView == leftView) {
         //左边动，就让右边跟着动
         [rightView setContentOffset:scrollView.contentOffset];
@@ -223,41 +307,80 @@
         //右动，左跟着动
         [leftView setContentOffset:scrollView.contentOffset];
     }
+    
+    
+    
+    
+    
+    
+    
+    
+   
 
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    PgItems * item = _baseClass.data.items[indexPath.row];
-    
-    NSString * pgAction = item.component.componentIdentifier;
-    
-    
-    AFHTTPRequestOperationManager * managerH = [AFHTTPRequestOperationManager manager];
-    
-    NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/thread?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&thread_id=%@&flag=&state=0",pgAction];
-    
-    
-    [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+ 
+    if (tableView.tag==100||tableView.tag==101)
+    {
+        PgItems * item = _baseClass.data.items[indexPath.row];
         
-       
+        NSString * pgAction = item.component.componentIdentifier;
+        NSLog(@"-------%@",pgAction);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        AFHTTPRequestOperationManager * managerH = [AFHTTPRequestOperationManager manager];
+        
+        NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/new_forum/thread?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=76C1368B-3957-4F8B-AB72-17981A0654C4&gs=768x1024&gos=8.1&access_token=&thread_id=%@&flag=&state=0",pgAction];
         
         
+        [managerH GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            _dataBase = [responseObject objectForKey:@"data"];
+            
+            
+            
+            [_tableVIew reloadData];
+            // NSLog(@"%@",responseObject);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            
+        }];
+        
+        
+        
+        
+        UIWindow *window = [UIApplication sharedApplication].delegate.window;
+        //    UIControl *control = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        UIControl *control = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, COORD+64, 768)];
+        control.alpha = 0.0f;
+        control.backgroundColor = [UIColor blackColor];
+        [window addSubview:control];
+        [control release];
+        [control addTarget:self action:@selector(rmBannerView:) forControlEvents:UIControlEventTouchUpInside];
+        [window bringSubviewToFront:_rightView];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            control.alpha = 0.5f;
+            _rightView.frame =CGRectMake(COORD, 0, COORD, 768);
+        }];
+
+    }
+    
+    
+}
+- (void)rmBannerView:(UIControl *)control{
+    [UIView animateWithDuration:0.5 animations:^{
+        _rightView.frame =CGRectMake(1024, 0, COORD, 768);
+        control.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [control removeFromSuperview];
     }];
-
-
-    DiscussViewController * vc = [[DiscussViewController alloc]init];
-    
-    [self addChildViewController:vc];
-    
-
 }
 
+
+     
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
