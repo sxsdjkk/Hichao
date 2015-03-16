@@ -39,7 +39,7 @@
     
     UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
     
-    layOut.minimumLineSpacing = 10.0;
+    layOut.minimumLineSpacing = 20.0;
     
     layOut.minimumInteritemSpacing = 10.0;
     
