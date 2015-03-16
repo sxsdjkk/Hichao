@@ -42,7 +42,11 @@
     {
 //        if (!self.hasCarousel) {
 //            [self createCoverFlow];
+        if([_titleLabel isKindOfClass:[UILabel class]])
+        {
             [_titleLabel removeFromSuperview];
+        }
+        
             self.navigationItem.titleView = _segmentControll;
 //            _hasCarousel = YES;
 //        }

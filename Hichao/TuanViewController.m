@@ -123,7 +123,7 @@
            // [_laftView reloadData];
             
             
-            
+            [_laftView.pullToRefreshView stopAnimating];
             
             
             
@@ -134,7 +134,7 @@
             
         }];
         
-        [_laftView.pullToRefreshView stopAnimating];
+        
         
     }];
     

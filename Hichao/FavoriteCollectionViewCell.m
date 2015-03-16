@@ -26,5 +26,10 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [super dealloc];
+    [_imageView release];
+}
 
 @end

@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.title = @"收藏夹";
     
 //    self.view.backgroundColor = M_GRAY_COLOR;
