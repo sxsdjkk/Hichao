@@ -20,10 +20,12 @@
     return self;
 }
 
-- (void)dealloc{
+- (void)dealloc
+{
     [super dealloc];
-    [self.actionType release];
-    [self.picUrl release];
+
+    [_actionType release];
+    [_picUrl release];
 }
 
 @end

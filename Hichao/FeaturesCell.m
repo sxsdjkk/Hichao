@@ -65,7 +65,7 @@
 }
 
 - (void)collectBtnClick:(UIButton *)sender{
-    People *p = [DatabaseTool selectId:_items.component.action.actionIdentifier];
+    People *p = [[DatabaseTool selectId:_items.component.action.actionIdentifier] retain];
     if (p.actionIdentifier == _items.component.action.actionIdentifier.intValue) {
         //Delete
         [DatabaseTool deleteId:_items.component.action.actionIdentifier];
