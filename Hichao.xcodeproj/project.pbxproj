@@ -42,6 +42,7 @@
 		520BAECC1AB216AE00FC4D2F /* YzdHUDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAEBF1AB216AE00FC4D2F /* YzdHUDImageView.m */; };
 		520BAECD1AB216AE00FC4D2F /* YzdHUDIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAEC11AB216AE00FC4D2F /* YzdHUDIndicator.m */; };
 		520BAECE1AB216AE00FC4D2F /* YzdHUDLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 520BAEC31AB216AE00FC4D2F /* YzdHUDLabel.m */; };
+		521430C81AB6069300ED0CB1 /* FavoriteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 521430C71AB6069300ED0CB1 /* FavoriteCollectionViewCell.m */; };
 		521BB9231AA7583000426FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9221AA7583000426FC6 /* main.m */; };
 		521BB9261AA7583000426FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 521BB9251AA7583000426FC6 /* AppDelegate.m */; };
 		521BB9281AA7583000426FC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521BB9271AA7583000426FC6 /* Images.xcassets */; };
@@ -843,6 +844,8 @@
 		520BAEC11AB216AE00FC4D2F /* YzdHUDIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzdHUDIndicator.m; sourceTree = "<group>"; };
 		520BAEC21AB216AE00FC4D2F /* YzdHUDLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YzdHUDLabel.h; sourceTree = "<group>"; };
 		520BAEC31AB216AE00FC4D2F /* YzdHUDLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YzdHUDLabel.m; sourceTree = "<group>"; };
+		521430C61AB6069300ED0CB1 /* FavoriteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteCollectionViewCell.h; sourceTree = "<group>"; };
+		521430C71AB6069300ED0CB1 /* FavoriteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteCollectionViewCell.m; sourceTree = "<group>"; };
 		521BB91D1AA7583000426FC6 /* Hichao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hichao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521BB9211AA7583000426FC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521BB9221AA7583000426FC6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -1996,6 +1999,8 @@
 				521BB9C11AA84EEF00426FC6 /* FavoritesViewController.m */,
 				521BB9C31AA84F0900426FC6 /* FavoritesLeftViewController.h */,
 				521BB9C41AA84F0900426FC6 /* FavoritesLeftViewController.m */,
+				521430C61AB6069300ED0CB1 /* FavoriteCollectionViewCell.h */,
+				521430C71AB6069300ED0CB1 /* FavoriteCollectionViewCell.m */,
 			);
 			name = FavoritesVC;
 			sourceTree = "<group>";
@@ -3764,6 +3769,7 @@
 				6A8484F51AB331C500A307FA /* People.m in Sources */,
 				6AF138961AAF160A0035B7FF /* TopicsBaseClass.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
+				521430C81AB6069300ED0CB1 /* FavoriteCollectionViewCell.m in Sources */,
 				520BAECE1AB216AE00FC4D2F /* YzdHUDLabel.m in Sources */,
 				6A7A9E651AAB090000B6E7C4 /* WaterFlowActions.m in Sources */,
 				52A0D8811AAEA389000C6ED2 /* PgItems.m in Sources */,

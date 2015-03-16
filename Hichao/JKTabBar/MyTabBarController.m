@@ -120,9 +120,10 @@
     
     
     FavoritesViewController *favoritesVC = [[FavoritesViewController alloc] init];
-    DDMenuController *favoritesMenuController = [[DDMenuController alloc]initWithRootViewController:favoritesVC];
-    FavoritesLeftViewController *favoritesLeftVC = [[FavoritesLeftViewController alloc]init];
-    favoritesMenuController.leftViewController = favoritesLeftVC;
+    UINavigationController *favoriteNav = [[UINavigationController alloc]initWithRootViewController:favoritesVC];
+    DDMenuController *favoritesMenuController = [[DDMenuController alloc]initWithRootViewController:favoriteNav];
+//    FavoritesLeftViewController *favoritesLeftVC = [[FavoritesLeftViewController alloc]init];
+//    favoritesMenuController.leftViewController = favoritesLeftVC;
     
     
     NSArray *menuVCArray = [NSArray arrayWithObjects:homeMenuController,selectedMenuController,featuresMenuController,tuanVC,pragueMenuController,favoritesMenuController, nil];
