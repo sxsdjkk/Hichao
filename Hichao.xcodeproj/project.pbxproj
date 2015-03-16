@@ -109,6 +109,11 @@
 		52E9E4B91AAF371400AD60F6 /* SelectedLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E9E4B81AAF371400AD60F6 /* SelectedLeftCell.m */; };
 		6A3142C71AAD73E000E4750D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3142C61AAD73E000E4750D /* SettingsViewController.m */; };
 		6A38BFC11AAAC91500539963 /* PullViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A38BFC01AAAC91500539963 /* PullViewCell.m */; };
+		6A40EE3A1AB6A4FD00623312 /* SkuBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A40EE311AB6A4FD00623312 /* SkuBaseClass.m */; };
+		6A40EE3B1AB6A4FD00623312 /* SkuData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A40EE331AB6A4FD00623312 /* SkuData.m */; };
+		6A40EE3C1AB6A4FD00623312 /* SkuShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A40EE351AB6A4FD00623312 /* SkuShare.m */; };
+		6A40EE3D1AB6A4FD00623312 /* SkuShareAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A40EE371AB6A4FD00623312 /* SkuShareAction.m */; };
+		6A40EE3E1AB6A4FD00623312 /* SkuTitleStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A40EE391AB6A4FD00623312 /* SkuTitleStyle.m */; };
 		6A4112821AA954B200E6337B /* nav_bar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125B1AA954B200E6337B /* nav_bar_bg@2x.png */; };
 		6A4112831AA954B200E6337B /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125C1AA954B200E6337B /* nav_bg.png */; };
 		6A4112841AA954B200E6337B /* nav_btn_bbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A41125D1AA954B200E6337B /* nav_btn_bbs.png */; };
@@ -981,6 +986,16 @@
 		6A3142C61AAD73E000E4750D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		6A38BFBF1AAAC91500539963 /* PullViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullViewCell.h; sourceTree = "<group>"; };
 		6A38BFC01AAAC91500539963 /* PullViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullViewCell.m; sourceTree = "<group>"; };
+		6A40EE301AB6A4FD00623312 /* SkuBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuBaseClass.h; path = Sku/SkuBaseClass.h; sourceTree = "<group>"; };
+		6A40EE311AB6A4FD00623312 /* SkuBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkuBaseClass.m; path = Sku/SkuBaseClass.m; sourceTree = "<group>"; };
+		6A40EE321AB6A4FD00623312 /* SkuData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuData.h; path = Sku/SkuData.h; sourceTree = "<group>"; };
+		6A40EE331AB6A4FD00623312 /* SkuData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkuData.m; path = Sku/SkuData.m; sourceTree = "<group>"; };
+		6A40EE341AB6A4FD00623312 /* SkuShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuShare.h; path = Sku/SkuShare.h; sourceTree = "<group>"; };
+		6A40EE351AB6A4FD00623312 /* SkuShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkuShare.m; path = Sku/SkuShare.m; sourceTree = "<group>"; };
+		6A40EE361AB6A4FD00623312 /* SkuShareAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuShareAction.h; path = Sku/SkuShareAction.h; sourceTree = "<group>"; };
+		6A40EE371AB6A4FD00623312 /* SkuShareAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkuShareAction.m; path = Sku/SkuShareAction.m; sourceTree = "<group>"; };
+		6A40EE381AB6A4FD00623312 /* SkuTitleStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkuTitleStyle.h; path = Sku/SkuTitleStyle.h; sourceTree = "<group>"; };
+		6A40EE391AB6A4FD00623312 /* SkuTitleStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SkuTitleStyle.m; path = Sku/SkuTitleStyle.m; sourceTree = "<group>"; };
 		6A41125B1AA954B200E6337B /* nav_bar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bar_bg@2x.png"; sourceTree = "<group>"; };
 		6A41125C1AA954B200E6337B /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
 		6A41125D1AA954B200E6337B /* nav_btn_bbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_btn_bbs.png; sourceTree = "<group>"; };
@@ -2133,6 +2148,23 @@
 			name = SettingsVC;
 			sourceTree = "<group>";
 		};
+		6A40EE2F1AB6A4EF00623312 /* Sku */ = {
+			isa = PBXGroup;
+			children = (
+				6A40EE301AB6A4FD00623312 /* SkuBaseClass.h */,
+				6A40EE311AB6A4FD00623312 /* SkuBaseClass.m */,
+				6A40EE321AB6A4FD00623312 /* SkuData.h */,
+				6A40EE331AB6A4FD00623312 /* SkuData.m */,
+				6A40EE341AB6A4FD00623312 /* SkuShare.h */,
+				6A40EE351AB6A4FD00623312 /* SkuShare.m */,
+				6A40EE361AB6A4FD00623312 /* SkuShareAction.h */,
+				6A40EE371AB6A4FD00623312 /* SkuShareAction.m */,
+				6A40EE381AB6A4FD00623312 /* SkuTitleStyle.h */,
+				6A40EE391AB6A4FD00623312 /* SkuTitleStyle.m */,
+			);
+			name = Sku;
+			sourceTree = "<group>";
+		};
 		6A4112491AA94AE100E6337B /* Banner */ = {
 			isa = PBXGroup;
 			children = (
@@ -2941,6 +2973,7 @@
 			isa = PBXGroup;
 			children = (
 				6A7BBDA31AA88E930049CA3E /* DataModels.h */,
+				6A40EE2F1AB6A4EF00623312 /* Sku */,
 				520BAE3E1AB0DC0A00FC4D2F /* HomeDetailGoodsList */,
 				520BAE221AB0B1D900FC4D2F /* HomeViewCellDetail */,
 				6A5CEAE11AB03AD600D14132 /* Topic */,
@@ -3768,6 +3801,7 @@
 				521BB9BD1AA7FF4100426FC6 /* DDMenuController.m in Sources */,
 				6A8484F51AB331C500A307FA /* People.m in Sources */,
 				6AF138961AAF160A0035B7FF /* TopicsBaseClass.m in Sources */,
+				6A40EE3D1AB6A4FD00623312 /* SkuShareAction.m in Sources */,
 				52A571361AAC72150075F3C0 /* MLMobileTopicCategories.m in Sources */,
 				521430C81AB6069300ED0CB1 /* FavoriteCollectionViewCell.m in Sources */,
 				520BAECE1AB216AE00FC4D2F /* YzdHUDLabel.m in Sources */,
@@ -3776,6 +3810,7 @@
 				52A0D87E1AAEA389000C6ED2 /* PgBaseClass.m in Sources */,
 				52A0D8AF1AAF1C34000C6ED2 /* SLIDMComponent.m in Sources */,
 				6AE5AE1E1AAED37C00557DDD /* iTunesLookupResults.m in Sources */,
+				6A40EE3E1AB6A4FD00623312 /* SkuTitleStyle.m in Sources */,
 				52399CCD1AAE814E00658C36 /* FeatureLeftCell.m in Sources */,
 				520BAECA1AB216AE00FC4D2F /* UIWindow+YzdHUD.m in Sources */,
 				6A7BBDA61AA88E930049CA3E /* BannerComponent.m in Sources */,
@@ -3795,9 +3830,11 @@
 				52399CC61AAD2BE900658C36 /* MainLeftRectCell.m in Sources */,
 				52A0D8841AAEA389000C6ED2 /* StarComponent.m in Sources */,
 				520BAE3D1AB0BA2800FC4D2F /* HomeCellDetailGoodsListCell.m in Sources */,
+				6A40EE3C1AB6A4FD00623312 /* SkuShare.m in Sources */,
 				6AF138991AAF160A0035B7FF /* TopicsItems.m in Sources */,
 				52A0D8B01AAF1C34000C6ED2 /* SLIDMData.m in Sources */,
 				520BAECD1AB216AE00FC4D2F /* YzdHUDIndicator.m in Sources */,
+				6A40EE3B1AB6A4FD00623312 /* SkuData.m in Sources */,
 				6A7BBDA71AA88E930049CA3E /* BannerData.m in Sources */,
 				520BAE561AB0DC0A00FC4D2F /* HDGLItems.m in Sources */,
 				52A0D8921AAEA675000C6ED2 /* CollectionViewCell.m in Sources */,
@@ -3839,6 +3876,7 @@
 				6A5CEAF61AB03AE500D14132 /* TopicData.m in Sources */,
 				52A0D89D1AAEE34A000C6ED2 /* MLHWQuerys.m in Sources */,
 				52A0D8AD1AAF1C34000C6ED2 /* SLIDMAction.m in Sources */,
+				6A40EE3A1AB6A4FD00623312 /* SkuBaseClass.m in Sources */,
 				6A7A9E681AAB090000B6E7C4 /* WaterFlowData.m in Sources */,
 				6A5CEAF51AB03AE500D14132 /* TopicComponent.m in Sources */,
 				520BAE331AB0B1D900FC4D2F /* HVCDComponent.m in Sources */,
