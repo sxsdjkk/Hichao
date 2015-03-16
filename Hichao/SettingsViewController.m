@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "LoginViewController.h"
 #import <SDImageCache.h>
+#import "UIWindow+YzdHUD.h"
 
 @interface SettingsViewController ()
 
@@ -92,6 +93,9 @@
     }else if (indexPath.row == 5){
         //清除缓存
         [[SDImageCache sharedImageCache] clearDisk];
+        [DatabaseTool clean];
+        UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+        [window showHUDWithText:@"缓存已清除" Type:ShowPhotoYes Enabled:YES];
     }else if (indexPath.row == 6){
         //声明
         

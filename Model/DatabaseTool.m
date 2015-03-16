@@ -81,6 +81,20 @@ static FMDatabase *__db;
     }
 }
 
++ (void)clean{
+    if ([__db open]) {
+        [__db close];
+    }
+    NSString *databasePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/database.sqlite"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:databasePath]) {
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:databasePath error:&error];
+        if (error) {
+            NSLog(@"%@",error);
+        }
+    }
+}
+
 - (void)dealloc {
     [__db release];
     [super dealloc];

@@ -18,5 +18,6 @@
 + (People *)selectId:(NSString *)identifer;
 + (NSArray *)selectAllIds;
 + (void)deleteId:(NSString *)identifer;
++ (void)clean;
 
 @end
