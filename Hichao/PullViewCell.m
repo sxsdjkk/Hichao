@@ -162,7 +162,7 @@
     height = self.bounds.size.width * height / width;
     [_imageView sd_setImageWithURL:[NSURL URLWithString:_items.component.picUrl] placeholderImage:[UIImage imageNamed:@"background"]];
     
-    if (items.component.weekDay == nil && _items.component.collectionCount != nil && _items.component.itemsCount != nil) {
+    if (_items.component.weekDay == nil && _items.component.year == nil && _items.component.showTime == nil && _items.component.monthOnly == nil && _items.component.collectionCount != nil && _items.component.itemsCount != nil) {
         
         _titleLabel.text = _items.component.componentDescription;
         _leftLabel.text = _items.component.collectionCount;
@@ -228,7 +228,7 @@
         [blackLine release];
         
         _horizonalLine.frame = CGRectMake(8, 69, self.bounds.size.width-8, 3);
-        _imageView.frame = CGRectMake(0, 80, self.bounds.size.width, height);
+        _imageView.frame = CGRectMake(0, 85, self.bounds.size.width, height+5);
         
         _dayLabel.text = _items.component.day;
         _dayLabel.frame = CGRectMake(5, 11, 80, 50);
@@ -248,6 +248,10 @@
         pubLabel.frame = CGRectMake(195, 40, 35, 25);
         [self addSubview:pubLabel];
         [pubLabel release];
+        
+        if (_items.component.day == nil) {
+            _imageView.frame = CGRectMake(0, 0, self.bounds.size.width, height);
+        }
         
         [self bringSubviewToFront:_imageView];
         
