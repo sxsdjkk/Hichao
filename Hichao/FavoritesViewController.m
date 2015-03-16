@@ -75,7 +75,7 @@
     
     People *item = [_collectedArray objectAtIndex:indexPath.row];
     
-    if (item.picUrl)
+    if (item.picUrl != nil)
     {
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl]];
 
