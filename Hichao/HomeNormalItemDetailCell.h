@@ -14,6 +14,7 @@
     HVCDBaseClass *_baseClass;
     
     HDGLBaseClass *_goodsListBaseClass;
+    SkuBaseClass *_skuBaseClass;
     
     NSInteger _indexViewSelectedIndex;
 }

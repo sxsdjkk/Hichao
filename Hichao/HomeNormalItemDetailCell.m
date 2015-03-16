@@ -86,41 +86,66 @@
 {
     _indexViewSelectedIndex = 0;
     
-    NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        _baseClass = [[HVCDBaseClass modelObjectWithDictionary:responseObject] retain];
-        
-        [_userHeader sd_setImageWithURL:[NSURL URLWithString:_baseClass.data.userAvatar]];
-        
-        _userNameLabel.text = _baseClass.data.userName;
-        
-        _descriptionLabel.text = _baseClass.data.dataDescription;
-        
-        [_mainImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:_baseClass.data.picUrl] forState:UIControlStateNormal];
-        
-        [_indexCollectionView reloadData];
-        
-        [_indexCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-        
-        NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star_clues?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
+    if (item.component.discount == nil && item.component.itemsCount == nil) {
+        NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/sku?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=&id=%@",item.component.action.actionIdentifier];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
         [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
-            _goodsListBaseClass = [HDGLBaseClass modelObjectWithDictionary:responseObject];
+            _skuBaseClass = [[SkuBaseClass modelObjectWithDictionary:responseObject] retain];
             
-            [_goodsCollectionView reloadData];
+            _descriptionLabel.text = _skuBaseClass.data.dataDescription;
+            
+            [_mainImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:_skuBaseClass.data.normalPicUrl] forState:UIControlStateNormal];
+            
+            [_indexCollectionView reloadData];
+            
+            [_indexCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
         }];
         
+    }else {
+        NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
+        [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            _baseClass = [[HVCDBaseClass modelObjectWithDictionary:responseObject] retain];
+            
+            [_userHeader sd_setImageWithURL:[NSURL URLWithString:_baseClass.data.userAvatar]];
+            
+            _userNameLabel.text = _baseClass.data.userName;
+            
+            _descriptionLabel.text = _baseClass.data.dataDescription;
+            
+            [_mainImageView sd_setBackgroundImageWithURL:[NSURL URLWithString:_baseClass.data.picUrl] forState:UIControlStateNormal];
+            
+            [_indexCollectionView reloadData];
+            
+            [_indexCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            
+            NSString *urlStr = [NSString stringWithFormat:@"http://api2.hichao.com/star_clues?gc=AppStore&gf=ipad&gn=mxyc_ipad&gv=5.1&gi=455EE302-DAB0-480E-9718-C2443E900132&gs=768x1024&gos=8.1&access_token=5jOo4szM5D_IOP4mRBQO9SPupA9rapUqooMjTfvwzFU&id=%@",item.component.action.actionIdentifier];
+            
+            [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                _goodsListBaseClass = [HDGLBaseClass modelObjectWithDictionary:responseObject];
+                
+                [_goodsCollectionView reloadData];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+            }];
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+
+    }
+    
+    
+    
     
 }
 
@@ -133,10 +158,15 @@
     else
     {
         NSArray *itemArray = _goodsListBaseClass.data.items;
-#warning 精品页crashitemArray   	NSArray *	@"0 objects"	0x7868a7d0
-        HDGLItems *items = [itemArray objectAtIndex:_indexViewSelectedIndex];
-        
-        return [items.itemList count];
+#warning 精品页
+        if (itemArray.count>0) {
+            NSLog(@"%@",[[itemArray objectAtIndex:0] class]);
+            HDGLItems *items = [itemArray objectAtIndex:_indexViewSelectedIndex];
+            
+            return [items.itemList count];
+        }else{
+            return 0;
+        }
     }
 }
 
@@ -155,7 +185,7 @@
     else
     {
         HomeCellDetailGoodsListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"goodscell" forIndexPath:indexPath];
-        
+#warning 精品页
         HDGLItems *items = [_goodsListBaseClass.data.items objectAtIndex:_indexViewSelectedIndex];
         HDGLItemList *list = [items.itemList objectAtIndex:indexPath.row];
         
