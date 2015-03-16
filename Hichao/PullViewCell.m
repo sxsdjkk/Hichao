@@ -92,7 +92,7 @@
             //插入
             if (_items.component.action.actionIdentifier == nil) {
                 WaterFlowActions *action = _items.component.actions.lastObject;
-                [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:nil];
+                [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:_items.component.picUrl];
             }else{
                 [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.action.normalPicUrl];
                 [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
@@ -118,7 +118,7 @@
             //插入
             if (_items.component.action.actionIdentifier == nil) {
                 WaterFlowActions *action = _items.component.actions.lastObject;
-                [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:nil];
+                [DatabaseTool insertItemWithId:action.actionsIdentifier.intValue and:action.actionType and:_items.component.picUrl];
             }else{
                 [DatabaseTool insertItemWithId:_items.component.action.actionIdentifier.intValue and:_items.component.action.actionType and:_items.component.action.normalPicUrl];
                 [_collectBtn setImage:[UIImage imageNamed:@"nav_btn_collect_on"] forState:UIControlStateNormal];
