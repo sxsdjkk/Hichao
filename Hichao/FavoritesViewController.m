@@ -75,8 +75,11 @@
     
     People *item = [_collectedArray objectAtIndex:indexPath.row];
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl]];
-    
+    if (item.picUrl)
+    {
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl]];
+
+    }    
     return cell;
 }
 
