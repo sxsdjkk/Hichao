@@ -32,8 +32,8 @@
     
     [self performSelectorInBackground:@selector(getConfigOnline) withObject:nil];
     
-    [self performSelectorInBackground:@selector(onCheckVersion) withObject:nil];
-    
+//    [self performSelectorInBackground:@selector(onCheckVersion) withObject:nil];
+  
     [DatabaseTool initDatabse];
     [DatabaseTool createTable];
     
